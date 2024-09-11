@@ -75,7 +75,7 @@ class BaseTask(GlobalGameAssets, CostumeBase):
             return False
         logger.info('Invitation appearing')
         invite_type = self.config.global_game.emergency.friend_invitation
-        accept_now = self.config.global_game.emergency.accept_now
+        # accept_now = self.config.global_game.emergency.accept_now
         detect_record = self.device.detect_record
         match invite_type:
             case FriendInvitation.ACCEPT:
@@ -91,10 +91,10 @@ class BaseTask(GlobalGameAssets, CostumeBase):
                     click_button = self.I_G_ACCEPT
                 else:
                     click_button = self.I_G_IGNORE
-            case FriendInvitation.JADE_AND_FOOD:
-                # 如果是接受勾协和粮协
-                logger.info(f"Accept jade and food invitation")
-                if self.appear(self.I_G_JADE) or self.appear(self.I_G_CAT_FOOD) or self.appear(self.I_G_DOG_FOOD):
+            case FriendInvitation.JADE_SUSHI_FOOD:
+                # 如果是接受勾协和粮协和体协
+                logger.info(f"Accept jade and food and sushi invitation")
+                if self.appear(self.I_G_JADE) or self.appear(self.I_G_CAT_FOOD) or self.appear(self.I_G_DOG_FOOD) or self.appear(self.I_G_SUSHI):
                     click_button = self.I_G_ACCEPT
                 else:
                     click_button = self.I_G_IGNORE
@@ -113,10 +113,9 @@ class BaseTask(GlobalGameAssets, CostumeBase):
                 break
             if self.appear_then_click(click_button, interval=0.8):
                 # 执行悬赏
-                if accept_now:
-                    if click_button == self.I_G_ACCEPT:
-                        self.set_next_run(task='WantedQuests', target=datetime.now())
-                    continue
+                if click_button == self.I_G_ACCEPT:
+                    self.set_next_run(task='WantedQuests', target=datetime.now())
+                continue
         # 有的时候长战斗 点击后会取消战斗状态
         self.device.detect_record = detect_record
         return True
