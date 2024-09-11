@@ -1,12 +1,14 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+import random
 from time import sleep
 from cached_property import cached_property
 
 from module.logger import logger
 from module.base.timer import Timer
-
+from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.GeneralBuff.config_buff import BuffClass
 
 from tasks.Component.GeneralInvite.config_invite import InviteConfig, InviteNumber, FindMode
 from tasks.Exploration.base import BaseExploration, UpType, Scene
@@ -76,6 +78,12 @@ class SoloExploration(BaseExploration):
                 # boss
                 if self.appear(self.I_BOSS_BATTLE_BUTTON):
                     self.ui_click_until_disappear(self.I_BOSS_BATTLE_BUTTON)
+                    while 1:
+                        if not (self.appear(self.I_E_SETTINGS_BUTTON) or
+                                self.appear(self.I_E_AUTO_ROTATE_ON) or
+                                self.appear(self.I_E_AUTO_ROTATE_OFF)):
+                            break
+                        self.ui_click_until_disappear(self.I_BOSS_BATTLE_BUTTON)
                     self.run_general_battle(self._config.general_battle_config)
                     self.minions_cnt += 1
                     logger.info(f'Boss battle, minions cnt {self.minions_cnt}')
@@ -84,6 +92,12 @@ class SoloExploration(BaseExploration):
                 fight_button = self.search_up_fight()
                 if fight_button is not None:
                     self.ui_click_until_disappear(fight_button)
+                    while 1:
+                        if not (self.appear(self.I_E_SETTINGS_BUTTON) or
+                                self.appear(self.I_E_AUTO_ROTATE_ON) or
+                                self.appear(self.I_E_AUTO_ROTATE_OFF)):
+                            break
+                        self.ui_click_until_disappear(fight_button)
                     self.run_general_battle(self._config.general_battle_config)
                     self.minions_cnt += 1
                     logger.info(f'Fight, minions cnt {self.minions_cnt}')
@@ -169,7 +183,7 @@ class SoloExploration(BaseExploration):
                 if self.appear(self.I_FIRE, threshold=0.8) and not self.appear(self.I_ADD_2):
                     self.ui_click_until_disappear(self.I_FIRE, interval=1)
                     continue
-                if self.run_invite(config=self._invite_config, is_first=True):
+                if self.appear(self.I_ADD_2) and self.run_invite(config=self._invite_config, is_first=True):
                     continue
                 else:
                     logger.warning('Invite failed, quit')
