@@ -31,7 +31,7 @@ class DokanAssets:
 	# 防守战报 
 	I_FANGSHOU = RuleImage(roi_front=(35,610,75,79), roi_back=(35,610,75,79), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/Screenshots_fangshou.png")
 	# 建立道馆  
-	I_CREATE_DAOGUAN = RuleImage(roi_front=(262,630,45,62), roi_back=(262,630,45,62), threshold=0.9, method="Template matching", file="./tasks/Dokan/res/Screenshots_create_daoguan.png")
+	I_CREATE_DAOGUAN = RuleImage(roi_front=(262,630,45,62), roi_back=(262,630,45,62), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/Screenshots_create_daoguan.png")
 	# 确定建立道馆 
 	I_CREATE_DAOGUAN_SURE = RuleImage(roi_front=(766,409,100,55), roi_back=(766,409,100,55), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/Screenshots_create_daoguan_sure.png")
 	# 已经建立道馆  
