@@ -26,6 +26,15 @@
     "threshold": 0.8,
     "description": "勾玉"
   },
+    {
+    "itemName": "g_sushi",
+    "imageName": "gg_g_sushi.png",
+    "roiFront": "661,466,43,46",
+    "roiBack": "661,466,43,46",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "体力"
+  },
   {
     "itemName": "g_cat_food",
     "imageName": "gg_g_cat_food.png",
