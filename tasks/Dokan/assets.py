@@ -101,7 +101,9 @@ class DokanAssets:
 
 
 	# Ocr Rule Assets
-	# 选择寮1 
+	# 道馆开启状态
+	O_DOKAN_STATUS = RuleOcr(roi=(492,628,222,44), area=(492,628,222,44), mode="Full", method="Default", keyword="", name="dokan_status")
+	# 选择寮1
 	O_DOKAN_READY_SEL1 = RuleOcr(roi=(1156,105,80,28), area=(1156,105,80,28), mode="Digit", method="Default", keyword="", name="dokan_ready_sel1")
 	# 选择寮2 
 	O_DOKAN_READY_SEL2 = RuleOcr(roi=(1156,255,80,28), area=(1156,255,80,28), mode="Digit", method="Default", keyword="", name="dokan_ready_sel2")
