@@ -1,13 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from typing import Any
-from collections.abc import Callable, Generator
+import re
 from datetime import timedelta, time, datetime
+from typing import Any
 
-from pydantic import BaseModel, datetime_parse
-from pydantic.fields import ModelField
-
+from pydantic import BaseModel, ValidationError
+from pydantic import (BeforeValidator,
+                      PlainSerializer,
+                      WithJsonSchema,
+                      field_serializer,
+                      SerializationInfo)
+from typing_extensions import Annotated
 
 
 def format_timedelta(tdelta: timedelta):
@@ -16,76 +20,95 @@ def format_timedelta(tdelta: timedelta):
     minutes, seconds = divmod(rem, 60)
     return f"{days:02d} {hours:02d}:{minutes:02d}:{seconds:02d}"
 
-
-class MultiLine(str):
-    # @classmethod
-    # def __get_validators__(cls) -> Generator[Callable, None, None]:
-    #     yield cls.validate
-    #
-    # @classmethod
-    # def validate(cls, value: str, field: ModelField):
-    #     return cls(value)
-
-    @classmethod
-    def __modify_schema__(
-        cls, field_schema: dict[str, Any], field: ModelField | None
-    ):
-        if field:
-            field_schema['type'] = 'multi_line'
-
-class TimeDelta(timedelta):
-    def __str__(self):
-        return format_timedelta(self)
-
-    def __repr__(self):
-        return format_timedelta(self)
-
-    @classmethod
-    def __modify_schema__(
-            cls, field_schema: dict[str, Any], field: ModelField | None
-    ):
-        if field:
-            field_schema['type'] = 'time_delta'
-
-class DateTime(datetime):
-    @classmethod
-    def __modify_schema__(
-            cls, field_schema: dict[str, Any], field: ModelField | None
-    ):
-        if field:
-            field_schema['type'] = 'date_time'
+def datadelta_validator(v: Any) -> timedelta:
+    if isinstance(v, str):
+        try:
+            pattern = r'(\d{1,2})\s+(\d{1,2}):(\d{1,2}):(\d{1,2})'
+            match = re.match(pattern, v)
+            if match:
+                days = int(match.group(1))
+                hours = int(match.group(2))
+                minutes = int(match.group(3))
+                seconds = int(match.group(4))
+                return TimeDelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
+            return TimeDelta(days=1, hours=0, minutes=0, seconds=0)
+        except ValueError:
+            raise ValueError('Invalid interval value. Expected format: seconds')
+    return v
 
 
-class Time(time):
-    """
-    尝试将字符串转换为time对象， 但是不生效
-    """
-    @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
+def datetime_validator(v: Any) -> datetime:
+    if isinstance(v, str):
+        return datetime.fromisoformat(v)
+    return v
 
-    @classmethod
-    def validate(cls, value):
-        # print(f' Time validate: {value} type: {type(value)}')
-        if isinstance(value, str):
-            hour, minute, second = map(int, value.split(":"))
-            return cls(hour, minute, second)
-        elif isinstance(value, time):
-            return value
-        else:
-            raise ValueError("Invalid time format")
 
-    @classmethod
-    def __modify_schema__(
-            cls, field_schema: dict[str, Any], field: ModelField | None
-    ):
-        if field:
-            field_schema['type'] = 'time'
+def time_validator(v: Any) -> time:
+    if isinstance(v, str):
+        return time.fromisoformat(v)
+    return v
+
+
+MultiLine = Annotated[str,
+                      WithJsonSchema({'type': 'multi_line'}),]
+
+
+TimeDelta = Annotated[timedelta,
+                      BeforeValidator(datadelta_validator),
+                      PlainSerializer(format_timedelta, return_type=str),
+                      WithJsonSchema({'type': 'time_delta'}),]
+
+DateTime = Annotated[datetime,
+                     BeforeValidator(datetime_validator),
+                     PlainSerializer(lambda v: v.strftime('%Y-%m-%d %H:%M:%S') if isinstance(v, datetime) else v, return_type=str),
+                     WithJsonSchema({'type': 'date_time'}),]
+
+Time = Annotated[time,
+                 BeforeValidator(time_validator),
+                 PlainSerializer(lambda v: v.strftime('%H:%M:%S'), return_type=str),
+                 WithJsonSchema({'type': 'time'}),]
 
 # ---------------------------------------------------------------------------------------------------------------------
+
+@classmethod
+def serializer_exclude(cls, value: any, info: SerializationInfo):
+    if info.context and info.context.get('hide', False):
+        return 0xABCDEF
+    return value
+
+
+def dynamic_hide(*fields: str,):
+    return field_serializer(*fields)(serializer_exclude)
+
+
 class ConfigBase(BaseModel):
-    # 这个是导出json时候的配置，但是新的是导出dict，所以的无效
-    class Config:
-        json_encoders = {
-            TimeDelta: format_timedelta
-        }
+    def __init__(self, *args, **kwargs):
+        try:
+            super().__init__(*args, **kwargs)
+        except ValidationError as exc:
+            """
+            During the initialization of the ConfigBase class, 
+            if a ValidationError occurs, the default value of the field is used to initialize the field, 
+            and the exception is re-raised after the initialization is complete.
+            """
+            exc_info = exc.errors()[0]
+            val_error_type = exc_info.get('type', None)
+            val_error_key = exc_info.get('loc', None)[0]
+            if val_error_type not in ['greater_than_equal',
+                                      'greater_than',
+                                      'less_than',
+                                      'less_than_equal',]:
+                raise exc
+            from module.logger import logger
+
+            try:
+                default_value = self.model_fields[val_error_key].default
+                kwargs[val_error_key] = self.model_fields[val_error_key].default
+                logger.warning(f'Field {val_error_key} is out of range, using default value {default_value}')
+                logger.warning(repr(exc))
+                logger.warning(str(kwargs))
+                super().__init__(*args, **kwargs)
+            except Exception as e:
+                raise
+
+

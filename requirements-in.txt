@@ -7,10 +7,9 @@ adbutils==0.11.0
 uiautomator2==2.16.17
 uiautomator2cache==0.3.0.1
 wrapt==1.15.0
-psutil==6.1.1
-pywin32==306
-
-# OCR
+pydantic==2.10.0
+inflection==0.5.1
+tqdm==4.65.0
 ppocr-onnx==0.0.3.9
 cn2an==0.5.23
 
