@@ -37,7 +37,7 @@ class ScriptTask(GameUi, GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul,
     current_ball_index = 5
     def run(self):
 
-        logger.hr('第一步, 检查契忆数量', 2)
+        """logger.hr('第一步, 检查契忆数量', 2)
         self.ui_get_current_page()
         self.ui_goto(page_mall, confirm_wait=2.5)
         self.ui_click(self.I_MALL_SCCALES, self.I_MALL_SCCALES_CHECK)
@@ -56,7 +56,8 @@ class ScriptTask(GameUi, GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul,
             raise TaskEnd
 
         message = f'契忆数量: {cu} 小于 {MAX_COUNT}, 继续任务'
-        self.push_notify(content=message)
+        self.push_notify(content=message)"""
+
         logger.hr('第二步, 切换御魂', 2)
         # 引用配置
         cong = self.config.bondling_fairyland
