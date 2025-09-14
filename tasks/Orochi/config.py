@@ -33,12 +33,13 @@ class Layer(str, Enum):
     TWELVE = '神罚'
 
 class Plan(str, Enum):
-    default = 'default'
+    default = '无限循环'
     TEN30 = '拾层-30'
     ELEVEN30 = '悲鸣-30'
     TWELVE50 = '神罚-50'
     TWELVE120 = '神罚-120'
-    end = '设置明天运行(拾层-30)'
+    ONE = '只执行一次下面的配置'
+    end = '本次不执行，设置明天运行(拾层-30)'
 
 class NextDayOrochiConfig(BaseModel):
     # 设定时间为第二天的启动时间

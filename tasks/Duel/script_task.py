@@ -356,7 +356,7 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, DuelAssets):
                 return True
         # 绿标
         if enable:
-            if not self.duel_green_mark_1():
+            if not self.duel_green_mark_1(mark_mode):
                 self.duel_green_mark(mark_mode)
         # 等待结果
         logger.info('Duel wait result')
@@ -417,7 +417,27 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, DuelAssets):
         logger.info(f'战斗用时: {task_run_time_seconds} / {self.limit_time}')
         return battle_win
 
-    def duel_green_mark_1(self) -> bool:
+    def duel_green_mark_1(self, mark_mode: GreenMarkType = GreenMarkType.GREEN_MAIN) -> bool:
+  
+        match mark_mode:
+            case GreenMarkType.GREEN_LEFT1:
+                target = self.I_GREEN_MARK_IMG1
+                logger.info("Green left 1")
+            case GreenMarkType.GREEN_LEFT2:
+                target = self.I_GREEN_MARK_IMG2
+                logger.info("Green left 2")
+            case GreenMarkType.GREEN_LEFT3:
+                target = self.I_GREEN_MARK_IMG3
+                logger.info("Green left 3")
+            case GreenMarkType.GREEN_LEFT4:
+                target = self.I_GREEN_MARK_IMG4
+                logger.info("Green left 4")
+            case GreenMarkType.GREEN_LEFT5:
+                target = self.I_GREEN_MARK_IMG5
+                logger.info("Green left 5")
+            case GreenMarkType.GREEN_MAIN:
+                return
+
         logger.info('------进行图片匹配识别绿标位置------')
         # 点击绿标
         mark_timer = Timer(5)
@@ -427,14 +447,14 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, DuelAssets):
                 logger.info('Duel green mark timeout, dont appear I_GREEN_MARK_IMG')
                 return False
             self.screenshot()
-            if self.appear(self.I_GREEN_MARK_IMG, interval=0.5):
-                new_roi_front = (self.I_GREEN_MARK_IMG.roi_front[0],
-                                 self.I_GREEN_MARK_IMG.roi_front[1] + 60,
+            if self.appear(target, interval=0.5):
+                new_roi_front = (target.roi_front[0],
+                                 target.roi_front[1] + 60,
                                  10,
                                  100)
                 self.C_DUEL_GREEN_LEFT_FULL.roi_front = new_roi_front
-                # logger.info(f'old Image roi {self.I_GREEN_MARK_IMG.roi_front}')
-                # logger.info(f'new Image roi {self.C_DUEL_GREEN_LEFT_FULL.roi_front}')
+                logger.info(f'old Image roi {target.roi_front}')
+                logger.info(f'new Image roi {self.C_DUEL_GREEN_LEFT_FULL.roi_front}')
                 break
         # 点击绿标
         mark_timer = Timer(5)
@@ -442,7 +462,7 @@ class ScriptTask(GameUi, GeneralBattle, SwitchSoul, DuelAssets):
         while 1:
             if mark_timer.reached():
                 logger.info('Duel green mark timeout')
-                self.save_image(wait_time=0, push_flag=True, content='超时未识别到绿标',image_type=True)
+                self.save_image(task_name='斗技绿标超时', wait_time=0, push_flag=True, content='超时未识别到绿标',image_type=True)
                 return False
             self.screenshot()
             if self.duel_wait_until_appear(self.I_GREEN_MARK, self.I_GREEN_MARK_1, wait_time=1):

@@ -11,8 +11,8 @@ from lxml import etree
 from module.base.decorator import cached_property
 from module.logger import logger
 
-RETRY_TRIES = 5
-RETRY_DELAY = 3
+RETRY_TRIES = 10
+RETRY_DELAY = 6
 
 
 def is_port_using(port_num):
@@ -104,6 +104,10 @@ def retry_sleep(trial):
     elif trial == 2:
         time.sleep(1)
     # Failed more
+    elif trial == 3:
+        time.sleep(2)
+    elif trial == 4:
+        time.sleep(3)
     else:
         time.sleep(RETRY_DELAY)
 

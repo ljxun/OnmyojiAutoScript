@@ -129,7 +129,7 @@ class ScriptTask(GameUi, SoulsTidyAssets):
         while 1:
             self.screenshot()
             firvel = self.O_ST_FIRSET_LEVEL.ocr(self.device.image)
-            if firvel != '古':
+            if firvel != '古' and firvel != '+0':
                 # 问就是 把 +0 识别成了 古
                 logger.info('No zero level, bongna done')
                 break

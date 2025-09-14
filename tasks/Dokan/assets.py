@@ -177,9 +177,9 @@ class DokanAssets:
 	O_DOKAN_SUCCEEDED = RuleOcr(roi=(655,76,49,28), area=(655,76,49,28), mode="Full", method="Default", keyword="关闭", name="dokan_succeeded")
 	# 查找道馆时,右侧边栏中的赏金 
 	O_DOKAN_RIGHTPAD_BOUNTY = RuleOcr(roi=(0,0,0,0), area=(0,0,0,0), mode="Single", method="Default", keyword="", name="dokan_rightpad_bounty")
-	# 查找道馆时,右侧边栏中的寮名称
-	O_DOKAN_RIGHTPAD_NAME= RuleOcr(roi=(0,0,0,0), area=(0,0,0,0), mode="Single", method="Default", keyword="", name="dokan_rightpad_NAME")
-	# 查找道馆时,中间卡片上防守人数
+	# 查找道馆时,右侧边栏中的寮名称 
+	O_DOKAN_RIGHTPAD_NAME = RuleOcr(roi=(0,0,0,0), area=(0,0,0,0), mode="Single", method="Default", keyword="", name="dokan_rightpad_name")
+	# 查找道馆时,中间卡片上防守人数 
 	O_DOKAN_CENTER_PEOPLE_NUMBER = RuleOcr(roi=(0,0,0,0), area=(0,0,0,0), mode="Full", method="Default", keyword="", name="dokan_center_people_number")
 
 

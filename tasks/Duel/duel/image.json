@@ -162,13 +162,13 @@
     "description": "练"
   },
   {
-  "itemName": "battle_with_train2",
-  "imageName": "duel_battle_with_train2.png",
-  "roiFront": "1161,588,78,81",
-  "roiBack": "1114,547,163,172",
-  "method": "Template matching",
-  "threshold": 0.8,
-  "description": "练2"
+    "itemName": "battle_with_train2",
+    "imageName": "duel_battle_with_train2.png",
+    "roiFront": "1161,588,78,81",
+    "roiBack": "1114,547,163,172",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "练2"
   },
   {
     "itemName": "battle_type_common",
@@ -207,13 +207,49 @@
     "description": "区域找绿标2"
   },
   {
-    "itemName": "green_mark_img",
+    "itemName": "green_mark_img1",
     "imageName": "green_mark_img.png",
-    "roiFront": "114,238,1022,188",
-    "roiBack": "114,238,1022,188",
+    "roiFront": "145,258,212,176",
+    "roiBack": "145,258,212,176",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "区域点击式神"
+    "description": "区域找式神标记左1"
+  },
+  {
+    "itemName": "green_mark_img2",
+    "imageName": "green_mark_img.png",
+    "roiFront": "397,262,163,176",
+    "roiBack": "397,262,163,176",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "区域找式神标记左2"
+  },
+  {
+    "itemName": "green_mark_img3",
+    "imageName": "green_mark_img.png",
+    "roiFront": "586,248,163,176",
+    "roiBack": "586,248,163,176",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "区域找式神标记左3"
+  },
+  {
+    "itemName": "green_mark_img4",
+    "imageName": "green_mark_img.png",
+    "roiFront": "749,271,163,176",
+    "roiBack": "749,271,163,176",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "区域找式神标记左4"
+  },
+  {
+    "itemName": "green_mark_img5",
+    "imageName": "green_mark_img.png",
+    "roiFront": "943,318,192,176",
+    "roiBack": "943,318,192,176",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "区域找式神标记左5"
   },
   {
     "itemName": "ban",

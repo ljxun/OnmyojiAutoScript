@@ -68,7 +68,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 
         if orochi_switch_soul.auto_enable:
             # 如果是循环根据选层，换御魂
-            if plan == Plan.default:
+            if plan == Plan.default or plan == Plan.ONE:
                 match layer:
                     case Layer.TEN:
                         group_team = orochi_switch_soul.ten_switch
@@ -115,6 +115,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, GameUi,
 
         # 下一次运行时间
         if success and plan != Plan.default:
+            # 设置明天运行
             start_time = self.config.orochi.next_day_orochi_config.start_time
             next_run = parse_tomorrow_server(start_time)
             self.set_next_run('Orochi', target=next_run)

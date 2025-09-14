@@ -230,6 +230,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
             if not target.match(self.device.image):
                 self.save_image(content=f'No {target.name} buff', push_flag=push_flag, image_type=True, wait_time=0)
                 push_flag = False
+                self.open_buff()
             else:
                 break
             # logger.info(f'front area: {target.roi_front}')

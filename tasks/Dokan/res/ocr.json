@@ -99,6 +99,15 @@
     "description": "查找道馆时,右侧边栏中的赏金"
   },
   {
+    "itemName": "dokan_rightpad_name",
+    "roiFront": "0,0,0,0",
+    "roiBack": "0,0,0,0",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "",
+    "description": "查找道馆时,右侧边栏中的寮名称"
+  },
+  {
     "itemName": "dokan_center_people_number",
     "roiFront": "0,0,0,0",
     "roiBack": "0,0,0,0",

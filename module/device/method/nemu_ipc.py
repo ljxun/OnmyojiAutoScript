@@ -174,7 +174,7 @@ def retry(func):
                 break
             # Function call timeout
             except asyncio.TimeoutError:
-                # logger.warning(f'Func {func.__name__}() call timeout, retrying: {_}')
+                logger.warning(f'Func {func.__name__}() call timeout, retrying: {_}')
 
                 def init():
                     self.reconnect()
@@ -252,7 +252,7 @@ class NemuIpcImpl:
             self.lib.nemu_connect,
             self.nemu_folder, self.instance_id
         )
-        # logger.info(f'NemuIpc connect: {self.connect_id}')
+        logger.info(f'NemuIpc connect: {self.connect_id}')
         if connect_id == 0:
             raise NemuIpcError(
                 'Connection failed, please check if nemu_folder is correct and emulator is running'
@@ -270,7 +270,7 @@ class NemuIpcImpl:
             self.connect_id
         )
 
-        # logger.info(f'NemuIpc disconnected: {self.connect_id}')
+        logger.info(f'NemuIpc disconnected: {self.connect_id}')
         self.connect_id = 0
 
     def reconnect(self):

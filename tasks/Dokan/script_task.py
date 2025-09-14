@@ -449,7 +449,7 @@ class ScriptTask(GeneralBattle, GameUi, SwitchSoul, DokanAssets, RichManAssets):
                 wait_time = 30
                 logger.info(f"寮成员第{self.goto_dokan_num}次进入,等待{wait_time}秒, 管理开启道馆")
                 time.sleep(wait_time)
-                if self.goto_dokan_num >= 10:
+                if self.goto_dokan_num >= 15:
                     logger.info(f"寮成员{self.goto_dokan_num}次未进入道馆, 结束任务!")
                     self.goto_main()
                     self.check_current_weekday(True)
@@ -644,8 +644,8 @@ class ScriptTask(GeneralBattle, GameUi, SwitchSoul, DokanAssets, RichManAssets):
             sleep(1)
 
         # 刷新次数用完,仍未找到符合条件的道馆,选择当前列表(约4个)中系数最低的
+        logger.warning("刷新次数已经上限,未找到符合条件的道馆,选择当前列表中系数最低的")
         if find_challengeable(ignore_score=True):
-            logger.warning("未找到符合条件的道馆,选择当前列表中系数最低的")
             while 1:
                 self.screenshot()
                 if self.appear(self.I_RYOU_DOKAN_CHECK, interval=1):
