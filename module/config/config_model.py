@@ -93,7 +93,7 @@ from tasks.BackUp.config import BackUp
 
 class ConfigModel(ConfigBase):
     config_name: str = "oas"
-    running_task: str = None
+    running_task: str = ""
 
     script: Script = Field(default_factory=Script)
     restart: Restart = Field(default_factory=Restart)

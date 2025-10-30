@@ -334,7 +334,7 @@ class Config(ConfigState, ConfigManual, ConfigWatcher, ConfigMenu):
         :return:
         """
         # 重置运行任务
-        self.model.running_task = None
+        self.model.running_task = ""
 
         task = convert_to_underscore(task)
         if self.model.deep_get(self.model, keys=f'{task}.scheduler.next_run') is None:

@@ -443,7 +443,7 @@ class Script:
         self.failure_record = {}
         is_first_task = True
         stop_requested = False
-        self.config.model.running_task = None
+        self.config.model.running_task = ""
 
         logger.info(f'[启动] 调度器循环开始 | 配置: {self.config_name}')
         try:
@@ -466,7 +466,7 @@ class Script:
                     logger.hr(f'{task_chinese_name} Start', 0)
                     self.config.model.running_task = task
                     success = self.run(inflection.camelize(task))
-                    self.config.model.running_task = None
+                    self.config.model.running_task = ""
                     logger.hr(f'{task_chinese_name} End', 0)
                     is_first_task = False
                     del_cached_property(self, 'config')
