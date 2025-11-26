@@ -391,16 +391,16 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
             click_account = RuleClick(roi_front=click_account_roi, roi_back=click_account_roi, name="click_account")
             click_password = RuleClick(roi_front=click_password_roi, roi_back=click_password_roi, name="click_password")
 
-            clear_account_roi = 1150, account_ocr.after_box[1], 60, account_ocr.after_box[3]
-            clear_password_roi = 1150, password_ocr.after_box[1], 120, password_ocr.after_box[3]
-            self.I_QD_CLEAR_ACCOUNT_INPUT.roi_front = list(clear_account_roi)
-            self.I_QD_CLEAR_ACCOUNT_INPUT.roi_back = list(clear_account_roi)
-            logger.info(f"[坐标] clear_account_roi： {clear_account_roi}")
-            self.I_QD_CLEAR_PASSWORD_INPUT.roi_front = list(clear_password_roi)
-            self.I_QD_CLEAR_PASSWORD_INPUT.roi_back = list(clear_password_roi)
-            self.I_QD_SHOW_PASSWORD.roi_front = list(clear_password_roi)
-            self.I_QD_SHOW_PASSWORD.roi_back = list(clear_password_roi)
-            logger.info(f"[坐标] clear_password_roi： {clear_password_roi}")
+            # clear_account_roi = 1150, account_ocr.after_box[1], 60, account_ocr.after_box[3]
+            # clear_password_roi = 1150, password_ocr.after_box[1], 120, password_ocr.after_box[3]
+            # self.I_QD_CLEAR_ACCOUNT_INPUT.roi_front = list(clear_account_roi)
+            # self.I_QD_CLEAR_ACCOUNT_INPUT.roi_back = list(clear_account_roi)
+            # logger.info(f"[坐标] clear_account_roi： {clear_account_roi}")
+            # self.I_QD_CLEAR_PASSWORD_INPUT.roi_front = list(clear_password_roi)
+            # self.I_QD_CLEAR_PASSWORD_INPUT.roi_back = list(clear_password_roi)
+            # self.I_QD_SHOW_PASSWORD.roi_front = list(clear_password_roi)
+            # self.I_QD_SHOW_PASSWORD.roi_back = list(clear_password_roi)
+            # logger.info(f"[坐标] clear_password_roi： {clear_password_roi}")
 
             o_account_roi = account_ocr.after_box[0] + 70, account_ocr.after_box[1], account_ocr.after_box[2] + 50, account_ocr.after_box[3]
             o_password_roi = password_ocr.after_box[0] + 70, password_ocr.after_box[1], password_ocr.after_box[2] + 50, password_ocr.after_box[3]
@@ -409,17 +409,17 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
 
             logger.info(f"开始输入账号: {account}")
 
-            # 定位账号输入框并点击激活
-            self.click(click_account)
-            time.sleep(1)
-
             # 清空账号输入框内容
-            self.ui_click_until_disappear(self.I_QD_CLEAR_ACCOUNT_INPUT)
+            self.ui_click_center_until_disappear(self.I_QD_CLEAR_ACCOUNT_INPUT)
 
             self.screenshot()
             if o_account.ocr(self.device.image) not in '请输入4399账号':
                 logger.info("账号输入框没清空")
                 continue
+
+            # 定位账号输入框并点击激活
+            self.click(click_account)
+            time.sleep(1)
 
             # 输入账号
             self.device.adb.shell(f"input text {account}")
@@ -437,7 +437,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
             time.sleep(1)
 
             # 清空密码输入框内容
-            self.ui_click_until_disappear(self.I_QD_CLEAR_PASSWORD_INPUT)
+            self.ui_click_center_until_disappear(self.I_QD_CLEAR_PASSWORD_INPUT)
 
             self.screenshot()
             if o_password.ocr(self.device.image) not in '请输入密码':
@@ -461,6 +461,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
 
         # 点击登录按钮
         self.ui_click(self.I_LOGIN_IN, self.I_CHECK_LOGIN_FORM, interval=1.5)
+        return None
 
     def ui_click_until_disappear(self, click, interval: float = 1, stop: RuleImage | RuleGif = None):
         """
@@ -481,6 +482,35 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
                 break
             if isinstance(click, RuleImage) or isinstance(click, RuleGif):
                 self.appear_then_click(click, interval=interval)
+                continue
+            elif isinstance(click, RuleClick):
+                self.click(click, interval)
+                continue
+            elif isinstance(click, RuleOcr):
+                self.click(click)
+                continue
+
+    def ui_click_center_until_disappear(self, click, interval: float = 1, stop: RuleImage | RuleGif = None):
+        """
+        重写原ui_click_until_disappear方法,增加stop参数
+        点击一个按钮直到stop消失
+        如果click为RuleOcr ,直接当作RuleClick点击,不会进行ocr识别,
+        @param interval:
+        @param click:
+        @param stop:
+        @type stop:
+        @return:
+        """
+        if (isinstance(click, RuleImage) or isinstance(click, RuleGif)) and (stop is None):
+            stop = click
+        while 1:
+            self.screenshot()
+            if not self.appear(stop):
+                break
+            if isinstance(click, RuleImage) or isinstance(click, RuleGif):
+                if self.appear(click, interval=interval):
+                    x, y = click.coord_center()
+                    self.device.click(x=x, y=y, control_name=click.name)
                 continue
             elif isinstance(click, RuleClick):
                 self.click(click, interval)

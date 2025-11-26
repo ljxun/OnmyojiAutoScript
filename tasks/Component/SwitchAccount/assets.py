@@ -69,9 +69,9 @@ class SwitchAccountAssets:
 	# 登录界面4399-已阅读并同意 
 	I_QD_READ_AND_AGREED = RuleImage(roi_front=(693,520,191,54), roi_back=(192,28,860,620), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_read_and_agreed.png")
 	# 账号登录4399-清除输入的内容 
-	I_QD_CLEAR_ACCOUNT_INPUT = RuleImage(roi_front=(0,0,0,0), roi_back=(0,0,0,0), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
+	I_QD_CLEAR_ACCOUNT_INPUT = RuleImage(roi_front=(1100,100,155,56), roi_back=(1100,100,155,56), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
 	# 账号登录4399-清除输入的内容 
-	I_QD_CLEAR_PASSWORD_INPUT = RuleImage(roi_front=(0,0,0,0), roi_back=(0,0,0,0), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
+	I_QD_CLEAR_PASSWORD_INPUT = RuleImage(roi_front=(1167,187,89,49), roi_back=(1167,187,89,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
 	# 账号登录4399-显示密码 
 	I_QD_SHOW_PASSWORD = RuleImage(roi_front=(0,0,0,0), roi_back=(0,0,0,0), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_show_password.png")
 	# 账号登录4399-未点击同意 

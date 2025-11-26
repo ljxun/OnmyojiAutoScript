@@ -11,8 +11,8 @@
   {
     "itemName": "qd_clear_account_input",
     "imageName": "qd_clear_input.png",
-    "roiFront": "0,0,0,0",
-    "roiBack": "0,0,0,0",
+    "roiFront": "1100,100,155,56",
+    "roiBack": "1100,100,155,56",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "账号登录4399-清除输入的内容"
@@ -20,8 +20,8 @@
   {
     "itemName": "qd_clear_password_input",
     "imageName": "qd_clear_input.png",
-    "roiFront": "0,0,0,0",
-    "roiBack": "0,0,0,0",
+    "roiFront": "1167,187,89,49",
+    "roiBack": "1167,187,89,49",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "账号登录4399-清除输入的内容"
