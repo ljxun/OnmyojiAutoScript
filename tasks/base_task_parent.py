@@ -257,22 +257,6 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
         else:
             return False
 
-    def wait_until_appear_then_click_center(self,
-                                            target: RuleImage,
-                                            wait_time: int = None) -> bool:
-        """
-        等待直到出现目标，然后点击中心
-        :param target:
-        :param wait_time:
-        :return:
-        """
-        if self.wait_until_appear(target, wait_time=wait_time):
-            x, y = target.coord_center()
-            self.device.click(x=x, y=y, control_name=target.name)
-            return True
-        else:
-            return False
-
     def wait_until_disappear(self, target: RuleImage) -> None:
         while 1:
             self.screenshot()

@@ -423,10 +423,10 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
                 self.screenshot()
                 if not self.appear(self.I_MAP_BOX_CLICK):
                     break
-                if self.appear(self.I_MAP_BOX_CLICK):
+                if self.appear_then_click(self.I_MAP_BOX_CLICK):
                     # self.save_image(image_type=True, push_flag=True, wait_time=0)
-                    x, y = self.I_MAP_BOX_CLICK.coord_center()
-                    self.device.click(x=x, y=y, control_name=self.I_MAP_BOX_CLICK.name)
+                    # x, y = self.I_MAP_BOX_CLICK.coord_center()
+                    # self.device.click(x=x, y=y, control_name=self.I_MAP_BOX_CLICK.name)
                     time.sleep(0.5)
 
     def _should_swipe_up(self, current_levels, target_level):

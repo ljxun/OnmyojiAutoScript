@@ -133,15 +133,14 @@ class ScriptTask(GameUi):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
     from tasks.Component.config_base import Time
 
     # 创建配置和设备实例
-    config = Config('wy')
-    device = Device(config)
+    config = Config('4399')
 
     # 创建任务实例
     task = ScriptTask(config)
+    task.run()
 
     # 设置测试时间参数
     # 注意：需要根据实际的Time类型设置

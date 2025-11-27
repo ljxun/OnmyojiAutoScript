@@ -49,7 +49,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
         self.screenshot()
         self.O_SA_LOGIN_FORM_SVR_NAME.keyword = svrName
         # 4399登录会遇到活动-点击叉号
-        if self.wait_until_appear_then_click_center(RestartAssets.I_LOGIN_CLOSE, wait_time=1):
+        if self.wait_until_appear_then_click(RestartAssets.I_LOGIN_CLOSE, wait_time=1):
             logger.info('4399登录会遇到活动-点击叉号')
         self.ui_click(self.C_SA_LOGIN_FORM_SWITCH_SVR_BTN, self.I_SA_CHECK_SELECT_SVR_1, 1.5)
         # 展开底部角色列表,显示角色所属服务器
@@ -116,7 +116,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
         """
         logger.info(f"[角色] 开始寻找角色: [{characterName}]")
         # 4399登录会遇到活动-点击叉号
-        if self.wait_until_appear_then_click_center(RestartAssets.I_LOGIN_CLOSE, wait_time=1):
+        if self.wait_until_appear_then_click(RestartAssets.I_LOGIN_CLOSE, wait_time=1):
             logger.info('4399登录会遇到活动-点击叉号')
         self.ui_click(self.C_SA_LOGIN_FORM_SWITCH_SVR_BTN, self.I_SA_CHECK_SELECT_SVR_1)
         # 展开底部角色列表,显示角色所属服务器
@@ -410,7 +410,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
             logger.info(f"开始输入账号: {account}")
 
             # 清空账号输入框内容
-            self.ui_click_center_until_disappear(self.I_QD_CLEAR_ACCOUNT_INPUT)
+            self.ui_click_until_disappear(self.I_QD_CLEAR_ACCOUNT_INPUT)
 
             self.screenshot()
             if o_account.ocr(self.device.image) not in '请输入4399账号':
@@ -437,7 +437,7 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
             time.sleep(1)
 
             # 清空密码输入框内容
-            self.ui_click_center_until_disappear(self.I_QD_CLEAR_PASSWORD_INPUT)
+            self.ui_click_until_disappear(self.I_QD_CLEAR_PASSWORD_INPUT)
 
             self.screenshot()
             if o_password.ocr(self.device.image) not in '请输入密码':
@@ -482,35 +482,6 @@ class LoginAccount(BaseTask, SwitchAccountAssets):
                 break
             if isinstance(click, RuleImage) or isinstance(click, RuleGif):
                 self.appear_then_click(click, interval=interval)
-                continue
-            elif isinstance(click, RuleClick):
-                self.click(click, interval)
-                continue
-            elif isinstance(click, RuleOcr):
-                self.click(click)
-                continue
-
-    def ui_click_center_until_disappear(self, click, interval: float = 1, stop: RuleImage | RuleGif = None):
-        """
-        重写原ui_click_until_disappear方法,增加stop参数
-        点击一个按钮直到stop消失
-        如果click为RuleOcr ,直接当作RuleClick点击,不会进行ocr识别,
-        @param interval:
-        @param click:
-        @param stop:
-        @type stop:
-        @return:
-        """
-        if (isinstance(click, RuleImage) or isinstance(click, RuleGif)) and (stop is None):
-            stop = click
-        while 1:
-            self.screenshot()
-            if not self.appear(stop):
-                break
-            if isinstance(click, RuleImage) or isinstance(click, RuleGif):
-                if self.appear(click, interval=interval):
-                    x, y = click.coord_center()
-                    self.device.click(x=x, y=y, control_name=click.name)
                 continue
             elif isinstance(click, RuleClick):
                 self.click(click, interval)
