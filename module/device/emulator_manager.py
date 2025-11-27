@@ -10,6 +10,7 @@ from module.logger import logger
 from module.server.setting import State
 from tasks.Script.config_device import EmulatorWindow
 from tasks.Script.config_device import PackageName
+from module.device.app_control import AppControl
 
 
 class EmulatorManager:
@@ -164,10 +165,13 @@ class EmulatorManager:
         """
         检查游戏是否已启动
         """
-        state = self.get_app_status()
-        is_running = state == "running"
+        app_control = AppControl(self.config)
+        return app_control.app_is_running()
+
+        # state = self.get_app_status()
+        # is_running = state == "running"
         # logger.info(f"游戏运行状态: {is_running}")
-        return is_running
+        # return is_running
 
     def is_emulator_running(self):
         """
