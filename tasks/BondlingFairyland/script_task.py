@@ -786,11 +786,9 @@ class ScriptTask(GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul, Bondlin
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    config = Config('SWITCH')
-    device = Device(config)
-    t = ScriptTask(config, device)
+    config = Config('du')
+    t = ScriptTask(config)
     t.run()
     # image = task.screenshot()
 

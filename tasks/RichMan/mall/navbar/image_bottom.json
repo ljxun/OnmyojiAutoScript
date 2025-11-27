@@ -23,14 +23,14 @@
     "roiFront": "470,649,68,49",
     "roiBack": "427,621,147,92",
     "method": "Template matching",
-    "threshold": 0.8,
+    "threshold": 0.7,
     "description": "密卷屋"
   },
   {
     "itemName": "mall_sccales_check",
     "imageName": "navbar_mall_sccales_check.png",
-    "roiFront": "409,253,100,100",
-    "roiBack": "409,253,100,100",
+    "roiFront": "412,231,100,100",
+    "roiBack": "327,150,266,271",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "密卷屋"
