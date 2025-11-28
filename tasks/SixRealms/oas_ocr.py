@@ -1,5 +1,3 @@
-import functools
-
 import cv2
 import numpy as np
 
@@ -82,7 +80,6 @@ class StoneOcr(VerticalText):
 
 
 if __name__ == '__main__':
-    from tasks.SixRealms.assets import SixRealmsAssets
     file = r'C:\Users\Ryland\Desktop\Desktop\20.png'
     image = load_image(file)
     ocr = StoneOcr(roi=(0,0,1280,720), area=(0,0,1280,720), mode="Full", method="Default", keyword="", name="ocr_map")

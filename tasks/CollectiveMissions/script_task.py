@@ -12,9 +12,7 @@ from module.logger import logger
 from tasks.CollectiveMissions.assets import CollectiveMissionsAssets
 from tasks.CollectiveMissions.config import MissionsType
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_guild
-
-""" 集体任务 """
+from tasks.GameUi.page import page_guild
 
 
 class MC(str, Enum):
@@ -33,6 +31,7 @@ class MC(str, Enum):
 
 
 class ScriptTask(GameUi, CollectiveMissionsAssets):
+    """ 集体任务 """
     missions: list = []  # 用于记录三个的任务的种类
 
     def run(self):

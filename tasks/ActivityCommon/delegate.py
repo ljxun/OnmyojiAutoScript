@@ -13,10 +13,9 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main
 from tasks.Restart.assets import RestartAssets
 
-""" 委派 """
-
 
 class ScriptTask(SwitchSoul, GeneralBattle):
+    """ 委派 """
     last_img = None
 
     def run(self):

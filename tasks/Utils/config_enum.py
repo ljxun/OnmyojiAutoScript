@@ -3,6 +3,7 @@
 # github https://github.com/runhey
 from enum import Enum
 
+
 class ShikigamiClass(str, Enum):
     UR = 'UR'
     SP = 'SP'

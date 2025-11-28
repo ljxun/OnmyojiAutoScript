@@ -1,12 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import re
 from enum import Enum
-from datetime import datetime, timedelta, time
-from pydantic import BaseModel, ValidationError, validator, Field
+from pydantic import Field
 
-from tasks.Component.config_base import ConfigBase, TimeDelta, DateTime, Time
+from tasks.Component.config_base import ConfigBase
 
 
 class Week(str, Enum):

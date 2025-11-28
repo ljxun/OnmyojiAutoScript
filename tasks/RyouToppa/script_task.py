@@ -346,7 +346,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, RyouToppaAssets):
 
 if __name__ == "__main__":
     from module.config.config import Config
-    from module.device.device import Device
 
     config = Config('MI')
     # device = Device(config)

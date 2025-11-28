@@ -12,6 +12,8 @@ from tasks.Pets.assets import PetsAssets
 from tasks.Pets.config import PetsConfig
 
 """喂宠物 猫咪"""
+
+
 class ScriptTask(OrochiScriptTask, PetsAssets):
 
     def run(self):

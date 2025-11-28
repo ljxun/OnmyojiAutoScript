@@ -3,17 +3,17 @@
 # github https://github.com/runhey
 import time
 
+from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
-from module.base.timer import Timer
-
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_collection, page_area_boss, page_secret_zones, page_summon
-from tasks.WeeklyTrifles.config import Trifles
-from tasks.WeeklyTrifles.assets import WeeklyTriflesAssets
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_collection, page_area_boss, page_secret_zones, page_summon
+from tasks.WeeklyTrifles.assets import WeeklyTriflesAssets
 
 """ 每周任务 """
+
+
 class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
     def run(self):
         con = self.config.weekly_trifles.trifles

@@ -1,13 +1,11 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import timedelta
-from pydantic import BaseModel, Field
-from enum import Enum
-from tasks.Component.config_scheduler import Scheduler
+from pydantic import Field
 from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
+
 
 class ScrollNumber(str, Enum):
     ONE = "卷一"
@@ -16,6 +14,7 @@ class ScrollNumber(str, Enum):
     FOUR = "卷四"
     FIVE = "卷五"
     SIX = "卷六"
+
 
 class MemoryScrollsConfig(ConfigBase):
     auto_contribute_memoryscrolls: bool = Field(default=True, description='自动贡献绘卷碎片')
@@ -31,9 +30,8 @@ class MemoryScrollsFinish(ConfigBase):
     # 当日小绘卷满50后指定下次运行时间
     next_exploration_time: Time = Field(default=Time(hour=7, minute=0, second=0))
 
+
 class MemoryScrolls(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
     memory_scrolls_config: MemoryScrollsConfig = Field(default_factory=MemoryScrollsConfig)
     memory_scrolls_finish: MemoryScrollsFinish = Field(default_factory=MemoryScrollsFinish)
-
-

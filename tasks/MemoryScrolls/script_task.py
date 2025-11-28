@@ -1,22 +1,18 @@
 # This Python file uses the following encoding: utf-8
 # @author ghg11
 # github https://github.com/ghg11
-from time import sleep
-from enum import Enum
-from module.logger import logger
-from module.exception import TaskEnd
 from module.base.timer import Timer
-from datetime import timedelta, datetime
-
+from module.exception import TaskEnd
+from module.logger import logger
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_summon
 from tasks.GameUi.page import page_main
+from tasks.GameUi.page import page_summon
 from tasks.MemoryScrolls.assets import MemoryScrollsAssets
 from tasks.MemoryScrolls.config import ScrollNumber
 
-""" 绘卷 捐赠 """
-class ScriptTask(GameUi, MemoryScrollsAssets):
 
+class ScriptTask(GameUi, MemoryScrollsAssets):
+    """ 绘卷 捐赠 """
     def run(self):        
         self.ui_goto_page(page_summon)
 

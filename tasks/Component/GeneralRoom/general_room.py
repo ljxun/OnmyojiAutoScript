@@ -1,19 +1,12 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import time
-import random
-import cv2
-import numpy as np
 
-from random import randint
-
-from tasks.Component.GeneralRoom.assets import GeneralRoomAssets
-from module.atom.ocr import RuleOcr
-from module.atom.image import RuleImage
-from tasks.base_task import BaseTask
-from module.logger import logger
 from module.base.timer import Timer
+from module.logger import logger
+from random import randint
+from tasks.Component.GeneralRoom.assets import GeneralRoomAssets
+from tasks.base_task import BaseTask
 
 
 class GeneralRoom(BaseTask, GeneralRoomAssets):

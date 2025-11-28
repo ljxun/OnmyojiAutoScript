@@ -1,17 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from datetime import timedelta
 from pydantic import BaseModel, Field
-
-from tasks.Component.config_scheduler import Scheduler as BaseScheduler
-from tasks.Component.config_base import ConfigBase, TimeDelta
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
 from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, TimeDelta
+from tasks.Component.config_scheduler import Scheduler as BaseScheduler
+
 
 class Scheduler(BaseScheduler):
     success_interval: TimeDelta = Field(default=TimeDelta(days=7), description='success_interval_help')
     failure_interval: TimeDelta = Field(default=TimeDelta(days=7), description='failure_interval_help')
+
 
 class SecretConfig(BaseModel):
     secret_gold_50: bool = Field(title='Secret Gold 50', default=False, description='secret_gold_50_help')

@@ -1,13 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from typing import Any
-from collections.abc import Callable, Generator
 from datetime import timedelta, time, datetime
-
-from pydantic import BaseModel, datetime_parse
+from pydantic import BaseModel
 from pydantic.fields import ModelField
-
+from typing import Any
 
 
 def format_timedelta(tdelta: timedelta):
@@ -33,6 +30,7 @@ class MultiLine(str):
         if field:
             field_schema['type'] = 'multi_line'
 
+
 class TimeDelta(timedelta):
     def __str__(self):
         return format_timedelta(self)
@@ -46,6 +44,7 @@ class TimeDelta(timedelta):
     ):
         if field:
             field_schema['type'] = 'time_delta'
+
 
 class DateTime(datetime):
     @classmethod
@@ -81,6 +80,7 @@ class Time(time):
     ):
         if field:
             field_schema['type'] = 'time'
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 class ConfigBase(BaseModel):

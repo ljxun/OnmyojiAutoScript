@@ -17,10 +17,9 @@ from tasks.Duel.config import Onmyoji
 from tasks.GameUi.page import page_duel
 from tasks.GameUi.page import page_main
 
-""" 斗技 """
-
 
 class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
+    """ 斗技 """
     battle_count = 0
     battle_win_count = 0
     battle_lose_count = 0

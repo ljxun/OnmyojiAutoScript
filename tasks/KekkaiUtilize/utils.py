@@ -7,8 +7,8 @@ from module.atom.image import RuleImage
 
 from tasks.KekkaiUtilize.assets import KekkaiUtilizeAssets as KUA
 
-class CardClass(str, Enum):
 
+class CardClass(str, Enum):
     UNKNOWN = 'unknown'  # 未知
 
     TAIKO6 = 'taiko_6'  # 太鼓
@@ -70,7 +70,6 @@ class CardClass(str, Enum):
     HEAVENLY_THUNDER_DRUM_FAMILY = 'heavenly_thunder_drum_family'
 
 
-
 def target_to_card_class(target: RuleImage) -> CardClass:
     """
     从匹配到的一张图片中获取卡片的类别
@@ -90,7 +89,7 @@ def target_to_card_class(target: RuleImage) -> CardClass:
              KUA.I_U_MOON_5: CardClass.MOON5,
              KUA.I_U_MOON_4: CardClass.MOON4,
              KUA.I_U_MOON_3: CardClass.MOON3,
-             KUA.I_U_MOON_2: CardClass.MOON2,}
+             KUA.I_U_MOON_2: CardClass.MOON2, }
     try:
         return match[target]
     except KeyError:

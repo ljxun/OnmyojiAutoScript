@@ -11,6 +11,8 @@ from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.config import ThousandThings as ConfigThousandThings
 
 """ 珍旅居 """
+
+
 class ThousandThings(GameUi, RichManAssets):
 
     def execute_tt(self, con: ConfigThousandThings) -> None:

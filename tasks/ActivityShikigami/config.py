@@ -7,10 +7,10 @@ except ImportError:
     from pydantic import BaseModel, Field
     from pydantic import validator as model_validator
 
-from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, TimeDelta
 from tasks.Component.BaseActivity.config_activity import GeneralClimb
+from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
+from tasks.Component.config_base import ConfigBase
+from tasks.Component.config_scheduler import Scheduler
 
 
 def check_soul_by_number(enable_switch: bool, group_team: str, label: str):

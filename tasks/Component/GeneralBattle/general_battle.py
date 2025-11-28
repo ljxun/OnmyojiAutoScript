@@ -2,17 +2,15 @@
 # @author runhey
 # github https://github.com/runhey
 import time
+
 import random
 from datetime import datetime, timedelta
-
+from module.logger import logger
 from module.server.i18n import I18n
-from tasks.base_task import BaseTask
-from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType, GeneralBattleConfig
 from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
+from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType, GeneralBattleConfig
 from tasks.Component.GeneralBuff.config_buff import BuffClass
 from tasks.Component.GeneralBuff.general_buff import GeneralBuff
-
-from module.logger import logger
 
 
 class GeneralBattle(GeneralBuff, GeneralBattleAssets):

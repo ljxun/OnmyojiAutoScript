@@ -1,5 +1,5 @@
-from tasks.GameUi.page import Page, page_mall
 from tasks.DailyTrifles.assets import DailyTriflesAssets
+from tasks.GameUi.page import Page, page_mall
 from tasks.RichMan.assets import RichManAssets
 
 # 商店签到

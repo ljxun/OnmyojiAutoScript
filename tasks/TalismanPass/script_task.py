@@ -2,9 +2,10 @@
 # @author runhey
 # github https://github.com/runhey
 import time
-from module.logger import logger
+
 from module.base.timer import Timer
 from module.exception import TaskEnd
+from module.logger import logger
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
 from tasks.TalismanPass.assets import TalismanPassAssets
@@ -169,7 +170,6 @@ def load_image(file: str):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('4399')
     # d = Device(c)

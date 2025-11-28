@@ -3,14 +3,11 @@
 # github https://github.com/runhey
 import time
 
-import cv2
-import numpy as np
-
-from tasks.Component.GeneralBuff.assets import GeneralBuffAssets
-from module.atom.ocr import RuleOcr
 from module.atom.image import RuleImage
-from tasks.base_task import BaseTask
+from module.atom.ocr import RuleOcr
 from module.logger import logger
+from tasks.Component.GeneralBuff.assets import GeneralBuffAssets
+from tasks.base_task import BaseTask
 
 
 class GeneralBuff(BaseTask, GeneralBuffAssets):

@@ -4,8 +4,8 @@
 
 from module.atom.image import RuleImage
 from module.logger import logger
-from tasks.Component.LoginHarvest.assets import LoginHarvestAssets
 from tasks.Component.Costume.config import (MainType, CostumeConfig)
+from tasks.Component.LoginHarvest.assets import LoginHarvestAssets
 
 # 庭院皮肤
 # 主界面皮肤（使用字典推导式动态生成）

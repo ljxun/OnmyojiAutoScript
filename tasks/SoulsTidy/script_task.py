@@ -2,19 +2,16 @@
 # @author runhey
 # github https://github.com/runhey
 from time import sleep
-from datetime import timedelta, datetime, time
-from cached_property import cached_property
 
 from module.exception import TaskEnd
 from module.logger import logger
-from module.base.timer import Timer
-
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main, page_shikigami_records
 from tasks.SoulsTidy.assets import SoulsTidyAssets
-from tasks.SoulsTidy.config import SimpleTidy
 
 """ 整理御魂 """
+
+
 class ScriptTask(GameUi, SoulsTidyAssets):
     click_num = 0
 

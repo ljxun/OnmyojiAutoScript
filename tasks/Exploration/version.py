@@ -3,17 +3,11 @@
 # github https://github.com/runhey
 import cv2
 import numpy as np
-
-from pathlib import Path
 from cached_property import cached_property
-
-from module.base.utils import color_similarity_2d, load_image, save_image
 from module.atom.gif import RuleGif
-from module.atom.image import RuleImage
-
-from tasks.base_task import BaseTask
+from module.base.utils import color_similarity_2d, load_image
 from tasks.Exploration.assets import ExplorationAssets
-from dev_tools.assets_test import detect_image
+from tasks.base_task import BaseTask
 
 
 class Version(BaseTask):
@@ -30,6 +24,7 @@ def apply_mask(image, mask):
     # cv2.convertScaleAbs(image16, alpha=1 / 255, dst=image16)
     # Image.fromarray(image16.astype(np.uint8)).show()
     return image16.astype(np.uint8)
+
 
 def highlight(image):
     yuv = cv2.cvtColor(image, cv2.COLOR_RGB2YUV)

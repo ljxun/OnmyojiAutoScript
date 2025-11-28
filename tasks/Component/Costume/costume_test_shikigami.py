@@ -2,14 +2,13 @@
 # @author runhey
 # github https://github.com/runhey
 
-from module.logger import logger
 from module.base.timer import Timer
-
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_shikigami_records, page_main
+from module.logger import logger
 from tasks.Component.Costume.config import ShikigamiType
 from tasks.Component.SwitchSoul.assets import SwitchSoulAssets
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_shikigami_records, page_main
 from tasks.SoulsTidy.assets import SoulsTidyAssets
 from tasks.SoulsTidy.script_task import ScriptTask as SoulsTidyTask
 

@@ -1,17 +1,13 @@
-from adbutils import device
-
 from module.config.config import Config
 from module.device.device import Device
+from module.logger import logger
 from tasks.Component.SwitchAccount.assets import SwitchAccountAssets
 from tasks.Component.SwitchAccount.exit_game import ExitGame
 from tasks.Component.SwitchAccount.login_account import LoginAccount
 from tasks.Component.SwitchAccount.switch_account_config import AccountInfo
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main, page_login
-from tasks.base_task import BaseTask
 from tasks.Restart.login import LoginHandler
-
-from module.logger import logger
 
 
 class SwitchAccount(LoginAccount, ExitGame, GameUi, SwitchAccountAssets):

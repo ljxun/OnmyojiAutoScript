@@ -27,10 +27,11 @@ class BondlingNumberMax(Exception):
     pass
 
 
-""" 契灵 """
+
 
 
 class ScriptTask(GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul, BondlingFairylandAssets, RichManAssets):
+    """ 契灵 """
     ball_pos_list = [None, None, None, None, None]  # 用于记录每一个位置的球是否出现
     first_catch = True  # 用于记录是否是第一次捕捉
 

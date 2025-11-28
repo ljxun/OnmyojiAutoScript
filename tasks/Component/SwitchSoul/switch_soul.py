@@ -10,7 +10,6 @@ from module.logger import logger
 from tasks.Component.SwitchSoul.assets import SwitchSoulAssets
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_shikigami_records
-from tasks.base_task import BaseTask
 from typing import Union
 
 

@@ -11,8 +11,9 @@ from tasks.GameUi.page import page_goryou_realm
 from tasks.GoryouRealm.assets import GoryouRealmAssets
 from tasks.GoryouRealm.config import GoryouClass
 
-""" 御灵 """
+
 class ScriptTask(GeneralBattle, SwitchSoul, GoryouRealmAssets):
+    """ 御灵 """
 
     def run(self):
         con = self.config.goryou_realm

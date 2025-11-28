@@ -3,32 +3,28 @@
 # github https://github.com/runhey
 import time
 
-import cv2
-import numpy as np
-
-from datetime import datetime, timedelta
-from numpy import uint8, fromfile
-from random import choice
-from cached_property import cached_property
 # Use cmd to install: ./toolkit/python.exe -m pip install -i https://pypi.org/simple/ oashya --trusted-host pypi.org
 # update oashya:  ./toolkit/python.exe -m pip install --upgrade oashya
 from oashya.tracker import Tracker
-from oashya.labels import label2id
-from oashya.utils import draw_tracks
 
+import cv2
+import numpy as np
+from cached_property import cached_property
+from datetime import datetime, timedelta
+from module.exception import RequestHumanTakeover
 from module.exception import TaskEnd
 from module.logger import logger
-from module.exception import RequestHumanTakeover
+from oashya.labels import label2id
+from oashya.utils import draw_tracks
+from random import choice
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_hyakkiyakou
-from tasks.Hyakkiyakou.config import Hyakkiyakou as HyakkiyakouConfig
-from tasks.Hyakkiyakou.config import InferenceEngine, ModelPrecision
-from tasks.Hyakkiyakou.assets import HyakkiyakouAssets
 from tasks.Hyakkiyakou.agent.agent import Agent
-from tasks.Hyakkiyakou.slave.hya_slave import HyaSlave
+from tasks.Hyakkiyakou.config import InferenceEngine, ModelPrecision
 from tasks.Hyakkiyakou.debugger import Debugger
+from tasks.Hyakkiyakou.slave.hya_slave import HyaSlave
 
-""" 百鬼夜行 """
+
 def plot_save(image, boxes):
     color_palette = np.random.uniform(0, 255, size=(226, 3))
     for box in boxes:
@@ -48,7 +44,7 @@ def plot_save(image, boxes):
 
 
 class ScriptTask(GameUi, HyaSlave):
-
+    """ 百鬼夜行 """
     @property
     def _config(self):
         return self.config.hyakkiyakou

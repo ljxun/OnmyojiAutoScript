@@ -1,13 +1,11 @@
-from enum import Enum
-
 import json
-from module.logger import logger
 from datetime import datetime, timedelta
+from enum import Enum
+from module.exception import TaskEnd, SwitchAccountError
+from module.logger import logger
 from tasks.Component.SwitchAccount.switch_account import SwitchAccount
 from tasks.Component.SwitchAccount.switch_account_config import AccountInfo
-from module.exception import TaskEnd, SwitchAccountError
 from tasks.GameUi.game_ui import GameUi
-from tasks.SwitchAccountConfig.config import SwitchAccountConfig
 
 
 class TaskType(str, Enum):

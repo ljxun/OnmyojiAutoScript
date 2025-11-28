@@ -1,10 +1,8 @@
 
-from pydantic import BaseModel, Field
-from enum import Enum
-from datetime import datetime, time
-
+from pydantic import Field
+from tasks.Component.config_base import ConfigBase
 from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, TimeDelta
+
 
 class DelegationConfig(ConfigBase):
     # 弥助的画-300-六星变异卡
@@ -19,6 +17,7 @@ class DelegationConfig(ConfigBase):
     miyoshino: bool = Field(default=False, description='miyoshino_help')
     # 奇怪的痕迹-100-金币九万八
     strange_trace: bool = Field(default=False, description='strange_trace_help')
+
 
 class Delegation(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)

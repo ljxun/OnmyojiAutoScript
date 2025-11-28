@@ -8,7 +8,7 @@ import shutil
 from datetime import datetime
 
 from module.exception import TaskEnd
-from module.logger import logger, log_path, ignore_log_names, backup_path, week_path, delete_path, old_path, error_path
+from module.logger import logger, log_path, ignore_log_names, backup_path, week_path, delete_path, old_path
 from tasks.base_task import BaseTask
 """ 备份日志 """
 
@@ -301,7 +301,6 @@ class ScriptTask(BaseTask):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
     # d = Device(c)

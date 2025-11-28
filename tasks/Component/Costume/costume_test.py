@@ -2,15 +2,11 @@
 # @author runhey
 # github https://github.com/runhey
 
-from module.atom.image import RuleImage
-
-from tasks.GameUi.assets import GameUiAssets
-from tasks.GameUi.game_ui import GameUi
+from module.logger import logger
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Pets.assets import PetsAssets
-from tasks.base_task import BaseTask
-from module.logger import logger
+
 
 class ScriptTask(GeneralBattle, SwitchSoul, PetsAssets, ):
 
@@ -32,10 +28,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, PetsAssets, ):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
     t.run()
 

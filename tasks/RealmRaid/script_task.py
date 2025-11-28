@@ -18,6 +18,7 @@ from tasks.RealmRaid.config import WhenAttackFail
 
 """个人突破"""
 
+
 class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
     medal_grid: ImageGrid = None
 

@@ -1,5 +1,5 @@
-from tasks.GameUi.page import Page, page_main
 from tasks.GameUi.assets import GameUiAssets as G
+from tasks.GameUi.page import Page, page_main
 from tasks.TalismanPass.assets import TalismanPassAssets
 
 # 花合战 daily

@@ -2,7 +2,6 @@
 # @author runhey
 # github https://github.com/runhey
 from datetime import datetime, timedelta
-from enum import Enum
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.SwitchAccountOnce.base_channel_task import BaseChannelTask, TaskType

@@ -3,7 +3,7 @@
 # github https://github.com/runhey
 
 from enum import Enum
-from pydantic import BaseModel, Field
+from pydantic import Field
 
 from tasks.Component.config_base import ConfigBase, Time
 from tasks.Component.config_scheduler import Scheduler
@@ -15,9 +15,11 @@ class Strategy(str, Enum):
     Bilibili = 'frog_bilibili'
     Dashen = 'frog_dashen'
 
+
 class FrogBossConfig(ConfigBase):
     before_end_frog: Time = Field(default=Time(0, 15, 0), description='before_end_frog_help')
     strategy_frog: Strategy = Field(default=Strategy.Majority, description='strategy_frog_help')
+
 
 class FrogBoss(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)

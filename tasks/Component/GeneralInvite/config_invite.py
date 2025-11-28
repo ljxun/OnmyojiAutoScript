@@ -1,22 +1,23 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+from datetime import time
 from enum import Enum
-from datetime import datetime, time
-from pydantic import BaseModel, ValidationError, validator, Field
-
+from pydantic import BaseModel, Field
 from tasks.Component.config_base import Time
+
 
 class InviteNumber(str, Enum):
     ONE = 'one'
     TWO = 'two'
 
+
 class FindMode(str, Enum):
     AUTO_FIND = 'auto_find'
     RECENT_FRIEND = 'recent_friend'
 
-class InviteConfig(BaseModel):
 
+class InviteConfig(BaseModel):
     invite_number: InviteNumber = Field(default=InviteNumber.ONE, description='invite_number_help')
     friend_1: str = Field(default='', description='friend_name_help')
     friend_2: str = Field(default='', description='friend_2_name_help')
@@ -34,10 +35,10 @@ class InviteConfig(BaseModel):
     #             raise ValueError('Invalid time value. Expected format: HH:MM:SS')
     #     return value
 
+
 if __name__ == "__main__":
     i = InviteConfig()
     print(isinstance(i.wait_time, time))
     i.wait_time = "00:05:00"
     print(i.wait_time)
     print(isinstance(i.wait_time, time))
-

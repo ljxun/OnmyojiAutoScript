@@ -13,16 +13,14 @@ from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.DemonRetreat.assets import DemonRetreatAssets
 from tasks.DemonRetreat.config import DemonRetreat
-from tasks.GameUi.page import page_main, page_guild
+from tasks.GameUi.page import page_guild
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, DemonRetreatAssets, AbyssShadowsAssets):
-
+    """
+    首领退治主函数
+    """
     def run(self):
-        """
-        首领退治主函数
-        """
-
         cfg: DemonRetreat = self.config.demon_retreat
 
         # 判断是否为周六，只有周六才可以进行退治

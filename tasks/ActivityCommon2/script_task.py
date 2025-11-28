@@ -1,15 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.ActivityCommon.challenge import ScriptTask as Challenge
+from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.ActivityCommon.script_task import ScriptTask as ActivityCommonScriptTask
 
 
-""" 活动通用2 """
-
-
 class ScriptTask(ActivityCommonScriptTask):
+    """ 活动通用2 """
     def __init__(self, config):
         super().__init__(config)
         self.Challenge = Challenge(self.config)

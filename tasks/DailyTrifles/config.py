@@ -1,16 +1,16 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from datetime import timedelta
-from pydantic import BaseModel, Field
-
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase
 from enum import Enum
+from pydantic import BaseModel, Field
+from tasks.Component.config_base import ConfigBase
+from tasks.Component.config_scheduler import Scheduler
+
 
 class SummonType(str, Enum):
     default = '普通召唤'
     recall = '今忆召唤'
+
 
 class DailyTriflesConfig(BaseModel):
     one_summon: bool = Field(title='One Summon', default=False)

@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 
 from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
 
+
 class BattleConfig(BaseModel):
     # 是否开启绿标
     green_enable: bool = Field(default=False, description='green_enable_help')

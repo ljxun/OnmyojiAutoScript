@@ -15,8 +15,9 @@ from tasks.FallenSun.assets import FallenSunAssets
 from tasks.FallenSun.config import FallenSun, UserStatus
 from tasks.GameUi.page import page_main, page_soul_zones
 
-""" 日陨 """
+
 class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchSoul, FallenSunAssets):
+    """ 日陨 """
 
     def run(self) -> bool:
         # 御魂切换方式一

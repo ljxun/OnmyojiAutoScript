@@ -1,20 +1,19 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from pydantic import Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
 
 
 class SougenbiClass(str, Enum):
     GREED = '贪'
     Anger = '嗔'
     Foolery = '痴'
+
 
 class SougenbiConfig(ConfigBase):
     sougenbi_class: SougenbiClass = Field(default=SougenbiClass.Foolery)

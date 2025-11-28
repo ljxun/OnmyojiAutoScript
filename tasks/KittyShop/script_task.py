@@ -1,21 +1,18 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from cached_property import cached_property
 
+from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
-from module.base.timer import Timer
-from module.atom.image import RuleImage
-
+from tasks.ActivityShikigami.assets import ActivityShikigamiAssets
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
-from tasks.ActivityShikigami.assets import ActivityShikigamiAssets
 from tasks.KittyShop.assets import KittyShopAssets
 
-""" 猫咪经营 """
-class ScriptTask(GameUi, ActivityShikigamiAssets, KittyShopAssets):
 
+class ScriptTask(GameUi, ActivityShikigamiAssets, KittyShopAssets):
+    """ 猫咪经营 """
     MAIN_BUSY: list = [KittyShopAssets.I_MAIN_BUSY_1,
                        KittyShopAssets.I_MAIN_BUSY_2,
                        KittyShopAssets.I_MAIN_BUSY_3,

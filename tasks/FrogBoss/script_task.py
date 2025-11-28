@@ -3,30 +3,23 @@
 # github https://github.com/runhey
 import time
 
-from cached_property import cached_property
-from datetime import datetime
-import requests
-import re
 import json
-
-from module.exception import TaskEnd
-from module.logger import logger
+import re
+import requests
+from datetime import datetime
 from module.atom.image import RuleImage
 from module.base.timer import Timer
-
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main
-from tasks.Component.RightActivity.right_activity import RightActivity
+from module.exception import TaskEnd
+from module.logger import logger
 from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
+from tasks.Component.RightActivity.right_activity import RightActivity
 from tasks.Component.config_base import TimeDelta
 from tasks.FrogBoss.assets import FrogBossAssets
 from tasks.FrogBoss.config import Strategy
 
 
-"""对弈竞猜 呱老板"""
-
-
 class ScriptTask(RightActivity, FrogBossAssets, GeneralBattleAssets):
+    """对弈竞猜 呱老板"""
     betted_status = None
 
     def run(self):

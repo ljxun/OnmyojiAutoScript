@@ -1,15 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author TripleEarth
 # github https://github.com/TripleEarth
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
-
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
-from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from pydantic import Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
 
 
 class UserStatus(str, Enum):
@@ -17,6 +15,7 @@ class UserStatus(str, Enum):
     MEMBER = 'member'
     ALONE = 'alone'
     WILD = 'wild'  # 还不打算实现
+
 
 class Layer(str, Enum):
     ONE = '壹层'
@@ -29,6 +28,7 @@ class Layer(str, Enum):
     EIGHT = '捌层'
     NINE = '玖层'
     TEN = '拾层'
+
 
 class KirinType(str, Enum):
     FIREKIRIN = '火麒麟'
@@ -51,11 +51,10 @@ class EvoZoneConfig(ConfigBase):
     # 是否开启觉醒加成
     soul_buff_enable: bool = Field(default=False, description='是否开启觉醒加成')
 
+
 class EvoZone(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
     evo_zone_config: EvoZoneConfig = Field(default_factory=EvoZoneConfig)
     invite_config: InviteConfig = Field(default_factory=InviteConfig)
     general_battle_config: GeneralBattleConfig = Field(default_factory=GeneralBattleConfig)
     switch_soul_config: SwitchSoulConfig = Field(default_factory=SwitchSoulConfig)
-
-

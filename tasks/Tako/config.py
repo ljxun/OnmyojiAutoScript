@@ -2,12 +2,10 @@
 # @author runhey
 # github https://github.com/runhey
 from pydantic import BaseModel, Field
-from enum import Enum
-from datetime import datetime, time
-
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase
 from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase
+from tasks.Component.config_scheduler import Scheduler
+
 
 class TakoConfig(BaseModel):
     enable: bool = Field(default=False)

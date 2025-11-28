@@ -2,18 +2,17 @@
 # @author runhey
 # github https://github.com/runhey
 from time import sleep
+
 import numpy as np
-
-from enum import Enum
 from cached_property import cached_property
-from datetime import timedelta, time
-
+from datetime import time
+from enum import Enum
 from module.base.timer import Timer
-from tasks.base_task import BaseTask
+from module.logger import logger
+from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
 from tasks.Component.GeneralInvite.assets import GeneralInviteAssets
 from tasks.Component.GeneralInvite.config_invite import InviteConfig, InviteNumber, FindMode
-from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
-from module.logger import logger
+from tasks.base_task import BaseTask
 
 
 class FriendList(str, Enum):
@@ -627,7 +626,6 @@ class GeneralInvite(BaseTask, GeneralInviteAssets):
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
-    import cv2
 
     c = Config('du')
     d = Device(c)

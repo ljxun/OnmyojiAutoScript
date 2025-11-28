@@ -12,8 +12,9 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.ExperienceYoukai.assets import ExperienceYoukaiAssets
 from tasks.GameUi.page import page_main, page_team
 
-""" 经验妖怪 """
+
 class ScriptTask(GeneralBattle, GeneralRoom, GeneralInvite, SwitchSoul, ExperienceYoukaiAssets):
+    """ 经验妖怪 """
 
     def run(self):
         # 切换御魂

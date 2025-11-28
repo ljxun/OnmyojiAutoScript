@@ -14,14 +14,12 @@ from tasks.Component.GeneralRoom.general_room import GeneralRoom
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.EternitySea.assets import EternitySeaAssets
 from tasks.EternitySea.config import EternitySea
-from tasks.GameUi.game_ui import Page
 from tasks.GameUi.page import page_main, page_soul_zones
 from tasks.Orochi.config import UserStatus
 
-""" 永生之海 """
-
 
 class ScriptTask(GeneralBattle, GeneralRoom, GeneralInvite, SwitchSoul, EternitySeaAssets):
+    """ 永生之海 """
     soul_full_push = True
 
     @property

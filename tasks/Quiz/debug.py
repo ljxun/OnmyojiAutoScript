@@ -6,11 +6,10 @@ import re
 from cached_property import cached_property
 from pathlib import Path
 
-from module.logger import logger
-
 
 def remove_symbols(text):
     return re.sub(r'[^\w\s]', '', text)
+
 
 class Debugger:
 

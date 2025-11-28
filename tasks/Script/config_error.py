@@ -1,10 +1,8 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, ValidationError, validator, Field
+from pydantic import BaseModel, Field
 from tasks.Component.config_base import MultiLine
-
-from module.logger import logger
 
 
 class Error(BaseModel):

@@ -1,13 +1,12 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
-
-from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from pydantic import Field
 from tasks.AreaBoss.config_boss import Boss
+from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase
+from tasks.Component.config_scheduler import Scheduler
 
 
 class AreaBoss(ConfigBase):

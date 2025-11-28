@@ -5,10 +5,9 @@
 # github    https://github.com/roarhill/oas
 
 from pydantic import BaseModel, Field
-from enum import Enum
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
 from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
-from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_base import ConfigBase
 from tasks.Component.config_scheduler import Scheduler
 
 
@@ -22,6 +21,7 @@ class WelfareConfig(BaseModel):
     # 是否发送请求检查福利寮开启
     enable_get_requests: bool = Field(default=False, description='是否发送请求检查福利寮开启')
     get_requests_url: str = Field(default='', description='获取请求的URL')
+
 
 class DokanConfig(BaseModel):
     # # 寮管理开启道馆
@@ -49,6 +49,7 @@ class DokanConfig(BaseModel):
 
     # 防封：使用固定的随机区域进行随机点击，若为False将自动识别当前画面中的最大纯色区域作为随机点击区域
     # anti_detect_click_fixed_random_area: bool = Field(default=False, description='anti_detect_click_fixed_random_area_help')
+
 
 class Dokan(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)

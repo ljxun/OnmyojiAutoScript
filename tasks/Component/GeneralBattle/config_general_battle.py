@@ -2,8 +2,8 @@
 # @author runhey
 # github https://github.com/runhey
 from enum import Enum
-from datetime import datetime, time
-from pydantic import BaseModel, ValidationError, validator, Field
+from pydantic import BaseModel, Field
+
 
 class GreenMarkType(str, Enum):
     GREEN_LEFT1 = 'green_left1'
@@ -12,6 +12,7 @@ class GreenMarkType(str, Enum):
     GREEN_LEFT4 = 'green_left4'
     GREEN_LEFT5 = 'green_left5'
     GREEN_MAIN = 'green_main'
+
 
 class GeneralBattleConfig(BaseModel):
 

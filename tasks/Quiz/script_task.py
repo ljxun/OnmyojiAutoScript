@@ -3,20 +3,15 @@
 # github https://github.com/runhey
 import random
 from cached_property import cached_property
-
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_realm_raid, page_main
-from tasks.Quiz.assets import QuizAssets
+from module.base.timer import Timer
+from module.exception import TaskEnd
+from module.logger import logger
 from tasks.ActivityShikigami.assets import ActivityShikigamiAssets
 from tasks.DemonEncounter.data.answer import Answer
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_main
+from tasks.Quiz.assets import QuizAssets
 from tasks.Quiz.debug import Debugger, remove_symbols
-
-from module.logger import logger
-from module.exception import TaskEnd
-from module.base.timer import Timer
-from module.atom.image_grid import ImageGrid
-from module.atom.image import RuleImage
-from module.atom.click import RuleClick
 
 
 class NoTicket(Exception):
@@ -24,6 +19,8 @@ class NoTicket(Exception):
 
 
 """答题"""
+
+
 class ScriptTask(GameUi, QuizAssets, ActivityShikigamiAssets, Debugger):
 
     answer_cnt = 0

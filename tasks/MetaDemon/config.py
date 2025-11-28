@@ -2,11 +2,10 @@
 # @author runhey
 # github https://github.com/runhey
 from datetime import timedelta, time
-from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
-
-from tasks.Component.config_base import ConfigBase, TimeDelta, Time
-from pydantic import Field
 from enum import IntEnum
+from pydantic import Field
+from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.config_base import ConfigBase, TimeDelta, Time
 from tasks.Component.config_scheduler import Scheduler
 
 

@@ -13,10 +13,9 @@ from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main
 
-""" 活动挂饼 """
-
 
 class ScriptTask(SwitchSoul, GeneralBattle,  AutoCakeAssets, ActivityShikigamiAssets):
+    """ 活动挂饼 """
     def run(self) -> None:
         self.start_time = datetime.now()
         config = self.config.auto_cake

@@ -1,18 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from datetime import timedelta, datetime
-
 import random
-
+from datetime import timedelta, datetime
+from module.logger import logger
 from module.server.i18n import I18n
-from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.BondlingFairyland.assets import BondlingFairylandAssets
 from tasks.BondlingFairyland.config_battle import BattleConfig
-
-from module.logger import logger
-
-
+from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 
 
 class BondlingBattle(GeneralBattle, BondlingFairylandAssets):

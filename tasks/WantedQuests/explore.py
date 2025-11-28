@@ -1,10 +1,8 @@
 from cached_property import cached_property
-
-from module.atom.image import RuleImage
 from module.atom.animate import RuleAnimate
+from module.atom.image import RuleImage
 from module.base.timer import Timer
 from module.logger import logger
-
 from tasks.Exploration.base import BaseExploration, Scene
 from tasks.Exploration.version import HighLight
 

@@ -1,5 +1,5 @@
-from tasks.GameUi.page import Page, page_guild
 from tasks.GameUi.assets import GameUiAssets as G
+from tasks.GameUi.page import Page, page_guild
 from tasks.RichMan.assets import RichManAssets
 
 # 神社 （出现功勋商店代表进入神社）

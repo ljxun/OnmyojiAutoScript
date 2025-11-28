@@ -14,13 +14,11 @@ from tasks.DailyTrifles.assets import DailyTriflesAssets
 from tasks.DailyTrifles.config import SummonType
 from tasks.DailyTrifles.page import page_store_sign, page_mall_special
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_summon, page_guild, page_mall, page_friends
-
-""" 每日琐事 """
+from tasks.GameUi.page import page_summon, page_guild, page_mall, page_friends
 
 
 class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
-
+    """ 每日琐事 """
     def run(self):
         con = self.config.daily_trifles.trifles_config
         # 每日召唤

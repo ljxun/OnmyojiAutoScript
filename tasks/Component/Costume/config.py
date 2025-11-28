@@ -1,8 +1,9 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
 from enum import Enum
+from pydantic import BaseModel, Field
+
 
 # 庭院皮肤
 class MainType(str, Enum):
@@ -21,6 +22,7 @@ class MainType(str, Enum):
     COSTUME_MAIN_12 = 'costume_main_12'  # 龙吟溯玉
     COSTUME_MAIN_13 = 'costume_main_13'  # 云景阆苑
 
+
 # 结界皮肤
 class RealmType(str, Enum):
     COSTUME_REALM_DEFAULT = 'costume_realm_default'  # 妖扇结界
@@ -29,9 +31,11 @@ class RealmType(str, Enum):
     COSTUME_REALM_3 = 'costume_realm_3'  # 编心织忆
     COSTUME_REALM_4 = 'costume_realm_4'  # 花海繁生
 
+
 # 主题，就是庭院最右下角的展开按钮
 class ThemeType(str, Enum):
     COSTUME_THEME_DEFAULT = 'costume_theme_default'  # 伊始之卷
+
 
 # 幕间，就是式神录这里
 class ShikigamiType(str, Enum):
@@ -42,9 +46,11 @@ class ShikigamiType(str, Enum):
     COSTUME_SHIKIGAMI_4 = 'costume_shikigami_4'  # 冥夜游火
     COSTUME_SHIKIGAMI_5 = 'costume_shikigami_5'  # 契光水境
 
+
 # 签到主题
 class SignType(str, Enum):
     COSTUME_SIGN_DEFAULT = 'costume_sign_default'  # 默认
+
 
 # 战斗主题
 class BattleType(str, Enum):
@@ -61,19 +67,15 @@ class BattleType(str, Enum):
     COSTUME_BATTLE_10 = 'costume_battle_10'  # 流焰蝶舞
 
 
-
 class CostumeConfig(BaseModel):
     # 皮肤配置
     costume_main_type: MainType = Field(default=MainType.COSTUME_MAIN, description='costume_main_type_help')
-    costume_realm_type: RealmType = Field(default=RealmType.COSTUME_REALM_DEFAULT, description='costume_realm_type_help')
-    costume_theme_type: ThemeType = Field(default=ThemeType.COSTUME_THEME_DEFAULT, description='costume_theme_type_help')
-    costume_shikigami_type: ShikigamiType = Field(default=ShikigamiType.COSTUME_SHIKIGAMI_DEFAULT, description='costume_shikigami_type_help')
+    costume_realm_type: RealmType = Field(default=RealmType.COSTUME_REALM_DEFAULT,
+                                          description='costume_realm_type_help')
+    costume_theme_type: ThemeType = Field(default=ThemeType.COSTUME_THEME_DEFAULT,
+                                          description='costume_theme_type_help')
+    costume_shikigami_type: ShikigamiType = Field(default=ShikigamiType.COSTUME_SHIKIGAMI_DEFAULT,
+                                                  description='costume_shikigami_type_help')
     costume_sign_type: SignType = Field(default=SignType.COSTUME_SIGN_DEFAULT, description='costume_sign_type_help')
-    costume_battle_type: BattleType = Field(default=BattleType.COSTUME_BATTLE_DEFAULT, description='costume_battle_type_help')
-
-
-
-
-
-
-
+    costume_battle_type: BattleType = Field(default=BattleType.COSTUME_BATTLE_DEFAULT,
+                                            description='costume_battle_type_help')

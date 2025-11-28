@@ -15,9 +15,9 @@ from tasks.EvoZone.assets import EvoZoneAssets
 from tasks.EvoZone.config import EvoZone, UserStatus, KirinType
 from tasks.GameUi.page import page_main, page_awake_zones
 
-""" 觉醒 """
-class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZoneAssets, SwitchSoul):
 
+class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZoneAssets, SwitchSoul):
+    """ 觉醒 """
     def run(self) -> bool:
 
         limit_count = self.config.evo_zone.evo_zone_config.limit_count

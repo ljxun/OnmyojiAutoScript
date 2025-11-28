@@ -13,8 +13,9 @@ from tasks.GameUi.page import page_main, page_team
 from tasks.GoldYoukai.assets import GoldYoukaiAssets
 from tasks.Restart.assets import RestartAssets
 
-""" 金币妖怪 """
+
 class ScriptTask(GeneralBattle, GeneralRoom, GeneralInvite, SwitchSoul, GoldYoukaiAssets):
+    """ 金币妖怪 """
 
     def run(self):
         # 切换御魂

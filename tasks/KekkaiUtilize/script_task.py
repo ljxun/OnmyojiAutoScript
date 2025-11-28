@@ -18,10 +18,9 @@ from tasks.KekkaiUtilize.config import UtilizeRule, SelectFriendList
 from tasks.KekkaiUtilize.utils import CardClass
 from tasks.Utils.config_enum import ShikigamiClass
 
-""" 结界蹭卡 """
-
 
 class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
+    """ 结界蹭卡 """
     last_best_index = 99
     run_utilize_count = 0
     ap_max_num = 0

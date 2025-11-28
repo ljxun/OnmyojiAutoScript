@@ -13,6 +13,8 @@ from tasks.Sougenbi.assets import SougenbiAssets
 from tasks.Sougenbi.config import SougenbiConfig, SougenbiClass
 
 """ 业原火 """
+
+
 class ScriptTask(GeneralBattle, SwitchSoul, SougenbiAssets):
 
     def run(self):

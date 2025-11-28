@@ -2,12 +2,11 @@
 # @author ohspecial
 # github https://github.com/ohspecial
 from enum import Enum
-
 from pydantic import Field, BaseModel
-
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
 from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
+
 
 class Weekday(str, Enum):
     Monday: str = "星期一"
@@ -26,7 +25,6 @@ class GuildBanquetTime(BaseModel):
     day_2: Weekday = Field(default=Weekday.Saturday, description="每周第2次运行时间设置")
     run_time_2: Time = Field(default=Time(hour=19, minute=0, second=0), description="每周第2次运行时间设置")
     enable: bool = Field(default=False, description="荒川秘闻9层三只石距战斗")
-
 
 
 class GuildBanquet(ConfigBase):

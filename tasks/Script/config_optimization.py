@@ -2,8 +2,8 @@
 # @author runhey
 # github https://github.com/runhey
 from enum import Enum
-from pydantic import BaseModel, ValidationError, validator, Field
-from tasks.Component.config_base import ConfigBase, Time
+from pydantic import BaseModel, Field
+from tasks.Component.config_base import Time
 
 
 class WhenTaskQueueEmpty(str, Enum):

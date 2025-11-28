@@ -1,15 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author TripleEarth
 # github https://github.com/TripleEarth
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
-from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from pydantic import Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
 
 
 class UserStatus(str, Enum):
@@ -18,10 +16,12 @@ class UserStatus(str, Enum):
     ALONE = 'alone'
     WILD = 'wild'  # 还不打算实现
 
+
 class Layer(str, Enum):
     ONE = '壹层'
     TWO = '贰层'
     THREE = '叁层'
+
 
 class FallenSunConfig(ConfigBase):
     # 身份

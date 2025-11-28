@@ -5,7 +5,6 @@
 import re
 
 from tasks.KekkaiUtilize.utils import CardClass
-from module.atom.image_grid import ImageGrid
 
 
 def parse_rule(rule: str) -> list[CardClass]:

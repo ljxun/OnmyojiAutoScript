@@ -15,11 +15,9 @@ from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_area_boss
 
-""" 地域鬼王 """
-
 
 class ScriptTask(GeneralBattle, SwitchSoul, AreaBossAssets):
-
+    """ 地域鬼王 """
     def run(self) -> bool:
         """
         运行脚本

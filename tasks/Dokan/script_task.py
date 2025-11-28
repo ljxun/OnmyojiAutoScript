@@ -7,10 +7,7 @@ import time
 from time import sleep
 
 import cv2
-import os
 import re
-import yaml
-from cached_property import cached_property
 from datetime import datetime, timedelta
 from enum import Enum
 from module.atom.click import RuleClick
@@ -25,11 +22,8 @@ from tasks.Component.GeneralInvite.assets import GeneralInviteAssets
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Dokan.assets import DokanAssets
 from tasks.Dokan.config import Dokan
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_shikigami_records, page_guild
+from tasks.GameUi.page import page_guild
 from tasks.RichMan.assets import RichManAssets
-
-""" 道馆 """
 
 
 class DokanScene(Enum):
@@ -64,6 +58,7 @@ class DokanScene(Enum):
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
+    """ 道馆 """
     team_switched: bool = False
     # 战斗次数
     battle_count: int = 0
@@ -946,7 +941,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
 
 if __name__ == "__main__":
     from module.config.config import Config
-    from module.device.device import Device
 
     config = Config('du')
     t = ScriptTask(config)

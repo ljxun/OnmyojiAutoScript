@@ -2,9 +2,6 @@
 # @author runhey
 # github https://github.com/runhey
 from pydantic import BaseModel, Field
-from enum import Enum
-from datetime import datetime, time
-
 
 
 class SwitchSoulConfig(BaseModel):

@@ -1,15 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
-from datetime import time
-
+from enum import Enum
+from pydantic import Field
+from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
 from tasks.Component.config_scheduler import Scheduler
 from tasks.Component.config_switch_week import SwitchWeek
-from tasks.Component.config_base import ConfigBase, Time
-from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
-from enum import Enum
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
 
 
 class Onmyoji(str, Enum):

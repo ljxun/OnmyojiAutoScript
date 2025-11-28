@@ -1,22 +1,19 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import time
 
+from module.base.timer import Timer
+from module.exception import TaskEnd
+from module.logger import logger
+from tasks.FloatParade.assets import FloatParadeAssets
+from tasks.FloatParade.config import FloatParadeConfig, LevelReward
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
 from tasks.TalismanPass.assets import TalismanPassAssets
-from tasks.FloatParade.assets import FloatParadeAssets
-from tasks.FloatParade.config import FloatParadeConfig, LevelReward
-
-from module.logger import logger
-from module.exception import TaskEnd
-from module.base.timer import Timer
-
-""" 花车 巡游 """
 
 
 class ScriptTask(GameUi, FloatParadeAssets, TalismanPassAssets):
+    """ 花车 巡游 """
 
     def run(self):
         self.ui_goto_page(page_main)

@@ -1,7 +1,7 @@
 from tasks.ActivityShikigami.assets import ActivityShikigamiAssets as asa
+from tasks.GameUi.assets import GameUiAssets as G
 from tasks.GameUi.page import Page, page_main, page_act_list_climb_act, page_reward, random_click, page_failed
 from tasks.GlobalGame.assets import GlobalGameAssets as gga
-from tasks.GameUi.assets import GameUiAssets as G
 from tasks.base_task import BaseTask as BT
 
 # 爬塔活动界面

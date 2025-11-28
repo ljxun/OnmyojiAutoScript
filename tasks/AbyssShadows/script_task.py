@@ -19,8 +19,6 @@ from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main, page_guild
 
-""" 狭间暗域 """
-
 
 class AreaType:
     """ 暗域类型 """
@@ -74,6 +72,7 @@ class CilckArea:
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
+    """ 狭间暗域 """
     boss_fight_count = 0  # 首领战斗次数
     general_fight_count = 0  # 副将战斗次数
     elite_fight_count = 0  # 精英战斗次数

@@ -4,9 +4,8 @@
 import time
 
 from module.logger import logger
-
-from tasks.GameUi.page import page_main, page_summon
 from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_summon
 from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.config import Shrine as ConfigShrine
 
@@ -130,7 +129,6 @@ class Shrine(GameUi, RichManAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('mi')
     # d = Device(c)

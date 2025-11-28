@@ -3,10 +3,9 @@
 # github https://github.com/runhey
 from enum import Enum
 from pydantic import BaseModel, Field
-
-from tasks.GlobalGame.config_emergency import Emergency
-from tasks.Component.config_base import ConfigBase
 from tasks.Component.Costume.config import CostumeConfig
+from tasks.GlobalGame.config_emergency import Emergency
+
 
 class Transport(str, Enum):
     TCP = 'TCP'

@@ -19,11 +19,9 @@ from tasks.KekkaiActivation.config import CardType
 from tasks.KekkaiUtilize.script_task import ScriptTask as KU
 from tasks.KekkaiUtilize.utils import CardClass
 
-""" 结界挂卡 """
-
 
 class ScriptTask(KU, KekkaiActivationAssets):
-
+    """ 结界挂卡 """
     def run(self):
         con = self.config.kekkai_activation.activation_config
         self.ui_goto_page(page_realm)

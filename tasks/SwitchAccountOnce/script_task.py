@@ -1,19 +1,16 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from enum import Enum
 
 import json
+from datetime import datetime
+from module.exception import TaskEnd
 from module.logger import logger
-from datetime import datetime, timedelta
 from tasks.Component.SwitchAccount.switch_account import SwitchAccount
 from tasks.Component.SwitchAccount.switch_account_config import AccountInfo
-from module.exception import TaskEnd, SwitchAccountError
-from tasks.GameUi.game_ui import GameUi
+from tasks.SwitchAccountOnce.base_channel_task import BaseChannelTask, TaskType
 from tasks.SwitchAccountOnce.channel4399 import ScriptTask as ScriptTask4399
 from tasks.SwitchAccountOnce.channelwy import ScriptTask as ScriptTaskWY
-from tasks.SwitchAccountOnce.base_channel_task import BaseChannelTask, TaskType
-
 
 """ 账号切换 """
 

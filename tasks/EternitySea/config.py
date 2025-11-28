@@ -1,15 +1,13 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
-
-from tasks.Component.GeneralInvite.config_invite import InviteConfig
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
+from pydantic import Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
 from tasks.Orochi.config import UserStatus
 
 
@@ -18,6 +16,7 @@ class Layer(str, Enum):
     TWO = '贰层'
     THREE = '叁层'
     FOUR = '肆层'
+
 
 class EternitySeaConfig(ConfigBase):
     # 身份
@@ -29,6 +28,7 @@ class EternitySeaConfig(ConfigBase):
     # 限制次数
     limit_count: int = Field(default=30, description='limit_count_help')
 
+
 class EternitySea(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
     eternity_sea_config: EternitySeaConfig = Field(default_factory=EternitySeaConfig)
@@ -36,4 +36,3 @@ class EternitySea(ConfigBase):
     switch_soul_config_1: SwitchSoulConfig = Field(default_factory=SwitchSoulConfig)
     switch_soul_config_2: SwitchSoulConfig = Field(default_factory=SwitchSoulConfig)
     invite_config: InviteConfig = Field(default_factory=InviteConfig)
-

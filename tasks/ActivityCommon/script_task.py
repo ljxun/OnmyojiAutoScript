@@ -3,15 +3,14 @@
 # github https://github.com/runhey
 
 from module.exception import TaskEnd
-from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.ActivityCommon.challenge import ScriptTask as Challenge
+from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 
-""" 活动通用 """
-
 
 class ScriptTask(SwitchSoul, GeneralBattle):
+    """ 活动通用 """
     def __init__(self, config):
         super().__init__(config)
         self.Delegate = Delegate(self.config)

@@ -2,8 +2,7 @@
 # @author runhey
 # github https://github.com/runhey
 from enum import Enum
-from datetime import datetime, time
-from pydantic import BaseModel, ValidationError, validator, Field
+from pydantic import BaseModel, Field
 
 
 # 这个类是用来 演示的

@@ -12,6 +12,8 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main, page_team
 
 """石距 喷怒的石距"""
+
+
 class ScriptTask(GeneralBattle, GeneralRoom, GeneralInvite, SwitchSoul):
 
     def run(self):

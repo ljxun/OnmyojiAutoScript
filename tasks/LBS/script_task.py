@@ -11,10 +11,11 @@ from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
 from tasks.LBS.assets import LBSAssets
 
-""" LBS """
+
 
 
 class ScriptTask(GameUi, GeneralBattle, LBSAssets):
+    """ LBS """
     success_count = 0
 
     def run(self):

@@ -4,18 +4,16 @@
 import time
 
 import random
+import tasks.MetaDemon.inner_page as ipages
 from datetime import datetime
 from module.atom.image import RuleImage
-
+from module.exception import TaskEnd
+from module.logger import logger
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.game_ui import GameUi
-from tasks.MetaDemon.config import MetaDemon, BossType
 from tasks.MetaDemon.assets import MetaDemonAssets
-import tasks.MetaDemon.inner_page as ipages
-
-from module.logger import logger
-from module.exception import TaskEnd
+from tasks.MetaDemon.config import MetaDemon, BossType
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):

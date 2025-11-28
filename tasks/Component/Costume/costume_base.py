@@ -4,12 +4,11 @@
 
 from module.atom.image import RuleImage
 from module.logger import logger
-
-from tasks.Component.Costume.config import (MainType, CostumeConfig, RealmType,
-                                            ThemeType, ShikigamiType, SignType, BattleType)
 from tasks.Component.Costume.assets import CostumeAssets
-from tasks.Component.CostumeRealm.assets import CostumeRealmAssets
+from tasks.Component.Costume.config import (MainType, CostumeConfig, RealmType,
+                                            ShikigamiType, BattleType)
 from tasks.Component.CostumeBattle.assets import CostumeBattleAssets
+from tasks.Component.CostumeRealm.assets import CostumeRealmAssets
 from tasks.Component.CostumeShikigami.assets import CostumeShikigamiAssets
 
 # 庭院皮肤

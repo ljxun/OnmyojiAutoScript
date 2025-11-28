@@ -3,11 +3,11 @@
 # github https://github.com/runhey
 
 
-from module.logger import logger
 from module.base.timer import Timer
-
-from tasks.KekkaiActivation.script_task import ScriptTask as KekkaiActivationScriptTask
+from module.logger import logger
 from tasks.Component.Costume.config import RealmType
+from tasks.KekkaiActivation.script_task import ScriptTask as KekkaiActivationScriptTask
+
 
 class ScriptTask(KekkaiActivationScriptTask):
 

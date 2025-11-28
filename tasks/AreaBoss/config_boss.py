@@ -2,13 +2,14 @@
 # @author runhey
 # github https://github.com/runhey
 from enum import Enum
-from datetime import datetime, time
-from pydantic import BaseModel, ValidationError, validator, Field
+from pydantic import BaseModel, Field
+
 
 class AreaBossFloor(str, Enum):
     ONE = '一星'
     TEN = '十星'
     DEFAULT = '不更改'
+
 
 class Boss(BaseModel):
     boss_number: int = Field(title='Boss Number',

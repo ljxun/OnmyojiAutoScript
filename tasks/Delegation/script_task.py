@@ -1,22 +1,18 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from time import sleep
-from datetime import time, datetime, timedelta
 
-from module.logger import logger
-from module.exception import TaskEnd
 from module.base.timer import Timer
-
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_delegation
-from tasks.Delegation.config import DelegationConfig
+from module.exception import TaskEnd
+from module.logger import logger
 from tasks.Delegation.assets import DelegationAssets
+from tasks.Delegation.config import DelegationConfig
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_delegation
 
 
-""" 委派 """
 class ScriptTask(GameUi, DelegationAssets):
-
+    """ 委派 """
     def run(self):
         self.ui_goto_page(page_delegation)
         self.check_reward()
@@ -130,7 +126,7 @@ class ScriptTask(GameUi, DelegationAssets):
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
-    from memory_profiler import profile
+
     c = Config('du')
     d = Device(c)
     t = ScriptTask(c, d)

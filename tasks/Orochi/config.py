@@ -1,15 +1,12 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig as BaseSwitchSoulConfig
-from tasks.Component.config_scheduler import Scheduler
-from tasks.Component.config_base import ConfigBase, Time
-from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from pydantic import BaseModel, Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
+from tasks.Component.GeneralInvite.config_invite import InviteConfig
+from tasks.Component.config_base import ConfigBase, Time
+from tasks.Component.config_scheduler import Scheduler
 
 
 class UserStatus(str, Enum):
@@ -17,6 +14,7 @@ class UserStatus(str, Enum):
     MEMBER = 'member'
     ALONE = 'alone'
     # WILD = 'wild'  # 还不打算实现
+
 
 class Layer(str, Enum):
     # ONE = '壹层'
@@ -32,6 +30,7 @@ class Layer(str, Enum):
     ELEVEN = '悲鸣'
     TWELVE = '神罚'
 
+
 class Plan(str, Enum):
     default = '无限循环'
     TEN30 = '拾层-30'
@@ -40,6 +39,7 @@ class Plan(str, Enum):
     TWELVE120 = '神罚-120'
     ONE = '只执行一次下面的配置'
     end = '本次不执行，设置明天运行(拾层-30)'
+
 
 class NextDayOrochiConfig(BaseModel):
     # 设定时间为第二天的启动时间
@@ -63,6 +63,7 @@ class OrochiConfig(ConfigBase):
     # 是否开启御魂加成
     soul_buff_enable: bool = Field(default=False, description='soul_buff_enable_help')
 
+
 class SwitchSoulConfig(BaseModel):
     auto_enable: bool = Field(default=False, description='auto_enable_help')
     # 十层 config
@@ -80,4 +81,3 @@ class Orochi(ConfigBase):
     invite_config: InviteConfig = Field(default_factory=InviteConfig)
     general_battle_config: GeneralBattleConfig = Field(default_factory=GeneralBattleConfig)
     switch_soul: SwitchSoulConfig = Field(default_factory=SwitchSoulConfig)
-

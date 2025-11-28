@@ -1,11 +1,9 @@
-from pydantic import BaseModel, Field
 from enum import Enum
-from datetime import datetime, time
-
+from pydantic import BaseModel, Field
 from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleConfig
-from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
 from tasks.Component.GeneralInvite.config_invite import FindMode
-from tasks.Component.config_base import ConfigBase, TimeDelta, Time
+from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
+from tasks.Component.config_base import ConfigBase, Time
 from tasks.Component.config_scheduler import Scheduler
 
 
@@ -51,6 +49,7 @@ class UpType(str, Enum):
     COIN = 'up_coin'  # 金币
     DARUMAA = 'up_daruma'  # 达摩
 
+
 class UserStatus(str, Enum):
     LEADER = 'leader'
     MEMBER = 'member'
@@ -67,8 +66,8 @@ class ChooseRarity(str, Enum):
     N = 'N卡'
     S = '素材'
 
-class InviteConfig(BaseModel):
 
+class InviteConfig(BaseModel):
     friend_1: str = Field(default='', description='friend_name_help')
     find_mode: FindMode = Field(default=FindMode.AUTO_FIND, description='find_mode_help')
     wait_time: Time = Field(default=Time(minute=2), description='wait_time_help')
@@ -102,9 +101,11 @@ class ExplorationConfig(BaseModel):
     auto_rotate: AutoRotate = Field(title='自动添加候补式神', default=AutoRotate.no,
                                     description='auto_rotate_help')
 
-    choose_rarity: ChooseRarity = Field(title='选择狗粮稀有度', default=ChooseRarity.N, description='choose_rarity_help')
+    choose_rarity: ChooseRarity = Field(title='选择狗粮稀有度', default=ChooseRarity.N,
+                                        description='choose_rarity_help')
 
     up_type: UpType = Field(title='UpType', default=UpType.ALL, description='up_type_help')
+
 
 class Exploration(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
@@ -113,4 +114,3 @@ class Exploration(ConfigBase):
     exploration_config: ExplorationConfig = Field(default_factory=ExplorationConfig)
     general_battle_config: GeneralBattleConfig = Field(default_factory=GeneralBattleConfig)
     switch_soul_config: SwitchSoulConfig = Field(default_factory=SwitchSoulConfig)
-

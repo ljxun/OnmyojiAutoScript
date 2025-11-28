@@ -1,22 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import re
 from time import sleep
-from datetime import timedelta, datetime, time
-from cached_property import cached_property
 
+from datetime import timedelta, datetime, time
 from module.exception import TaskEnd
 from module.logger import logger
-from module.base.timer import Timer
-
-from tasks.GameUi.page import page_main, page_mall
-from tasks.GameUi.game_ui import GameUi
-from tasks.RichMan.mall.friendship_points import FriendshipPoints
-from tasks.MysteryShop.config import MysteryShop, ShopConfig, ShareConfig
-from tasks.MysteryShop.assets import MysteryShopAssets
+from tasks.Component.GeneralInvite.config_invite import FindMode
 from tasks.Component.GeneralInvite.general_invite import GeneralInvite
-from tasks.Component.GeneralInvite.config_invite import InviteConfig, InviteNumber, FindMode
+from tasks.GameUi.page import page_mall
+from tasks.MysteryShop.assets import MysteryShopAssets
+from tasks.MysteryShop.config import ShopConfig, ShareConfig
+from tasks.RichMan.mall.friendship_points import FriendshipPoints
 
 """神秘商店"""
 

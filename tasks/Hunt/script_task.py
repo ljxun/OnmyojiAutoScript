@@ -9,14 +9,12 @@ from tasks.Component.GeneralBattle.config_general_battle import GeneralBattleCon
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.GeneralInvite.general_invite import GeneralInvite
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
-from tasks.GameUi.page import page_main, page_kirin, page_netherworld
+from tasks.GameUi.page import page_kirin, page_netherworld
 from tasks.Hunt.assets import HuntAssets
-from time import sleep
-
-""" 狩猎战 """
 
 
 class ScriptTask(GeneralBattle, GeneralInvite, SwitchSoul, HuntAssets):
+    """ 狩猎战 """
     kirin_day = True  # 不是麒麟就是阴界之门
 
     def run(self):

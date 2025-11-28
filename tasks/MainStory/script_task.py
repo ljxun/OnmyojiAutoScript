@@ -1,18 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import os
-from module.logger import logger
-import random
 from time import sleep
 
+import os
+import random
+from module.base.timer import Timer
 from module.exception import TaskEnd
+from module.logger import logger
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
 from tasks.MainStory.assets import MainStoryAssets
-from tasks.Restart.assets import RestartAssets
-from module.base.timer import Timer
 
 
 class ScriptTask(GeneralBattle, GameUi, MainStoryAssets):
@@ -136,7 +135,6 @@ class ScriptTask(GeneralBattle, GameUi, MainStoryAssets):
 
 if __name__ == "__main__":
     from tasks.MainStory.assets import MainStoryAssets
-    from module.base.utils import save_image
     from module.device.device import Device
     from module.config.config import Config
     from tasks.Restart.assets import RestartAssets

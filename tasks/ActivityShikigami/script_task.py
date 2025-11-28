@@ -1,14 +1,15 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from enum import Enum, auto
 from time import sleep
 
 import cv2
 import numpy as np
 import random
 import tasks.Component.GeneralBattle.config_general_battle
-from datetime import datetime, timedelta, time
+import tasks.GameUi.page as game
+from datetime import datetime, timedelta
+from enum import Enum, auto
 from module.atom.click import RuleClick
 from module.atom.ocr import RuleOcr
 from module.base.protect import random_sleep
@@ -20,8 +21,6 @@ from tasks.ActivityShikigami.config import SwitchSoulConfig, GeneralBattleConfig
 from tasks.Component.BaseActivity.base_activity import BaseActivity
 from tasks.Component.BaseActivity.config_activity import GeneralClimb
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
-from tasks.GameUi.game_ui import GameUi
-import tasks.GameUi.page as game
 from typing import Any
 
 

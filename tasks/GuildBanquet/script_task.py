@@ -25,16 +25,19 @@ WEEKDAYDICT = {
     6: '星期日'
 }
 
+
 class Weekday(str,Enum):
     Monday: str = "星期一"
-    Tuesday: str = "星期二" 
+    Tuesday: str = "星期二"
     Wednesday: str = "星期三"
     Thursday: str = "星期四"
     Friday: str = "星期五"
     Saturday: str = "星期六"
     Sunday: str = "星期日"
-    
+
+
 class ScriptTask(GeneralBattle, SwitchSoul, GuildBanquetAssets, SecretAssets):
+    """ 寮宴会 """
 
     def run(self):
         self.run_time = self.config.guild_banquet.guild_banquet_time
@@ -183,39 +186,39 @@ class ScriptTask(GeneralBattle, SwitchSoul, GuildBanquetAssets, SecretAssets):
     def plan_next_run(self):
         # 安排次日宴会，便于复用
         today = datetime.now().weekday()
-        
+
         if today < self.banquet_day_1:
             logger.info(f"Plan next run: {self.banquet_day_1_start_time}")
-            self.custom_next_run(task='GuildBanquet', custom_time=self.banquet_day_1_start_time, time_delta=self.banquet_day_1 - today) 
+            self.custom_next_run(task='GuildBanquet', custom_time=self.banquet_day_1_start_time, time_delta=self.banquet_day_1 - today)
         elif self.banquet_day_1 <= today < self.banquet_day_2:
             logger.info(f"Plan next run: {self.banquet_day_2_start_time}")
             self.custom_next_run(task='GuildBanquet', custom_time=self.banquet_day_2_start_time, time_delta=self.banquet_day_2 - today)
         elif self.banquet_day_2 <= today:
             logger.info(f"Plan next run: {self.banquet_day_1_start_time}")
-            self.custom_next_run(task='GuildBanquet', custom_time=self.banquet_day_1_start_time, time_delta=7 - today + self.banquet_day_1) 
-    
+            self.custom_next_run(task='GuildBanquet', custom_time=self.banquet_day_1_start_time, time_delta=7 - today + self.banquet_day_1)
+
     def get_key_from_value(self, dict, value):
         return [k for k, v in dict.items() if v == value][0]
-    
+
     def get_weekday_enum(self, value: str) -> Weekday:
         for day in Weekday:
             if day.value == value:
                 return day
-        
+
     def set_config(self):
         """
         修改周几配置时会出现警告
         """
-        
+
         try:
             # 当结束宴会时，设置宴会时间的日期及时间，宴会时间设置为运行结束时间提前15分钟(因识图问题，宴会可能被认为提前关闭几秒钟)
             next_time = datetime.now() - timedelta(minutes=14, seconds=55)
             next_time = next_time.replace(second=0, microsecond=0)
             # 计算下次运行时间
             next_time = datetime.time(next_time)
-            
-            today = datetime.now().weekday()          
-            
+
+            today = datetime.now().weekday()
+
             # 修改配置文件
             if today == self.banquet_day_1:
                 self.run_time.run_time_1 = next_time
@@ -225,7 +228,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, GuildBanquetAssets, SecretAssets):
                 self.run_time.day_1 = self.get_weekday_enum(WEEKDAYDICT.get(today))
                 self.run_time.run_time_1 = next_time
             elif today > self.banquet_day_2:
-                self.run_time.day_2 = self.get_weekday_enum(WEEKDAYDICT.get(today))    
+                self.run_time.day_2 = self.get_weekday_enum(WEEKDAYDICT.get(today))
                 self.run_time.run_time_2 = next_time
             else:
                 # 如果当前时间在两个配置时间之间，则默认把工作日设置第一天，周末设为第二天
@@ -233,10 +236,10 @@ class ScriptTask(GeneralBattle, SwitchSoul, GuildBanquetAssets, SecretAssets):
                     self.run_time.day_1 = self.get_weekday_enum(WEEKDAYDICT.get(today))
                     self.run_time.run_time_1 = next_time
                 else:  # 周末
-                    self.run_time.day_2 = self.get_weekday_enum(WEEKDAYDICT.get(today))       
+                    self.run_time.day_2 = self.get_weekday_enum(WEEKDAYDICT.get(today))
                     self.run_time.run_time_2 = next_time
             logger.info(f"Set next run time: {self.run_time}")
-            
+
             self.config.save()
         except Exception as e:
             logger.error(f"Error setting banquet config: {e}")

@@ -18,6 +18,8 @@ from tasks.Secret.config import Secret
 from tasks.WeeklyTrifles.assets import WeeklyTriflesAssets
 
 """ 秘闻 """
+
+
 class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
     lay_list = ['壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾']
 

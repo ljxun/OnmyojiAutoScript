@@ -2,10 +2,8 @@
 # @author runhey
 # github https://github.com/runhey
 from enum import Enum
+from pydantic import BaseModel, ValidationError, Field
 from typing import Union
-from pydantic import BaseModel, ValidationError, validator, Field
-
-from module.logger import logger
 
 
 class PackageName(str, Enum):

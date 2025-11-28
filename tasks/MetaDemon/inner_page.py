@@ -1,6 +1,6 @@
 from tasks.GameUi.assets import GameUiAssets
-from tasks.GameUi.page import Page, page_act_list, page_main, page_shikigami_records, page_reward, random_click, \
-    page_failed, page_battle
+from tasks.GameUi.page import Page, page_act_list, page_main, page_reward, random_click, \
+    page_failed
 from tasks.GlobalGame.assets import GlobalGameAssets
 from tasks.MetaDemon.assets import MetaDemonAssets
 

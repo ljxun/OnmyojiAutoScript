@@ -2,9 +2,9 @@
 # @author runhey
 # github https://github.com/runhey
 from pydantic import BaseModel, Field
-
-from tasks.Component.config_scheduler import Scheduler
 from tasks.Component.config_base import ConfigBase
+from tasks.Component.config_scheduler import Scheduler
+
 
 class KittyShopConfig(BaseModel):
     kitty_attempts: int = Field(default=1, description='kitty_attempts_help')
