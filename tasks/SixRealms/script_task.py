@@ -8,11 +8,9 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_six_gates
 from tasks.SixRealms.moon_sea.moon_sea import MoonSea
 
-""" 六道之门 """
-
 
 class ScriptTask(SwitchSoul, MoonSea):
-
+    """ 六道之门 """
     @property
     def _config(self):
         return self.config.model.six_realms
@@ -44,11 +42,9 @@ class ScriptTask(SwitchSoul, MoonSea):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
-    t.screenshot()
+    t = ScriptTask(c)
+    # t.screenshot()
 
-    t.run_moon_sea()
+    t.run()

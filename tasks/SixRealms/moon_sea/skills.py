@@ -22,6 +22,7 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
             return True
         if self.appear(self.I_BOSS_FIRE):
             return True
+        logger.info('Not in main')
         return False
 
     def battle_lock_team(self):

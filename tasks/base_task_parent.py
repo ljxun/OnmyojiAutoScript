@@ -180,6 +180,18 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
 
         return appear
 
+    def appear_then_click_and_wait(self, target, wait_time):
+        if not isinstance(target, RuleImage):
+            return False
+
+        appear = self.appear(target)
+        if appear:
+            x, y = target.coord()
+            self.device.click(x, y, control_name=target.name)
+            sleep(wait_time)
+            return True
+        return False
+
     def appear_then_click(self,
                           target: RuleImage | RuleGif,
                           action: Union[RuleClick, RuleLongClick] = None,

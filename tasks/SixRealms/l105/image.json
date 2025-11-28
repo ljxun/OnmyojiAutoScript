@@ -1,0 +1,11 @@
+[
+  {
+    "itemName": "zhaofu",
+    "imageName": "zhaofu.png",
+    "roiFront": "421,270,22,51",
+    "roiBack": "382,205,97,214",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "招福达摩"
+  }
+]

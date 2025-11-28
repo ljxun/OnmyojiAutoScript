@@ -1,0 +1,47 @@
+[
+  {
+    "itemName": "ningxi",
+    "imageName": "ningxi.png",
+    "roiFront": "646,424,30,31",
+    "roiBack": "151,88,908,513",
+    "method": "Template matching",
+    "threshold": 0.65,
+    "description": "宁息"
+  },
+  {
+    "itemName": "hundun",
+    "imageName": "hundun.png",
+    "roiFront": "370,405,33,31",
+    "roiBack": "151,88,908,513",
+    "method": "Template matching",
+    "threshold": 0.65,
+    "description": "混沌"
+  },
+  {
+    "itemName": "zhan",
+    "imageName": "zhan.png",
+    "roiFront": "644,468,28,29",
+    "roiBack": "151,88,908,513",
+    "method": "Template matching",
+    "threshold": 0.65,
+    "description": "鏖战"
+  },
+  {
+    "itemName": "shenmi",
+    "imageName": "shenmi.png",
+    "roiFront": "901,458,36,28",
+    "roiBack": "151,88,908,513",
+    "method": "Template matching",
+    "threshold": 0.65,
+    "description": "神秘"
+  },
+  {
+    "itemName": "xing",
+    "imageName": "xing.png",
+    "roiFront": "643,466,30,27",
+    "roiBack": "151,88,908,513",
+    "method": "Template matching",
+    "threshold": 0.7,
+    "description": "星之屿"
+  }
+]

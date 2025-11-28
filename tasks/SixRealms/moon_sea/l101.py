@@ -102,11 +102,9 @@ class MoonSeaL101(MoonSeaSkills):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = MoonSeaL101(c, d)
+    t = MoonSeaL101(c)
     t.screenshot()
 
     t.run_l101()
