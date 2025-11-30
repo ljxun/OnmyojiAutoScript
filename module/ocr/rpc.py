@@ -18,7 +18,7 @@ class ModelProxy:
             return
 
         logger.info(f"Connecting to OCR server {address}")
-        cls.client = zerorpc.Client(timeout=3)
+        cls.client = zerorpc.Client(timeout=30)
         cls.client.connect(f"tcp://{address}")
         try:
             cls.client.hello()
