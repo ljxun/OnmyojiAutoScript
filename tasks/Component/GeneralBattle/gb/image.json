@@ -244,9 +244,9 @@
   },
   {
     "itemName": "soul_full_ensure",
-    "imageName": "gb_exit_ensure.png",
-    "roiFront": "573,388,135,63",
-    "roiBack": "573,388,135,63",
+    "imageName": "soul_full_ensure.png",
+    "roiFront": "677,393,125,59",
+    "roiBack": "677,393,125,59",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "御魂溢出确认"
