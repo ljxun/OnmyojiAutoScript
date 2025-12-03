@@ -103,31 +103,29 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
                     return True
             return False
 
+        if self.appear(self.I_UI_CONFIRM):
+            self.ui_click_until_disappear(self.I_UI_CONFIRM)
+            return True
 
-        while 1:
-            self.screenshot()
-            if self.in_main():
-                break
+        if self.appear(self.I_SKILL_REFRESH) and self.appear(self.I_SELECT_3) and not self.appear(self.I_COIN2):
+            # 战斗结束后选技能
+            logger.info('Start select skill')
+            select = self._select_skill()
+            # 如果没有柔风并且钱够并且还有刷新次数
+            if refresh and select == 3 and check_coin_skill() and check_refresh() and self.cnt_skill101 < 5:
+                logger.info('Refresh skill')
+                self.appear_then_click(self.I_SKILL_REFRESH)
+                self.wait_until_stable(self.I_UI_CONFIRM, timeout=Timer(2))
+                self.appear_then_click(self.I_UI_CONFIRM)
+                self.wait_animate_stable(self.C_MAIN_ANIMATE_KEEP, timeout=1)
 
-            if self.appear(self.I_UI_CONFIRM):
-                self.ui_click_until_disappear(self.I_UI_CONFIRM)
+            if self.appear_then_click(self.selects_button[select]):
+                self.wait_animate_stable(self.C_MAIN_ANIMATE_KEEP, timeout=2)
 
-            if self.appear(self.I_SKILL_REFRESH) and self.appear(self.I_SELECT_3) and not self.appear(self.I_COIN2):
-                # 战斗结束后选技能
-                logger.info('Start select skill')
-                select = self._select_skill()
-                # 如果没有柔风并且钱够并且还有刷新次数
-                if refresh and select == 3 and check_coin_skill() and check_refresh() and self.cnt_skill101 < 5:
-                    logger.info('Refresh skill')
-                    self.appear_then_click(self.I_SKILL_REFRESH)
-                    self.wait_until_stable(self.I_UI_CONFIRM, timeout=Timer(2))
-                    self.appear_then_click(self.I_UI_CONFIRM)
-                    self.wait_animate_stable(self.C_MAIN_ANIMATE_KEEP, timeout=1)
-                    continue
-                if self.appear_then_click(self.selects_button[select]):
-                    self.wait_animate_stable(self.C_MAIN_ANIMATE_KEEP, timeout=2)
-                    continue
-            if self.appear_then_click(self.I_COIN, action=self.C_UI_REWARD, interval=1.5):
-                continue
+            return True
+
+        if self.appear_then_click(self.I_COIN, action=self.C_UI_REWARD, interval=1.5):
+            return True
+        return None
 
 

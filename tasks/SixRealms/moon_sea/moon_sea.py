@@ -53,7 +53,6 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
         while 1:
             self.screenshot()
 
-            self.select_skill(refresh=True)
             # if self.activate_store():
             #     continue
 
@@ -65,7 +64,11 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
                 else:
                     continue
 
-            self.enter_island()
+            if self.select_skill(refresh=True):
+                continue
+
+            if self.enter_island():
+                continue
             isl_type = self.island_name()
             if not isl_type:
                 continue
@@ -153,15 +156,15 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
         while 1:
             self.screenshot()
             text = self.O_ISLAND_NAME.ocr(self.device.image)
-            if '星' in text:
+            if '星之屿' in text:
                 return MoonSeaType.island105
-            if '战' in text:
+            if '鏖战之屿' in text:
                 return MoonSeaType.island104
-            if '混' in text:
+            if '混沌之屿' in text:
                 return MoonSeaType.island103
-            if '神秘' in text:
+            if '神秘之屿' in text:
                 return MoonSeaType.island102
-            if '宁息' in text:
+            if '宁息之屿' in text:
                 return MoonSeaType.island101
             else:
                 return False
@@ -219,7 +222,7 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('mi')
+    c = Config('du')
     t = MoonSea(c)
     t.one()
     # t.select_skill()

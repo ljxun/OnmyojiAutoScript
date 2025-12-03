@@ -5,23 +5,21 @@ from tasks.SixRealms.moon_sea.skills import MoonSeaSkills
 class MoonSeaMap(MoonSeaSkills):
 
     def enter_island(self):
-        while 1:
-            self.screenshot()
-            if not self.in_main() and self.appear(self.I_BACK_EXIT):
-                break
-            if self.appear_then_click_and_wait(self.I_UI_CANCEL, wait_time=1):
-                continue
-            if self.appear_then_click_and_wait(self.I_SHENMI, wait_time=1):
-                continue
-            if self.appear_then_click_and_wait(self.I_HUNDUN, wait_time=1):
-                continue
-            if self.appear_then_click_and_wait(self.I_ZHAN, wait_time=1):
-                continue
-            if self.appear_then_click_and_wait(self.I_XING, wait_time=1):
-                continue
-            if self.appear_then_click_and_wait(self.I_NINGXI, wait_time=1):
-                continue
+        self.screenshot()
+        if self.appear_then_click_and_wait(self.I_UI_CANCEL, wait_time=1):
+            return True
+        if self.appear_then_click_and_wait(self.I_SHENMI, wait_time=1):
+            return True
+        if self.appear_then_click_and_wait(self.I_HUNDUN, wait_time=1):
+            return True
+        if self.appear_then_click_and_wait(self.I_ZHAN, wait_time=1):
+            return True
+        if self.appear_then_click_and_wait(self.I_XING, wait_time=1):
+            return True
+        if self.appear_then_click_and_wait(self.I_NINGXI, wait_time=1):
+            return True
         logger.info('Entering island')
+        return None
 
     def activate_store(self) -> bool:
         """

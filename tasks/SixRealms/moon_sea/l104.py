@@ -16,7 +16,6 @@ class MoonSeaL104(MoonSeaSkills):
         self.battle_lock_team()
         self.island_battle()
         logger.info('Island battle finished')
-        self.select_skill(refresh=True)
 
 
 if __name__ == '__main__':
