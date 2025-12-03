@@ -11,11 +11,18 @@ from tasks.Component.config_scheduler import Scheduler
 class ActiveType(str, Enum):
     battle = '战斗'
     delegate = '委派'
+    huanjing = '狭间幻境'
+    lingran = '灵染试炼'
 
 
 class ModeType(str, Enum):
     DigitCounter = 'DigitCounter'
     Digit = 'Digit'
+
+
+class NumberType(str, Enum):
+    Ticket = '门票'
+    Battle = '战斗'
 
 
 class ActivityCommonConfig(BaseModel):
@@ -37,7 +44,9 @@ class CheckBattleConfig(ConfigBase):
     enable: bool = Field(default=False, description='auto_enable_help')
     ocr_number_mode: ModeType = Field(default=ModeType.DigitCounter, description='ocr类型')
     ocr_number_roi: str = Field(default='', description='ocr坐标')
-    limit_ocr_number: int = Field(default=0, description='limit_count_help')
+    limit_ocr_number: int = Field(default=-1, description='检测限制次数')
+    number_type: NumberType = Field(default=NumberType.Battle, description='检测限制次数类型')
+
 
 
 class ActivityCommon(ConfigBase):

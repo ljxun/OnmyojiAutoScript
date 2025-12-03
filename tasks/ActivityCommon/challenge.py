@@ -1,15 +1,16 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-
 import os
 import random
+from cached_property import cached_property
 from datetime import datetime, timedelta, time
 from module.atom.image import RuleImage
 from module.atom.ocr import RuleOcr
 from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
+from tasks.ActivityCommon.config import NumberType, ModeType
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main
@@ -19,15 +20,6 @@ from tasks.Restart.assets import RestartAssets
 class ScriptTask(SwitchSoul, GeneralBattle):
     """ 战斗 """
     SoulsFUll = False
-
-    def run(self):
-        config = self.config.activity_common
-        # 进入挑战界面图片路径
-        goto_challenge_folder = "./tasks/ActivityCommon/gotoChallenge"
-        # 战斗图片路径
-        battle_folder = "./tasks/ActivityCommon/战斗"
-
-        self.run_config(config, goto_challenge_folder, battle_folder)
 
     def run_config(self, config, goto_challenge_folder, battle_folder):
 
@@ -75,19 +67,54 @@ class ScriptTask(SwitchSoul, GeneralBattle):
             self.set_next_run(task=self.config.task.command, finish=True, success=True)
         raise TaskEnd
 
-    def check_battle(self, config):
-        con = config.check_battle_config
-        roi = tuple(map(int, con.ocr_number_roi.split(',')))
-        mode = con.ocr_number_mode
-        limit_ocr_number = con.limit_ocr_number
-        O_NUMBER = RuleOcr(roi=roi, area=roi, mode=mode, method="Default", keyword="", name="number")
 
-        if mode == "DigitCounter":
+    def check_battle(self, config):
+
+        # 使用实例属性缓存，基于config生成唯一标识
+        cache_key = id(config.check_battle_config)
+
+        if not hasattr(self, '_battle_cache'):
+            self._battle_cache = {}
+
+        if cache_key not in self._battle_cache:
+            con = config.check_battle_config
+            roi = tuple(map(int, con.ocr_number_roi.split(',')))
+            mode = con.ocr_number_mode
+            limit_ocr_number = con.limit_ocr_number
+            number_type = con.number_type
+            O_NUMBER = RuleOcr(roi=roi, area=roi, mode=mode, method="Default", keyword="", name="number")
+
+            self._battle_cache[cache_key] = {
+                'roi': roi,
+                'mode': mode,
+                'limit_ocr_number': limit_ocr_number,
+                'number_type': number_type,
+                'O_NUMBER': O_NUMBER
+            }
+
+        # 使用缓存的数据
+        cached = self._battle_cache[cache_key]
+        roi = cached['roi']
+        mode = cached['mode']
+        limit_ocr_number = cached['limit_ocr_number']
+        number_type = cached['number_type']
+        O_NUMBER = cached['O_NUMBER']
+
+        if mode == ModeType.DigitCounter:
             cu, res, total = self.ocr_result(O_NUMBER)
-            if limit_ocr_number != 0:
-                if cu >= limit_ocr_number and cu + res == total and total > 0:
-                    self.push_notify(content=f"限制数量[{limit_ocr_number}]已达到: {cu}/{total}")
-                    self.set_next_run(task=self.config.task.command, target=datetime.now() + timedelta(minutes=10))
+            if 0 < total == cu + res:
+                should_notify = False
+                if number_type == NumberType.Ticket:
+                    if cu <= limit_ocr_number:
+                        should_notify = True
+                elif number_type == NumberType.Battle:
+                    if cu >= limit_ocr_number:
+                        should_notify = True
+
+                if should_notify:
+                    self.push_notify(content=f"限制[{limit_ocr_number}]已达到: {cu}/{total}")
+                    self.set_next_run()
+                    # self.set_next_run(task=self.config.task.command, target=datetime.now() + timedelta(minutes=10))
                     raise TaskEnd
 
     def goto_challenge(self, goto_challenge_templates):
