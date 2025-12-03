@@ -52,6 +52,8 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
             return False
         while 1:
             self.screenshot()
+
+            self.select_skill(refresh=True)
             # if self.activate_store():
             #     continue
 

@@ -22,7 +22,6 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
             return True
         if self.appear(self.I_BOSS_FIRE):
             return True
-        logger.info('Not in main')
         return False
 
     def battle_lock_team(self):
@@ -103,8 +102,7 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
                 else:
                     return True
             return False
-        # 战斗结束后选技能
-        logger.info('Start select skill')
+
 
         while 1:
             self.screenshot()
@@ -115,6 +113,8 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
                 self.ui_click_until_disappear(self.I_UI_CONFIRM)
 
             if self.appear(self.I_SKILL_REFRESH) and self.appear(self.I_SELECT_3) and not self.appear(self.I_COIN2):
+                # 战斗结束后选技能
+                logger.info('Start select skill')
                 select = self._select_skill()
                 # 如果没有柔风并且钱够并且还有刷新次数
                 if refresh and select == 3 and check_coin_skill() and check_refresh() and self.cnt_skill101 < 5:
