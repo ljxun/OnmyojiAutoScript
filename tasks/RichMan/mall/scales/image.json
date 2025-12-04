@@ -2,8 +2,8 @@
   {
     "itemName": "sca_orochi_scales",
     "imageName": "scales_sca_orochi_scales.png",
-    "roiFront": "110,261,100,100",
-    "roiBack": "110,261,100,100",
+    "roiFront": "129,236,77,75",
+    "roiBack": "129,236,77,75",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "蛇皮"
@@ -11,8 +11,8 @@
   {
     "itemName": "sca_demon_souls",
     "imageName": "scales_sca_demon_souls.png",
-    "roiFront": "707,260,100,100",
-    "roiBack": "707,260,100,100",
+    "roiFront": "721,235,76,77",
+    "roiBack": "721,235,76,77",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "首领御魂"
@@ -20,8 +20,8 @@
   {
     "itemName": "sca_picture_book",
     "imageName": "scales_sca_picture_book.png",
-    "roiFront": "995,258,100,100",
-    "roiBack": "995,258,100,100",
+    "roiFront": "1008,233,76,77",
+    "roiBack": "1008,233,76,77",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "永生之海"

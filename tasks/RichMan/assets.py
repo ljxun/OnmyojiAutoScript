@@ -258,11 +258,11 @@ class RichManAssets:
 
 	# Image Rule Assets
 	# 蛇皮 
-	I_SCA_OROCHI_SCALES = RuleImage(roi_front=(110,261,100,100), roi_back=(110,261,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_orochi_scales.png")
+	I_SCA_OROCHI_SCALES = RuleImage(roi_front=(129,236,77,75), roi_back=(129,236,77,75), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_orochi_scales.png")
 	# 首领御魂 
-	I_SCA_DEMON_SOULS = RuleImage(roi_front=(707,260,100,100), roi_back=(707,260,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_demon_souls.png")
+	I_SCA_DEMON_SOULS = RuleImage(roi_front=(721,235,76,77), roi_back=(721,235,76,77), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_demon_souls.png")
 	# 永生之海 
-	I_SCA_PICTURE_BOOK = RuleImage(roi_front=(995,258,100,100), roi_back=(995,258,100,100), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_picture_book.png")
+	I_SCA_PICTURE_BOOK = RuleImage(roi_front=(1008,233,76,77), roi_back=(1008,233,76,77), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_picture_book.png")
 	# 土蜘蛛 
 	I_SCA_DEMON_BOSS_1 = RuleImage(roi_front=(246,224,112,126), roi_back=(168,142,346,290), threshold=0.8, method="Template matching", file="./tasks/RichMan/mall/scales/scales_sca_demon_boss_1.png")
 	# 胧车 

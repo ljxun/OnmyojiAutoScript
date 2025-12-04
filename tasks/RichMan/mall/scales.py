@@ -171,6 +171,7 @@ class Scales(Buy, MallNavbar):
         # 检查是否出现了购买按钮
         if not self.appear(self.I_SCA_OROCHI_SCALES):
             logger.warning('Scales orochi is not appear')
+            self.save_image(wait_time=0, image_type=True, push_flag=True, content="未发现紫色蛇皮")
             return
         while True:
             self.screenshot()
@@ -310,6 +311,7 @@ class Scales(Buy, MallNavbar):
         # 检查是否出现了购买按钮
         if not self.appear(self.I_SCA_PICTURE_BOOK):
             logger.warning('Scales sea is not appear')
+            self.save_image(wait_time=0, image_type=True, push_flag=True, content="未发现潮汐御魂")
             return
         # 检查剩余数量
         remain_number = self.O_SCA_NUMBER_SEA.ocr(self.device.image)
@@ -357,13 +359,11 @@ class Scales(Buy, MallNavbar):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('MI')
-    d = Device(c)
-    t = Scales(c, d)
+    t = Scales(c)
 
-    # t.execute_scales()
+    t.execute_scales()
 
     # 朴素的御魂
     con = c.rich_man.scales
