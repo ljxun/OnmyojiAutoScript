@@ -110,7 +110,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
 
     def run(self):
         # 检查今天周几
-        # self.check_current_weekday()
+        self.check_current_weekday()
 
         cfg: Dokan = self.config.dokan
 
