@@ -497,6 +497,11 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
         :return:
         """
         logger.info(f"开始战斗准备")
+        self.run_general_battle(self.config.abyss_shadows.general_battle_config)
+
+    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+        logger.info(f"开始战斗")
+        self.device.stuck_record_add('BATTLE_STATUS_S')
         while 1:
             self.screenshot()
             if self.appear_then_click(self.I_PREPARE_HIGHLIGHT, interval=1):
@@ -512,9 +517,9 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
 
 if __name__ == "__main__":
     from module.config.config import Config
-    from module.device.device import Device
 
-    config = Config('du')
-    device = Device(config)
-    t = ScriptTask(config, device)
-    t.run()
+    config = Config('mi')
+    t = ScriptTask(config)
+    # t.run()
+
+    t.battle_fight()
