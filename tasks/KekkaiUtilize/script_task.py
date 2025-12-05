@@ -97,16 +97,13 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
         con = self.config.kekkai_utilize.utilize_config
         while 1:
             if self.run_utilize_count >= 2:
-                self.push_notify(content=f"没有合适可以蹭的卡, 5分钟后再次执行蹭卡")
+                self.push_notify(content=f"{self.run_utilize_count}次没有发现适合蹭的卡, 5分钟后运行")
                 self.set_next_run(task='KekkaiUtilize', target=datetime.now() + timedelta(minutes=5))
                 return
 
             # 无论收不收到菜，都会进入看看至少看一眼时间还剩多少
-            time.sleep(0.5)
-            # 进入育成界面
+            # 进入进入式神育成界面
             self.realm_goto_grown()
-            self.screenshot()
-
             if not self.appear(self.I_UTILIZE_ADD):
                 remaining_time = self.O_UTILIZE_RES_TIME.ocr(self.device.image)
                 if not isinstance(remaining_time, timedelta):
@@ -117,12 +114,11 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
                 next_time = datetime.now() + remaining_time
                 self.set_next_run(task='KekkaiUtilize', target=next_time)
                 return
-            if not self.grown_goto_utilize():
-                logger.info('Utilize failed, exit')
+            # 从式神育成界面到 蹭卡界面
+            self.grown_goto_utilize()
             # 开始执行寄养
             self.run_utilize(con.select_friend_list, con.shikigami_class, con.shikigami_order)
-            self.run_utilize_count += 1
-            # 进入寮结界
+            # 回到寮结界
             self.ui_goto_page(page_realm)
 
     def check_max_lv(self, shikigami_class: ShikigamiClass = ShikigamiClass.N):
@@ -420,8 +416,7 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
         执行寄养
         :param shikigami_class:
         :param friend:
-        :param rule:
-        :return:
+        :param shikigami_order:
         """
         logger.hr('Start utilize')
         if self.first_utilize:
@@ -438,6 +433,7 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
 
         # --------------- 结界卡选择 ---------------
         if not self._select_optimal_resource_card():
+            self.run_utilize_count += 1
             return False
 
         # 找到卡,重置次数
@@ -449,7 +445,7 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
             logger.warning('Cannot find enter realm button')
             # 可能是滑动的时候出错
             logger.warning('The best reason is that the swipe is wrong')
-            return
+            return False
         wait_timer = Timer(20)
         wait_timer.start()
         while 1:
@@ -468,7 +464,7 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
             if wait_timer.reached():
                 self.save_image(wait_time=0, push_flag=False, content='进入好友结界超时', image_type='png')
                 logger.warning('Appear friend realm timeout')
-                return
+                return False
             if self.appear_then_click(self.I_CHECK_FRIEND_REALM_2, interval=1.5):
                 logger.info('Click too fast to enter the friend\'s realm pool')
                 continue
@@ -490,7 +486,7 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
             # 没有坑位可能是其他人的手速太快了抢占了
             self.save_image(content='没有坑位了', wait_time=0, push_flag=False, image_type='png')
             logger.warning('没有坑位可能是其他人的手速太快了抢占了')
-            return True
+            return False
         # 切换式神的类型
         self.switch_shikigami_class(shikigami_class)
         # 上式神
@@ -707,9 +703,9 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config('4399')
+    c = Config('wy')
     t = ScriptTask(c)
-    t.check_lottery_box()
+    t.run()
     # for i in range(10):
     #     t.perform_swipe_action()
     # t.recive_guild_ap_or_assets()
