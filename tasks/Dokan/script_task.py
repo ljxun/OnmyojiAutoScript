@@ -88,8 +88,10 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         welfare_file = 'config/福利寮名单.txt'
         try:
             with open(welfare_file, 'r', encoding='utf-8') as file:
-                # 读取所有行并连接成一个字符串
-                content = file.read().strip()
+                # 读取所有行并放到一个列表中
+                lines = file.readlines()
+                # 去除每行末尾的换行符并过滤空行
+                content = [line.strip() for line in lines if line.strip()]
                 return content
         except FileNotFoundError:
             self.push_notify(content=f"福利寮名单文件未找到: {config_path}")
@@ -945,14 +947,16 @@ if __name__ == "__main__":
     config = Config('du')
     t = ScriptTask(config)
     # t.save_image()
-    t.run()
+    # t.run()
     # t.find_dokan(config.dokan.welfare_config, True)
     # t.find_dokan()
 
-    # welfare_names = t.welfare_name_str()
-    # if "鑫鑫" in welfare_names:
-    #     print("有")
-
+    welfare_names = t.welfare_name_str()
+    print(welfare_names)
+    if "锦鲤一一" in welfare_names:
+        print("有")
+    else:
+        print("没有")
     # test_ocr_locate_dokan_target()
     # test_anti_detect_random_click()
     # test_goto_main()
