@@ -20,6 +20,7 @@ from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
 from tasks.GameUi.assets import GameUiAssets
 from tasks.GameUi.page import Page, PageRegistry, page_main
 from tasks.GlobalGame.assets import GlobalGameAssets
+from tasks.Restart.assets import RestartAssets
 from tasks.SixRealms.assets import SixRealmsAssets
 from tasks.base_task import BaseTask
 
@@ -28,9 +29,10 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
     ui_current: Page = None
     ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1, GlobalGameAssets.I_UI_EXIT,
                 GameUiAssets.I_BACK_MALL, GeneralBattleAssets.I_CONFIRM,
-                BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_YELLOW,
+                BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_YELLOW, BaseTask.I_UI_BACK_YELLOW_2,
                 GameUiAssets.I_BACK_FRIENDS, GameUiAssets.I_BACK_DAILY,
                 GameUiAssets.I_REALM_RAID_GOTO_EXPLORATION,
+                RestartAssets.I_HARVEST_CHAT_CLOSE,
                 GameUiAssets.I_SIX_GATES_GOTO_EXPLORATION, SixRealmsAssets.I_EXIT_SIXREALMS,
                 ActivityShikigamiAssets.I_SKIP_BUTTON, ActivityShikigamiAssets.I_RED_EXIT, BaseTask.I_UI_BACK_BLUE,
                 ActivityShikigamiAssets.I_RED_EXIT_2]

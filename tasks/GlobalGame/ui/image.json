@@ -45,6 +45,15 @@
     "description": "description"
   },
   {
+    "itemName": "ui_back_yellow_2",
+    "imageName": "ui_ui_back_yellow_2.png",
+    "roiFront": "30,34,37,35",
+    "roiBack": "30,34,37,35",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "ui_ui_back_yellow_2"
+  },
+  {
     "itemName": "ui_back_blue",
     "imageName": "ui_ui_back_blue.png",
     "roiFront": "32,37,51,45",
