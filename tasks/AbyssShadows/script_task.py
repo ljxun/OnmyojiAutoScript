@@ -491,17 +491,12 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
 
     def battle_fight(self) -> bool:
         """
-        重写父类方法，因为狭间暗域的准备和战斗流程不一样
-        进入挑战然后直接返回
-        :param config:
-        :return:
+        狭间暗域的准备和战斗
         """
-        logger.info(f"开始战斗准备")
-        self.run_general_battle(self.config.abyss_shadows.general_battle_config)
-
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+        logger.hr(f"准备战斗", 2)
+        config = self.config.abyss_shadows.general_battle_config
+        self.switch_preset_team(config.preset_enable, config.preset_group, config.preset_team)
         logger.info(f"开始战斗")
-        self.device.stuck_record_add('BATTLE_STATUS_S')
         while 1:
             self.screenshot()
             if self.appear_then_click(self.I_PREPARE_HIGHLIGHT, interval=1):
