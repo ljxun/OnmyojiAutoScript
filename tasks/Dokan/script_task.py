@@ -520,7 +520,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
 
         if '挑战成功' in dokan_status_str or '0次' in dokan_status_str:
             self.dokan_battle_number = 0
-            # self.check_current_weekday(True)
+            self.check_current_weekday(True)
             if self.create_doukan_time:
                 self.set_next_run(target=self.create_doukan_time)
             else:
@@ -548,7 +548,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 time.sleep(wait_time)
                 if self.goto_dokan_num >= 15:
                     logger.info(f"寮成员{self.goto_dokan_num}次未进入道馆, 结束任务!")
-                    # self.check_current_weekday(True)
+                    self.check_current_weekday(True)
                     if self.create_doukan_time:
                         self.set_next_run(target=self.create_doukan_time)
                     else:
