@@ -100,7 +100,7 @@ class SwitchSoul(GameUi, SwitchSoulAssets):
                 break
             cur_text = ocr_text
             # 向上滑动
-            self.swipe(self.S_SS_GROUP_SWIPE_UP, 1.5)
+            self.swipe(self.S_SS_GROUP_SWIPE_UP, 1)
             # 等待滑动动画
             sleep(0.5)
 
@@ -111,22 +111,6 @@ class SwitchSoul(GameUi, SwitchSoulAssets):
         # 这一步是选择组
         target_click, target_check = get_group_assets(group)
         logger.info(f'Click group {group} in initial area {target_click.roi_front}')
-        x, y, w, h = target_click.roi_front
-        # 计算新的宽高，确保至少为1
-        new_width = max(w // 2, 1)
-        new_height = max(h // 5, 1)
-
-        # 计算中心点
-        center_x = x + w // 2
-        center_y = y + h // 2
-
-        # 计算新的左上角坐标
-        new_x = center_x - new_width // 2
-        new_y = center_y - new_height // 2
-
-        # 更新目标点击区域
-        self.C_SOU_GROUP_CLICK_AREA.roi_front = (new_x, new_y, new_width, new_height)
-        logger.info(f'Click group {group} in new area {self.C_SOU_GROUP_CLICK_AREA.roi_front}')
 
         # while 1:
         #     self.screenshot()
@@ -136,7 +120,7 @@ class SwitchSoul(GameUi, SwitchSoulAssets):
         #         break
         # 2023.8.5 修改为无反馈的点击切换
         for i in range(3):
-            self.click(self.C_SOU_GROUP_CLICK_AREA)
+            self.click(target_click)
             sleep(0.5)
         # 点击队伍
         target_team = get_team_asset(team)
@@ -311,13 +295,11 @@ class SwitchSoul(GameUi, SwitchSoulAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    s = SwitchSoul(c, d)
+    s = SwitchSoul(c)
 
     s.click_preset()
-    # s.switch_soul_one(4, 1)
+    s.switch_soul_one(4, 1)
     # s.switch_soul_by_name('契灵', '茨球')
-    s.switch_soul_by_name('默认分组', '队伍5')
+    # s.switch_soul_by_name('默认分组', '队伍5')
