@@ -3,13 +3,15 @@
 import json
 import os
 import subprocess
+from module.logger import logger
 
 
 def execute_emulator(command):
     """
     执行模拟器命令
     """
-    # logger.info(f'执行命令: {command}')
+    # command_str = ' '.join(command)
+    # logger.info(f'执行命令: {command_str}')
     # 隐藏CMD窗口执行命令
     startupinfo = None
     if os.name == 'nt':  # Windows系统

@@ -165,13 +165,16 @@ class EmulatorManager:
         """
         检查游戏是否已启动
         """
-        app_control = AppControl(self.config)
-        return app_control.app_is_running()
+        # E:\MuMuPlayer-12.0\shell\MuMuManager.exe control -v all app  info -pkg com.netease.onmyoji.wyzymnqsd_cps
+        # E:\MuMuPlayer-12.0\shell\MuMuManager.exe control -v 3   app  info -pkg com.netease.onmyoji.m4399
 
-        # state = self.get_app_status()
-        # is_running = state == "running"
-        # logger.info(f"游戏运行状态: {is_running}")
-        # return is_running
+        # app_control = AppControl(self.config)
+        # return app_control.app_is_running()
+
+        state = self.get_app_status()
+        is_running = state == "running"
+        logger.info(f"游戏运行状态: {is_running}")
+        return is_running
 
     def is_emulator_running(self):
         """
@@ -213,9 +216,10 @@ class EmulatorManager:
 if __name__ == "__main__":
     from module.config.config import Config
 
-    config = Config('4399-2')
+    config = Config('du')
     # 创建模拟器管理器实例
     manager = EmulatorManager(config)
+    manager.is_app_running()
 
     # # 检查模拟器状态
     # if manager.is_emulator_running():
