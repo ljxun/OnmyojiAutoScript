@@ -71,20 +71,20 @@ class MoonSeaL101(MoonSeaSkills):
             # 有时候点击进入商店太快了，就进入会选随机的一个
             self.ui_click_until_disappear(self.I_UI_CANCEL, interval=1)
         while 1:
-            self.screenshot()
-            coin = self.O_COIN_NUM.ocr(self.device.image)
-            if coin < 300:
-                logger.info('Not enough coin')
-                break
             if self.cnt_skill101 >= 5:
-                logger.info('Skill 101 level is max')
+                logger.info('柔风已经满级, 退出')
+                break
+            self.screenshot()
+            self.cnt_coin = self.O_COIN_NUM.ocr(self.device.image)
+            if self.cnt_coin < 300:
+                logger.info('Not enough coin')
                 break
 
             if self.appear(self.I_UI_CONFIRM):
                 self.ui_click_until_disappear(self.I_UI_CONFIRM, interval=1)
             if self.appear(self.I_STORE_SKILL_101):
                 self.buy_skill_101()
-            elif coin < 400:
+            elif self.cnt_coin < 400:
                 break
             elif not self.refresh_store():
                 break

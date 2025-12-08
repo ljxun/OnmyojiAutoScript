@@ -29,6 +29,9 @@ class MoonSeaMap(MoonSeaSkills):
         if self.cnt_skill101 >= 5:
             # 如果柔风满级就不召唤
             return False
+        if not self.cnt_coin >= 700:
+            return False
+        logger.info('召唤宁息岛屿')
         self.screenshot()
         if not self.appear_rgb(self.I_M_STORE_ACTIVITY):
             return False
@@ -45,6 +48,7 @@ class MoonSeaMap(MoonSeaSkills):
             if self.appear_then_click(self.I_M_STORE_ACTIVITY, interval=1.5):
                 cnt_act += 1
                 continue
+        self.ui_click_until_disappear(self.I_NINGXI)
         return True
 
 

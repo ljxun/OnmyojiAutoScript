@@ -12,6 +12,7 @@ from tasks.SixRealms.assets import SixRealmsAssets
 class MoonSeaSkills(BaseTask, SixRealmsAssets):
 
     cnt_skill101 = 0
+    cnt_coin = 0
 
     def in_main(self, screenshot: bool = False):
         if screenshot:
@@ -86,8 +87,8 @@ class MoonSeaSkills(BaseTask, SixRealmsAssets):
 
     def select_skill(self, refresh: bool = False):
         def check_coin_skill() -> bool:
-            coin = self.O_COIN_NUM.ocr(self.device.image)
-            return False if coin < 50 else True
+            self.cnt_coin = self.O_COIN_NUM.ocr(self.device.image)
+            return self.cnt_coin > 50
 
         def check_refresh() -> bool:
             # 检测是否有钱刷新技能

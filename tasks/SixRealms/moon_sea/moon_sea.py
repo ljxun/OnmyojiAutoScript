@@ -53,8 +53,8 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
         while 1:
             self.screenshot()
 
-            # if self.activate_store():
-            #     continue
+            if self.activate_store():
+                continue
 
             # 如果是boss
             if self.appear(self.I_BOSS_FIRE):
