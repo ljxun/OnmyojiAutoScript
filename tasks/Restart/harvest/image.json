@@ -214,5 +214,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "寮消息通知"
+  },
+  {
+    "itemName": "mail_cancel",
+    "imageName": "mail_cancel.png",
+    "roiFront": "435,402,174,60",
+    "roiBack": "435,402,174,60",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "邮件插画取消启用"
   }
 ]

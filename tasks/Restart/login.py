@@ -19,7 +19,7 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
         super().__init__(*wargs, **kwargs)
         self.character = self.config.restart.login_character_config.character
         self.O_LOGIN_SPECIFIC_SERVE.keyword = self.character
-        self.mail_harvested = False  # 添加执行标记
+        self.mail_harvested = 0  # 添加执行标记
         # self.specific_usr = kwargs['config'].
 
     def _app_handle_login(self) -> bool:
@@ -261,22 +261,24 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
             # 判断是否勾选了收取邮件（不收取邮件可以查看每日收获）
             if self.config.restart.harvest_config.enable_mail:
                 # 只执行一次邮件收取
-                if not self.mail_harvested:
+                if self.mail_harvested <= 10:
                     if self.appear(self.I_MAIL_RED_DOTS, interval=1) and self.appear_then_click(self.I_HARVEST_MAIL_TOP_RIGHT, interval=1):
                         if self.wait_until_appear(self.I_HARVEST_MAIL_TITLE, wait_time=2):
                             while 1:
                                 self.screenshot()
                                 # 如果没有出现 ‘收取全部’ 也没有出现 ‘还未读的邮件’ 那就可以退出了
-                                if not self.appear(self.I_HARVEST_MAIL_ALL) and not self.appear(self.I_HARVEST_MAIL_OPEN):
+                                if not self.appear(self.I_HARVEST_MAIL_ALL) and not self.appear(self.I_HARVEST_MAIL_OPEN) and not self.appear(self.I_MAIL_CANCEL):
                                     logger.info('Mail has been harvested completed')
                                     break
+                                if self.appear_then_click(self.I_MAIL_CANCEL, interval=1):
+                                    continue
                                 if self.appear_then_click(self.I_HARVEST_MAIL_ALL, interval=1):
                                     self.wait_until_appear_then_click(self.I_HARVEST_MAIL_CONFIRM, wait_time=2)
                                     continue
                                 if self.appear_then_click(self.I_HARVEST_MAIL_OPEN, interval=1):
                                     continue
                         timer_harvest.reset()
-                        self.mail_harvested = True  # 设置标记为已执行
+                        self.mail_harvested += 1  # 设置标记为已执行
                         continue
 
             # 3秒内没有发现任何奖励，退出

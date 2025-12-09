@@ -59,6 +59,8 @@ class RestartAssets:
 	I_MAIL_RED_DOTS = RuleImage(roi_front=(1153,14,36,26), roi_back=(1141,5,54,51), threshold=0.8, method="Template matching mask", file="./tasks/Restart/harvest/mail_red_dots.png")
 	# 寮消息通知 
 	I_LIAO_MESSAGE = RuleImage(roi_front=(189,138,35,34), roi_back=(35,50,358,248), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/liao_message.png")
+	# 邮件插画取消启用 
+	I_MAIL_CANCEL = RuleImage(roi_front=(435,402,174,60), roi_back=(435,402,174,60), threshold=0.8, method="Template matching", file="./tasks/Restart/harvest/mail_cancel.png")
 
 
 	# Click Rule Assets
