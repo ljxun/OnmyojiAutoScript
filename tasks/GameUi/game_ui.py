@@ -15,11 +15,9 @@ from module.base.timer import Timer
 from module.exception import (GameNotRunningError, GamePageUnknownError)
 from module.logger import logger
 from pathlib import Path
-from tasks.ActivityShikigami.assets import ActivityShikigamiAssets
 from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
 from tasks.GameUi.assets import GameUiAssets
 from tasks.GameUi.page import Page, PageRegistry, page_main
-from tasks.GlobalGame.assets import GlobalGameAssets
 from tasks.Restart.assets import RestartAssets
 from tasks.SixRealms.assets import SixRealmsAssets
 from tasks.base_task import BaseTask
@@ -27,15 +25,12 @@ from tasks.base_task import BaseTask
 
 class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
     ui_current: Page = None
-    ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1, GlobalGameAssets.I_UI_EXIT,
-                GameUiAssets.I_BACK_MALL, GeneralBattleAssets.I_CONFIRM,
-                BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_YELLOW, BaseTask.I_UI_BACK_YELLOW_2,
-                GameUiAssets.I_BACK_FRIENDS, GameUiAssets.I_BACK_DAILY,
-                GameUiAssets.I_REALM_RAID_GOTO_EXPLORATION,
+    ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1, GeneralBattleAssets.I_WIN, GeneralBattleAssets.I_FALSE, GeneralBattleAssets.I_REWARD,
+                BaseTask.I_UI_BACK_BLUE, BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_YELLOW, BaseTask.I_UI_BACK_YELLOW_2,
+                GameUiAssets.I_BACK_FRIENDS, GameUiAssets.I_BACK_DAILY, GameUiAssets.I_REALM_RAID_GOTO_EXPLORATION, GameUiAssets.I_SIX_GATES_GOTO_EXPLORATION,
+                SixRealmsAssets.I_EXIT_SIXREALMS,
                 RestartAssets.I_HARVEST_CHAT_CLOSE,
-                GameUiAssets.I_SIX_GATES_GOTO_EXPLORATION, SixRealmsAssets.I_EXIT_SIXREALMS,
-                ActivityShikigamiAssets.I_SKIP_BUTTON, ActivityShikigamiAssets.I_RED_EXIT, BaseTask.I_UI_BACK_BLUE,
-                ActivityShikigamiAssets.I_RED_EXIT_2]
+                ]
 
     def __init__(self, config):
         super().__init__(config)
@@ -339,7 +334,15 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
+    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon
+
+    PageRegistry.unregister(page_login)
+    PageRegistry.unregister(page_main)
+    PageRegistry.unregister(page_summon)
 
     c = Config('du')
     game = GameUi(config=c)
-    game.ui_goto_page(page_main)
+    print(len(game.ui_pages))
+    for page in game.ui_pages:
+        print(page)
+    # game.ui_goto_page(page_main)
