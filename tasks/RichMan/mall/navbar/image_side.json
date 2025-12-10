@@ -11,8 +11,8 @@
   {
     "itemName": "side_check_special",
     "imageName": "navbar_side_check_special.png",
-    "roiFront": "102,7,42,42",
-    "roiBack": "102,7,42,42",
+    "roiFront": "702,11,23,32",
+    "roiBack": "84,8,1191,46",
     "method": "Template matching",
     "threshold": 0.7,
     "description": "特殊"
