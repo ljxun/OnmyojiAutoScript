@@ -424,13 +424,12 @@ class RuleImage(BaseAtom):
             return filtered_matches
         return matches
 
-    def coord_more(self) -> tuple:
+    def coord_roi_back(self) -> tuple:
         """
          获取roi_back的随机的点击的坐标
         :return:
         """
-        x, y, w, h = self.roi_back
-        return x + np.random.randint(0, w), y + np.random.randint(0, h)
+        return self.coord_list(self.roi_back)
 
     def front_center(self) -> tuple:
         """

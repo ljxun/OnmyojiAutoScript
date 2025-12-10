@@ -54,7 +54,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
                 self.screenshot()
                 if self.appear(self.I_BUFF_OFF):
                     break
-                x, y = self.I_BUFF_OFF.coord_list(self.I_BUFF_OFF.roi_back)
+                x, y = self.I_BUFF_OFF.coord_roi_back()
                 if self.device.click(x, y):
                     time.sleep(1)
                     continue

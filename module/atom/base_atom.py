@@ -39,7 +39,14 @@ class BaseAtom:
         获取总区域中心1/2区域内的正态分布坐标
         :return: 坐标元组 (x, y)
         """
-        x, y, w, h = self.roi_front
+        return self.coord_list(self.roi_front)
+
+    def coord_list(self, target_area: tuple) -> tuple:
+        """
+        获取总区域中心1/2区域内的正态分布坐标
+        :return: 坐标元组 (x, y)
+        """
+        x, y, w, h = target_area
         # 计算1/2区域的尺寸
         tenth_w = w // 2
         tenth_h = h // 2
@@ -61,4 +68,3 @@ class BaseAtom:
             # 确保坐标在1/2区域内
             if tenth_x <= rand_x <= tenth_x + tenth_w and tenth_y <= rand_y <= tenth_y + tenth_h:
                 return rand_x, rand_y
-
