@@ -9,6 +9,7 @@ from tasks.base_task import BaseTask
 
 from tasks.Hyakkiyakou.config import ScreenshotMethod
 
+
 def image_black(img) -> bool:
     for y, x in [(0, 0), (719, 1279), (719, 0), (0, 1279)]:
         if np.all(img[y, x] != 0):
@@ -57,11 +58,9 @@ class HyaDevice(BaseTask):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    hd = HyaDevice(c, d)
+    hd = HyaDevice(c)
 
     # def screenshot():
     #     global hd
@@ -71,5 +70,5 @@ if __name__ == '__main__':
     # execution_time = timeit.timeit(screenshot, number=50)
     # print(f"执行总的时间: {execution_time * 1000} ms")
 
-    hd.fast_screenshot()
+    hd.fast_screenshot("nemu_ipc")
 

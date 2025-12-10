@@ -135,13 +135,13 @@ class HyakkiyakouAssets:
 
 	# Image Rule Assets
 	# description 
-	I_FRIEND_SAME_1 = RuleImage(roi_front=(375,122,106,62), roi_back=(375,122,106,62), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png")
+	I_FRIEND_SAME_1 = RuleImage(roi_front=(363,130,58,36), roi_back=(363,130,58,36), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png")
 	# description 
-	I_FRIEND_REMOTE_1 = RuleImage(roi_front=(498,125,106,56), roi_back=(498,125,106,56), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png")
+	I_FRIEND_REMOTE_1 = RuleImage(roi_front=(452,127,63,39), roi_back=(452,127,63,39), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png")
 	# description 
-	I_FRIEND_SAME_2 = RuleImage(roi_front=(377,126,100,60), roi_back=(377,126,100,60), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png")
+	I_FRIEND_SAME_2 = RuleImage(roi_front=(363,130,58,36), roi_back=(363,130,58,36), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png")
 	# description 
-	I_FRIEND_REMOTE_2 = RuleImage(roi_front=(504,127,100,56), roi_back=(504,127,100,56), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png")
+	I_FRIEND_REMOTE_2 = RuleImage(roi_front=(452,127,63,39), roi_back=(452,127,63,39), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png")
 
 
 	# Ocr Rule Assets
