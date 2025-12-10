@@ -52,11 +52,11 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         else:
             while 1:
                 self.screenshot()
-                if self.appear(self.I_BUFF_OFF):
+                if self.appear_rgb(self.I_BUFF_OFF):
                     break
                 x, y = self.I_BUFF_OFF.coord_roi_back()
                 if self.device.click(x, y):
-                    time.sleep(1)
+                    time.sleep(1.5)
                     continue
 
     def click_buff_image(self, is_open: bool = True):
@@ -76,12 +76,15 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         # 防止邀请框挡住BUFF框架
         self.reject_invite()
         self.screenshot()
-        area = buff.ocr(self.device.image)
+        area = self.ocr_result(buff)
         if area == tuple([0, 0, 0, 0]):
-            logger.info(f'No {buff} buff')
-            self.push_notify()
+            logger.warning(f'No {buff.name} buff')
             return None
-        self.I_BUFF_OFF.roi_back = [862,area[1],21,25]
+
+        # 获取ROI背景区域的副本并更新Y坐标
+        x, y, w, h = self.I_BUFF_OFF.roi_back
+        self.I_BUFF_OFF.roi_back = x, int(area[1]), w, h
+
         # 开始的x坐标就是文字的右边
         start_x = area[0] + area[2] + 10  # 10是文字和开关之间的间隔
         start_y = area[1] - 10
@@ -109,6 +112,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area(self.O_GOLD_50)
         if not area:
             logger.warning('No gold 50 buff')
+            return
         self.set_switch_area(area)
         self.click_buff(is_open)
 
@@ -123,6 +127,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area(self.O_GOLD_100)
         if not area:
             logger.warning('No gold 100 buff')
+            return
         self.set_switch_area(area)
         self.click_buff(is_open)
 
@@ -214,6 +219,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area_image(self.I_AWAKE)
         if not area:
             logger.warning('No awake buff')
+            return
         self.set_switch_area(area)
         self.click_buff_image(is_open)
 
@@ -228,6 +234,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area_image(self.I_SOUL)
         if not area:
             logger.warning('No soul buff')
+            return
         self.set_switch_area(area)
         self.click_buff_image(is_open)
 
@@ -251,15 +258,23 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399')
+    c = Config('du')
     t = GeneralBuff(c)
 
     t.open_buff()
     # t.screenshot()
     #
-    # t.awake(is_open=True)
-    # t.soul(is_open=True)
-    # t.gold_50(is_open=True)
+    t.awake(is_open=True)
+    t.soul(is_open=True)
+    t.gold_50(is_open=True)
+    t.gold_100(is_open=True)
+    t.exp_50(is_open=True)
+    t.exp_100(is_open=True)
+
+    t.awake(is_open=False)
+    t.soul(is_open=False)
+    t.gold_50(is_open=False)
     t.gold_100(is_open=False)
-    # t.exp_50(is_open=True)
-    # t.exp_100(is_open=True)
+    t.exp_50(is_open=False)
+    t.exp_100(is_open=False)
+
