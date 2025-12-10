@@ -46,6 +46,25 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
             if self.appear_then_click(self.I_BUFF_1, interval=2):
                 continue
 
+    def click_buff(self, is_open: bool = True):
+        if is_open:
+            self.ui_click_until_disappear(self.I_BUFF_OFF, interval=1)
+        else:
+            while 1:
+                self.screenshot()
+                if self.appear(self.I_BUFF_OFF):
+                    break
+                x, y = self.I_BUFF_OFF.coord_list(self.I_BUFF_OFF.roi_back)
+                if self.device.click(x, y):
+                    time.sleep(1)
+                    continue
+
+    def click_buff_image(self, is_open: bool = True):
+        if is_open:
+            self.ui_click(self.I_CLOSE_RED, self.I_OPEN_YELLOW, interval=1)
+        else:
+            self.ui_click(self.I_OPEN_YELLOW, self.I_CLOSE_RED, interval=1)
+
     def get_area(self, buff: RuleOcr) -> tuple:
         """
         获取要点击的开关buff的区域
@@ -62,7 +81,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
             logger.info(f'No {buff} buff')
             self.push_notify()
             return None
-
+        self.I_BUFF_OFF.roi_back = [862,area[1],21,25]
         # 开始的x坐标就是文字的右边
         start_x = area[0] + area[2] + 10  # 10是文字和开关之间的间隔
         start_y = area[1] - 10
@@ -90,23 +109,8 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area(self.O_GOLD_50)
         if not area:
             logger.warning('No gold 50 buff')
-            return None
-        self.I_OPEN_YELLOW.roi_back = list(area)  # 动态设置roi
-        self.I_CLOSE_RED.roi_back = list(area)
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.set_switch_area(area)
+        self.click_buff(is_open)
 
     def gold_100(self, is_open: bool = True):
         """
@@ -119,23 +123,8 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area(self.O_GOLD_100)
         if not area:
             logger.warning('No gold 100 buff')
-            return None
-        self.I_OPEN_YELLOW.roi_back = list(area)
-        self.I_CLOSE_RED.roi_back = list(area)
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.set_switch_area(area)
+        self.click_buff(is_open)
 
     def exp_50(self, is_open: bool = True):
         """
@@ -159,20 +148,7 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
             else:
                 break
 
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.click_buff(is_open)
 
     def exp_100(self, is_open: bool = True):
         """
@@ -196,20 +172,9 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
             else:
                 break
 
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.click_buff(is_open)
+
+
 
     def get_area_image(self, target: RuleImage) -> list:
         """
@@ -249,22 +214,8 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area_image(self.I_AWAKE)
         if not area:
             logger.warning('No awake buff')
-            return None
         self.set_switch_area(area)
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.click_buff_image(is_open)
 
     def soul(self, is_open: bool = True):
         """
@@ -277,22 +228,8 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
         area = self.get_area_image(self.I_SOUL)
         if not area:
             logger.warning('No soul buff')
-            return None
         self.set_switch_area(area)
-        if is_open:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_OPEN_YELLOW):
-                    break
-                if self.appear_then_click(self.I_CLOSE_RED, interval=1):
-                    continue
-        else:
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_CLOSE_RED):
-                    break
-                if self.appear_then_click(self.I_OPEN_YELLOW, interval=1):
-                    continue
+        self.click_buff_image(is_open)
 
     def reject_invite(self):
         from tasks.Component.GeneralInvite.assets import GeneralInviteAssets as gia
@@ -313,18 +250,16 @@ class GeneralBuff(BaseTask, GeneralBuffAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    c = Config('du')
-    d = Device(c)
-    t = GeneralBuff(c, d)
+    c = Config('4399')
+    t = GeneralBuff(c)
 
     t.open_buff()
     # t.screenshot()
     #
-    t.awake(is_open=True)
-    t.soul(is_open=True)
+    # t.awake(is_open=True)
+    # t.soul(is_open=True)
     # t.gold_50(is_open=True)
-    t.gold_100(is_open=True)
-    t.exp_50(is_open=True)
-    t.exp_100(is_open=True)
+    t.gold_100(is_open=False)
+    # t.exp_50(is_open=True)
+    # t.exp_100(is_open=True)

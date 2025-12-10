@@ -88,5 +88,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "用来判定是否点击的那个"
+  },
+  {
+    "itemName": "buff_off",
+    "imageName": "buff_off.png",
+    "roiFront": "0,0,21,25",
+    "roiBack": "862,276,21,25",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "buff关闭标志"
   }
 ]

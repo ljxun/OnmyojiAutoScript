@@ -31,6 +31,8 @@ class GeneralBuffAssets:
 	I_CLOSE_RED = RuleImage(roi_front=(774,143,21,21), roi_back=(764,134,38,369), threshold=0.63, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_close_red.png")
 	# 用来判定是否点击的那个 
 	I_CLOUD = RuleImage(roi_front=(356,505,65,38), roi_back=(356,505,65,38), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_cloud.png")
+	# buff关闭标志 
+	I_BUFF_OFF = RuleImage(roi_front=(0,0,21,25), roi_back=(862,276,21,25), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/buff_off.png")
 
 
 	# Ocr Rule Assets
