@@ -46,7 +46,7 @@ if __name__ == "__main__":
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     hd = HyaColor(c, d)
     img = cv2.imread(r'E:\Project\OnmyojiAutoScript\tasks\Hyakkiyakou\temp\20240615T144058\all1718433698934.png')

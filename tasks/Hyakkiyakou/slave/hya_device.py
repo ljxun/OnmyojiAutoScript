@@ -1,13 +1,10 @@
-import timeit
 import numpy as np
-
+from datetime import datetime
 from module.base.timer import Timer
-from module.logger import logger
 from module.base.utils import point2str
 from module.exception import RequestHumanTakeover, GameStuckError
+from module.logger import logger
 from tasks.base_task import BaseTask
-
-from tasks.Hyakkiyakou.config import ScreenshotMethod
 
 
 def image_black(img) -> bool:
@@ -26,12 +23,12 @@ class HyaDevice(BaseTask):
     我宣布世界上最好的 Linux 系统是 Windows
     """
     hya_screenshot_interval = Timer(0.2)  # 300ms
-    hya_fs_check_timer = Timer(5 * 60)  # 五分钟跑不完就应该是出问题了
+    hya_fs_check_timer = Timer(3 * 60)  # 五分钟跑不完就应该是出问题了
 
-    def fast_screenshot(self, screenshot: ScreenshotMethod):
+    def fast_screenshot(self):
         self.hya_screenshot_interval.wait()
         self.hya_screenshot_interval.reset()
-        self.device.image = self.device.screenshot_window_background() if screenshot == ScreenshotMethod.WINDOW_BACKGROUND else self.device.screenshot_nemu_ipc()
+        self.device.image = self.device.screenshot_nemu_ipc()
         if image_black(self.device.image):
             logger.error('Screenshot image is black, try again')
             raise RequestHumanTakeover('Screenshot image is black, try again')
@@ -39,13 +36,15 @@ class HyaDevice(BaseTask):
             logger.error('Fast screenshot check timer reached')
             logger.error('Five minutes have not ended, the game is probably stuck, please check the game')
             raise GameStuckError
+        if self.config.script.error.save_error:
+            self.device.screenshot_deque.append({'time': datetime.now(), 'image': self.device.image})
         return self.device.image
 
     def fast_click(self, x: int, y: int) -> None:
         logger.info(
             'Click %s @ %s' % (point2str(x, y), 'Click')
         )
-        self.device.click_window_message(x=x, y=y, fast=True)
+        self.device.click_minitouch(x=x, y=y)
 
     def set_fast_screenshot_interval(self, interval: float):
         """
@@ -70,5 +69,5 @@ if __name__ == '__main__':
     # execution_time = timeit.timeit(screenshot, number=50)
     # print(f"执行总的时间: {execution_time * 1000} ms")
 
-    hd.fast_screenshot("nemu_ipc")
+    hd.fast_screenshot()
 

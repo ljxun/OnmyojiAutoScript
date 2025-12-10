@@ -23,7 +23,8 @@ class GenerateImages(GameUi, HyakkiyakouAssets):
         return save_folder
 
     def run(self):
-        self.ui_goto_page(page_hyakkiyakou)
+        self.ui_get_current_page()
+        self.ui_goto(page_hyakkiyakou)
         for i in range(1):
             self.save_one()
 
@@ -81,7 +82,7 @@ class GenerateImages(GameUi, HyakkiyakouAssets):
 if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     t = GenerateImages(c, d)
     t.screenshot()

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from enum import Enum
+from tasks.Component.SwitchOnmyoji.config import Onmyoji
 
 from tasks.Component.config_scheduler import Scheduler
 from tasks.Component.config_base import ConfigBase, Time
@@ -17,11 +18,16 @@ class ScreenshotMethod(str, Enum):
     WINDOW_BACKGROUND = 'window_background'
     NEMU_IPC = 'nemu_ipc'
 
+class ControlMethod(str, Enum):
+    MINITOUCH = 'minitouch'
+    WINDOW_MESSAGE = 'window_message'
+
 
 class HyakkiyakouConfig(ConfigBase):
     hya_limit_time: Time = Field(default=Time(minute=20), description='hya_limit_time_help')
     hya_limit_count: int = Field(default=10, description='hya_limit_count_help')
     hya_invite_friend: bool = Field(default=False, description='hya_invite_friend_help')
+    hya_onmyoji: Onmyoji = Field(default=Onmyoji.KAGURA, description='切换阴阳师')
     # 自动调整豆子数量
     hya_auto_bean: bool = Field(default=False, description='hya_auto_bean_help')
     hya_priorities: str = Field(default='', description='hya_priorities_help')
@@ -56,9 +62,22 @@ class DebugConfig(ConfigBase):
     hya_save_result: bool = Field(default=False, description='hya_save_result_help')
     # 单独的设定截屏间隔, 单位ms
     hya_interval: float = Field(default=300, description='hya_interval_help')
-    # 单独的截屏设置
-    hya_screenshot_method: ScreenshotMethod = Field(default=ScreenshotMethod.WINDOW_BACKGROUND,
-                                                    description='hya_screenshot')
+    # # 单独的截屏设置
+    # hya_screenshot_method: ScreenshotMethod = Field(default=ScreenshotMethod.WINDOW_BACKGROUND,
+    #                                                 description='hya_screenshot')
+    # # 单独的点击
+    # hya_control_method: ControlMethod = Field(default=ControlMethod.WINDOW_MESSAGE,
+    #                                           description='hya_control_method')
+
+    # hide_fields = dynamic_hide('continuous_learning')
+    #
+    #
+    # @field_validator('continuous_learning', mode='after')
+    # @classmethod
+    # def false_continuous_learning(cls, v):
+    #     if v:
+    #         return False
+    #     return False
 
 
 class Hyakkiyakou(ConfigBase):

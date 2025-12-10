@@ -214,32 +214,65 @@ class HyaSlave(HyaDevice, HyaColor, HyakkiyakouAssets):
     # main process
     # ------------------------------------------------------------------------------------------------------------------
 
-    def invite_friend(self, same: bool = True):
+    def invite_friend(self):
         logger.hr('Invite friend', 2)
-        while 1:
-            self.screenshot()
-            if self.appear(self.I_FRIEND_SAME_1) or self.appear(self.I_FRIEND_SAME_2):
-                break
-            if self.appear_then_click(self.I_HINVITE, interval=4):
-                continue
-        if not self._invite_friend(True):
-            if not self._invite_friend(False):
-                raise RequestHumanTakeover('Invite friend failed')
+        self.ui_click(self.I_HINVITE, self.I_CHECK_INVITATION, interval=4)
+        logger.info('Entry check invitation')
 
-    def _invite_friend(self, same: bool = True) -> bool:
-        if not same:
-            logger.info('Invite different server friend')
-            self.ui_click(self.I_FRIEND_REMOTE_1, self.I_FRIEND_REMOTE_2)
+        # 是否有召回活动(星重聚阴阳师)
+        if self.appear(self.I_ENSURE_RECALL):
+            hya_recall_activity = True
+            # 应该动态改roi而不是新开一个图
+            friend_buttons1 = [self.I_FRIEND_SAME_1_RECALL, self.I_FRIEND_REMOTE_1_RECALL, ]
+            friend_buttons2 = [self.I_FRIEND_SAME_2_RECALL, self.I_FRIEND_REMOTE_2_RECALL, ]
+        else:
+            hya_recall_activity = False
+            friend_buttons1 = [self.I_FRIEND_SAME_1, self.I_FRIEND_REMOTE_1, self.I_FRIEND_RYOU_1]
+            friend_buttons2 = [self.I_FRIEND_SAME_2, self.I_FRIEND_REMOTE_2, self.I_FRIEND_RYOU_2]
+        # 依次邀请,
+        self.friend_state = 0  # 不需要每一次都从0开始，可以固定一下
+        while self.friend_state < 3:
+            match self.friend_state:
+                case 0:
+                    logger.info('Invite same server friend')
+                    if not self._invite_friend(button1=friend_buttons1[0], button2=friend_buttons2[0], hya_recall_activity=hya_recall_activity):
+                        self.friend_state += 1
+                    else:
+                        return True
+                case 1:
+                    logger.info('Invite remote friend')
+                    if not self._invite_friend(button1=friend_buttons1[1], button2=friend_buttons2[1], hya_recall_activity=hya_recall_activity):
+                        self.friend_state += 1
+                    else:
+                        return True
+                case 2:
+                    logger.info('Invite guild friend')
+                    if not self._invite_friend(button1=friend_buttons1[2], button2=friend_buttons2[2], hya_recall_activity=hya_recall_activity):
+                        self.friend_state += 1
+                    else:
+                        return True
+                case _:
+                    raise RequestHumanTakeover('Invite friend failed')
+
+    def _invite_friend(self, button1: RuleImage, button2: RuleImage, hya_recall_activity: bool = False ) -> bool:
+        self.ui_click(button1, button2)
         invite_timer = Timer(8)
         invite_timer.start()
         while 1:
             self.screenshot()
             if not self.appear(self.I_HINVITE):
                 break
-            if self.click(self.C_FRIEND_1, interval=2):
-                continue
-            if self.click(self.C_FRIEND_2, interval=3):
-                continue
+            # 是否有召回活动
+            if hya_recall_activity:
+                if self.click(self.C_FRIEND_1_RECALL, interval=2):
+                    continue
+                if self.click(self.C_FRIEND_2_RECALL, interval=3):
+                    continue
+            else:
+                if self.click(self.C_FRIEND_1, interval=2):
+                    continue
+                if self.click(self.C_FRIEND_2, interval=3):
+                    continue
             if invite_timer.reached():
                 logger.warning('Invite friend timeout, It may be no friend available')
                 return False
@@ -281,7 +314,7 @@ def test_predict_res():
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     hd = HyaSlave(c, d)
     img = cv2.imread('D:/Project/OnmyojiAutoScript/tasks/Hyakkiyakou/temp/20240621T221325/all1718979259551.png')
@@ -302,7 +335,7 @@ def test_predict_bean():
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     hd = HyaSlave(c, d)
     img = cv2.imread('./tasks/Hyakkiyakou/temp/20240621T221325/all1718979269677.png')
@@ -321,7 +354,7 @@ def test_predict_buff():
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     hd = HyaSlave(c, d)
     img = cv2.imread(r'E:\Project\OnmyojiAutoScript\tasks\Hyakkiyakou\temp\save14\all1718372600237.png')
@@ -334,7 +367,7 @@ if __name__ == '__main__':
     from module.config.config import Config
     from module.device.device import Device
 
-    c = Config('du')
+    c = Config('oas1')
     d = Device(c)
     hd = HyaSlave(c, d)
     # hd.invite_friend(False)

@@ -23,7 +23,7 @@ from tasks.Exploration.config import ExplorationLevel
 
 from utils import usage_time
 from fast_device import FastDevice
-
+from module.exception import GameStuckError
 
 class Step:
     def __init__(self,
@@ -78,12 +78,14 @@ class ExpTest(RightActivity, FastDevice, RestartAssets, ExplorationAssets):
         self.config.model.script.device.control_method = ControlMethod.WINDOW_MESSAGE
 
     def _exit(self):
-        self.ui_goto_page(page_town)
+        self.ui_get_current_page()
+        self.ui_goto(page_town)
         self.right_close()
         self.ui_click(self.I_LOGIN_SCROOLL_OPEN, self.I_LOGIN_SCROOLL_CLOSE, interval=1)
 
     def _go(self):
-        self.ui_goto_page(page_exploration)
+        self.ui_get_current_page()
+        self.ui_goto(page_exploration)
 
     def run_step(self, step: Step):
         logger.hr(f'Running step: {step}', 1)
@@ -301,7 +303,8 @@ class ExpTest(RightActivity, FastDevice, RestartAssets, ExplorationAssets):
 
     def run_main(self):
         from time import sleep
-        self.ui_goto_page(page_main)
+        self.ui_get_current_page()
+        self.ui_goto(page_main)
         sleep(1)
 
         pos_right = 1270
@@ -320,7 +323,8 @@ class ExpTest(RightActivity, FastDevice, RestartAssets, ExplorationAssets):
         self.run_step(back_2)
 
     def back_main(self):
-        self.ui_goto_page(page_main)
+        self.ui_get_current_page()
+        self.ui_goto(page_main)
 
     def open_expect_level(self, level: int):
         self.config.model.script.device.control_method = ControlMethod.UIAUTOMATOR2
@@ -338,6 +342,9 @@ class ExpTest(RightActivity, FastDevice, RestartAssets, ExplorationAssets):
             self.swipe(self.S_SWIPE_LEVEL_UP)
             swipeCount += 1
             if swipeCount >= 25:
+                raise GameStuckError(
+                    f"Swiped too many times ({swipeCount}), seems stuck in exploration level selection"
+                )
                 return False
         self.config.model.script.device.control_method = ControlMethod.WINDOW_MESSAGE
 
