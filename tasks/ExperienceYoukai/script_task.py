@@ -106,13 +106,10 @@ class ScriptTask(GeneralBattle, GeneralRoom, GeneralInvite, SwitchSoul, Experien
         self.set_next_run(task='ExperienceYoukai', success=True, finish=False)
         raise TaskEnd('ExperienceYoukai')
 
+
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
-    t.screenshot()
-
+    t = ScriptTask(c)
     t.run()

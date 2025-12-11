@@ -64,6 +64,7 @@ class ScriptTask(GameUi, TalismanPassAssets):
                 logger.info('Get accomplishment reward over')
                 break
             if self.ui_reward_appear_click():
+                self.device.click_record_clear()
                 timer.reset()
                 continue
             if self.click(self.C_ACCOMPLISHMENTS_3_CLICK, interval=1):
