@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+import time
 from time import sleep
 
 import os
@@ -33,6 +34,7 @@ class ScriptTask(GeneralBattle, GameUi, MainStoryAssets):
                         self.device.stuck_record_add('BATTLE_STATUS_S')
                     if '对话' in current_file:
                         self.device.click_record_clear()
+                        time.sleep(2)
                     timeout.reset()
                     break
 
