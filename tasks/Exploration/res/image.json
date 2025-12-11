@@ -38,8 +38,8 @@
   {
     "itemName": "lock_off",
     "imageName": "lock_off.png",
-    "roiFront": "888,648,37,36",
-    "roiBack": "888,648,37,36",
+    "roiFront": "888,644,155,53",
+    "roiBack": "888,644,155,53",
     "method": "Template matching",
     "threshold": 0.85,
     "description": "锁定阵容关闭"
@@ -47,8 +47,8 @@
   {
     "itemName": "lock_on",
     "imageName": "lock_on.png",
-    "roiFront": "888,648,37,36",
-    "roiBack": "888,648,37,36",
+    "roiFront": "888,644,155,53",
+    "roiBack": "888,644,155,53",
     "method": "Template matching",
     "threshold": 0.85,
     "description": "锁定阵容开启"

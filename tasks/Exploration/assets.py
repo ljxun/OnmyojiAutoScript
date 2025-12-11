@@ -82,9 +82,9 @@ class ExplorationAssets:
 	# 自动轮换关闭 
 	I_E_AUTO_ROTATE_OFF = RuleImage(roi_front=(119,658,23,24), roi_back=(119,658,23,24), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/res_e_auto_rotate_off.png")
 	# 锁定阵容关闭 
-	I_LOCK_OFF = RuleImage(roi_front=(888,648,37,36), roi_back=(888,648,37,36), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_off.png")
+	I_LOCK_OFF = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_off.png")
 	# 锁定阵容开启 
-	I_LOCK_ON = RuleImage(roi_front=(888,648,37,36), roi_back=(888,648,37,36), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_on.png")
+	I_LOCK_ON = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_on.png")
 	# 成功打开设置 
 	I_E_OPEN_SETTINGS = RuleImage(roi_front=(466,110,170,50), roi_back=(466,110,170,50), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_open_settings.png")
 	# 选择式神稀有度 

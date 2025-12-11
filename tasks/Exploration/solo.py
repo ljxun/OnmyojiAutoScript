@@ -66,7 +66,16 @@ class SoloExploration(BaseExploration):
                         self.ui_click(self.I_SMALL_HARD, stop=self.I_BIG_HARD)
                     else:
                         self.ui_click(self.I_SMALL_EASY, stop=self.I_BIG_EASY)
-                    self.ui_click(self.I_E_EXPLORATION_CLICK, stop=self.I_E_SETTINGS_BUTTON)
+                    while 1:
+                        self.screenshot()
+                        if self.appear(self.I_E_SETTINGS_BUTTON):
+                            break
+                        if self.appear(self.I_LOCK_ON):
+                            break
+                        if self.appear(self.I_LOCK_OFF):
+                            break
+                        if self.appear_then_click(self.I_E_EXPLORATION_CLICK):
+                            continue
                 else:
                     self.appear_then_click(self.I_UI_BACK_RED)
                 continue
@@ -512,7 +521,7 @@ class ScriptTask(SoloExploration):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    config = Config('4399')
+    config = Config('4399-1')
     t = ScriptTask(config)
     t.run()
 

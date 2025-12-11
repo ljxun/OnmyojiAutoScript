@@ -58,7 +58,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
         elif self.appear(self.I_UI_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
             scene = Scene.ENTRANCE
             log_message = "在探索入口弹窗中"
-        elif self.appear(self.I_E_SETTINGS_BUTTON) or self.appear(self.I_E_AUTO_ROTATE_ON) or self.appear(self.I_E_AUTO_ROTATE_OFF):
+        elif self.appear(self.I_E_SETTINGS_BUTTON) or self.appear(self.I_E_AUTO_ROTATE_ON) or self.appear(self.I_E_AUTO_ROTATE_OFF) or self.appear(self.I_LOCK_ON) or self.appear(self.I_LOCK_OFF):
             scene = Scene.MAIN
             log_message = "在探索里面"
         elif self.is_in_prepare():
@@ -70,7 +70,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
         elif self.is_in_room() or self.appear(self.I_CREATE_ENSURE):
             scene = Scene.TEAM
             log_message = "在组队界面中"
-        elif self.appear(self.I_BUFF_1):
+        elif self.appear(self.I_CHECK_MAIN):
             scene = Scene.UNKNOWN
             log_message = "在庭院中"
             # 探索页面
