@@ -32,9 +32,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
         if con.switch_soul_config.enable_switch_by_name:
             self.run_switch_soul_by_name(con.switch_soul_config.group_name, con.switch_soul_config.team_name)
 
-        self.ui_goto_page(page_main)
         config: EvoZone = self.config.evo_zone
         if config.evo_zone_config.soul_buff_enable:
+            self.ui_goto_page(page_main)
             self.open_buff()
             self.awake(is_open=True)
             self.close_buff()
