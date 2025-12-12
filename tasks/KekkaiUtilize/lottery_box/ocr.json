@@ -1,8 +1,8 @@
 [
   {
     "itemName": "lottery_number",
-    "roiFront": "847,614,59,23",
-    "roiBack": "847,614,59,23",
+    "roiFront": "424,460,49,27",
+    "roiBack": "424,460,49,27",
     "mode": "DigitCounter",
     "method": "Default",
     "keyword": "",

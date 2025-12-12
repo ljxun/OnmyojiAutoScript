@@ -47,12 +47,12 @@ class KekkaiUtilizeAssets:
 
 	# Ocr Rule Assets
 	# 抽奖次数 
-	O_LOTTERY_NUMBER = RuleOcr(roi=(847,614,59,23), area=(847,614,59,23), mode="DigitCounter", method="Default", keyword="", name="lottery_number")
+	O_LOTTERY_NUMBER = RuleOcr(roi=(424,460,49,27), area=(424,460,49,27), mode="DigitCounter", method="Default", keyword="", name="lottery_number")
 
 
 	# Swipe Rule Assets
 	# description 
-	S_SWIPE_LOTTERY_BOX = RuleSwipe(roi_front=(745,180,51,232), roi_back=(745,400,51,232), mode="default", name="swipe_lottery_box")
+	S_SWIPE_LOTTERY_BOX = RuleSwipe(roi_front=(625,180,30,232), roi_back=(625,400,30,232), mode="default", name="swipe_lottery_box")
 
 
 	# Image Rule Assets

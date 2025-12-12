@@ -68,19 +68,14 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
             if self.ui_reward_appear_click():
                 continue
             # 获得奖励
-            if self.appear(self.I_LOTTERY_CLICK):
-                cu, re, total = self.ocr_result(self.O_LOTTERY_NUMBER)
-                if cu + re == total and cu != 0:
-                    logger.info(f'抽奖次数: [{cu}]')
-                    self.ui_click_until_disappear(self.I_LOTTERY_CLICK, interval=1)
-                    while 1:
-                        self.screenshot()
-                        self.swipe(self.S_SWIPE_LOTTERY_BOX, interval=5)
-                        if self.appear(self.I_LOTTERY_CLICK):
-                            break
-                else:
-                    logger.info(f'没有可以抽奖的次数')
-                    return
+            cu, re, total = self.ocr_result(self.O_LOTTERY_NUMBER)
+            if cu + re == total and cu != 0:
+                logger.info(f'抽奖次数: [{cu}]')
+                self.swipe(self.S_SWIPE_LOTTERY_BOX, interval=5)
+                time.sleep(5)
+            else:
+                logger.info(f'没有可以抽奖的次数')
+                return
 
     def recive_guild_ap_or_assets(self):
         for i in range(1, 5):
@@ -703,9 +698,9 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config('wy')
+    c = Config('4399-1')
     t = ScriptTask(c)
-    t.run()
+    t.check_lottery_box()
     # for i in range(10):
     #     t.perform_swipe_action()
     # t.recive_guild_ap_or_assets()
