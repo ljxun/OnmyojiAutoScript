@@ -1,0 +1,29 @@
+[
+  {
+    "itemName": "massed",
+    "imageName": "massed.png",
+    "roiFront": "213,521,50,56",
+    "roiBack": "213,521,50,56",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "集结"
+  },
+  {
+    "itemName": "battle",
+    "imageName": "battle.png",
+    "roiFront": "1068,605,117,35",
+    "roiBack": "1068,605,117,35",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "battle"
+  },
+  {
+    "itemName": "after_on",
+    "imageName": "after_on.png",
+    "roiFront": "1008,432,99,30",
+    "roiBack": "1008,432,99,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "after_on"
+  }
+]

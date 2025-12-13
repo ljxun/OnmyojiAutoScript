@@ -27,6 +27,8 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
 
         if con.broken_amulet:
             self._broken_amulet(con.broken_amulet)
+        # 集结
+        self.massed_run()
 
         if con.guild_wish:
             pass
@@ -41,8 +43,42 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
             self.run_store()
         if con.recruit_members:
             self.run_recruit_members()
+
+
         self.set_next_run('DailyTrifles', success=True, finish=False)
         raise TaskEnd('DailyTrifles')
+
+    def massed_run(self):
+        self.ui_goto_page(page_summon)
+        if not self.appear(self.I_MASSED):
+            return
+
+        while 1:
+            self.screenshot()
+            if self.appear_then_click(self.I_MASSED, interval=1):
+                continue
+            if self.appear_then_click(self.I_AFTER_ON, interval=1):
+                break
+            if self.appear(self.I_BATTLE):
+                break
+            x,y = self.I_AFTER_ON.coord()
+            self.device.click(x, y)
+
+        click_count = 0
+        while click_count <= 3:
+            self.screenshot()
+            if self.appear_then_click(self.I_MASSED, interval=1):
+                continue
+            if self.appear_then_click(self.I_AFTER_ON, interval=1):
+                continue
+            if self.appear_then_click(self.I_BATTLE, interval=1):
+                self.device.stuck_record_add('BATTLE_STATUS_S')
+                click_count += 1
+                continue
+            if self.appear_then_click(self.I_WIN, interval=1):
+                click_count = 0
+                continue
+
 
     def run_one_summon(self):
         self.ui_goto_page(page_summon)
@@ -403,4 +439,4 @@ if __name__ == '__main__':
     c = Config('du')
     t = ScriptTask(c)
 
-    t.run_buy_sushi()
+    t.run()
