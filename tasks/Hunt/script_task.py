@@ -107,13 +107,20 @@ class ScriptTask(GeneralBattle, GeneralInvite, SwitchSoul, HuntAssets):
         swipe_count = 1
         stuck_timer = Timer(240)
         stuck_timer.start()
-        exit_battle_second = self.config.hunt.kirin_config.exit_battle_second
+        # 根据当前是否是麒麟日选择对应配置
+        if self.kirin_day:
+            exit_battle_second = self.config.hunt.kirin_config.exit_battle_second
+        else:
+            exit_battle_second = self.config.hunt.nether_world_config.exit_battle_second
+
+        # 如果设置了有效的时间限制，则进行相关处理
         exit_battle_timer = Timer(exit_battle_second)
-        if self.kirin_day and exit_battle_second > 0:
+        if exit_battle_second > 0:
             exit_battle_timer.start()
+
         while 1:
             self.screenshot()
-            if self.kirin_day and exit_battle_second > 0 and exit_battle_timer.reached():
+            if exit_battle_timer.started() and exit_battle_timer.reached():
                 logger.info(f'时间到达 {exit_battle_second}s, 退出战斗')
                 if self.appear_then_click(self.I_EXIT_ENSURE, interval=1):
                     exit_battle_timer.reset()

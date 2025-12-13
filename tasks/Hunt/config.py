@@ -18,6 +18,8 @@ class NetherWorldConfig(BaseModel):
     enable: bool = Field(default=False, description='enable_help')
     preset_enable: bool = Field(default=False, description='preset_enable_help')
     switch_group_team: str = Field(default='-1,-1', description='switch_group_team_help')
+    # 超时退出战斗
+    exit_battle_second: int = Field(default=0, description='超时退出战斗（单位秒）, 0代表不退出')
 
 
 class Hunt(ConfigBase):
