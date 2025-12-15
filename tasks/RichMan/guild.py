@@ -46,7 +46,7 @@ class Guild(Buy, GameUi, RichManAssets):
             self._guild_item_purchase(item_info)
 
         # 经验手札
-        if con.guild_fl:  # 注意：这里可能是个bug，应该检查 guild_exp
+        if con.guild_exp:
             item_info = {
                 'name': '经验御札',
                 'image': self.I_EXP,
@@ -217,7 +217,7 @@ class Guild(Buy, GameUi, RichManAssets):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('du')
+    c = Config('4399')
     # d = Device(c)
     t = Guild(c)
 
