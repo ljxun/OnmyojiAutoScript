@@ -269,6 +269,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
 
             if self.appear(self.I_FALSE):
                 logger.warning('False battle')
+                self.save_image(wait_time=0, push_flag=True, image_type=True, content="❌ 战斗失败")
                 self.ui_click_until_disappear(self.I_FALSE)
                 return False
 
