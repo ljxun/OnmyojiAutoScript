@@ -19,6 +19,7 @@ from tasks.GameUi.page import page_summon, page_guild, page_mall, page_friends
 
 class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
     """ 每日琐事 """
+
     def run(self):
         con = self.config.daily_trifles.trifles_config
         # 每日召唤
@@ -44,7 +45,6 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
         if con.recruit_members:
             self.run_recruit_members()
 
-
         self.set_next_run('DailyTrifles', success=True, finish=False)
         raise TaskEnd('DailyTrifles')
 
@@ -61,7 +61,7 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
                 break
             if self.appear(self.I_BATTLE):
                 break
-            x,y = self.I_AFTER_ON.coord()
+            x, y = self.I_AFTER_ON.coord()
             self.device.click(x, y)
 
         click_count = 0
@@ -75,10 +75,11 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
                 self.device.stuck_record_add('BATTLE_STATUS_S')
                 click_count += 1
                 continue
+            if self.appear_then_click(self.I_CLICK_ANY_POSITION, interval=1):
+                continue
             if self.appear_then_click(self.I_WIN, interval=1):
                 click_count = 0
                 continue
-
 
     def run_one_summon(self):
         self.ui_goto_page(page_summon)
@@ -436,7 +437,8 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('du')
+    c = Config('4399-1')
     t = ScriptTask(c)
 
-    t.run()
+    # t.run()
+    t.massed_run()

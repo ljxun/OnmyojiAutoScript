@@ -71,6 +71,8 @@ class DailyTriflesAssets:
 	I_BATTLE = RuleImage(roi_front=(1068,605,117,35), roi_back=(1068,605,117,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/battle.png")
 	# after_on 
 	I_AFTER_ON = RuleImage(roi_front=(1008,432,99,30), roi_back=(1008,432,99,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/after_on.png")
+	# click_any_position 
+	I_CLICK_ANY_POSITION = RuleImage(roi_front=(542,511,214,28), roi_back=(542,511,214,28), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/click_any_position.png")
 
 
 	# Image Rule Assets

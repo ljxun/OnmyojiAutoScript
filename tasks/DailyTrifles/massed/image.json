@@ -25,5 +25,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "after_on"
+  },
+  {
+    "itemName": "click_any_position",
+    "imageName": "click_any_position.png",
+    "roiFront": "542,511,214,28",
+    "roiBack": "542,511,214,28",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "click_any_position"
   }
 ]
