@@ -8,6 +8,8 @@ from time import sleep
 
 import cv2
 import re
+import tasks.Dokan.inner_page as ipages
+from tasks.Dokan.inner_page import page_dokan
 from datetime import datetime, timedelta
 from enum import Enum
 from module.atom.click import RuleClick
@@ -22,6 +24,7 @@ from tasks.Component.GeneralInvite.assets import GeneralInviteAssets
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Dokan.assets import DokanAssets
 from tasks.Dokan.config import Dokan
+from tasks.GameUi.page import PageRegistry
 from tasks.GameUi.page import page_guild
 from tasks.RichMan.assets import RichManAssets
 
@@ -108,7 +111,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         next_run_weekday = 1
         if current_weekday in [4, 5, 6] or (current_weekday == 3 and success):
             self.next_run_week(next_run_weekday)
-            raise TaskEnd
+            self.finish_task()
 
     def run(self):
         # 检查今天周几
@@ -125,7 +128,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
             timestamp = json_response.get('timestamp')
             if not timestamp:
                 self.set_next_run(target=datetime_now + timedelta(minutes=3))
-                raise TaskEnd
+                self.finish_task()
             # 解析时间戳获取时分秒
             timestamp_time = datetime.fromtimestamp(timestamp)
             logger.info(f"福利道馆创建时间: {timestamp_time}")
@@ -134,9 +137,9 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 logger.warning(f"福利道馆未开启: {json_response}")
                 if datetime_now.time() > timestamp_time.time():
                     self.set_next_run(target=datetime_now + timedelta(minutes=3))
-                    raise TaskEnd
+                    self.finish_task()
                 self.set_next_run(target=datetime.combine(datetime_now.date(), timestamp_time.time()))
-                raise TaskEnd
+                self.finish_task()
 
             # 获取明天的日期，但使用timestamp的时分秒
             tomorrow_date = (datetime_now + timedelta(days=1)).date()
@@ -145,20 +148,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
 
         # 加载福利寮名单
         self.welfare_names = self.welfare_name_str()
-
-        cfg: Dokan = self.config.dokan
-
-        # 自动换御魂
-        if cfg.switch_soul_config.enable:
-            self.run_switch_soul(cfg.switch_soul_config.switch_group_team)
-        if cfg.switch_soul_config.enable_switch_by_name:
-            self.run_switch_soul_by_name(cfg.switch_soul_config.group_name, cfg.switch_soul_config.team_name)
-
-        # 自动换御魂 福利寮
-        if cfg.switch_soul_config2.enable:
-            self.run_switch_soul(cfg.switch_soul_config2.switch_group_team)
-        if cfg.switch_soul_config2.enable_switch_by_name:
-            self.run_switch_soul_by_name(cfg.switch_soul_config2.group_name, cfg.switch_soul_config2.team_name)
 
         # 开始道馆流程
         self.goto_dokan()
@@ -170,13 +159,13 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         scene_timer = Timer(50)
         scene_timer.start()
         timer_count = 1
-
+        
         while 1:
 
             if scene_timer and scene_timer.reached():
                 scene_timer.reset()
                 if timer_count >= 100:
-                    self.save_image(image_type='png', push_flag=True, content=f"道馆流程超时")
+                    self.save_image(image_type=True, push_flag=True, content=f"道馆流程超时")
                     break
                 timer_count += 1
                 self.device.stuck_record_clear()
@@ -197,15 +186,15 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                             next_run_time = self.first_open_dokan_time + MIN_DOKAN_TIME
                             logger.warning(f"道馆战斗时间不足15分钟，设置下次运行时间: {next_run_time}")
                             self.set_next_run(target=next_run_time)
-                            raise TaskEnd
+                            self.finish_task()
                         else:
                             logger.warning(f"道馆持续时间超过15分钟,直接进行下一次道馆")
                 except TaskEnd:
                     # 重新抛出TaskEnd异常，这是正常的流程控制
-                    raise TaskEnd
+                    self.finish_task()
                 except Exception as e:
                     logger.error(f"道馆流程异常: {e}", exc_info=True)
-                    self.save_image(image_type='png', push_flag=True, content=f"道馆流程异常: {e}")
+                    self.save_image(image_type=True, push_flag=True, content=f"道馆流程异常: {e}")
 
                 # 重置换阵容和是否为福利寮
                 self.team_switched = False
@@ -525,7 +514,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 self.set_next_run(target=self.create_doukan_time)
             else:
                 self.set_next_run(task='Dokan', finish=True, server=True, success=True)
-            raise TaskEnd
+            self.finish_task()
         elif '集结中' in dokan_status_str:
             # 寮成员进入道馆
             self.dokan_quit = True
@@ -553,7 +542,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                         self.set_next_run(target=self.create_doukan_time)
                     else:
                         self.set_next_run(task='Dokan', finish=True, server=True, success=True)
-                    raise TaskEnd
+                    self.finish_task()
 
     def goto_dokan_click(self):
         while 1:
@@ -689,7 +678,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 p_num = int(tmp.group())
 
                 # 最少人数随着刷新次数减少
-                if num_fresh >= 20:
+                if num_fresh >= self.config.dokan.welfare_config.fresh_num_less_people:
                     min_people = con.min_people_num - num_fresh
                     min_people = max(min_people, 110)
                 else:
@@ -768,6 +757,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                             continue
                     # 恢复初始位置信息,防止下次使用出错
                     restore_roi()
+                    self.dokan_switch_soul()
                     return True
                 # 滑动道馆列表 最后一次不需要滑动直接刷新
                 if i < 2:
@@ -797,6 +787,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                     continue
                 if self.appear_then_click(self.I_CENTER_CHALLENGE, interval=1):
                     continue
+            self.dokan_switch_soul()
             return True
         return False
 
@@ -940,23 +931,64 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         return (src[0] + offset[0], src[1] + offset[1]
                 , src[2] + offset[2], src[3] + offset[3])
 
+    def dokan_switch_soul(self):
+        # 更改式神录跳转
+        ipages.page_shikigami_records.links.clear()
+        if ipages.page_shikigami_records in ipages.page_main.links:
+            del ipages.page_main.links[ipages.page_shikigami_records]
+        ipages.page_shikigami_records.link(button=self.I_BACK_Y, destination=ipages.page_dokan)
+        ipages.page_dokan.link(button=self.I_PAGE_DOKAN_GOTO_SHIKIGAMI_RECORDS, destination=ipages.page_shikigami_records)
+
+        cfg = self.config.dokan
+
+        if self.open_welfare:
+            # 自动换御魂 福利寮
+            if cfg.switch_soul_config2.enable:
+                self.run_switch_soul(cfg.switch_soul_config2.switch_group_team)
+            if cfg.switch_soul_config2.enable_switch_by_name:
+                self.run_switch_soul_by_name(cfg.switch_soul_config2.group_name, cfg.switch_soul_config2.team_name)
+        else:
+            # 自动换御魂
+            if cfg.switch_soul_config.enable:
+                self.run_switch_soul(cfg.switch_soul_config.switch_group_team)
+            if cfg.switch_soul_config.enable_switch_by_name:
+                self.run_switch_soul_by_name(cfg.switch_soul_config.group_name, cfg.switch_soul_config.team_name)
+
+        self.ui_goto_page(page_dokan)
+
+    def finish_task(self):
+        # 恢复式神录跳转
+        ipages.page_dokan.links.clear()
+        if ipages.page_dokan in ipages.page_shikigami_records.links:
+            del ipages.page_shikigami_records.links[ipages.page_dokan]
+        ipages.page_main.link(button=self.I_MAIN_GOTO_SHIKIGAMI_RECORDS, destination=ipages.page_shikigami_records)
+        ipages.page_shikigami_records.link(button=self.I_BACK_Y, destination=ipages.page_main)
+
+        # 移除临时页面
+        PageRegistry.unregister(ipages.page_dokan)
+
+        raise TaskEnd
+
 
 if __name__ == "__main__":
     from module.config.config import Config
 
-    config = Config('du')
+    config = Config('mi')
     t = ScriptTask(config)
     # t.save_image()
     # t.run()
+    t.dokan_switch_soul()
+    t.finish_task()
+    # t.dokan_process(config.dokan)
     # t.find_dokan(config.dokan.welfare_config, True)
     # t.find_dokan()
 
-    welfare_names = t.welfare_name_str()
-    print(welfare_names)
-    if "锦鲤一一" in welfare_names:
-        print("有")
-    else:
-        print("没有")
+    # welfare_names = t.welfare_name_str()
+    # print(welfare_names)
+    # if "锦鲤一一" in welfare_names:
+    #     print("有")
+    # else:
+    #     print("没有")
     # test_ocr_locate_dokan_target()
     # test_anti_detect_random_click()
     # test_goto_main()

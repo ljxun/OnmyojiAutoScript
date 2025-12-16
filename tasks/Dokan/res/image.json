@@ -493,5 +493,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "已选择道馆"
+  },
+  {
+    "itemName": "page_dokan_goto_shikigami_records",
+    "imageName": "page_dokan_goto_shikigami_records.png",
+    "roiFront": "1005,607,52,59",
+    "roiBack": "1005,607,52,59",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "道馆进入式神录"
   }
 ]

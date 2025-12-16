@@ -146,6 +146,8 @@ class DokanAssets:
 	I_RYOU_DOKAN_FINDING_DOKAN = RuleImage(roi_front=(980,60,100,160), roi_back=(980,60,100,160), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/res_ryou_dokan_finding_dokan.png")
 	# 已选择道馆 
 	I_RYOU_DOKAN_FOUND_DOKAN = RuleImage(roi_front=(440,580,360,140), roi_back=(440,580,360,140), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/res_ryou_dokan_found_dokan.png")
+	# 道馆进入式神录 
+	I_PAGE_DOKAN_GOTO_SHIKIGAMI_RECORDS = RuleImage(roi_front=(1005,607,52,59), roi_back=(1005,607,52,59), threshold=0.8, method="Template matching", file="./tasks/Dokan/res/page_dokan_goto_shikigami_records.png")
 
 
 	# List Rule Assets
