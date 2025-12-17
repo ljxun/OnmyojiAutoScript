@@ -26,6 +26,7 @@ start  python -m dev_tools.start_script DU
 start  python -m dev_tools.start_script MI
 start  python -m dev_tools.start_script WY
 start  python -m dev_tools.start_script 4399
+start  python -m dev_tools.start_script 4399-1
 
 @REM start  python -m dev_tools.start_script "阴阳师副本"
 
