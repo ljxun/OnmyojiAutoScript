@@ -206,3 +206,4 @@ if __name__ == '__main__':
     # ProcessManager().kill_by_name('pythonw')
     # ProcessManager().process_kill_by_serverName()
     # ProcessManager().process_kill_by_port()
+    ProcessManager().process_stop_by_port()
