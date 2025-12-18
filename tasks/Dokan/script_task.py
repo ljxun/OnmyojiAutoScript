@@ -115,7 +115,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
 
     def run(self):
         # 检查今天周几
-        self.check_current_weekday()
+        # self.check_current_weekday()
 
         cfg: Dokan = self.config.dokan
 
@@ -757,7 +757,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                             continue
                     # 恢复初始位置信息,防止下次使用出错
                     restore_roi()
-                    self.dokan_switch_soul()
                     return True
                 # 滑动道馆列表 最后一次不需要滑动直接刷新
                 if i < 2:
@@ -787,7 +786,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                     continue
                 if self.appear_then_click(self.I_CENTER_CHALLENGE, interval=1):
                     continue
-            self.dokan_switch_soul()
             return True
         return False
 
@@ -830,6 +828,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
             logger.info(f"Item {i}: {item}")
             i += 1
         self.find_dokan_list = []
+        # 切换御魂
+        self.dokan_switch_soul()
 
     def appear_rgb(self, target, image=None, difference: int = 10):
         """
