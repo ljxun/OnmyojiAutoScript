@@ -331,6 +331,26 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
             operated = self.click(target, interval=interval)
         return operated
 
+    def ui_goto_active(self, active: str = ''):
+        """
+        跳转到指定的活动页面
+        参数:
+            active (str): 要跳转的目标活动名称，默认为空字符串
+        返回值:
+            bool: 成功点击目标活动时返回True
+        """
+        if active == '':
+            logger.warning('❌指定的活动页面未传值!')
+            return False
+        self.ui_goto_page(page_all_active)
+        self.O_OCR_ACTIVE.keyword = active
+        while 1:
+            self.screenshot()
+            if self.ocr_appear_click(self.O_OCR_ACTIVE):
+                return True
+            else:
+                sleep(1)
+
 
 if __name__ == '__main__':
     from module.config.config import Config
@@ -345,4 +365,4 @@ if __name__ == '__main__':
     # print(len(game.ui_pages))
     # for page in game.ui_pages:
     #     print(page)
-    game.ui_goto_page(page_all_active)
+    game.ui_goto_active('绘卷')
