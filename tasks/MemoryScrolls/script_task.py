@@ -205,11 +205,9 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
     c = Config('mi')
-    d = Device(c)
-    t = ScriptTask(c, d)
-    t.screenshot()
+    t = ScriptTask(c)
+    # t.screenshot()
 
     t.run()
 

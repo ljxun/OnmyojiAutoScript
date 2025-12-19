@@ -188,3 +188,8 @@ page_main.link(button=G.I_MAIN_GOTO_COLLECTION, destination=page_collection)
 page_travel = Page(G.I_CHECK_TRAVEL)
 page_travel.link(button=G.I_BACK_Y, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_TRAVEL, destination=page_travel)
+
+# 活动总览
+page_all_active = Page(G.I_PAGE_ALL_ACTIVE)
+page_all_active.link(button=G.I_BACK_Y, destination=page_main)
+page_main.link(button=G.I_PAGE_MAIN_GOTO_PAGE_ALL_ACTIVE, destination=page_all_active)

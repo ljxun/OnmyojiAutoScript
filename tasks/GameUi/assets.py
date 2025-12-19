@@ -136,6 +136,10 @@ class GameUiAssets:
 	I_CHECK_KYAKKIYAKOU = RuleImage(roi_front=(305,567,56,64), roi_back=(280,545,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_kyakkiyakou.png")
 	# description 
 	I_HYAKKIYAKOU_CLOSE = RuleImage(roi_front=(1063,181,47,43), roi_back=(1063,181,47,43), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_hyakkiyakou_close.png")
+	# page_all_active 
+	I_PAGE_ALL_ACTIVE = RuleImage(roi_front=(89,19,133,41), roi_back=(8,5,298,89), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_all_active.png")
+	# page_main_goto_page_all_active 
+	I_PAGE_MAIN_GOTO_PAGE_ALL_ACTIVE = RuleImage(roi_front=(1194,363,23,18), roi_back=(1174,134,71,439), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_main_goto_page_all_active.png")
 
 
 	# Image Rule Assets
@@ -241,6 +245,8 @@ class GameUiAssets:
 	O_BATTLE_AUTO = RuleOcr(roi=(37,642,51,36), area=(0,589,133,128), mode="Single", method="Default", keyword="自动", name="battle_auto")
 	# 战斗页面手动标志 
 	O_BATTLE_HAND = RuleOcr(roi=(35,644,52,34), area=(0,589,136,129), mode="Single", method="Default", keyword="手动", name="battle_hand")
+	# 活动ocr范围 
+	O_OCR_ACTIVE = RuleOcr(roi=(7,13,241,674), area=(7,13,241,674), mode="FULL", method="Default", keyword="", name="ocr_active")
 
 
 	# Image Rule Assets

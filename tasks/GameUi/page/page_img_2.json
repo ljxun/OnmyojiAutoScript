@@ -169,5 +169,23 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"
+  },
+  {
+    "itemName": "page_all_active",
+    "imageName": "page_all_active.png",
+    "roiFront": "89,19,133,41",
+    "roiBack": "8,5,298,89",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "page_all_active"
+  },
+  {
+    "itemName": "page_main_goto_page_all_active",
+    "imageName": "page_main_goto_page_all_active.png",
+    "roiFront": "1194,363,23,18",
+    "roiBack": "1174,134,71,439",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "page_main_goto_page_all_active"
   }
 ]

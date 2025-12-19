@@ -334,15 +334,15 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon
+    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon, page_all_active
 
-    PageRegistry.unregister(page_login)
-    PageRegistry.unregister(page_main)
-    PageRegistry.unregister(page_summon)
+    # PageRegistry.unregister(page_login)
+    # PageRegistry.unregister(page_main)
+    # PageRegistry.unregister(page_summon)
 
-    c = Config('du')
+    c = Config('mi')
     game = GameUi(config=c)
-    print(len(game.ui_pages))
-    for page in game.ui_pages:
-        print(page)
-    # game.ui_goto_page(page_main)
+    # print(len(game.ui_pages))
+    # for page in game.ui_pages:
+    #     print(page)
+    game.ui_goto_page(page_all_active)
