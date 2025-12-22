@@ -75,7 +75,7 @@ class SwitchSoulConfig(BaseModel):
     enable: bool = Field(default=True, description='enable_help')
     switch_group_team: str = Field(default='-1,-1', description='switch_group_team_help')
     enable_100ap: bool = Field(default=False, description='是否勾玉换取100体力')
-    enable_four: bool = Field(default=True, description='是否查看四个灯笼')
+    enable_four: bool = Field(default=True, description='是否进行战斗（小鬼王、打怪）')
     enable_boss: bool = Field(default=True, description='是否进行BOSS战斗')
 
 

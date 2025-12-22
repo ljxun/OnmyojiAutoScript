@@ -251,8 +251,6 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
         if not self.appear(self.I_DE_AWARD):
             self.ui_get_reward(self.I_DE_RED_DHARMA)
         self.wait_until_appear(self.I_DE_AWARD)
-        if not self.config.demon_encounter.switch_soul.enable_four:
-            return
         # 然后到四个灯笼
         match_click = {
             1: self.C_DE_1,
@@ -273,6 +271,8 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
                 case LanternClass.EMPTY:
                     logger.warning(f'Lantern {i} is empty')
                 case LanternClass.BATTLE:
+                    if not self.config.demon_encounter.switch_soul.enable_four:
+                        continue
                     self._battle(match_click[i])
                 case LanternClass.MYSTERY:
                     self._mystery(match_click[i])
