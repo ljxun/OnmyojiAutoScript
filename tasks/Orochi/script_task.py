@@ -485,6 +485,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
 
             if self.appear(self.I_FALSE):
                 logger.warning('False battle')
+                self.push_notify(content="战斗失败")
                 self.ui_click_until_disappear(self.I_FALSE)
                 return False
 
@@ -495,10 +496,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    c = Config('4399')
+    t = ScriptTask(c)
     # t.battle_wait(False)
     t.run()
