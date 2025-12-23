@@ -123,3 +123,30 @@ class DailyTriflesAssets:
 	O_SELECT_SM4 = RuleOcr(roi=(26,397,45,38), area=(26,397,45,38), mode="Single", method="Default", keyword="", name="select_sm4")
 
 
+	# Image Rule Assets
+	# 召唤商店 
+	I_SUMMON_STORE = RuleImage(roi_front=(1214,626,40,37), roi_back=(1214,626,40,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store.png")
+	# summon_store_page 
+	I_SUMMON_STORE_PAGE = RuleImage(roi_front=(116,20,104,43), roi_back=(116,20,104,43), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_page.png")
+	# 祈愿福礼 
+	I_SUMMON_STORE_LUCKY = RuleImage(roi_front=(94,102,84,33), roi_back=(94,102,84,33), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_lucky.png")
+	# 免费 
+	I_SUMMON_STORE_FREE = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free.png")
+	# 免费_1 
+	I_SUMMON_STORE_FREE_1 = RuleImage(roi_front=(561,510,167,53), roi_back=(561,510,167,53), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free_1.png")
+	# 已领取 
+	I_SUMMON_STORE_FREE_OVER = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free_over.png")
+	# free_1 
+	I_FREE_1 = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_1.png")
+	# free_2 
+	I_FREE_2 = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_2.png")
+	# free_3 
+	I_FREE_3 = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_3.png")
+	# free_3_over 
+	I_FREE_3_OVER = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_3_over.png")
+	# free_2_over 
+	I_FREE_2_OVER = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_2_over.png")
+	# free_1_over 
+	I_FREE_1_OVER = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_1_over.png")
+
+

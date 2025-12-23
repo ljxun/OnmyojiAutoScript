@@ -12,7 +12,7 @@ from tasks.Component.GeneralBuff.general_buff import GeneralBuff
 from tasks.Component.Summon.summon import Summon
 from tasks.DailyTrifles.assets import DailyTriflesAssets
 from tasks.DailyTrifles.config import SummonType
-from tasks.DailyTrifles.page import page_store_sign, page_mall_special
+from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_summon, page_guild, page_mall, page_friends
 
@@ -30,6 +30,9 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
             self._broken_amulet(con.broken_amulet)
         # 集结
         self.massed_run()
+        # 召唤商店
+        self.run_summon_store()
+
 
         if con.guild_wish:
             pass
@@ -42,11 +45,44 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
         # 商店签到 or 购买寿司
         if con.store_sign or con.buy_sushi_count > 0:
             self.run_store()
+        # 招募寮成员
         if con.recruit_members:
             self.run_recruit_members()
 
         self.set_next_run('DailyTrifles', success=True, finish=False)
         raise TaskEnd('DailyTrifles')
+
+    def run_summon_store(self):
+        self.ui_goto_page(page_summon_store)
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_SUMMON_STORE_FREE_OVER):
+                break
+            if self.appear_then_click(self.I_SUMMON_STORE_FREE_1, interval=1):
+                continue
+            if self.appear_then_click(self.I_SUMMON_STORE_FREE, interval=1):
+                sleep(1)
+                continue
+            if self.appear_then_click(self.I_SUMMON_STORE_LUCKY, interval=1):
+                continue
+
+        click_count = 0
+        while click_count < 5:
+            self.screenshot()
+            if self.ui_reward_appear_click():
+                click_count = 0
+            if self.appear(self.I_FREE_3_OVER) and self.appear(self.I_FREE_2_OVER) and self.appear(self.I_FREE_1_OVER):
+                break
+            if self.appear_then_click(self.I_FREE_1, interval=1):
+                click_count += 1
+                continue
+            if self.appear_then_click(self.I_FREE_2, interval=1):
+                click_count += 1
+                continue
+            if self.appear_then_click(self.I_FREE_3, interval=1):
+                click_count += 1
+                continue
+        self.save_image(wait_time=0, task_name='铜铃礼包')
 
     def massed_run(self):
         self.ui_goto_page(page_summon)
@@ -437,8 +473,8 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399-1')
+    c = Config('wy')
     t = ScriptTask(c)
 
     # t.run()
-    t.massed_run()
+    t.run_summon_store()

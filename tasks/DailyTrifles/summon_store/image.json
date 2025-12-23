@@ -1,0 +1,110 @@
+[
+  {
+    "itemName": "summon_store",
+    "imageName": "summon_store.png",
+    "roiFront": "1214,626,40,37",
+    "roiBack": "1214,626,40,37",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "召唤商店"
+  },
+  {
+    "itemName": "summon_store_page",
+    "imageName": "summon_store_page.png",
+    "roiFront": "116,20,104,43",
+    "roiBack": "116,20,104,43",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "summon_store_page"
+  },
+  {
+    "itemName": "summon_store_lucky",
+    "imageName": "summon_store_lucky.png",
+    "roiFront": "94,102,84,33",
+    "roiBack": "94,102,84,33",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "祈愿福礼"
+  },
+  {
+    "itemName": "summon_store_free",
+    "imageName": "summon_store_free.png",
+    "roiFront": "394,581,106,37",
+    "roiBack": "394,581,106,37",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "免费"
+  },
+  {
+    "itemName": "summon_store_free_1",
+    "imageName": "summon_store_free_1.png",
+    "roiFront": "561,510,167,53",
+    "roiBack": "561,510,167,53",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "免费_1"
+  },
+  {
+    "itemName": "summon_store_free_over",
+    "imageName": "summon_store_free_over.png",
+    "roiFront": "394,581,106,37",
+    "roiBack": "394,581,106,37",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "已领取"
+  },
+  {
+    "itemName": "free_1",
+    "imageName": "free_1.png",
+    "roiFront": "360,493,31,30",
+    "roiBack": "360,493,31,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_1"
+  },
+  {
+    "itemName": "free_2",
+    "imageName": "free_2.png",
+    "roiFront": "430,494,38,24",
+    "roiBack": "430,494,38,24",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_2"
+  },
+  {
+    "itemName": "free_3",
+    "imageName": "free_3.png",
+    "roiFront": "502,490,41,35",
+    "roiBack": "502,490,41,35",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_3"
+  },
+  {
+    "itemName": "free_3_over",
+    "imageName": "free_3_over.png",
+    "roiFront": "502,490,41,35",
+    "roiBack": "502,490,41,35",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_3_over"
+  },
+  {
+    "itemName": "free_2_over",
+    "imageName": "free_2_over.png",
+    "roiFront": "430,494,38,24",
+    "roiBack": "430,494,38,24",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_2_over"
+  },
+  {
+    "itemName": "free_1_over",
+    "imageName": "free_1_over.png",
+    "roiFront": "360,493,31,30",
+    "roiBack": "360,493,31,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "free_1_over"
+  }
+]
