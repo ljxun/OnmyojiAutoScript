@@ -36,7 +36,7 @@ class EvoZoneAssets:
 	# List Rule Assets
 	# 这个是觉醒界面选择不同层数的 
 	L_LAYER_LIST = RuleList(folder="./tasks/EvoZone/res", direction="vertical", mode="ocr", roi_back=(138,130,359,500), size=(44, 88), 
-					 array=["壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾"])
+					 array=["壹层", "贰层", "叁层", "肆层", "伍层", "陆层", "柒层", "捌层", "玖层", "拾层"])
 
 
 	# Ocr Rule Assets
