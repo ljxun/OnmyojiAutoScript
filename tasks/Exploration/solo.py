@@ -40,6 +40,8 @@ class SoloExploration(BaseExploration):
 
             if self.check_exit(False):
                 self.quit_explore()
+                # 宝箱
+                self.get_box()
                 break
 
             scene = self.get_current_scene()
@@ -130,7 +132,7 @@ class SoloExploration(BaseExploration):
                         logger.info('滚动到最后, 未发现怪物')
                         self.quit_explore()
                         continue
-                    if self.swipe(self.S_SWIPE_BACKGROUND_RIGHT, interval=3):
+                    if self.swipe(self.S_SWIPE_BACKGROUND_RIGHT, interval=1):
                         continue
                 else:
                     search_fail_cnt += 1
