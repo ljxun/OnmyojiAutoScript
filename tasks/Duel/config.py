@@ -44,8 +44,13 @@ class DuelCelebConfig(ConfigBase):
     ban_name: str = Field(default='', description='填写第五手式神名称')
 
 
+class PushNotify(ConfigBase):
+    enable: bool = Field(title='Enable', default=True, description='斗技是否消息通知')
+
+
 class Duel(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
+    push_notify: PushNotify = Field(default_factory=PushNotify)
     duel_config: DuelConfig = Field(default_factory=DuelConfig)
     switch_week: SwitchWeek = Field(default_factory=SwitchWeek)
     duel_celeb_config: DuelCelebConfig = Field(default_factory=DuelCelebConfig)

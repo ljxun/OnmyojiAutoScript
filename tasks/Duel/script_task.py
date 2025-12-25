@@ -41,6 +41,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
 
         con = self.config.duel.duel_config
         celeb_con = self.config.duel.duel_celeb_config
+        push_notify_enable = self.config.duel.push_notify.enable
         limit_time = con.limit_time
         self.limit_time: timedelta = timedelta(hours=limit_time.hour, minutes=limit_time.minute, seconds=limit_time.second)
 
@@ -140,7 +141,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
             self.duel_one(current_score, con.green_enable, con.green_mark, celeb_con.ban_name)
 
         logger.info('Duel battle end')
-        if self.battle_count > 0:
+        if self.battle_count > 0 and push_notify_enable:
             self.push_notify( f'场次: {self.battle_count} | 胜: {self.battle_win_count} 败: {self.battle_lose_count} | 分数: {current_score}')
         # 记得退回去到町中
         self.ui_click(self.I_UI_BACK_YELLOW, self.I_CHECK_TOWN)
