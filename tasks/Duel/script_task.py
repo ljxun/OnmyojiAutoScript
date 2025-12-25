@@ -516,6 +516,9 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
                 self.save_image(task_name='斗技绿标超时', wait_time=0, push_flag=True, content='超时未识别到绿标',image_type=True)
                 return False
             self.screenshot()
+            if self.appear(self.I_WIN) and self.appear(self.I_D_VICTORY):
+                logger.info('对面直接退了,识别到赢，返回')
+                return True
             if self.wait_until_appear(self.I_GREEN_MARK_AUTO, wait_time=1):
                 # self.save_image(wait_time=0, push_flag=True, content='识别到绿标',image_type=True)
                 logger.info('识别到绿标,返回')
