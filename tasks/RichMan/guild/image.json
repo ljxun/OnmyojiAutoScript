@@ -75,7 +75,7 @@
     "itemName": "guild_blue",
     "imageName": "guild_guild_blue.png",
     "roiFront": "794,186,74,73",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.5,
     "description": "蓝票"
@@ -84,7 +84,7 @@
     "itemName": "guild_scrap",
     "imageName": "guild_guild_scrap.png",
     "roiFront": "570,439,71,68",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.4,
     "description": "黑蛋碎片"
@@ -93,7 +93,7 @@
     "itemName": "guild_skin",
     "imageName": "guild_guild_skin.png",
     "roiFront": "795,438,71,72",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "皮肤券"
@@ -102,7 +102,7 @@
     "itemName": "exp",
     "imageName": "Screenshots_exp.png",
     "roiFront": "569,465,73,72",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "经验御札"
@@ -111,7 +111,7 @@
     "itemName": "fl",
     "imageName": "Screenshots_fl.png",
     "roiFront": "344,464,73,72",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "风铃"
@@ -120,7 +120,7 @@
     "itemName": "liaobao",
     "imageName": "Screenshots_libao.png",
     "roiFront": "566,208,76,80",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "寮礼包"
@@ -129,7 +129,7 @@
     "itemName": "yuhun",
     "imageName": "Screenshots_yuhun.png",
     "roiFront": "344,188,71,70",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "御魂"
@@ -138,7 +138,7 @@
   "itemName": "guild_skin_check",
   "imageName": "guild_guild_skin.png",
   "roiFront": "795,438,71,72",
-    "roiBack": "244,116,744,540",
+    "roiBack": "288,185,635,379",
   "method": "Template matching",
   "threshold": 0.8,
   "description": "皮肤券判断是否到末端"
@@ -169,5 +169,23 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "购买黑碎"
+  },
+  {
+    "itemName": "guild_store_end",
+    "imageName": "guild_store_end.png",
+    "roiFront": "541,409,134,137",
+    "roiBack": "292,376,618,210",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "功勋商店顶部"
+  },
+  {
+    "itemName": "guild_store_top",
+    "imageName": "guild_store_top.png",
+    "roiFront": "345,213,71,70",
+    "roiBack": "288,160,618,210",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "功勋商店底部"
   }
 ]

@@ -171,10 +171,10 @@ class Guild(Buy, GameUi, RichManAssets):
                 break
             # 功勋商店 购买皮肤券 现在问题是皮肤券作为下滑判断标志,下滑过程中roi_front[1]发生了变化,
             # 导致后续识别本周剩余数量位置偏差,现在解决方案是创建一个相同属性的I_GUILD_SKIN_CHECK 来作为判断标志
-            if self.appear(self.I_GUILD_SKIN_CHECK):
+            if self.appear(self.I_GUILD_STORE_END):
                 swipe_down = False
                 swipe_count += 1
-            if self.appear(self.I_LIAOBAO):
+            if self.appear(self.I_GUILD_STORE_TOP):
                 swipe_down = True
             if swipe_down and self.swipe(self.S_GUILD_STORE_DOWN, interval=1.5, duration=1, wait_up_time=1):
                 continue

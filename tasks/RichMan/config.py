@@ -112,8 +112,13 @@ class Charisma(BaseModel):
     mystery_amulet: bool = Field(title='Mystery Amulet', default=False)
 
 
+class PushNotify(BaseModel):
+    enable: bool = Field(title='Enable', default=True, description='大富翁是否消息通知')
+
+
 class RichMan(ConfigBase):
     scheduler: Scheduler = Field(default_factory=Scheduler)
+    push_notify: PushNotify = Field(default_factory=PushNotify)
     # 千物宝箱
     thousand_things: ThousandThings = Field(default_factory=ThousandThings)
     # 神龛
