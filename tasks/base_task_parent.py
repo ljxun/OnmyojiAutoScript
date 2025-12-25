@@ -646,7 +646,7 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
                                                                             second=custom_time.second)
         self.set_next_run(task, target=target_time)
 
-    def next_run_week(self, target_day: int = 1):
+    def next_run_week(self, target_day: int = 1, push_notify: bool = True):
         """
         计算下一次运行的时间，目标是每周的特定一天。
 
@@ -690,8 +690,8 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
         task_object = getattr(self.config.model, task_name, None)
         scheduler = getattr(task_object, 'scheduler', None)
         server_update = scheduler.server_update
-
-        self.push_notify(content=f'任务下周{target_day}执行')
+        if push_notify:
+            self.push_notify(content=f'任务下周{target_day}执行')
 
         # 调用自定义函数设置下一次运行时间
         self.custom_next_run(task=TaskName,
