@@ -54,6 +54,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
 
         # 记得关掉
         if config.evo_zone_config.soul_buff_enable:
+            self.ui_goto_page(page_main)
             self.open_buff()
             self.awake(is_open=False)
             self.close_buff()
@@ -205,8 +206,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
         if self.exit_team():
             pass
 
-        self.ui_goto_page(page_main)
-
         if not success:
             return False
         return True
@@ -254,7 +253,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
             if self.exit_battle():
                 pass
 
-        self.ui_goto_page(page_main)
         return True
 
     def run_alone(self):
@@ -306,7 +304,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
                 continue
 
         self.ui_current = page_awake_zones
-        self.ui_goto_page(page_main)
 
     def run_wild(self):
         logger.error('Wild mode is not implemented')
