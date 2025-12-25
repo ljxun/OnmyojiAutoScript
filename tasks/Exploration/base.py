@@ -163,8 +163,6 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
                 return False
 
         # 选中对应章节
-        ocr_area_1 = None
-        ocr_area_2 = None
         while 1:
             self.screenshot()
             if self.appear_then_click(self.I_UI_CONFIRM, interval=1):
@@ -172,29 +170,15 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
             if self.appear_then_click(self.I_UI_CONFIRM_SAMLL, interval=1):
                 continue
             self.O_E_EXPLORATION_LEVEL_NUMBER.keyword = goal_level
-            if self.ocr_result(self.O_E_EXPLORATION_LEVEL_NUMBER, interval=1):
+            if self.O_E_EXPLORATION_LEVEL_NUMBER.ocr(self.device.image):
                 logger.info(f"已找到目标章节: {goal_level} {self.O_E_EXPLORATION_LEVEL_NUMBER.area}")
-                if not ocr_area_1:
-                    ocr_area_1 = self.O_E_EXPLORATION_LEVEL_NUMBER.area
-                    continue
-                elif not ocr_area_2:
-                    ocr_area_2 = self.O_E_EXPLORATION_LEVEL_NUMBER.area
-                    continue
-                elif ocr_area_1 == ocr_area_2:
-                    logger.info(f"两次章节位置匹配相同{ocr_area_2}")
-                    x = self.O_E_EXPLORATION_LEVEL_NUMBER.area[0]
-                    y = self.O_E_EXPLORATION_LEVEL_NUMBER.area[1]
-                    w = self.O_E_EXPLORATION_LEVEL_NUMBER.area[2]
-                    h = self.O_E_EXPLORATION_LEVEL_NUMBER.area[3]
-                    CLICK_TMP = RuleClick(roi_front=(x,y+30,w,h), roi_back=(x,y+30,w,h), name="CLICK_TMP")
-                    self.click(CLICK_TMP)
-                    self.wait_until_appear(self.I_E_EXPLORATION_CLICK, wait_time=3)
-                else:
-                    logger.info(f"两次章节位置匹配不同{ocr_area_1} {ocr_area_2}")
-                    logger.info(f"重置两次章节位置")
-                    ocr_area_1 = None
-                    ocr_area_2 = None
-                    continue
+                x = self.O_E_EXPLORATION_LEVEL_NUMBER.area[0]
+                y = self.O_E_EXPLORATION_LEVEL_NUMBER.area[1]
+                w = self.O_E_EXPLORATION_LEVEL_NUMBER.area[2]
+                h = self.O_E_EXPLORATION_LEVEL_NUMBER.area[3]
+                CLICK_TMP = RuleClick(roi_front=(x,y+30,w,h), roi_back=(x,y+30,w,h), name="CLICK_TMP")
+                self.click(CLICK_TMP)
+                self.wait_until_appear(self.I_E_EXPLORATION_CLICK, wait_time=3)
             if self.appear(self.I_E_EXPLORATION_CLICK):
                 break
             if self.is_in_room():
