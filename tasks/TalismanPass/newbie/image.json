@@ -1,0 +1,57 @@
+[
+  {
+    "itemName": "newbie",
+    "imageName": "newbie.png",
+    "roiFront": "309,331,32,30",
+    "roiBack": "24,222,756,256",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "新手奖励"
+  },
+  {
+    "itemName": "newbie_page",
+    "imageName": "newbie_page.png",
+    "roiFront": "98,22,78,30",
+    "roiBack": "98,22,78,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "新手奖励_page"
+  },
+  {
+    "itemName": "yc_road",
+    "imageName": "yc_road.png",
+    "roiFront": "50,166,100,27",
+    "roiBack": "35,96,142,346",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "缘初之路"
+  },
+  {
+    "itemName": "resupply",
+    "imageName": "resupply.png",
+    "roiFront": "1219,388,23,60",
+    "roiBack": "1219,388,23,60",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "补给"
+  },
+  {
+    "itemName": "resupply_page",
+    "imageName": "resupply_page.png",
+    "roiFront": "235,256,180,27",
+    "roiBack": "235,256,180,27",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "补给_page"
+  },
+  {
+    "itemName": "one_collect",
+    "imageName": "one_collect.png",
+    "roiFront": "1198,569,40,30",
+    "roiBack": "1198,569,40,30",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "一键领取"
+  }
+
+]

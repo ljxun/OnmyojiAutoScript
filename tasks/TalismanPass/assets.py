@@ -24,6 +24,21 @@ class TalismanPassAssets:
 	I_ACCOMPLISHMENTS_3 = RuleImage(roi_front=(1077,423,36,42), roi_back=(1077,423,36,42), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_3.png")
 
 
+	# Image Rule Assets
+	# 新手奖励 
+	I_NEWBIE = RuleImage(roi_front=(309,331,32,30), roi_back=(24,222,756,256), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie.png")
+	# 新手奖励_page 
+	I_NEWBIE_PAGE = RuleImage(roi_front=(98,22,78,30), roi_back=(98,22,78,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie_page.png")
+	# 缘初之路 
+	I_YC_ROAD = RuleImage(roi_front=(50,166,100,27), roi_back=(35,96,142,346), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/yc_road.png")
+	# 补给 
+	I_RESUPPLY = RuleImage(roi_front=(1219,388,23,60), roi_back=(1219,388,23,60), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply.png")
+	# 补给_page 
+	I_RESUPPLY_PAGE = RuleImage(roi_front=(235,256,180,27), roi_back=(235,256,180,27), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply_page.png")
+	# 一键领取 
+	I_ONE_COLLECT = RuleImage(roi_front=(1198,569,40,30), roi_back=(1198,569,40,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/one_collect.png")
+
+
 	# Click Rule Assets
 	# 花合战需要点击的空白区域 
 	C_CLICK_AREA = RuleClick(roi_front=(1197,565,43,44), roi_back=(1197,565,43,44), name="click_area")

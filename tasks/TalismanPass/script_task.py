@@ -30,9 +30,34 @@ class ScriptTask(GameUi, TalismanPassAssets):
 
         if con.get_accomplishments:
             self.get_accomplishment()
+        if con.get_newbie:
+            self.get_newbie()
 
         self.set_next_run(task='TalismanPass', success=True, finish=True)
         raise TaskEnd('TalismanPass')
+
+    def get_newbie(self):
+        """
+        获取新手奖励
+        :return:
+        """
+        self.ui_goto_page(page_main)
+        self.ui_click(self.I_NEWBIE, self.I_NEWBIE_PAGE)
+        self.ui_click(self.I_YC_ROAD, self.I_RESUPPLY)
+        self.ui_click(self.I_RESUPPLY, self.I_RESUPPLY_PAGE)
+        self.ui_get_reward(self.I_ONE_COLLECT)
+
+        check_timer = Timer(3)
+        check_timer.start()
+        while 1:
+            self.screenshot()
+            if self.ui_reward_appear_click(True):
+                break
+            if check_timer.reached():
+                break
+
+        self.save_image(task_name="新手奖励", wait_time=1)
+
 
     def get_all(self):
         """
@@ -172,10 +197,10 @@ def load_image(file: str):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399')
+    c = Config('4399-1')
     # d = Device(c)
     t = ScriptTask(c)
     # t.screenshot()
     # d.image = load_image(r"D:\共享文件夹\Screenshots\花合战\1 (1).png")
     # t.main_goto_daily()
-    t.get_accomplishment()
+    t.get_newbie()
