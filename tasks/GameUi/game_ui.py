@@ -87,7 +87,7 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
             skip_first_screenshot = False
         return False
 
-    def ui_get_current_page(self, skip_first_screenshot=True) -> Page:
+    def ui_get_current_page(self, skip_first_screenshot=False) -> Page:
         """
         获取当前页面
         :param skip_first_screenshot:
