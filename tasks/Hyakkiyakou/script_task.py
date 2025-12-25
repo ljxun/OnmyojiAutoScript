@@ -140,14 +140,7 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
             logger.info(f'count: {hya_count}/{self.limit_count}')
             logger.info(f'time: {(datetime.now() - self.start_time).total_seconds():.1f}s/{self.limit_time.total_seconds()}s')
 
-        while 1:
-            self.screenshot()
-
-            if not self.appear(self.I_HACCESS):
-                continue
-            if self.appear(self.I_HCLOSE_RED):
-                break
-        self.ui_click_until_disappear(self.I_HCLOSE_RED)
+        self.ui_goto_page(page_main)
         self.set_next_run(task='Hyakkiyakou', success=True, finish=False)
         raise TaskEnd
 
@@ -155,6 +148,7 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
         self.reset_state()
         if not self.appear(self.I_HACCESS):
             logger.warning('Page Error')
+            self.ui_goto_page(page_hyakkiyakou)
         if self._config.hyakkiyakou_config.hya_invite_friend:
             self.invite_friend()
         # start
@@ -213,7 +207,7 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
             # 走个动画
             time.sleep(1.5)
             self.debugger.save_result(self.device.image)
-        self.ui_click(self.I_HEND, self.I_HACCESS)
+        self.ui_click_until_disappear(self.I_HEND)
         self.debugger.save_images()
         del self.debugger
         # you maybe update oashya
