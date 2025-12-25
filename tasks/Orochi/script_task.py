@@ -104,8 +104,8 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
 
         config: Orochi = self.config.orochi
         if not self.is_in_battle(True):
-            self.ui_goto_page(page_main)
             if config.orochi_config.soul_buff_enable:
+                self.ui_goto_page(page_main)
                 self.open_buff()
                 self.soul(is_open=True)
                 self.close_buff()
@@ -123,6 +123,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
 
         # 记得关掉
         if config.orochi_config.soul_buff_enable:
+            self.ui_goto_page(page_main)
             self.open_buff()
             self.soul(is_open=False)
             self.close_buff()
@@ -277,8 +278,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
         if self.exit_team():
             pass
 
-        self.ui_goto_page(page_main)
-
         return success
 
     def run_member(self):
@@ -348,8 +347,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
             if self.exit_battle():
                 pass
 
-        self.ui_goto_page(page_main)
-
         return success
 
     def run_alone(self, layer):
@@ -403,7 +400,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
                 continue
 
         self.ui_current = page_soul_zones
-        self.ui_goto_page(page_main)
 
     def is_room_dead(self) -> bool:
         # 如果在探索界面或者是出现在组队界面，那就是可能房间死了
