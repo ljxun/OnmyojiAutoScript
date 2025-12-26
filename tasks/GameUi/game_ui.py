@@ -26,7 +26,7 @@ from tasks.base_task import BaseTask
 class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
     ui_current: Page = None
     ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1, GeneralBattleAssets.I_WIN, GeneralBattleAssets.I_FALSE, GeneralBattleAssets.I_REWARD,
-                BaseTask.I_UI_BACK_BLUE, BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_YELLOW, BaseTask.I_UI_BACK_YELLOW_2,
+                BaseTask.I_UI_BACK_RED, BaseTask.I_UI_BACK_BLUE, BaseTask.I_UI_BACK_YELLOW, BaseTask.I_UI_BACK_YELLOW_2,
                 GameUiAssets.I_BACK_FRIENDS, GameUiAssets.I_BACK_DAILY, GameUiAssets.I_REALM_RAID_GOTO_EXPLORATION, GameUiAssets.I_SIX_GATES_GOTO_EXPLORATION,
                 SixRealmsAssets.I_EXIT_SIXREALMS,
                 RestartAssets.I_HARVEST_CHAT_CLOSE,
