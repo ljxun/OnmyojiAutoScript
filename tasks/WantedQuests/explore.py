@@ -98,6 +98,5 @@ if __name__ == '__main__':
     from tasks.WantedQuests.assets import WantedQuestsAssets
 
     config = Config('oas1')
-    device = Device(config)
-    t = WQExplore(config, device)
+    t = WQExplore(config)
     t.explore(goto=WantedQuestsAssets.I_GOTO_1, num=2)

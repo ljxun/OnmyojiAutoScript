@@ -110,10 +110,9 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
             self.close_buff()
 
     def post_process(self):
-        self.wait_until_stable(self.I_UI_BACK_RED)
-        self.ui_goto_page(page_main)
         con = self._config.exploration_config
         if con.buff_gold_50_click or con.buff_gold_100_click or con.buff_exp_50_click or con.buff_exp_100_click:
+            self.ui_goto_page(page_main)
             self.open_buff()
             self.gold_50(is_open=False)
             self.gold_100(is_open=False)

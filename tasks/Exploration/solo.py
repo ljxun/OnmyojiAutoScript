@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+from tasks.GameUi.page import page_exploration
 from cached_property import cached_property
 from datetime import datetime
 from module.exception import TaskEnd
@@ -35,6 +36,7 @@ class SoloExploration(BaseExploration):
         self.goal_level = self.config.exploration.exploration_config.exploration_level
         self.limit_count = self._config.exploration_config.minions_cnt
         open_expect_level = False
+        self.ui_goto_page(page_exploration)
         while 1:
             self.screenshot()
 

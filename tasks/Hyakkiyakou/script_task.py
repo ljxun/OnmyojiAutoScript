@@ -140,7 +140,6 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
             logger.info(f'count: {hya_count}/{self.limit_count}')
             logger.info(f'time: {(datetime.now() - self.start_time).total_seconds():.1f}s/{self.limit_time.total_seconds()}s')
 
-        self.ui_goto_page(page_main)
         self.set_next_run(task='Hyakkiyakou', success=True, finish=False)
         raise TaskEnd
 
