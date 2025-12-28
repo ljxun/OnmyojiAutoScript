@@ -38,6 +38,8 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
 
         missions_type = self.config.collective_missions.missions_config.missions_type
 
+        target = MC.GR3
+        target_1 = MC.GR1
         match missions_type:
             case MissionsType.AW:
                 logger.info('Selecting 觉醒三')
@@ -54,10 +56,6 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
             case MissionsType.FEED:
                 logger.info('Selecting N卡')
                 target = MC.FEED
-                target_1 = None
-            case _:
-                logger.error('Default Selecting 御灵三')
-                target = MC.GR3
                 target_1 = None
 
         remain = self.goto_cm_main()
@@ -152,7 +150,7 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
                 self.device.click_record_clear()
                 time.sleep(1)  # 等待页面刷新完成（根据实际加载时间调整）
 
-    def _donate_all(self, index: int, target: str, num: int, incomplete_num: int):
+    def _donate_all(self, index: int, target: MissionsType, num: int, incomplete_num: int):
         """
         捐赠材料
         :param index: 0, 1, 2 三个任务的位置
@@ -260,10 +258,9 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
+
     c = Config('mi')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
     t.screenshot()
     t.run()
 
