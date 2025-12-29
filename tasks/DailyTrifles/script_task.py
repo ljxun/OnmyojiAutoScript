@@ -54,16 +54,24 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
 
     def run_summon_store(self):
         self.ui_goto_page(page_summon_store)
+        timer = Timer(3)
+        timer.start()
         while 1:
+            if timer.reached():
+                logger.info('not appear Summon Store')
+                return
             self.screenshot()
             if self.appear(self.I_SUMMON_STORE_FREE_OVER):
                 break
             if self.appear_then_click(self.I_SUMMON_STORE_FREE_1, interval=1):
+                timer.reset()
                 continue
             if self.appear_then_click(self.I_SUMMON_STORE_FREE, interval=1):
                 sleep(1)
+                timer.reset()
                 continue
             if self.appear_then_click(self.I_SUMMON_STORE_LUCKY, interval=1):
+                timer.reset()
                 continue
 
         click_count = 0
