@@ -44,6 +44,8 @@ class MoonSea(MoonSeaMap, MoonSeaL101, MoonSeaL102, MoonSeaL103, MoonSeaL104, Mo
             else:
                 break
         self.push_notify(content=f'任务已完成{cnt}次,用时: {timedelta(seconds=int((datetime.now() - self.start_time).total_seconds()))}')
+        # 设置下一次运行时间是周一
+        self.next_run_week(1)
         logger.info('Exit Moon Sea')
 
     def one(self):
