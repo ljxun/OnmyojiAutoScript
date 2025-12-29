@@ -115,6 +115,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
                 success = self.run_general_battle(self.battle_config)
                 continue
         self.save_image()
+        # 设置下一次运行时间是周一
+        self.next_run_week(1)
         self.ui_click(self.I_UI_BACK_BLUE, self.I_BUFF_1)
         self.ui_goto_page(page_main)
         if con.secret_gold_50 or con.secret_gold_100:
@@ -125,18 +127,18 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
                 self.gold_100(False)
             self.close_buff()
         # self.set_next_run(task='Secret', success=True, finish=False)
-        # 设置下一次运行时间是周一
-        self.next_run_week(1)
         raise TaskEnd('Secret')
 
-    def find_battle(self, screenshot: bool=False) -> int or None:
+    def find_battle(self, screenshot: bool = False) -> int or None:
         """
         自动寻找挑战的层数并且选定 , 找不到会向下划一点
         :return: 如果找得到返回层数，找不到返回None
         """
+
         def set_layer_roi(ocr_target: RuleOcr, roi: tuple):
             ocr_target.roi[0] = int(roi[0]) - 225
             ocr_target.roi[1] = int(roi[1]) - 40
+
         def check_layer(ocr_target: RuleOcr, roi=None) -> int or None:
             #
             # 手动留了一个bug： 即使匹配到了未通关 但是在判断层数的时候还是会先判断第一个是什么的
@@ -193,7 +195,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
             except TypeError:
                 logger.warning(f'OCR failed, try again {jade_num}')
                 return None
-
 
         if screenshot:
             self.screenshot()
@@ -276,10 +277,9 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
+
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
     t.screenshot()
 
     t.run()
