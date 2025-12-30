@@ -596,22 +596,6 @@ class ScriptTask(GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul, Bondlin
             if self.appear_then_click(self.I_BF_UNLOCK, interval=1):
                 continue
 
-    def get_bondling_class(self) -> BondlingClass or None:
-        """
-        获取契灵的种类 (这个不应该一开始就调用因为这些会有出场动画)
-        :return:
-        """
-        self.screenshot()
-        if self.appear(self.I_TOMB_GUARD):
-            return BondlingClass.TOMB_GUARD
-        elif self.appear(self.I_SNOWBALL):
-            return BondlingClass.SNOWBALL
-        elif self.appear(self.I_LITTLE_KURO):
-            return BondlingClass.LITTLE_KURO
-        elif self.appear(self.I_AZURE_BASAN, threshold=0.7):
-            return BondlingClass.AZURE_BASAN
-        return None
-
     @cached_property
     def limit_time(self) -> timedelta:
         if not self.config.bondling_fairyland.bondling_config.limit_time:

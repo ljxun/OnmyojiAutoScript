@@ -17,10 +17,11 @@ class BondlingMode(str, Enum):
 
 
 class BondlingClass(str, Enum):
-    TOMB_GUARD = '镇墓兽'
-    SNOWBALL = '茨球'
-    LITTLE_KURO = '小黑'
-    AZURE_BASAN = '火灵'
+    TOMB_GUARD = '镇墓兽/针女'
+    AZURE_BASAN = '火灵/剃魂'
+    SNOWBALL = '茨球/月魔兔'
+    LITTLE_KURO = '小黑/狐火'
+
 
 
 class UserStatus(str, Enum):
