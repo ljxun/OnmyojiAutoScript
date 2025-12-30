@@ -286,6 +286,7 @@
     "switch_soul": {
       "enable": true,
       "switch_group_team": "-1,-1",
+      "enable_100ap": false,
       "enable_four": true,
       "enable_boss": true
     },
@@ -350,7 +351,8 @@
     },
     "talisman": {
       "level_reward": "金币/勾玉",
-      "get_accomplishments": false
+      "get_accomplishments": false,
+      "get_newbie": false
     }
   },
   "pets": {
@@ -412,7 +414,8 @@
     "scrolls": {
       "scrolls_enable": false,
       "scrolls_cd": "00:30:00",
-      "scrolls_threshold": 25
+      "scrolls_threshold": 25,
+      "check_boss_num": true
     },
     "invite_config": {
       "friend_1": "",
@@ -425,6 +428,7 @@
       "buff_exp_50_click": false,
       "buff_exp_100_click": false,
       "atuo_rotate_on": true,
+      "enable_hard_mode": true,
       "user_status": "alone",
       "limit_time": "00:30:00",
       "minions_cnt": 30,
@@ -755,7 +759,15 @@
       "limit_count": 200,
       "limit_time": "00:30:00",
       "active_souls_clean": false,
-      "each_limit_second": 0
+      "each_limit_second": 0,
+      "enable_check_first_priority_task": false
+    },
+    "check_battle_config": {
+      "enable": false,
+      "ocr_number_mode": "DigitCounter",
+      "ocr_number_roi": "",
+      "limit_ocr_number": -1,
+      "number_type": "战斗"
     },
     "switch_soul_config": {
       "enable": false,
@@ -779,7 +791,14 @@
       "limit_count": 200,
       "limit_time": "00:30:00",
       "active_souls_clean": false,
-      "each_limit_second": 0
+      "each_limit_second": 0,
+      "enable_check_first_priority_task": false
+    },
+    "check_battle_config": {
+      "enable": false,
+      "ocr_number_mode": "DigitCounter",
+      "ocr_number_roi": "",
+      "limit_ocr_number": 0
     },
     "switch_soul_config": {
       "enable": false,
@@ -818,18 +837,31 @@
       "priority": 5,
       "success_interval": "01 00:00:00",
       "failure_interval": "01 00:00:00",
-      "server_update": "09:00:00"
+      "server_update": "09:00:00",
+      "wait_interval": "00 01:40:00"
     },
     "meta_demon_config": {
+      "limit_time": "00:45:00",
+      "limit_count": 50,
       "auto_tea": false,
-      "extreme_notify": false
+      "fire_sequence": "1 2 3 4",
+      "powerful_list": ""
     },
     "switch_soul": {
       "enable": false,
-      "switch_group_team": "-1,-1",
-      "enable_switch_by_name": false,
-      "group_name": "",
-      "team_name": ""
+      "switch_once": false,
+      "one_star": "",
+      "enable_one_star_preset": false,
+      "two_stars": "",
+      "enable_two_stars_preset": false,
+      "three_stars": "",
+      "enable_three_stars_preset": false,
+      "four_stars": "",
+      "enable_four_stars_preset": false,
+      "five_stars": "",
+      "enable_five_stars_preset": false,
+      "six_stars": "",
+      "enable_six_stars_preset": false
     }
   },
   "frog_boss": {
@@ -908,6 +940,20 @@
     },
     "main_story_config": {}
   },
+  "lbs": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00"
+    },
+    "lbs_config": {
+      "limit_count": 35,
+      "limit_time": "00:30:00"
+    }
+  },
   "switch_account_config": {
     "config": {
       "enable": false,
@@ -966,7 +1012,7 @@
       "limit_time": "00:30:00",
       "limit_count": 30,
       "bondling_stone_enable": false,
-      "bondling_stone_class": "镇墓兽"
+      "bondling_stone_class": "镇墓兽/针女"
     },
     "bondling_switch_soul": {
       "auto_switch_soul": false,
@@ -1083,6 +1129,7 @@
       "hya_limit_time": "00:20:00",
       "hya_limit_count": 10,
       "hya_invite_friend": false,
+      "hya_onmyoji": "神乐",
       "hya_auto_bean": false,
       "hya_priorities": "",
       "hya_sp": 1.0,
@@ -1103,8 +1150,7 @@
       "hya_info": false,
       "continuous_learning": false,
       "hya_save_result": false,
-      "hya_interval": 300,
-      "hya_screenshot_method": "window_background"
+      "hya_interval": 300
     }
   },
   "hero_test": {
@@ -1192,6 +1238,9 @@
       "failure_interval": "01 00:00:00",
       "server_update": "09:00:00"
     },
+    "push_notify": {
+      "enable": true
+    },
     "thousand_things": {
       "enable": false,
       "mystery_amulet": false,
@@ -1213,6 +1262,10 @@
       "mystery_amulet": false,
       "black_daruma_scrap": false,
       "skin_ticket": 0
+    },
+    "guild_procurement": {
+      "enable": false,
+      "buy_lottery_box": false
     },
     "consignment": {
       "enable": false,
@@ -1350,6 +1403,9 @@
       "failure_interval": "01 00:00:00",
       "server_update": "09:00:00"
     },
+    "push_notify": {
+      "enable": true
+    },
     "duel_config": {
       "switch_enabled": true,
       "switch_onmyoji": "源赖光",
@@ -1402,12 +1458,14 @@
     "kirin_config": {
       "enable": false,
       "preset_enable": false,
-      "switch_group_team": "-1,-1"
+      "switch_group_team": "-1,-1",
+      "exit_battle_second": 0
     },
     "nether_world_config": {
       "enable": false,
       "preset_enable": false,
-      "switch_group_team": "-1,-1"
+      "switch_group_team": "-1,-1",
+      "exit_battle_second": 0
     }
   },
   "dokan": {
@@ -1423,6 +1481,7 @@
       "welfare_enable": false,
       "fresh_num": 5,
       "min_people_num": -1,
+      "fresh_num_less_people": 20,
       "enable_get_requests": false,
       "get_requests_url": ""
     },
