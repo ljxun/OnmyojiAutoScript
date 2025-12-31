@@ -3,6 +3,7 @@
 用于管理模拟器的模块，不依赖ADB连接
 通过模拟器管理器直接控制模拟器的启动、关闭等操作
 """
+import os
 
 from deploy.process import ProcessManager
 from module.device.execute_util import execute_emulator, execute_show_window
@@ -11,21 +12,40 @@ from module.server.setting import State
 from tasks.Script.config_device import EmulatorWindow
 from tasks.Script.config_device import PackageName
 from module.device.app_control import AppControl
+from module.device.platform2.emulator_windows import EmulatorManager as EmulatorManagerOld
 
 
 class EmulatorManager:
-    def __init__(self, config=None):
+    def __init__(self, c=None):
         """
         初始化模拟器管理器
         """
-        self.config = config
-        # 获取模拟器管理器路径
-        self.manager_path = self.config.script.device.emulatorinfo_path.replace("MuMuPlayer.exe", "MuMuManager.exe")
-
+        self.config = c
         # 获取模拟器Serial
         self.serial = config.script.device.serial
         # 获取模拟器句柄
         self.handle = self.config.script.device.handle
+
+
+        # 获取模拟器管理器路径
+        # MuMu-5     E:/MuMuPlayer-12.0/nx_main/MuMuManager.exe
+        # MuMu-4.12  E:/MuMuPlayer-12.0/shell/MuMuPlayer.exe    E:/MuMuPlayer-12.0/shell/MuMuManager.exe
+
+        # 首先尝试使用已保存的路径
+        self.manager_path = self.config.script.device.emulatorinfo_path
+        # 如果路径无效，获取新的路径
+        if not self.manager_path or not os.path.isfile(self.manager_path):
+            emulator_manager_old = EmulatorManagerOld()
+            emulator_instance = emulator_manager_old.get_emulator_instance_by_serial(self.serial)
+            self.manager_path = emulator_instance.path
+            # 赋值路径
+            self.config.script.device.emulatorinfo_path = self.manager_path
+            self.config.script.device.emulatorinfo_name = emulator_instance.name
+        self.manager_path = self.manager_path.replace("MuMuNxMain.exe", "MuMuManager.exe")
+        self.player_path = self.manager_path.replace("MuMuManager.exe","MuMuPlayer.exe")
+        if not os.path.isfile(self.player_path):
+            self.player_path = self.manager_path
+
         # 获取模拟器实例ID
         self.vmindex = self.get_vmindex_by_name(self.handle)
         # 获取模拟器启动的app
@@ -82,7 +102,7 @@ class EmulatorManager:
         else:
             show_window = False
 
-        cmd = [self.config.script.device.emulatorinfo_path, "control", "-v", self.vmindex, "launch"]
+        cmd = [self.player_path, "control", "-v", self.vmindex, "launch"]
         result = execute_show_window(cmd, show_window)
         if result:
             logger.info("模拟器开始启动")
@@ -219,7 +239,7 @@ if __name__ == "__main__":
     config = Config('du')
     # 创建模拟器管理器实例
     manager = EmulatorManager(config)
-    manager.is_app_running()
+    manager.get_vmindex_by_name('du')
 
     # # 检查模拟器状态
     # if manager.is_emulator_running():
