@@ -396,7 +396,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
                 break
             if self.appear_then_click(self.I_E_EXIT_CONFIRM, interval=0.8):
                 continue
-            if self.appear_then_click(self.I_BACK_BLUE, interval=1.5):
+            if self.appear_then_click(self.I_BACK_YELLOW, interval=1.5):
                 continue
 
     def fire(self, button) -> bool:
