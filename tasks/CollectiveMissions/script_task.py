@@ -94,6 +94,7 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
 
             # 设置任务结束
             self.next_run_task()
+            return None
         else:
             return remain
 
@@ -118,6 +119,7 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
         last_result = None       # 记录上一次的OCR识别结果（初始为None）
         consecutive_count = 0    # 记录连续相同结果的次数（初始为0）
         total_count = 0
+        consecutive_count_max = 5
         while True:              # 无限循环（用True更易读）
             self.screenshot()     # 截取当前屏幕
             current_result = self.O_CM_2.ocr(self.device.image)  # 执行OCR识别，获取当前结果
@@ -125,9 +127,10 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
             # 核心逻辑：比较当前结果与上一次结果
             if current_result == last_result:
                 consecutive_count += 1  # 连续次数+1
-                # 当连续次数≥3时，退出循环（阈值可根据需求调整）
-                if consecutive_count >= 3:
-                    logger.info(f"连续三次识别结果均为：{current_result}，触发退出条件")
+                # 当连续次数≥ consecutive_count_max时，退出循环（阈值可根据需求调整）
+                if consecutive_count >= consecutive_count_max:
+                    message = f"连续{consecutive_count}次识别结果均为：{current_result}，触发退出条件"
+                    self.push_notify(content=message)
                     # 设置任务结束
                     self.next_run_task()
             else:
