@@ -61,7 +61,7 @@ class ScriptTask(GameUi, SoulsTidyAssets):
         退回到式神录
         :return:
         """
-        self.ui_click(self.I_UI_BACK_YELLOW, self.I_CHECK_RECORDS)
+        self.ui_click(self.I_BACK_YELLOW, self.I_CHECK_RECORDS)
 
     def greed(self):
         """

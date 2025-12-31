@@ -50,12 +50,6 @@ class GlobalGameAssets:
 	# description 
 	I_UI_BACK_RED = RuleImage(roi_front=(1041,111,34,38), roi_back=(834,15,427,200), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_back_red.png")
 	# description 
-	I_UI_BACK_YELLOW = RuleImage(roi_front=(26,17,47,46), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_back_yellow.png")
-	# ui_ui_back_yellow_2 
-	I_UI_BACK_YELLOW_2 = RuleImage(roi_front=(30,34,37,35), roi_back=(30,34,37,35), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_back_yellow_2.png")
-	# description 
-	I_UI_BACK_BLUE = RuleImage(roi_front=(32,37,51,45), roi_back=(2,1,133,119), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_back_blue.png")
-	# description 
 	I_UI_AWARD = RuleImage(roi_front=(577,499,100,100), roi_back=(530,408,199,220), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_award.png")
 	# 短一点的确认 
 	I_UI_CONFIRM_SAMLL = RuleImage(roi_front=(677,390,130,62), roi_back=(677,390,130,62), threshold=0.8, method="Template matching", file="./tasks/GlobalGame/ui/ui_ui_confirm_samll.png")

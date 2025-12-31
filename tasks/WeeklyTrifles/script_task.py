@@ -3,6 +3,7 @@
 # github https://github.com/runhey
 import time
 
+from GameUi.page import page_main
 from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
@@ -111,9 +112,9 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
                 break
             if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
                 continue
-            if self.appear_then_click(self.I_UI_BACK_BLUE, interval=1):
+            if self.appear_then_click(self.I_BACK_BLUE, interval=1):
                 continue
-            if self.appear_then_click(self.I_UI_BACK_YELLOW, interval=1):
+            if self.appear_then_click(self.I_BACK_YELLOW, interval=1):
                 continue
 
     def _share_area_boss(self):
@@ -128,9 +129,9 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
                     break
                 if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
                     continue
-                if self.appear_then_click(self.I_UI_BACK_BLUE, interval=1):
+                if self.appear_then_click(self.I_BACK_BLUE, interval=1):
                     continue
-                if self.appear_then_click(self.I_UI_BACK_YELLOW, interval=1):
+                if self.appear_then_click(self.I_BACK_YELLOW, interval=1):
                     continue
             logger.info('Back to boss')
         logger.hr('Share area boss')
@@ -197,7 +198,7 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
             # 点击分享
             self.click_share(self.I_WT_SE_WECHAT)
         # 返回
-        self.ui_click(self.I_UI_BACK_BLUE, self.I_BUFF_1)
+        self.ui_goto_page(page_main)
 
     def _broken_amulet(self, num: int):
         """
@@ -262,10 +263,9 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
+
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
     t.screenshot()
 
     t._share_secret()

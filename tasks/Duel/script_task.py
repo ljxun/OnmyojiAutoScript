@@ -144,7 +144,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
         if self.battle_count > 0 and push_notify_enable:
             self.push_notify( f'场次: {self.battle_count} | 胜: {self.battle_win_count} 败: {self.battle_lose_count} | 分数: {current_score}')
         # 记得退回去到町中
-        self.ui_click(self.I_UI_BACK_YELLOW, self.I_CHECK_TOWN)
+        self.ui_click(self.I_BACK_YELLOW, self.I_CHECK_TOWN)
 
         if duel_week_over:
             self.next_run_week(self.config.duel.switch_week.next_week_day)
@@ -183,7 +183,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
                 click_count += 1
                 continue
         logger.info('Souls Switch is complete')
-        self.ui_click(self.I_UI_BACK_YELLOW, self.I_D_TEAM)
+        self.ui_click(self.I_BACK_YELLOW, self.I_D_TEAM)
 
     def switch_kagura(self,con, target1, target2):
         click_count = 0  # 计数

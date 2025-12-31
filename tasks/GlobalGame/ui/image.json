@@ -36,33 +36,6 @@
     "description": "description"
   },
   {
-    "itemName": "ui_back_yellow",
-    "imageName": "ui_ui_back_yellow.png",
-    "roiFront": "26,17,47,46",
-    "roiBack": "0,0,100,100",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
-    "itemName": "ui_back_yellow_2",
-    "imageName": "ui_ui_back_yellow_2.png",
-    "roiFront": "30,34,37,35",
-    "roiBack": "30,34,37,35",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "ui_ui_back_yellow_2"
-  },
-  {
-    "itemName": "ui_back_blue",
-    "imageName": "ui_ui_back_blue.png",
-    "roiFront": "32,37,51,45",
-    "roiBack": "2,1,133,119",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "ui_award",
     "imageName": "ui_ui_award.png",
     "roiFront": "577,499,100,100",

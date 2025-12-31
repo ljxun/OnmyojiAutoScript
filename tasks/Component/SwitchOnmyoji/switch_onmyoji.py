@@ -2,9 +2,10 @@ from tasks.Component.SwitchOnmyoji.assets import SwitchOnmyojiAssets
 from tasks.Component.SwitchOnmyoji.config import Onmyoji
 from tasks.base_task import BaseTask
 from module.logger import logger
+from tasks.GameUi.game_ui import GameUi
 
 
-class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets):
+class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets, GameUi):
 
     def switch_onmyoji(self, onmyoji: Onmyoji):
         """
@@ -42,7 +43,7 @@ class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets):
             if self.appear(self.I_ONMYOJI_CHECK, interval=0.8):
                 break
             if self.appear(onmyoji_battle, interval=0.8):
-                self.ui_click(self.I_UI_BACK_BLUE, self.I_ONMYOJI_CHECK, interval=1.2)
+                self.ui_click(self.I_BACK_BLUE, self.I_ONMYOJI_CHECK, interval=1.2)
                 break
             # 出战对应阴阳师
             self.click(onmyoji_battle, interval=1.2)

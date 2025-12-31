@@ -110,15 +110,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, SougenbiAssets):
                     self.run_general_battle(config=con.general_battle_config)
                     break
 
-        # 回去到探索大世界
-        while 1:
-            self.screenshot()
-            if self.appear(self.I_CHECK_EXPLORATION):
-                break
-            if self.appear_then_click(self.I_UI_BACK_BLUE, interval=1):
-                continue
-        logger.info('Back to exploration')
-
         if s_con.buff_enable:
             self.ui_goto_page(page_main)
             self.open_buff()

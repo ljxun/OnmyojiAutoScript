@@ -57,7 +57,7 @@ class ScriptTask(GameUi, QuizAssets, ActivityShikigamiAssets, Debugger):
             except NoTicket:
                 break
 
-        self.ui_click(self.I_UI_BACK_YELLOW, self.I_CHECK_MAIN, interval=2)
+        self.ui_click(self.I_BACK_YELLOW, self.I_CHECK_MAIN, interval=2)
         self.set_next_run(task='Quiz', success=True, finish=True)
         raise TaskEnd('Quiz')
 

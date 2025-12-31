@@ -114,12 +114,13 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
                 self.click_battle()
                 success = self.run_general_battle(self.battle_config)
                 continue
+
         self.save_image()
         # 设置下一次运行时间是周一
         self.next_run_week(1)
-        self.ui_click(self.I_UI_BACK_BLUE, self.I_BUFF_1)
-        self.ui_goto_page(page_main)
+
         if con.secret_gold_50 or con.secret_gold_100:
+            self.ui_goto_page(page_main)
             self.open_buff()
             if con.secret_gold_50:
                 self.gold_50(False)
