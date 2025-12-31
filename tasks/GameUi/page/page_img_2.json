@@ -126,15 +126,6 @@
     "description": "description"
   },
   {
-    "itemName": "demon_encounter_goto_town",
-    "imageName": "page_demon_encounter_goto_town.png",
-    "roiFront": "28,20,56,52",
-    "roiBack": "3,4,100,100",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "town_goto_hyakkiyakou",
     "imageName": "page_town_goto_hyakkiyakou.png",
     "roiFront": "880,165,53,69",
