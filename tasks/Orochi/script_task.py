@@ -391,16 +391,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
                     self.run_general_battle(config=self.config.orochi.general_battle_config)
                     break
 
-        # 回去
-        while 1:
-            self.screenshot()
-            if not self.appear(self.I_FORM_TEAM):
-                break
-            if self.appear_then_click(self.I_BACK_BLUE, interval=1):
-                continue
-
-        self.ui_current = page_soul_zones
-
     def is_room_dead(self) -> bool:
         # 如果在探索界面或者是出现在组队界面，那就是可能房间死了
         sleep(0.5)
@@ -493,7 +483,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399')
+    c = Config('4399-1')
     t = ScriptTask(c)
     # t.battle_wait(False)
     t.run()
