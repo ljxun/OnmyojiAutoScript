@@ -586,8 +586,25 @@ class EmulatorManager(EmulatorManagerBase):
         instances: t.List[EmulatorInstance] = sorted(instances, key=lambda x: str(x))
         return instances
 
+    def get_emulator_instance_by_serial(self, target_serial: str) -> t.Optional[str]:
+        """
+        根据串行号获取模拟器实例
+        Args:
+            target_serial: 目标串行号，如 "127.0.0.1:16384"
+
+        Returns:
+            t.Optional[str]: 如果找到对应的模拟器实例则返回其实例标识符，否则返回None: 模拟器，未找到返回 None
+            MuMuPlayer12(serial="127.0.0.1:16384", name="MuMuPlayer-12.0-0", path="E:/MuMuPlayer/nx_main/MuMuNxMain.exe")
+        """
+        for instance in self.all_emulator_instances:
+            if instance.serial == target_serial:
+                return instance
+        return None
+
 
 if __name__ == '__main__':
     self = EmulatorManager()
     for emu in self.all_emulator_instances:
         print(emu)
+    path = self.get_emulator_instance_by_serial('127.0.0.1:16384')
+    print(path)
