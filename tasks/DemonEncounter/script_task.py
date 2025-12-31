@@ -216,6 +216,8 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
                     self.screenshot()
                     if self.appear(self.I_DE_LOCATION):
                         return
+                    if self.appear(self.I_CHECK_MAIN):
+                        return
                     if self.appear_then_click(self.I_UI_CONFIRM_SAMLL, interval=1):
                         continue
                     if self.appear_then_click(self.I_BOSS_BACK_WHITE, interval=1):
