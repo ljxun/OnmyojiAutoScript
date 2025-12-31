@@ -190,11 +190,11 @@
   {
     "itemName": "check_secret_zones",
     "imageName": "page_check_secret_zones.png",
-    "roiFront": "1145,592,110,119",
-    "roiBack": "1145,592,110,119",
+    "roiFront": "163,30,124,35",
+    "roiBack": "99,16,203,63",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "description"
+    "description": "秘闻副本"
   },
   {
     "itemName": "check_area_boss",
