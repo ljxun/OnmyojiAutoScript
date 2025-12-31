@@ -1114,7 +1114,7 @@ class DevTool(ctk.CTk):
         """刷新模拟器列表"""
         try:
             # MuMuManager路径
-            mumu_manager_path = "E:\\MuMuPlayer-12.0\\shell\\MuMuManager.exe"  # 用户指定的路径
+            mumu_manager_path = r"E:\MuMuPlayer\nx_main\MuMuManager.exe"  # 用户指定的路径
 
             # 检查MuMuManager是否存在
             if not mumu_manager_path:
