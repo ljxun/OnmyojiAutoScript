@@ -112,6 +112,11 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
             self.config.collective_missions.missions_config.task_date = str(datetime.now().date())
         self.config.safe_save(update_config)
 
+        self.screenshot()
+        current, remain, total = self.O_CM_NUMBER.ocr(self.device.image)
+        if not (current == total == 30):
+            self.push_notify(content=f'❌ 集体任务未完成 | {current}/{total}')
+
         self.set_next_run(task='CollectiveMissions', success=True, finish=True)
         raise TaskEnd('CollectiveMissions')
 
