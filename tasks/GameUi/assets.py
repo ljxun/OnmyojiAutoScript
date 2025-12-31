@@ -37,6 +37,13 @@ class GameUiAssets:
 
 
 	# Image Rule Assets
+	# 左上角黄色返回 
+	I_BACK_YELLOW = RuleImage(roi_front=(24,16,48,55), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/back/page_back_yellow.png")
+	# 左上角蓝色返回 
+	I_BACK_BLUE = RuleImage(roi_front=(32,37,54,52), roi_back=(3,2,130,114), threshold=0.8, method="Template matching", file="./tasks/GameUi/back/page_back_blue.png")
+
+
+	# Image Rule Assets
 	# description 
 	I_CHECK_MAIN = RuleImage(roi_front=(801,109,38,37), roi_back=(49,98,1033,61), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_main.png")
 	# 庭院卷轴关闭标识 
@@ -65,8 +72,6 @@ class GameUiAssets:
 	I_EXPLORATION_GOTO_SIX_GATES = RuleImage(roi_front=(838,640,60,49), roi_back=(818,631,200,66), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_exploration_goto_six_gates.png")
 	# 器灵 
 	I_EXPLORATION_GOTO_BONDLING_FAIRYLAND = RuleImage(roi_front=(937,639,56,49), roi_back=(928,633,203,64), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_exploration_goto_bondling_fairyland.png")
-	# description 
-	I_BACK_BLUE = RuleImage(roi_front=(32,37,54,52), roi_back=(3,2,130,114), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_back_blue.png")
 	# description 
 	I_CHECK_AWAKE = RuleImage(roi_front=(376,565,73,82), roi_back=(376,565,73,82), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_awake.png")
 	# description 
@@ -126,8 +131,6 @@ class GameUiAssets:
 	I_CHECK_HYAKKISEN = RuleImage(roi_front=(1014,607,53,55), roi_back=(986,587,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_hyakkisen.png")
 	# description 
 	I_CHECK_DRAFT_DUEL = RuleImage(roi_front=(1051,612,56,58), roi_back=(1029,594,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_draft_duel.png")
-	# 黄色返回 
-	I_BACK_YELLOW = RuleImage(roi_front=(24,16,48,55), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_back_yellow.png")
 	# description 
 	I_DEMON_ENCOUNTER_GOTO_TOWN = RuleImage(roi_front=(28,20,56,52), roi_back=(3,4,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_demon_encounter_goto_town.png")
 	# description 
@@ -248,8 +251,6 @@ class GameUiAssets:
 
 
 	# Image Rule Assets
-	# 左上角蓝色的返回 
-	I_BACK_BL = RuleImage(roi_front=(32,31,50,53), roi_back=(1,2,139,120), threshold=0.8, method="Template matching", file="./tasks/GameUi/res/res_back_blue.png")
 	# 式神录 
 	I_HOME_SHIKIKAMI = RuleImage(roi_front=(1092,611,73,41), roi_back=(1092,611,73,41), threshold=0.8, method="Template matching", file="./tasks/GameUi/res/res_home_shikikami.png")
 	# 阴阳术 

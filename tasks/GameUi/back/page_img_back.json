@@ -1,0 +1,20 @@
+[
+  {
+    "itemName": "back_yellow",
+    "imageName": "page_back_yellow.png",
+    "roiFront": "24,16,48,55",
+    "roiBack": "0,0,100,100",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "左上角黄色返回"
+  },
+  {
+    "itemName": "back_blue",
+    "imageName": "page_back_blue.png",
+    "roiFront": "32,37,54,52",
+    "roiBack": "3,2,130,114",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "左上角蓝色返回"
+  }
+]

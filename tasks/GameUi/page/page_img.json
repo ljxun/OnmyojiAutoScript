@@ -125,15 +125,6 @@
     "description": "器灵"
   },
   {
-    "itemName": "back_blue",
-    "imageName": "page_back_blue.png",
-    "roiFront": "32,37,54,52",
-    "roiBack": "3,2,130,114",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "check_awake",
     "imageName": "page_check_awake.png",
     "roiFront": "376,565,73,82",
