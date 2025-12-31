@@ -126,8 +126,8 @@ class DailyTriflesAssets:
 	# Image Rule Assets
 	# 召唤商店 
 	I_SUMMON_STORE = RuleImage(roi_front=(1214,626,40,37), roi_back=(1214,626,40,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store.png")
-	# summon_store_page 
-	I_SUMMON_STORE_PAGE = RuleImage(roi_front=(116,20,104,43), roi_back=(116,20,104,43), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_page.png")
+	# 召唤商店page 
+	I_SUMMON_STORE_PAGE = RuleImage(roi_front=(99,11,185,59), roi_back=(99,11,185,59), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_page.png")
 	# 祈愿福礼 
 	I_SUMMON_STORE_LUCKY = RuleImage(roi_front=(94,102,84,33), roi_back=(94,102,84,33), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_lucky.png")
 	# 免费 

@@ -11,11 +11,11 @@
   {
     "itemName": "summon_store_page",
     "imageName": "summon_store_page.png",
-    "roiFront": "116,20,104,43",
-    "roiBack": "116,20,104,43",
+    "roiFront": "99,11,185,59",
+    "roiBack": "99,11,185,59",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "summon_store_page"
+    "description": "召唤商店page"
   },
   {
     "itemName": "summon_store_lucky",
