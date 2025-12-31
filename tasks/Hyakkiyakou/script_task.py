@@ -224,7 +224,7 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('du')
+    c = Config('4399-1')
 
     t = ScriptTask(c)
     t.run()

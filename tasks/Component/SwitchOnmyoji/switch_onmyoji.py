@@ -5,7 +5,7 @@ from module.logger import logger
 from tasks.GameUi.game_ui import GameUi
 
 
-class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets, GameUi):
+class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets):
 
     def switch_onmyoji(self, onmyoji: Onmyoji):
         """
@@ -43,7 +43,7 @@ class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets, GameUi):
             if self.appear(self.I_ONMYOJI_CHECK, interval=0.8):
                 break
             if self.appear(onmyoji_battle, interval=0.8):
-                self.ui_click(self.I_BACK_BLUE, self.I_ONMYOJI_CHECK, interval=1.2)
+                self.ui_click(GameUi.I_BACK_BLUE, self.I_ONMYOJI_CHECK, interval=1.2)
                 break
             # 出战对应阴阳师
             self.click(onmyoji_battle, interval=1.2)
@@ -55,10 +55,8 @@ class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets, GameUi):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    c = Config('oas3')
-    d = Device(c)
-    t = SwitchOnmyoji(c, d)
+    c = Config('du')
+    t = SwitchOnmyoji(c)
 
-    t.switch_onmyoji(Onmyoji.YORIMITSU)
+    t.switch_onmyoji(Onmyoji.SEIMI)
