@@ -17,7 +17,7 @@ from tasks.GameUi.page import page_main, page_awake_zones
 
 
 class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZoneAssets, SwitchSoul):
-    """ 觉醒 """
+    """ 觉醒副本 """
     def run(self) -> bool:
 
         limit_count = self.config.evo_zone.evo_zone_config.limit_count
@@ -295,16 +295,6 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
                     self.run_general_battle(config=self.config.evo_zone.general_battle_config)
                     break
 
-        # 回去
-        while 1:
-            self.screenshot()
-            if not self.appear(self.I_FORM_TEAM):
-                break
-            if self.appear_then_click(self.I_BACK_BLUE, interval=1):
-                continue
-
-        self.ui_current = page_awake_zones
-
     def run_wild(self):
         logger.error('Wild mode is not implemented')
         pass
@@ -312,11 +302,9 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, EvoZone
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
 
     t.run()
 
