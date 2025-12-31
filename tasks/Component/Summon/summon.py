@@ -85,18 +85,3 @@ class Summon(BaseTask, SummonAssets):
                     continue
             logger.info('Summon one success')
 
-
-    def back_summon_main(self):
-        """
-        返回召唤主界面
-        :return:
-        """
-        while 1:
-            self.screenshot()
-            if self.appear(self.I_BLUE_TICKET):
-                break
-            if self.appear_then_click(self.I_UI_BACK_BLUE):
-                continue
-            if self.appear_then_click(self.I_UI_BACK_YELLOW):
-                continue
-

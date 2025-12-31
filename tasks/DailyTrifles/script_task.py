@@ -25,7 +25,7 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
         # 每日召唤
         if con.one_summon:
             self.run_one_summon()
-
+        # 厕纸
         if con.broken_amulet:
             self._broken_amulet(con.broken_amulet)
         # 集结
@@ -131,7 +131,6 @@ class ScriptTask(GameUi, Summon, DailyTriflesAssets, GeneralBuff):
             self.summon_one()
         elif self.config.daily_trifles.trifles_config.summon_type == SummonType.recall:
             self.summon_recall()
-        self.back_summon_main()
 
     def summon_recall(self):
         """
