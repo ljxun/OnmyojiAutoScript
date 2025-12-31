@@ -58,27 +58,11 @@ class ScriptTask(GeneralBattle, SwitchSoul, AreaBossAssets):
         self.boss_fight(self.I_BATTLE_2, flag=flag)
         self.boss_fight(self.I_BATTLE_3, flag=flag)
 
-        # 退出
-        self.go_back()
         self.set_next_run(task='AreaBoss', success=True, finish=False)
         if self.current_count < 3:
             self.push_notify(content=f'战斗次数{self.current_count}, 请查看')
         # 以抛出异常的形式结束
         raise TaskEnd
-
-    def go_back(self) -> None:
-        """
-        返回, 要求这个时候是出现在地域鬼王的主界面
-        :return:
-        """
-        # 点击返回
-        logger.info("Script back home")
-        while 1:
-            self.screenshot()
-            if self.appear_then_click(self.I_BACK_BLUE, threshold=0.6, interval=2):
-                continue
-            if self.appear(self.I_CHECK_MAIN, threshold=0.6):
-                break
 
     def boss_fight(self, battle: RuleImage, ultra: bool = False, fileter_open: bool = True, flag: bool = False) -> bool:
         """
