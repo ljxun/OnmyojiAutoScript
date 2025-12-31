@@ -73,8 +73,6 @@ class AreaBossAssets:
 	I_BATTLE_3 = RuleImage(roi_front=(1083,545,66,53), roi_back=(1083,545,66,53), threshold=0.8, method="Template matching", file="./tasks/AreaBoss/res/res_battle_3.png")
 	# 点击挑战 
 	I_FIRE = RuleImage(roi_front=(1109,490,100,73), roi_back=(1075,463,150,158), threshold=0.8, method="Template matching", file="./tasks/AreaBoss/res/res_fire.png")
-	# 跟buff冲突弃用 
-	I_CLOSE_RED = RuleImage(roi_front=(1190,24,37,38), roi_back=(1190,24,37,38), threshold=0.8, method="Template matching", file="./tasks/AreaBoss/res/res_close_red.png")
 	# 红色关闭 
 	I_AB_CLOSE_RED = RuleImage(roi_front=(1194,24,38,37), roi_back=(1194,24,38,37), threshold=0.8, method="Template matching", file="./tasks/AreaBoss/res/res_ab_close_red.png")
 	# 筛选中 选中悬赏标识 

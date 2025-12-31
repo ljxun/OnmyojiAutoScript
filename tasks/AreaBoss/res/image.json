@@ -72,15 +72,6 @@
     "description": "点击挑战"
   },
   {
-    "itemName": "close_red",
-    "imageName": "res_close_red.png",
-    "roiFront": "1190,24,37,38",
-    "roiBack": "1190,24,37,38",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "跟buff冲突弃用"
-  },
-  {
     "itemName": "ab_close_red",
     "imageName": "res_ab_close_red.png",
     "roiFront": "1194,24,38,37",
