@@ -126,13 +126,13 @@
     "description": "description"
   },
   {
-    "itemName": "back_yollow",
-    "imageName": "page_back_yollow.png",
+    "itemName": "back_yellow",
+    "imageName": "page_back_yellow.png",
     "roiFront": "24,16,48,55",
     "roiBack": "0,0,100,100",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "description"
+    "description": "黄色返回"
   },
   {
     "itemName": "demon_encounter_goto_town",

@@ -4,7 +4,7 @@ from tasks.RichMan.assets import RichManAssets
 
 # 神社 （出现功勋商店代表进入神社）
 page_shrine = Page(RichManAssets.I_GUILD_STORE)
-page_shrine.link(button=G.I_BACK_Y, destination=page_guild)
+page_shrine.link(button=G.I_BACK_YELLOW, destination=page_guild)
 page_guild.link(button=RichManAssets.I_GUILD_SHRINE, destination=page_shrine)
 
 # 功勋商店

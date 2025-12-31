@@ -26,7 +26,7 @@ class ScriptTask(GameUi, FloatParadeAssets, TalismanPassAssets):
             self.screenshot()
             if self.appear(self.I_FP_TASKS):
                 break
-            if self.appear_then_click(self.I_BACK_Y, interval=3):
+            if self.appear_then_click(self.I_BACK_YELLOW, interval=3):
                 continue
         logger.info('Goback to float parade main page')
         # 收取花车等级奖励

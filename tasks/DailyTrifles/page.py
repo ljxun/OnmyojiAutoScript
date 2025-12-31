@@ -11,10 +11,10 @@ page_mall.link(button=DailyTriflesAssets.I_ROOM_GIFT, destination=page_store_sig
 page_mall_special = Page(RichManAssets.I_SIDE_CHECK_SPECIAL)
 page_mall.link(button=RichManAssets.I_SIDE_SURE_SPECIAL, destination=page_mall_special)
 page_mall.link(button=RichManAssets.I_MALL_SUNDRY, destination=page_mall_special)
-page_mall_special.link(button=GameUiAssets.I_BACK_Y, destination=page_mall)
+page_mall_special.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_mall)
 
 
 # 召唤商店
 page_summon_store = Page(DailyTriflesAssets.I_SUMMON_STORE_PAGE)
 page_summon.link(button=DailyTriflesAssets.I_SUMMON_STORE, destination=page_summon_store)
-page_summon_store.link(button=GameUiAssets.I_BACK_Y, destination=page_summon)
+page_summon_store.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_summon)

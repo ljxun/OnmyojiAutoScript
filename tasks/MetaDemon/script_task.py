@@ -40,7 +40,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):
         self.limit_count = self.conf.meta_demon_config.limit_count
         # 更改式神录跳转
         ipages.page_shikigami_records.links.clear()
-        ipages.page_shikigami_records.link(button=self.I_BACK_Y, destination=ipages.page_meta_demon_boss)
+        ipages.page_shikigami_records.link(button=self.I_BACK_YELLOW, destination=ipages.page_meta_demon_boss)
         ipages.page_meta_demon_boss.link(button=MetaDemonAssets.I_MD_SHIKIGAMI, destination=ipages.page_shikigami_records)
         del ipages.page_main.links[ipages.page_shikigami_records]
 
@@ -254,7 +254,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):
         # 恢复式神录跳转
         del ipages.page_meta_demon_boss.links[ipages.page_shikigami_records]
         ipages.page_main.link(button=self.I_MAIN_GOTO_SHIKIGAMI_RECORDS, destination=ipages.page_shikigami_records)
-        ipages.page_shikigami_records.link(button=self.I_BACK_Y, destination=ipages.page_main)
+        ipages.page_shikigami_records.link(button=self.I_BACK_YELLOW, destination=ipages.page_main)
 
         # 移除临时页面
         PageRegistry.unregister(ipages.page_act_list_meta_demon)

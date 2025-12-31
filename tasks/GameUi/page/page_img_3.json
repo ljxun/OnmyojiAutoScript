@@ -162,15 +162,6 @@
     "description": "description"
   },
   {
-    "itemName": "back_y",
-    "imageName": "page_back_y.png",
-    "roiFront": "15,4,57,52",
-    "roiBack": "1,2,100,91",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "back_mall",
     "imageName": "page_back_mall.png",
     "roiFront": "28,33,50,51",
