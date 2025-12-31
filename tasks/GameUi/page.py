@@ -132,7 +132,7 @@ page_kirin.link(button=G.I_BACK_YELLOW, destination=page_town)
 page_town.link(button=G.I_TOWN_GOTO_HUNT, destination=page_kirin)
 # 阴界之门 netherworld
 page_netherworld = Page(G.I_CHECK_NETHERWORLD)
-page_netherworld.link(button=G.I_BACK_BLUE, destination=page_town)
+page_netherworld.link(button=G.I_BACK_YELLOW, destination=page_town)
 page_town.link(button=G.I_TOWN_GOTO_HUNT, destination=page_netherworld)
 # 协同斗技 draft_duel
 page_draft_duel = Page(G.I_CHECK_DRAFT_DUEL)
@@ -164,7 +164,7 @@ page_main.link(button=G.I_MAIN_GOTO_FRIENDS, destination=page_friends)
 # 商店 mall
 page_mall = Page(check_button=[G.I_CHECK_MALL, DailyTriflesAssets.I_ROOM_GIFT])
 page_mall.additional = [G.I_AD_CLOSE_RED, G.I_BACK_YELLOW, G.I_DLC_CLOSE]
-page_mall.link(button=G.I_BACK_BLUE, destination=page_main)
+page_mall.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_MALL, destination=page_mall)
 # 阴阳寮 guild
 page_guild = Page(G.I_CHECK_GUILD)
@@ -174,7 +174,7 @@ page_main.link(button=G.I_MAIN_GOTO_GUILD, destination=page_guild)
 # 结界
 page_realm = Page(G.I_CHECK_REALM_SHIN)
 page_realm.additional = [KekkaiUtilizeAssets.I_PLANT_TREE_CLOSE]
-page_realm.link(button=G.I_BACK_BLUE, destination=page_guild)
+page_realm.link(button=G.I_BACK_YELLOW, destination=page_guild)
 page_guild.link(button=G.I_CHECK_GUILD, destination=page_realm)
 # 组队 team
 page_team = Page(G.I_CHECK_TEAM)
