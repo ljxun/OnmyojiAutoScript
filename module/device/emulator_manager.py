@@ -16,15 +16,15 @@ from module.device.platform2.emulator_windows import EmulatorManager as Emulator
 
 
 class EmulatorManager:
-    def __init__(self, c=None):
+    def __init__(self, config=None):
         """
         初始化模拟器管理器
         """
-        self.config = c
+        self.config = config
         # 获取模拟器Serial
         self.serial = config.script.device.serial
         # 获取模拟器句柄
-        self.handle = self.config.script.device.handle
+        self.handle = config.script.device.handle
 
 
         # 获取模拟器管理器路径
@@ -32,7 +32,7 @@ class EmulatorManager:
         # MuMu-4.12  E:/MuMuPlayer-12.0/shell/MuMuPlayer.exe    E:/MuMuPlayer-12.0/shell/MuMuManager.exe
 
         # 首先尝试使用已保存的路径
-        self.manager_path = self.config.script.device.emulatorinfo_path
+        self.manager_path = config.script.device.emulatorinfo_path
         # 如果路径无效，获取新的路径
         if not self.manager_path or not os.path.isfile(self.manager_path):
             emulator_manager_old = EmulatorManagerOld()
