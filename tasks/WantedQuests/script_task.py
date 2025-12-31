@@ -292,15 +292,17 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
             self.battle_config.lock_team_enable = False
             success = self.run_general_battle(self.battle_config)
             # 战斗结束对话
-            self.ui_click(self.C_SECRET_CHAT, self.I_WQSE_FIRE)
-        while 1:
-            self.screenshot()
-            if self.appear(self.I_CHECK_EXPLORATION):
-                break
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
-                continue
-            if self.appear_then_click(self.I_UI_BACK_BLUE, interval=1.5):
-                continue
+            while 1:
+                self.screenshot()
+                if self.appear(self.I_WQSE_FIRE):
+                    break
+                if self.appear(self.I_CHECK_SECRET_ZONES):
+                    break
+                if self.appear(self.I_SE_ENTER):
+                    break
+                if self.click(self.C_SECRET_CHAT, interval=1):
+                    continue
+        self.ui_goto_page(page_exploration)
         logger.info('Secret mission finished')
 
     def invite_random(self, add_button: RuleImage):
