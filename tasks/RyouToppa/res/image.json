@@ -70,14 +70,5 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "个人突破刷新按钮"
-  },
-  {
-    "itemName": "ryou_reward_90",
-    "imageName": "res_ryou_reward_90.png",
-    "roiFront": "134,415,232,38",
-    "roiBack": "134,415,232,38",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "击破后的寮奖励"
   }
 ]
