@@ -38,9 +38,15 @@ class GameUiAssets:
 
 	# Image Rule Assets
 	# 左上角黄色返回 
-	I_BACK_YELLOW = RuleImage(roi_front=(24,16,48,55), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/back/page_back_yellow.png")
+	I_BACK_YELLOW = RuleImage(roi_front=(24,16,48,55), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/common/back_yellow.png")
 	# 左上角蓝色返回 
-	I_BACK_BLUE = RuleImage(roi_front=(32,37,54,52), roi_back=(3,2,130,114), threshold=0.8, method="Template matching", file="./tasks/GameUi/back/page_back_blue.png")
+	I_BACK_BLUE = RuleImage(roi_front=(32,37,54,52), roi_back=(3,2,130,114), threshold=0.8, method="Template matching", file="./tasks/GameUi/common/back_blue.png")
+	# 刷新 
+	I_REFRESH = RuleImage(roi_front=(1194,530,24,25), roi_back=(1167,123,66,445), threshold=0.8, method="Template matching", file="./tasks/GameUi/common/refresh.png")
+	# 活动总览 
+	I_PAGE_ALL_ACTIVE = RuleImage(roi_front=(89,19,133,41), roi_back=(8,5,298,89), threshold=0.8, method="Template matching", file="./tasks/GameUi/common/page_all_active.png")
+	# 庭院到活动总览 
+	I_PAGE_MAIN_GOTO_PAGE_ALL_ACTIVE = RuleImage(roi_front=(1194,363,23,18), roi_back=(1174,134,71,439), threshold=0.8, method="Template matching", file="./tasks/GameUi/common/page_main_goto_page_all_active.png")
 
 
 	# Image Rule Assets
@@ -137,10 +143,6 @@ class GameUiAssets:
 	I_CHECK_KYAKKIYAKOU = RuleImage(roi_front=(305,567,56,64), roi_back=(280,545,100,100), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_check_kyakkiyakou.png")
 	# description 
 	I_HYAKKIYAKOU_CLOSE = RuleImage(roi_front=(1063,181,47,43), roi_back=(1063,181,47,43), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_hyakkiyakou_close.png")
-	# page_all_active 
-	I_PAGE_ALL_ACTIVE = RuleImage(roi_front=(89,19,133,41), roi_back=(8,5,298,89), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_all_active.png")
-	# page_main_goto_page_all_active 
-	I_PAGE_MAIN_GOTO_PAGE_ALL_ACTIVE = RuleImage(roi_front=(1194,363,23,18), roi_back=(1174,134,71,439), threshold=0.8, method="Template matching", file="./tasks/GameUi/page/page_main_goto_page_all_active.png")
 
 
 	# Image Rule Assets

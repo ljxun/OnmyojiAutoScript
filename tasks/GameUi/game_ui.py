@@ -360,9 +360,9 @@ if __name__ == '__main__':
     # PageRegistry.unregister(page_main)
     # PageRegistry.unregister(page_summon)
 
-    c = Config('mi')
+    c = Config('du')
     game = GameUi(config=c)
     # print(len(game.ui_pages))
     # for page in game.ui_pages:
     #     print(page)
-    game.ui_goto_active('绘卷')
+    game.ui_goto_active('庭院事务')

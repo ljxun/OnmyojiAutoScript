@@ -1,0 +1,47 @@
+[
+  {
+    "itemName": "back_yellow",
+    "imageName": "back_yellow.png",
+    "roiFront": "24,16,48,55",
+    "roiBack": "0,0,100,100",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "左上角黄色返回"
+  },
+  {
+    "itemName": "back_blue",
+    "imageName": "back_blue.png",
+    "roiFront": "32,37,54,52",
+    "roiBack": "3,2,130,114",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "左上角蓝色返回"
+  },
+  {
+    "itemName": "refresh",
+    "imageName": "refresh.png",
+    "roiFront": "1194,530,24,25",
+    "roiBack": "1167,123,66,445",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "刷新"
+  },
+  {
+    "itemName": "page_all_active",
+    "imageName": "page_all_active.png",
+    "roiFront": "89,19,133,41",
+    "roiBack": "8,5,298,89",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "活动总览"
+  },
+  {
+    "itemName": "page_main_goto_page_all_active",
+    "imageName": "page_main_goto_page_all_active.png",
+    "roiFront": "1194,363,23,18",
+    "roiBack": "1174,134,71,439",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "庭院到活动总览"
+  }
+]
