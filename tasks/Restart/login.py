@@ -137,24 +137,13 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
         return login_success
 
     def app_handle_login(self) -> bool:
-        for _ in range(2):
-            self.device.stuck_record_clear()
-            self.device.click_record_clear()
-            try:
-                self._app_handle_login()
-                if self.config.restart.harvest_config.enable:
-                    self.check_login(self.config.global_game.costume_config)
-                    self.harvest()
-                return True
-            except (GameTooManyClickError, GameStuckError) as e:
-                logger.warning(e)
-                self.device.app_stop()
-                self.device.app_start()
-                continue
-
-        logger.critical('Login failed more than 3')
-        logger.critical('Onmyoji server may be under maintenance, or you may lost network connection')
-        raise RequestHumanTakeover
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
+        self._app_handle_login()
+        if self.config.restart.harvest_config.enable:
+            self.check_login(self.config.global_game.costume_config)
+            self.harvest()
+        return True
 
     def harvest(self):
         """
@@ -166,6 +155,10 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
         while 1:
             self.screenshot()
 
+            # 是否启用插画？-点击取消
+            if self.appear_then_click(self.I_LOGIN_CANCEL_BATTLE):
+                logger.info('是否启用插画？-点击取消')
+                continue
             # 红色的关闭
             if self.appear_then_click(self.I_LOGIN_RED_CLOSE, interval=1):
                 timer_harvest.reset()
