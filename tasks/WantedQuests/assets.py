@@ -143,13 +143,13 @@ class WantedQuestsAssets:
 	# 小号不追踪 
 	I_TRACE_FALSE = RuleImage(roi_front=(170,186,31,32), roi_back=(170,186,31,32), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_trace_false.png")
 	# description 
-	I_GOTO_1 = RuleImage(roi_front=(978,234,87,45), roi_back=(978,234,87,60), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_1.png")
+	I_GOTO_1 = RuleImage(roi_front=(978,234,87,45), roi_back=(978,234,87,60), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_secret.png")
 	# description 
-	I_GOTO_2 = RuleImage(roi_front=(979,305,88,43), roi_back=(979,305,88,58), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_2.png")
+	I_GOTO_2 = RuleImage(roi_front=(979,305,88,43), roi_back=(979,305,88,58), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_secret.png")
 	# description 
-	I_GOTO_3 = RuleImage(roi_front=(979,373,88,47), roi_back=(979,373,88,62), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_3.png")
+	I_GOTO_3 = RuleImage(roi_front=(979,373,88,47), roi_back=(979,373,88,62), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_secret.png")
 	# description 
-	I_GOTO_4 = RuleImage(roi_front=(979,447,87,42), roi_back=(979,447,87,57), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_4.png")
+	I_GOTO_4 = RuleImage(roi_front=(979,447,87,42), roi_back=(979,447,87,57), threshold=0.8, method="Template matching", file="./tasks/WantedQuests/wq/wq_goto_secret.png")
 	# 判断是否还有任务 
 	I_WQ_CHECK_TASK = RuleImage(roi_front=(110,154,21,125), roi_back=(73,122,69,459), threshold=0.9, method="Template matching", file="./tasks/WantedQuests/wq/wq_wq_check_task.png")
 	# 有任务(填充任务坐标的作用) 

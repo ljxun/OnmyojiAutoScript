@@ -461,11 +461,9 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    c = Config('oa')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    c = Config('du')
+    t = ScriptTask(c)
     t.screenshot()
 
     t.run()
