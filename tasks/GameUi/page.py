@@ -83,8 +83,8 @@ page_exploration.link(button=G.I_EXPLORATION_GOTO_SOUL_ZONE, destination=page_so
 page_realm_raid = Page(G.I_CHECK_REALM_RAID)
 page_realm_raid.link(button=G.I_REALM_RAID_GOTO_EXPLORATION, destination=page_exploration)
 page_exploration.link(button=G.I_EXPLORATION_GOTO_REALM_RAID, destination=page_realm_raid)
-# 寮结界突破右上角 kekkai toppa
-page_kekkai_toppa = Page(G.I_KEKKAI_TOPPA)
+# 寮突破 击破奖励
+page_kekkai_toppa = Page(RyouToppaAssets.I_RYOU_REWARD)
 page_kekkai_toppa.link(button=G.I_REALM_RAID_GOTO_EXPLORATION, destination=page_exploration)
 page_realm_raid.link(button=RyouToppaAssets.I_RYOU_TOPPA, destination=page_kekkai_toppa)
 page_kekkai_toppa.link(button=G.I_RYOUTOPPA_GOTO_REALMRAID, destination=page_realm_raid)
