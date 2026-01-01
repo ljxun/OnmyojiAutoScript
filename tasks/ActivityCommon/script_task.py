@@ -29,11 +29,11 @@ class ScriptTask(SwitchSoul, GeneralBattle):
         battle_active_type = config.activity_common_config.active_type
         if battle_active_type == ActiveType.battle:
             # 进入挑战界面图片路径
-            goto_challenge_folder = "./tasks/ActivityCommon/gotoChallenge"
+            goto_challenge_folder = "./tasks/ActivityCommon/goto战斗页面"
         else:
             goto_challenge_folder = f"./tasks/ActivityCommon/{battle_active_type}"
         # 战斗图片路径
-        battle_folder = "./tasks/ActivityCommon/战斗"
+        battle_folder = "./tasks/ActivityCommon/战斗中"
 
         self.Challenge.run_config(config, goto_challenge_folder, battle_folder)
 

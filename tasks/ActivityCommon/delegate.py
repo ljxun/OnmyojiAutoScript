@@ -21,9 +21,9 @@ class ScriptTask(SwitchSoul, GeneralBattle):
     def run(self):
         # 加载所有图片
         over_img = "over.png"
-        goto_delegate_folder1 = "./tasks/ActivityCommon/gotoDelegate"
-        goto_delegate_folder2 = "./tasks/ActivityCommon/gotoDelegate2"
-        goto_delegate_folder3 = "./tasks/ActivityCommon/gotoDelegate3"
+        goto_delegate_folder1 = "./tasks/ActivityCommon/进入委派页面"
+        goto_delegate_folder2 = "./tasks/ActivityCommon/进入委派页面1"
+        goto_delegate_folder3 = "./tasks/ActivityCommon/进入委派页面2"
 
         self.ui_goto_page(page_main)
 
@@ -87,10 +87,8 @@ class ScriptTask(SwitchSoul, GeneralBattle):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('wy')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
 
     t.run()

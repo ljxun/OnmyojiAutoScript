@@ -16,8 +16,8 @@ class ScriptTask(ActivityCommonScriptTask):
     def run(self):
         config = self.config.activity_common_2
         # 加载所有图片
-        goto_challenge_folder = "./tasks/ActivityCommon2/gotoChallenge"
-        battle_folder = "./tasks/ActivityCommon/战斗"
+        goto_challenge_folder = "./tasks/ActivityCommon2/goto战斗页面"
+        battle_folder = "./tasks/ActivityCommon/战斗中"
 
         self.Challenge.run_config(config, goto_challenge_folder, battle_folder)
 
