@@ -206,9 +206,9 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
                 logger.info('关闭寮消息通知')
                 continue
             # 关闭阴阳师精灵提示
-            if self.appear_then_click(self.I_LOGIN_LOGIN_ONMYOJI_GENIE):
-                logger.info("关闭阴阳师精灵提示")
-                continue
+            # if self.appear_then_click(self.I_LOGIN_LOGIN_ONMYOJI_GENIE):
+            #     logger.info("关闭阴阳师精灵提示")
+            #     continue
             # 各种邀请框
             self.reject_invite()
 
