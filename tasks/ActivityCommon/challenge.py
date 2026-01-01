@@ -30,7 +30,7 @@ class ScriptTask(SwitchSoul, GeneralBattle):
         battle_templates = self._load_image_template(battle_folder)
         challenge = RuleImage(
             roi_front=(1100, 540, 170, 170),
-            roi_back=(1100, 540, 170, 170),
+            roi_back=(819,471,457,244),
             threshold=0.8,
             method="Template matching",
             file=f"{goto_challenge_folder}/挑战.png"
@@ -53,9 +53,6 @@ class ScriptTask(SwitchSoul, GeneralBattle):
 
         # 开始战斗
         battle_result = self.start_battle(config, battle_templates, challenge)
-
-        # 回到庭院
-        self.ui_goto_page(page_main)
 
         if config.activity_common_config.active_souls_clean:
             self.set_next_run(task='SoulsTidy', success=False, finish=False, target=datetime.now())
@@ -244,6 +241,6 @@ if __name__ == '__main__':
     c = Config('du')
     t = ScriptTask(c)
     t.screenshot()
-    t.check_battle(c.activity_common_2)
+    # t.check_battle(c.activity_common_2)
+    t.run()
 
-    # t.run()
