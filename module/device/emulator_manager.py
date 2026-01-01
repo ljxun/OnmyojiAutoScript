@@ -42,6 +42,7 @@ class EmulatorManager:
             self.config.script.device.emulatorinfo_path = self.manager_path
             self.config.script.device.emulatorinfo_name = emulator_instance.name
         self.manager_path = self.manager_path.replace("MuMuNxMain.exe", "MuMuManager.exe")
+        self.manager_path = self.manager_path.replace("MuMuPlayer.exe", "MuMuManager.exe")
         self.player_path = self.manager_path.replace("MuMuManager.exe","MuMuPlayer.exe")
         if not os.path.isfile(self.player_path):
             self.player_path = self.manager_path
