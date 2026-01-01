@@ -227,8 +227,14 @@ class ScriptTask(GeneralBattle, SwitchSoul, RyouToppaAssets):
         self.screenshot()
         cu, res, total = self.ocr_result(self.O_NUMBER)
         if cu == 0 and cu + res == total:
-            logger.warning(f'Execute round failed, no ticket')
-            return False
+            logger.warning(f'没有寮突次数了')
+            target_time = now + timedelta(minutes=30)
+            # 如果超过21点，设置为当天21点
+            if target_time.hour >= 21:
+                logger.info(f'超过21点, 设置时间为21点')
+                target_time = datetime(target_time.year, target_time.month, target_time.day, 21, 0, 0)
+            self.set_next_run(target=target_time)
+            raise TaskEnd
         return True
 
     def check_area(self, index: int) -> bool:
@@ -351,4 +357,3 @@ if __name__ == "__main__":
     # device = Device(config)
     t = ScriptTask(config)
     # t.attack_area(1)
-    t.has_ticket()
