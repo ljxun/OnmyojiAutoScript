@@ -1,0 +1,38 @@
+[
+  {
+    "itemName": "courtyard_affairs_button",
+    "imageName": "courtyard_affairs_button.png",
+    "roiFront": "1189,299,35,33",
+    "roiBack": "1168,127,76,389",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "进入庭院事务按钮"
+  },
+  {
+    "itemName": "courtyard_affairs_page",
+    "imageName": "courtyard_affairs_page.png",
+    "roiFront": "277,41,160,51",
+    "roiBack": "277,41,160,51",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "庭院事务主页面"
+  },
+  {
+    "itemName": "complete_with_one_click",
+    "imageName": "complete_with_one_click.png",
+    "roiFront": "1128,600,70,67",
+    "roiBack": "1128,600,70,67",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "一键完成"
+  },
+  {
+    "itemName": "success_claimed",
+    "imageName": "success_claimed.png",
+    "roiFront": "319,33,160,51",
+    "roiBack": "319,33,160,51",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "领取成功"
+  }
+]

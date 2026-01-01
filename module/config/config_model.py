@@ -22,6 +22,7 @@ from tasks.Script.config import Script
 from tasks.Restart.config import Restart
 from tasks.GlobalGame.config import GlobalGame
 # 每日任务-----------------------------------------------------------------------------------------------------
+from tasks.CourtyardAffairs.config import CourtyardAffairs
 from tasks.AreaBoss.config import AreaBoss
 from tasks.ExperienceYoukai.config import ExperienceYoukai
 from tasks.GoldYoukai.config import GoldYoukai
@@ -102,6 +103,7 @@ class ConfigModel(ConfigBase):
     global_game: GlobalGame = Field(default_factory=GlobalGame)
 
     # 这些是每日任务的
+    courtyard_affairs: CourtyardAffairs = Field(default_factory=CourtyardAffairs)
     area_boss: AreaBoss = Field(default_factory=AreaBoss)
     experience_youkai: ExperienceYoukai = Field(default_factory=ExperienceYoukai)
     gold_youkai: GoldYoukai = Field(default_factory=GoldYoukai)

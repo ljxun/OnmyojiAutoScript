@@ -22,7 +22,7 @@ class ConfigMenu:
         self.menu["Tools"] = ['Image Rule', 'Ocr Rule', 'Click Rule', 'Long Click Rule', 'Swipe Rule', 'List Rule']
 
         # 日常的任务
-        self.menu["Daily Task"] = ['Pets', 'DailyTrifles', 'WantedQuests', 'GoldYoukai', 'AreaBoss',
+        self.menu["Daily Task"] = ['CourtyardAffairs', 'Pets', 'DailyTrifles', 'WantedQuests', 'GoldYoukai', 'AreaBoss',
                                    'DemonEncounter',  'SoulsTidy', 'CollectiveMissions', 'TalismanPass', ]
         # 刷御魂
         self.menu["Soul Zones"] = ['Sougenbi', 'Orochi', "BondlingFairyland",]
