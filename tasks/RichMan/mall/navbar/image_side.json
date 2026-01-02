@@ -29,11 +29,11 @@
   {
     "itemName": "side_check_honor",
     "imageName": "navbar_side_check_honor.png",
-    "roiFront": "694,12,41,42",
-    "roiBack": "694,12,41,42",
+    "roiFront": "392,7,869,46",
+    "roiBack": "392,7,869,46",
     "method": "Template matching",
     "threshold": 0.7,
-    "description": "荣誉"
+    "description": "荣誉商店标志"
   },
   {
     "itemName": "side_sure_friends",
