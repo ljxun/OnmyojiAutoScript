@@ -34,7 +34,7 @@ class EmulatorManager:
         # 首先尝试使用已保存的路径
         self.manager_path = config.script.device.emulatorinfo_path
         # 如果路径无效，获取新的路径
-        logger.info(f"模拟器管理器路径: {self.manager_path}")
+        # logger.info(f"模拟器路径: {self.manager_path}")
         if not self.manager_path or not os.path.isfile(self.manager_path):
             logger.warning("模拟器管理器路径无效, 根据端口获取")
             emulator_manager_old = EmulatorManagerOld()
