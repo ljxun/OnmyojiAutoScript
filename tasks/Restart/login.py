@@ -10,9 +10,10 @@ from tasks.Component.GeneralBuff.general_buff import GeneralBuff
 from tasks.Component.LoginHarvest.login_base import LoginBase
 from tasks.Component.SwitchAccount.assets import SwitchAccountAssets
 from tasks.Restart.assets import RestartAssets
+from tasks.Component.CourtyardAffairs.courtyard_affairs import CourtyardAffairs
 
 
-class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
+class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
     character: str
 
     def __init__(self, *wargs, **kwargs):
@@ -141,8 +142,10 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
         self.device.click_record_clear()
         self._app_handle_login()
         if self.config.restart.harvest_config.enable:
-            self.check_login(self.config.global_game.costume_config)
+            # self.check_login(self.config.global_game.costume_config)
             self.harvest()
+            # 庭院事务
+            self.courtyard_affairs()
         return True
 
     def harvest(self):
@@ -205,42 +208,42 @@ class LoginHandler(LoginBase, RestartAssets, GeneralBuff):
             # 各种邀请框
             self.reject_invite()
 
-            # 勾玉
-            if self.appear_then_click(self.I_HARVEST_JADE, interval=1.5):
-                timer_harvest.reset()
-                continue
-            # 签到
-            if self.appear_then_click(self.I_HARVEST_SIGN, interval=1.5):
-                self.wait_until_appear(self.I_HARVEST_SIGN_2, wait_time=2)
-                timer_harvest.reset()
-                continue
-            # 某些活动的特殊签到，有空看到就删掉
-            if self.appear_then_click(self.I_HARVEST_SIGN_3, interval=0.7):
-                timer_harvest.reset()
-                continue
-            if self.appear_then_click(self.I_HARVEST_SIGN_4, interval=1):
-                timer_harvest.reset()
-                continue
-            if self.appear_then_click(self.I_HARVEST_SIGN_2, interval=1.5):
-                self.wait_until_appear(self.I_LOGIN_RED_CLOSE, wait_time=2)
-                timer_harvest.reset()
-                continue
-            # 999天的签到福袋
-            if self.appear_then_click(self.I_HARVEST_SIGN_999, interval=1.5):
-                timer_harvest.reset()
-                continue
-            # 体力
-            if self.appear_then_click(self.I_HARVEST_AP, interval=1, threshold=0.7):
-                timer_harvest.reset()
-                continue
-            # 御魂觉醒加成
-            if self.appear_then_click(self.I_HARVEST_SOUL, interval=1):
-                timer_harvest.reset()
-                continue
-            # 寮包
-            if self.appear_then_click(self.I_HARVEST_GUILD_REWARD, interval=2):
-                timer_harvest.reset()
-                continue
+            # # 勾玉
+            # if self.appear_then_click(self.I_HARVEST_JADE, interval=1.5):
+            #     timer_harvest.reset()
+            #     continue
+            # # 签到
+            # if self.appear_then_click(self.I_HARVEST_SIGN, interval=1.5):
+            #     self.wait_until_appear(self.I_HARVEST_SIGN_2, wait_time=2)
+            #     timer_harvest.reset()
+            #     continue
+            # # 某些活动的特殊签到，有空看到就删掉
+            # if self.appear_then_click(self.I_HARVEST_SIGN_3, interval=0.7):
+            #     timer_harvest.reset()
+            #     continue
+            # if self.appear_then_click(self.I_HARVEST_SIGN_4, interval=1):
+            #     timer_harvest.reset()
+            #     continue
+            # if self.appear_then_click(self.I_HARVEST_SIGN_2, interval=1.5):
+            #     self.wait_until_appear(self.I_LOGIN_RED_CLOSE, wait_time=2)
+            #     timer_harvest.reset()
+            #     continue
+            # # 999天的签到福袋
+            # if self.appear_then_click(self.I_HARVEST_SIGN_999, interval=1.5):
+            #     timer_harvest.reset()
+            #     continue
+            # # 体力
+            # if self.appear_then_click(self.I_HARVEST_AP, interval=1, threshold=0.7):
+            #     timer_harvest.reset()
+            #     continue
+            # # 御魂觉醒加成
+            # if self.appear_then_click(self.I_HARVEST_SOUL, interval=1):
+            #     timer_harvest.reset()
+            #     continue
+            # # 寮包
+            # if self.appear_then_click(self.I_HARVEST_GUILD_REWARD, interval=2):
+            #     timer_harvest.reset()
+            #     continue
             # 自选御魂
             # if self.appear(self.I_HARVEST_SOUL_1):
             #     logger.info('Select soul 1')

@@ -11,15 +11,15 @@ from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.Component.ReplaceShikigami.replace_shikigami import ReplaceShikigami
-from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main, page_guild, page_realm
 from tasks.KekkaiUtilize.assets import KekkaiUtilizeAssets
 from tasks.KekkaiUtilize.config import UtilizeRule, SelectFriendList
 from tasks.KekkaiUtilize.utils import CardClass
 from tasks.Utils.config_enum import ShikigamiClass
+from tasks.Component.CourtyardAffairs.courtyard_affairs import CourtyardAffairs
 
 
-class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
+class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
     """ 结界蹭卡 """
     last_best_index = 99
     run_utilize_count = 0
@@ -40,13 +40,14 @@ class ScriptTask(GameUi, ReplaceShikigami, KekkaiUtilizeAssets):
         # 检查蹭卡收获
         self.check_utilize_harvest()
         # 收体力盒子或者是经验盒子
-        self.check_box_ap_or_exp(con.box_ap_enable, con.box_exp_enable, con.box_exp_waste)
+        # self.check_box_ap_or_exp(con.box_ap_enable, con.box_exp_enable, con.box_exp_waste)
 
         # 收取寮资金和体力
-        self.recive_guild_ap_or_assets()
-
+        # self.recive_guild_ap_or_assets()
         # 抽奖箱
         self.check_lottery_box()
+        # 庭院事务
+        self.courtyard_affairs()
 
         if not con.utilize_enable:
             self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
@@ -700,7 +701,7 @@ if __name__ == "__main__":
 
     c = Config('4399-1')
     t = ScriptTask(c)
-    t.check_lottery_box()
+    t.run()
     # for i in range(10):
     #     t.perform_swipe_action()
     # t.recive_guild_ap_or_assets()

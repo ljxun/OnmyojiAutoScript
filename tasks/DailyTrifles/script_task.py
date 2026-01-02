@@ -36,8 +36,8 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         if con.guild_wish:
             pass
         # 友情点
-        if con.friend_love:
-            self.run_friend_love()
+        # if con.friend_love:
+        #     self.run_friend_love()
         # 吉闻
         if con.luck_msg:
             self.run_luck_msg()
