@@ -65,7 +65,7 @@ class AbyssShadowsAssets:
 	# 寮-狭间暗域 
 	I_ABYSS_SHADOWS = RuleImage(roi_front=(713,481,105,28), roi_back=(117,64,1031,611), threshold=0.8, method="Template matching", file="./tasks/AbyssShadows/res/res_abyss_shadows.png")
 	# 狭间暗域主页面 
-	I_ABYSS_SHADOWS_SURE = RuleImage(roi_front=(95,19,136,41), roi_back=(95,19,136,41), threshold=0.8, method="Template matching", file="./tasks/AbyssShadows/res/res_abyss_shadows_sure.png")
+	I_ABYSS_SHADOWS_SURE = RuleImage(roi_front=(95,19,136,41), roi_back=(89,3,198,61), threshold=0.8, method="Template matching", file="./tasks/AbyssShadows/res/res_abyss_shadows_sure.png")
 	# 战报页面 
 	I_ABYSS_MAP = RuleImage(roi_front=(306,147,170,48), roi_back=(306,147,170,48), threshold=0.8, method="Template matching", file="./tasks/AbyssShadows/res/res_abyss_map.png")
 	# 战报退出按钮 

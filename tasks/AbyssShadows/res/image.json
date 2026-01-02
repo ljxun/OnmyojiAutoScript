@@ -93,7 +93,7 @@
     "itemName": "abyss_shadows_sure",
     "imageName": "res_abyss_shadows_sure.png",
     "roiFront": "95,19,136,41",
-    "roiBack": "95,19,136,41",
+    "roiBack": "89,3,198,61",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "狭间暗域主页面"
