@@ -8,9 +8,11 @@ import re
 from module.logger import logger
 from tasks.Component.Summon.assets import SummonAssets
 from tasks.base_task import BaseTask
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import page_summon
 
 
-class Summon(BaseTask, SummonAssets):
+class Summon(GameUi, BaseTask, SummonAssets):
 
 
     def summon(self):
@@ -38,7 +40,11 @@ class Summon(BaseTask, SummonAssets):
         :return:
         """
         logger.info('Summon one')
-        self.wait_until_appear(self.I_BLUE_TICKET)
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_BLUE_TICKET):
+                break
+            self.ui_goto_page(page_summon)
         while True:
             ticket_info = self.O_ONE_TICKET.ocr(self.device.image)
             # 处理 None 和空字符串
