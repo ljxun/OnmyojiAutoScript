@@ -27,6 +27,8 @@ class GuildBanquetAssets:
 	I_SE_FIRE = RuleImage(roi_front=(1015,503,182,188), roi_back=(1015,502,254,201), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire.png")
 	# 百战秘闻挑战 
 	I_SE_FIRE_BZ = RuleImage(roi_front=(1108,551,100,100), roi_back=(1100,541,120,120), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire_bz.png")
+	# 宴会进度10/10 
+	I_GUILD_BANQUET_FINSH = RuleImage(roi_front=(8,82,131,35), roi_back=(8,82,131,35), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/guild_banquet_finsh.png")
 
 
 	# Swipe Rule Assets

@@ -70,5 +70,15 @@
     "method": "Template matching",
     "threshold": 0.7,
     "description": "百战秘闻挑战"
-  }
+  },
+  {
+  "itemName": "guild_banquet_finsh",
+  "imageName": "guild_banquet_finsh.png",
+  "roiFront": "8,82,131,35",
+  "roiBack": "8,82,131,35",
+  "method": "Template matching",
+  "threshold": 0.8,
+  "description": "宴会进度10/10"
+}
+
 ]
