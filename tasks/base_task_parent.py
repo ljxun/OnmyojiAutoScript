@@ -761,10 +761,15 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
         :parm interval
         :return:
         """
+        # 将 stop 转换为列表格式以便统一处理
+        if not isinstance(stop, (list, tuple)):
+            stop = [stop]
         while 1:
             self.screenshot()
-            if self.appear(stop):
+            # 检查是否出现 stop 列表中的任意一个元素
+            if any(self.appear(stop_item) for stop_item in stop):
                 break
+
             if isinstance(click, RuleImage) and self.appear_then_click(click, interval=interval):
                 continue
             if isinstance(click, RuleClick) and self.click(click, interval=interval):
