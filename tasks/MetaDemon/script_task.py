@@ -256,11 +256,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):
         ipages.page_main.link(button=self.I_MAIN_GOTO_SHIKIGAMI_RECORDS, destination=ipages.page_shikigami_records)
         ipages.page_shikigami_records.link(button=self.I_BACK_YELLOW, destination=ipages.page_main)
 
-        # 移除临时页面
-        PageRegistry.unregister(ipages.page_act_list_meta_demon)
-        PageRegistry.unregister(ipages.page_meta_demon)
-        PageRegistry.unregister(ipages.page_meta_demon_boss)
-
         self.ui_goto_page(ipages.page_main)
         raise TaskEnd
 

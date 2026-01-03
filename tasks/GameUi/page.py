@@ -7,20 +7,12 @@ from tasks.RyouToppa.assets import RyouToppaAssets
 
 
 class PageRegistry:
-    _registry = []
+    _registry = set()
 
     @classmethod
     def register(cls, page):
         """注册指定页面"""
-        cls._registry.append(page)
-
-    @classmethod
-    def unregister(cls, page):
-        """移除指定页面"""
-        if page in cls._registry:
-            cls._registry.remove(page)
-    # 通过页面对象直接移除（使用例子）
-    # PageRegistry.unregister(page_shikigami_records)
+        cls._registry.add(page)
 
     @classmethod
     def all(cls):
