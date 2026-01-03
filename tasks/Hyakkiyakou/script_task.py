@@ -206,7 +206,9 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
             # 走个动画
             time.sleep(1.5)
             self.debugger.save_result(self.device.image)
-        self.ui_click_until_disappear(self.I_HEND)
+
+        self.ui_click(self.I_HEND, [self.I_CHECK_KYAKKIYAKOU, self.I_CHECK_TOWN])
+
         self.debugger.save_images()
         del self.debugger
         # you maybe update oashya
@@ -224,7 +226,7 @@ class ScriptTask(GameUi, HyaSlave, SwitchOnmyoji):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399-1')
+    c = Config('du')
 
     t = ScriptTask(c)
     t.run()
