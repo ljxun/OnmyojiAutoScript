@@ -38,7 +38,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         # 查看育成满级
         self.check_max_lv(con.shikigami_class)
         # 检查蹭卡收获
-        self.check_utilize_harvest()
+        # self.check_utilize_harvest()
         # 收体力盒子或者是经验盒子
         # self.check_box_ap_or_exp(con.box_ap_enable, con.box_exp_enable, con.box_exp_waste)
 
@@ -416,12 +416,14 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         """
         logger.hr('Start utilize')
         if self.first_utilize:
-            self.swipe(self.S_U_END, interval=3)
             self.first_utilize = False
             if friend == SelectFriendList.SAME_SERVER:
+                self.swipe(self.S_U_END, interval=3)
                 self.switch_friend_list(SelectFriendList.DIFFERENT_SERVER)
                 self.switch_friend_list(SelectFriendList.SAME_SERVER)
             else:
+                self.switch_friend_list(SelectFriendList.DIFFERENT_SERVER)
+                self.swipe(self.S_U_END, interval=3)
                 self.switch_friend_list(SelectFriendList.SAME_SERVER)
                 self.switch_friend_list(SelectFriendList.DIFFERENT_SERVER)
         else:
@@ -562,7 +564,8 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
             '斗鱼': {'max': 151, 'record_attr': 'ap_max_num'},
             '太鼓': {'max': 76, 'record_attr': 'jade_max_num'}
         }
-        MAX_SWIPES = 20  # 最大滑动次数
+        swipe_count = 0  # 滑动次数
+        MAX_SWIPES = 5  # 最大滑动次数
         CONSEC_MISS = 3  # 允许连续无卡次数
         TIMEOUT = 120  # 操作超时(秒)
 
@@ -572,7 +575,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         miss_count = 0  # 连续无卡计数器
 
         # ============== 主滑动循环 ==============#
-        for swipe_count in range(MAX_SWIPES + 1):
+        while True:
             # 超时检测
             if timer.reached():
                 logger.warning('⏰ 操作超时，终止流程')
@@ -592,6 +595,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
                     return None
                 # 执行滑动操作
                 self.perform_swipe_action()
+                swipe_count += 1
                 continue
 
             miss_count = 0  # 重置无卡计数器
@@ -641,7 +645,10 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
                         return True
 
             # ------ 步骤3: 滑动到下一屏 ------#
+            if swipe_count >= MAX_SWIPES:
+                break
             self.perform_swipe_action()
+            swipe_count += 1
 
         # ============== 终止处理 ==============#
         logger.warning(f'⚠️ 已达到最大滑动次数{MAX_SWIPES}, 终止流程')
@@ -699,7 +706,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config('4399-1')
+    c = Config('mi')
     t = ScriptTask(c)
     t.run()
     # for i in range(10):
