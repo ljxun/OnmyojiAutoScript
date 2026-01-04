@@ -124,10 +124,27 @@ class DevTool(ctk.CTk):
         self.control_frame.grid_columnconfigure(0, weight=1)
         self.control_frame.grid_rowconfigure(10, weight=1)
 
+        # "上一张"和"下一张"按钮控制面板框架
+        self.image_button_frame = ctk.CTkFrame(self.control_frame)
+        self.image_button_frame.grid(row=1, column=0, columnspan=3, padx=10, pady=0, sticky="nsew")
+        self.image_button_frame.grid_rowconfigure(0, weight=1)
+        self.image_button_frame.grid_columnconfigure(0, weight=1)
+        self.image_button_frame.grid_columnconfigure(1, weight=1)
+        self.image_button_frame.grid_columnconfigure(2, weight=1)  # 新增：让3列均分空间
+
+        # 添加"上一张"和"下一张"按钮
+        self.prev_image_button = ctk.CTkButton(self.image_button_frame, text="← 上一张", width=110, command=self.load_prev_image)
+        self.prev_image_button.grid(row=0, column=0, padx=(20, 0), pady=(0, 0), sticky="w")
+
+        self.next_image_button = ctk.CTkButton(self.image_button_frame, text="下一张 →", width=110, command=self.load_next_image)
+        self.next_image_button.grid(row=0, column=1, padx=(0, 10), pady=(0, 0), sticky="w")
+
+
+
         # 创建选项卡视图
         self.tabview = ctk.CTkTabview(self.control_frame, width=200, height=100)
         self.tabview.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="nsew")
-        
+
         # 添加三个选项卡
         self.screenshot_tab = self.tabview.add("截图工具")
         self.template_tab = self.tabview.add("模板匹配")
@@ -187,13 +204,6 @@ class DevTool(ctk.CTk):
         # 模拟器截图按钮
         self.capture_emulator_button = ctk.CTkButton(self.screenshot_tab, text="木木截图", width=20, command=self.capture_emulator_screenshot)
         self.capture_emulator_button.grid(row=4, column=2, padx=(5, 10), pady=(5, 5), sticky="w")
-
-        # 添加"上一张"和"下一张"按钮
-        self.prev_image_button = ctk.CTkButton(self.screenshot_tab, text="← 上一张", width=120, command=self.load_prev_image)
-        self.prev_image_button.grid(row=5, column=0, padx=(10, 5), pady=(5, 5), sticky="ew")
-
-        self.next_image_button = ctk.CTkButton(self.screenshot_tab, text="下一张 →", width=120, command=self.load_next_image)
-        self.next_image_button.grid(row=5, column=1, padx=(5, 10), pady=(5, 5), sticky="ew")
 
         # log显示框（放在控制面板框架内，在选项卡下方）
         self.log_frame = ctk.CTkFrame(self.control_frame)
@@ -396,8 +406,8 @@ class DevTool(ctk.CTk):
                 except Exception as e:
                     continue
 
-        # 按创建时间排序，时间晚的靠后面（升序排列）
-        all_files.sort(key=lambda x: os.path.getctime(os.path.join(folder_path, x)))
+        # 按修改时间排序，时间晚的靠后面（升序排列）
+        all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
 
         self.image_files = [os.path.join(folder_path, f) for f in all_files]
 
@@ -953,7 +963,7 @@ class DevTool(ctk.CTk):
         try:
             # 获取RuleImage参数
             ruleimage_param = self.ruleimage_param_entry.get().strip()
-            self.log_print(f"使用RuleImage参数: {ruleimage_param}")
+            # self.log_print(f"使用RuleImage参数: {ruleimage_param}")
             print(f"RuleImage: {ruleimage_param}")
 
             # 解析字符串参数并创建RuleImage对象
