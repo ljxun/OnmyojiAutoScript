@@ -343,6 +343,9 @@ class DevTool(ctk.CTk):
         # 初始化时自动加载模拟器列表
         self.after(100, self.refresh_emulators)
 
+        # 添加：启动时自动扫描并加载最新图片
+        self.after(200, self.load_latest_image_at_startup)
+
 
     def log_print(self, text, color=None):
         if color:
@@ -389,35 +392,7 @@ class DevTool(ctk.CTk):
             self.update_image_files(file_path)
         return file_path
 
-    def update_image_files(self, current_file_path):
-        """更新当前文件夹中的1280x720尺寸图片文件列表"""
-        folder_path = os.path.dirname(current_file_path)
-        # 获取文件夹中所有PNG文件
-        all_files = []
-        for f in os.listdir(folder_path):
-            if f.lower().endswith('.png'):
-                # 检查图片尺寸是否为1280x720
-                img_path = os.path.join(folder_path, f)
-                try:
-                    img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
-                    if img is not None:
-                        if img.shape[1] == 1280 and img.shape[0] == 720:
-                            all_files.append(f)
-                except Exception as e:
-                    continue
 
-        # 按修改时间排序，时间晚的靠后面（升序排列）
-        all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
-
-        self.image_files = [os.path.join(folder_path, f) for f in all_files]
-
-        # 直接通过文件名比较来确定当前图片索引
-        current_filename = os.path.basename(current_file_path)
-        self.current_image_index = -1
-        for i, img_path in enumerate(self.image_files):
-            if os.path.basename(img_path) == current_filename:
-                self.current_image_index = i
-                break
 
     def load_prev_image(self):
         """加载上一张图片"""
@@ -1360,6 +1335,80 @@ class DevTool(ctk.CTk):
             self.log_print("未找到ADB工具，请确保已安装并添加到系统路径或使用项目自带的ADB", "error")
         except Exception as e:
             self.log_print(f"截取模拟器画面时出错: {str(e)}", "error")
+
+    def load_latest_image_at_startup(self):
+        """启动时自动扫描目录并加载最新图片"""
+        folder_path = self.screenshots_path  # 使用默认目录
+
+        # 检查目录是否存在
+        if not os.path.exists(folder_path):
+            self.log_print(f"目录不存在: {folder_path}", "error")
+            return
+
+        # 扫描目录中的1280x720 PNG文件
+        self.update_image_files_from_folder(folder_path)
+
+        # 如果找到图片，加载最新的
+        if self.image_files:
+            latest_image_path = self.image_files[-1]  # 最后一张是最新图片
+            self.load_image_by_path(latest_image_path)
+            self.log_print(f"自动加载最新图片: {os.path.basename(latest_image_path)}")
+        else:
+            self.log_print("目录中没有符合条件的1280x720 PNG图片", "error")
+
+    def update_image_files_from_folder(self, folder_path):
+        """从指定文件夹更新图片文件列表"""
+        all_files = []
+        for f in os.listdir(folder_path):
+            if f.lower().endswith('.png'):
+                img_path = os.path.join(folder_path, f)
+                try:
+                    img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
+                    if img is not None and img.shape[1] == 1280 and img.shape[0] == 720:
+                        all_files.append(f)
+                except Exception as e:
+                    continue
+
+        # 按修改时间排序
+        all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
+
+        self.image_files = [os.path.join(folder_path, f) for f in all_files]
+
+        # 设置当前索引为最后一张图片（最新图片）
+        if self.image_files:
+            self.current_image_index = len(self.image_files) - 1
+        else:
+            self.current_image_index = -1
+
+    def update_image_files(self, current_file_path):
+        """更新当前文件夹中的1280x720尺寸图片文件列表"""
+        folder_path = os.path.dirname(current_file_path)
+        # 获取文件夹中所有PNG文件
+        all_files = []
+        for f in os.listdir(folder_path):
+            if f.lower().endswith('.png'):
+                # 检查图片尺寸是否为1280x720
+                img_path = os.path.join(folder_path, f)
+                try:
+                    img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
+                    if img is not None:
+                        if img.shape[1] == 1280 and img.shape[0] == 720:
+                            all_files.append(f)
+                except Exception as e:
+                    continue
+
+        # 按修改时间排序，时间晚的靠后面（升序排列）
+        all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
+
+        self.image_files = [os.path.join(folder_path, f) for f in all_files]
+
+        # 直接通过文件名比较来确定当前图片索引
+        current_filename = os.path.basename(current_file_path)
+        self.current_image_index = -1
+        for i, img_path in enumerate(self.image_files):
+            if os.path.basename(img_path) == current_filename:
+                self.current_image_index = i
+                break
 
 
 if __name__ == "__main__":
