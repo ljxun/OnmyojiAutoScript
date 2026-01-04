@@ -41,13 +41,15 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         # self.check_utilize_harvest()
         # 收体力盒子或者是经验盒子
         # self.check_box_ap_or_exp(con.box_ap_enable, con.box_exp_enable, con.box_exp_waste)
-
         # 收取寮资金和体力
         # self.recive_guild_ap_or_assets()
+
         # 抽奖箱
         self.check_lottery_box()
+
         # 庭院事务
-        self.courtyard_affairs()
+        if con.courtyard_affairs_enable:
+            self.courtyard_affairs()
 
         if not con.utilize_enable:
             self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
