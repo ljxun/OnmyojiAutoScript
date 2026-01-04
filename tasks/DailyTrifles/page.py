@@ -6,6 +6,7 @@ from tasks.GameUi.assets import GameUiAssets
 # 商店签到
 page_store_sign = Page(DailyTriflesAssets.I_GIFT_RECOMMEND)
 page_mall.link(button=DailyTriflesAssets.I_ROOM_GIFT, destination=page_store_sign)
+page_store_sign.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_mall)
 
 # 进入Special 购买寿司
 page_mall_special = Page(RichManAssets.I_SIDE_CHECK_SPECIAL)
