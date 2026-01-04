@@ -1,10 +1,7 @@
 # 添加模块导入
 import sys
-from tkinter import filedialog
-from tkinter import messagebox
-
+from tkinter import filedialog, messagebox
 import pyperclip
-
 import customtkinter as ctk
 import cv2
 import json
@@ -16,10 +13,7 @@ from PIL import Image, ImageTk
 from datetime import datetime
 
 # 将当前目录加入系统路径，以便导入项目模块
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.append(parent_dir)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # 尝试导入项目模块
 try:
@@ -77,19 +71,12 @@ class DevTool(ctk.CTk):
         # 设置默认路径
         self.screenshots_path = r"D:\共享文件夹\Screenshots"
         self.save_img_path = r"D:\共享文件夹\Screenshots"
+        self.python_executable = r"F:\Python3.10\VENV\Scripts\pythonw.exe"
+        self.mumu_manager_path = r"E:\MuMuPlayer-12.0\shell\MuMuManager.exe"
 
         # 确保默认路径存在
-        if not os.path.exists(self.screenshots_path):
-            try:
-                os.makedirs(self.screenshots_path)
-            except:
-                self.screenshots_path = os.getcwd()  # 如果创建失败，使用当前目录
-
-        if not os.path.exists(self.save_img_path):
-            try:
-                os.makedirs(self.save_img_path)
-            except:
-                self.save_img_path = os.getcwd()  # 如果创建失败，使用当前目录
+        self._ensure_directory_exists(self.screenshots_path)
+        self._ensure_directory_exists(self.save_img_path)
 
         # 创建主框架以支持更好的布局
         self.main_frame = ctk.CTkFrame(self)
@@ -133,13 +120,11 @@ class DevTool(ctk.CTk):
         self.image_button_frame.grid_columnconfigure(2, weight=1)  # 新增：让3列均分空间
 
         # 添加"上一张"和"下一张"按钮
-        self.prev_image_button = ctk.CTkButton(self.image_button_frame, text="← 上一张", width=110, command=self.load_prev_image)
+        self.prev_image_button = ctk.CTkButton(self.image_button_frame, text="← 上一张", width=105, command=self.load_prev_image)
         self.prev_image_button.grid(row=0, column=0, padx=(20, 0), pady=(0, 0), sticky="w")
 
-        self.next_image_button = ctk.CTkButton(self.image_button_frame, text="下一张 →", width=110, command=self.load_next_image)
+        self.next_image_button = ctk.CTkButton(self.image_button_frame, text="下一张 →", width=105, command=self.load_next_image)
         self.next_image_button.grid(row=0, column=1, padx=(0, 10), pady=(0, 0), sticky="w")
-
-
 
         # 创建选项卡视图
         self.tabview = ctk.CTkTabview(self.control_frame, width=200, height=100)
@@ -188,7 +173,7 @@ class DevTool(ctk.CTk):
         # 框选坐标显示框
         self.rect_info = ctk.CTkEntry(self.screenshot_tab, placeholder_text="矩形框坐标", width=260, justify="center")
         self.rect_info.grid(row=3, column=0, columnspan=2, padx=10, pady=(5, 5), sticky="ew")
-        # 绑定回车键事件，当在坐标输入框按回车时显示矩形框
+        # 绑定回 enter 键事件，当在坐标输入框按回车时显示矩形框
         self.rect_info.bind("<KeyRelease>", self.show_rectangle_from_entry)
         # 复制按钮
         self.copy_button = ctk.CTkButton(self.screenshot_tab, width=20, text="复制坐标", command=lambda: self.copy_to_clipboard(str(self.coordinates)))
@@ -341,11 +326,21 @@ class DevTool(ctk.CTk):
         self.new_rect_start_y = 0  # 新矩形的起始点y坐标
 
         # 初始化时自动加载模拟器列表
+        # 使用更长的延迟来提高启动速度
         self.after(100, self.refresh_emulators)
 
         # 添加：启动时自动扫描并加载最新图片
+        # 使用更长的延迟来提高启动速度
         self.after(200, self.load_latest_image_at_startup)
 
+    def _ensure_directory_exists(self, path):
+        """确保目录存在，如果不存在则创建"""
+        if not os.path.exists(path):
+            try:
+                os.makedirs(path)
+            except:
+                # 如果创建失败，不修改任何属性
+                pass
 
     def log_print(self, text, color=None):
         if color:
@@ -360,7 +355,6 @@ class DevTool(ctk.CTk):
         x1, y1, x2, y2 = self.coordinates
         formatted_text = f"{x1-4},{y1-4},{x2-x1},{y2-y1}"
         # 彻底清理所有空白字符
-        import re
         formatted_text = re.sub(r'\s+', '', formatted_text)
 
         # 使用更可靠的剪贴板方法
@@ -389,10 +383,8 @@ class DevTool(ctk.CTk):
         if file_path:  # 如果选择了文件
             self.last_selected_image = os.path.dirname(file_path)  # 记住文件所在目录
             # 更新图片文件列表和当前索引
-            self.update_image_files(file_path)
+            self.update_image_files(file_path, is_file_path=True)
         return file_path
-
-
 
     def load_prev_image(self):
         """加载上一张图片"""
@@ -425,8 +417,9 @@ class DevTool(ctk.CTk):
                 return
 
             # 检查图片尺寸
-            if self.np_image.shape[1] != 1280 or self.np_image.shape[0] != 720:
-                self.log_print(f"警告: 图片尺寸为 {self.np_image.shape[1]}x{self.np_image.shape[0]}，不是1280x720", "error")
+            height, width = self.np_image.shape[:2]
+            if width != 1280 or height != 720:
+                self.log_print(f"警告: 图片尺寸为 {width}x{height}，不是1280x720", "error")
 
             # 转换为PIL Image并显示
             pil_image = Image.fromarray(cv2.cvtColor(self.np_image, cv2.COLOR_BGR2RGB))
@@ -479,12 +472,12 @@ class DevTool(ctk.CTk):
         # 检查文件名是否合法
         if not img_name or not img_name.strip():
             self.log_print("图片名称不能为空", "error")
-            return
+            return None
 
         # 检查目录是否存在
         if not os.path.exists(base_path):
             self.log_print("保存路径不存在", "error")
-            return
+            return None
         timestamp = datetime.now().strftime("%H%M%S")
         path = os.path.relpath(base_path, start=os.curdir) + "/" + img_name + f"_{timestamp}.png"  # 保存路径x
         path = path.replace("\\", "/")  # 路径格式化
@@ -492,7 +485,6 @@ class DevTool(ctk.CTk):
         return path
 
     def save_img(self):
-
         # 检查是否已加载图片
         if self.np_image is None:
             self.log_print("请先加载图片", "error")
@@ -521,12 +513,10 @@ class DevTool(ctk.CTk):
         # 检查文件是否已存在
         if os.path.exists(path):
             # 弹窗提示用户文件已存在，提供三个选项
-            # self.withdraw()  # 隐藏主窗口，使对话框成为模态
             result = messagebox.askyesno(
                 "文件已存在",
                 f"文件 {save_name}.png 已存在，是否要覆盖该文件？\n\n '是' 覆盖文件\n '否' 取消保存"
             )
-            # self.deiconify()  # 恢复主窗口
 
             if not result:  # 用户选择否，取消保存
                 self.log_print("取消保存操作", "error")
@@ -534,12 +524,12 @@ class DevTool(ctk.CTk):
             else:  # 用户选择是，覆盖文件
                 self.log_print(f"将覆盖文件: {save_name}.png")
 
-        if self.np_image is not None and any(self.rect.values()):  # 确保 np_image 和矩形框有效
-            x1, y1, x2, y2 = self.coordinates
+        # 确保 np_image 和矩形框有效
+        if self.np_image is not None and any(self.rect.values()):
             # 检查裁剪框的有效性
-            if not (0 <= x1 < x2 <= self.np_image.shape[1] and 0 <= y1 < y2 <= self.np_image.shape[0]):
-                self.log_print("裁剪框的坐标无效", "error")
-                return
+            # if not (0 <= x1 < x2 <= self.np_image.shape[1] and 0 <= y1 < y2 <= self.np_image.shape[0]):
+            #     self.log_print("裁剪框的坐标无效", "error")
+            #     return
             try:
                 cropped_image = self.np_image[y1 - 4 : y2 - 4, x1 - 4 : x2 - 4]
                 cv2.imencode(".png", cropped_image)[1].tofile(path)
@@ -552,11 +542,12 @@ class DevTool(ctk.CTk):
     def save_image_info(self, save_name, path, x1, y1, x2, y2):
         """保存图片信息到 image.json"""
         json_file_path = os.path.join(self.folder_path_entry.get(), "image.json")
+        roi_front_back = f"{x1-4},{y1-4},{x2-x1},{y2-y1}"
         image_data = {
             "itemName": save_name,
             "imageName": f"{save_name}.png",
-            "roiFront": f"{x1-4},{y1-4},{x2-x1},{y2-y1}",
-            "roiBack":  f"{x1-4},{y1-4},{x2-x1},{y2-y1}",
+            "roiFront": roi_front_back,
+            "roiBack":  roi_front_back,
             "method": "Template matching",
             "threshold": 0.8,
             "description": save_name
@@ -568,15 +559,14 @@ class DevTool(ctk.CTk):
         roi = x1-4, y1-4, x2-x1, y2-y1
         self.log_print(f"rule_image = RuleImage(roi_front={roi}, roi_back={roi}, threshold=0.8, method=\"Template matching\", file=\"{self.folder_path_entry.get()}\\{save_name}.png\")")
 
-        # 检查文件是否存在
-        if os.path.exists(json_file_path):
-            # 读取现有内容
+        # 读取现有数据或初始化为空列表
+        try:
             with open(json_file_path, 'r', encoding='utf-8') as file:
                 try:
                     data = json.load(file)
                 except json.JSONDecodeError:
                     data = []
-        else:
+        except FileNotFoundError:
             data = []
 
         # 检查是否已存在相同的 itemName
@@ -599,27 +589,25 @@ class DevTool(ctk.CTk):
 
     def format_img(self, fmt_type):
         x1, y1, x2, y2 = self.coordinates
-        match fmt_type:
-            case "image":
-                img_info = f"{self.name}=['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}']"
-            case "page":
-                img_info = f"{self.name}=Page('{self.name}',['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}'])"
-            case "coor":
-                img_info = f"{self.name}=({x1-4}, {y1-4}, {x2-4}, {y2-4})"
-        return img_info
-        pass
+        fmt_map = {
+            "image": f"{self.name}=['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}']",
+            "page": f"{self.name}=Page('{self.name}',['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}'])",
+            "coor": f"{self.name}=({x1-4}, {y1-4}, {x2-4}, {y2-4})"
+        }
+        return fmt_map.get(fmt_type, "")
 
     def write_to_file(self, save_type):
         try:
             self._img_info = self.format_img(save_type)
             self.log_print(self._img_info)
             if self._img_info:
-                if not os.path.exists(os.path.join(self.folder_path_entry.get(), "img_info_auto_create.py")):
-                    with open(os.path.join(self.folder_path_entry.get(), "img_info_auto_create.py"), "w") as file:
+                file_path = os.path.join(self.folder_path_entry.get(), "img_info_auto_create.py")
+                if not os.path.exists(file_path):
+                    with open(file_path, "w") as file:
                         file.write(f"# this file is auto created by devtool at {datetime.now()}\n\n")  # 写入内容
                         self.log_print("创建文件成功")
 
-                with open(os.path.join(self.folder_path_entry.get(), "img_info_auto_create.py"), "a") as f:
+                with open(file_path, "a") as f:
                     f.write(str(self._img_info) + "\n")  # 写入内容
                     self.log_print("写入文件成功")
             else:
@@ -629,11 +617,9 @@ class DevTool(ctk.CTk):
 
     def in_canvas(self, event):
         self.mouse_is_in_canvas = True
-        # self.log_print("鼠标进入画布")
 
     def out_canvas(self, event):
         self.mouse_is_in_canvas = False
-        # self.log_print("鼠标离开画布")
 
     def on_click(self, event):
         if self.mouse_is_in_canvas:
@@ -745,8 +731,7 @@ class DevTool(ctk.CTk):
             # 解析坐标格式 x,y,w,h
             coords = [float(x.strip()) for x in coord_text.split(',')]
             if len(coords) == 2:
-                coords.append(10)
-                coords.append(10)
+                coords.extend([10, 10])  # 使用extend替代多次append
             if len(coords) != 4:
                 return  # 不完整的坐标不处理
 
@@ -764,10 +749,7 @@ class DevTool(ctk.CTk):
                     return
 
             # 更新矩形坐标
-            self.rect["x1"] = x1
-            self.rect["y1"] = y1
-            self.rect["x2"] = x2
-            self.rect["y2"] = y2
+            self.rect.update({"x1": x1, "y1": y1, "x2": x2, "y2": y2})
 
             # 绘制矩形
             self.draw_rectangle()
@@ -947,44 +929,21 @@ class DevTool(ctk.CTk):
                 # 提取参数部分
                 params_str = ruleimage_param[10:-1]  # 去掉"RuleImage("和最后的")"
 
-                # 解析参数（这里需要根据实际格式进行解析）
-                # 简化处理，您可以根据实际需要进行更复杂的解析
-                # 例如，可以使用正则表达式或eval（注意安全性）
-                # 这里假设参数格式是固定的
-
-                # 提取roi_front
+                # 使用正则表达式一次性提取所有参数
                 roi_front_match = re.search(r'roi_front=\(([^)]+)\)', params_str)
-                if not roi_front_match:
-                    self.log_print("roi_front参数格式不正确", "error")
-                    return  # 匹配失败，直接返回
-                roi_front = tuple(map(int, roi_front_match.group(1).split(',')))
-
-                # 提取roi_back
                 roi_back_match = re.search(r'roi_back=\(([^)]+)\)', params_str)
-                if not roi_back_match:
-                    self.log_print("roi_back参数格式不正确", "error")
-                    return  # 匹配失败，直接返回
-                roi_back = tuple(map(int, roi_back_match.group(1).split(',')))
-
-                # 提取threshold
                 threshold_match = re.search(r'threshold=([\d.]+)', params_str)
-                if not threshold_match:
-                    self.log_print("threshold参数格式不正确", "error")
-                    return  # 匹配失败，直接返回
-                threshold = float(threshold_match.group(1))
-
-                # 提取method
                 method_match = re.search(r'method=([\'"])([^\'"]+)\1', params_str)
-                if not method_match:
-                    self.log_print("method参数格式不正确", "error")
-                    return  # 匹配失败，直接返回
-                method = method_match.group(2)
-
-                # 提取file
                 file_match = re.search(r'file=([\'"])([^\'"]+)\1', params_str)
-                if not file_match:
-                    self.log_print("file参数格式不正确", "error")
-                    return  # 匹配失败，直接返回
+                
+                if not all([roi_front_match, roi_back_match, threshold_match, method_match, file_match]):
+                    self.log_print("RuleImage参数格式不正确", "error")
+                    return
+                
+                roi_front = tuple(map(int, roi_front_match.group(1).split(',')))
+                roi_back = tuple(map(int, roi_back_match.group(1).split(',')))
+                threshold = float(threshold_match.group(1))
+                method = method_match.group(2)
                 file = file_match.group(2)
 
                 # 创建RuleImage对象
@@ -1035,12 +994,9 @@ class DevTool(ctk.CTk):
         """打开蒙版生成器"""
         try:
             # 构建命令行参数
-            python_executable = r"F:\Python3.10\VENV\Scripts\pythonw.exe"
             script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mask_generator.py")
-
             # 启动子进程
-            subprocess.Popen([python_executable, script_path])
-
+            subprocess.Popen([self.python_executable, script_path])
         except Exception as e:
             self.log_print(f"启动蒙版生成器时出错: {str(e)}", "error")
 
@@ -1048,13 +1004,10 @@ class DevTool(ctk.CTk):
         """生成 assets"""
         try:
             # 构建命令行参数
-            python_executable = r"F:\Python3.10\VENV\Scripts\pythonw.exe"
             script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets_extract.py")
-
             # 启动子进程
-            subprocess.Popen([python_executable, script_path])
+            subprocess.Popen([self.python_executable, script_path])
             self.log_print("执行 assets_extract 成功", "success")
-
         except Exception as e:
             self.log_print(f"执行 assets_extract 出错: {str(e)}", "error")
 
@@ -1084,7 +1037,7 @@ class DevTool(ctk.CTk):
     def is_rect_valid(self):
         """检查当前选择的矩形是否有效"""
         x1, y1, x2, y2 = self.coordinates
-        return (x1 != x2 and y1 != y2)
+        return x1 != x2 and y1 != y2
 
     # 新增功能：更新阈值标签
     def update_threshold_label(self, value):
@@ -1098,16 +1051,10 @@ class DevTool(ctk.CTk):
     def refresh_emulators(self):
         """刷新模拟器列表"""
         try:
-            # MuMuManager路径
-            # mumu_manager_path = r"E:\MuMuPlayer\nx_main\MuMuManager.exe"  # 用户指定的路径
-            mumu_manager_path = r"E:\MuMuPlayer-12.0\shell\MuMuManager.exe"
-
             # 检查MuMuManager是否存在
-            if not mumu_manager_path:
+            if not self.mumu_manager_path:
                 self.log_print("未找到MuMuManager.exe，请检查安装路径", "error")
                 return
-            
-            self.log_print(f"使用MuMuManager路径: {mumu_manager_path}")
             
             # 隐藏CMD窗口执行命令
             startupinfo = None
@@ -1118,7 +1065,7 @@ class DevTool(ctk.CTk):
             # 执行命令获取模拟器信息
             self.log_print("正在获取模拟器列表...")
             result = subprocess.run(
-                [mumu_manager_path, "info", "-v", "all"], 
+                [self.mumu_manager_path, "info", "-v", "all"],
                 capture_output=True, 
                 text=True, 
                 timeout=10,
@@ -1131,7 +1078,6 @@ class DevTool(ctk.CTk):
                 return
             
             # 解析JSON输出
-            import json
             try:
                 emulators_info = json.loads(result.stdout)
                 emulator_list = []
@@ -1188,7 +1134,7 @@ class DevTool(ctk.CTk):
         try:
             # 获取从下拉框选择的模拟器信息
             selected_emulator = self.emulator_selector.get()
-            if selected_emulator == "请选择模拟器" or selected_emulator == "未找到已启动的模拟器":
+            if selected_emulator in ["请选择模拟器", "未找到已启动的模拟器"]:
                 self.log_print("请先选择一个模拟器", "error")
                 return
                 
@@ -1225,31 +1171,11 @@ class DevTool(ctk.CTk):
                 startupinfo=startupinfo
             )
             
-            self.log_print(f"连接命令输出: {connect_result.stdout}")
-            if connect_result.stderr:
-                self.log_print(f"连接命令错误输出: {connect_result.stderr}")
-                return
-
             if connect_result.returncode != 0:
                 self.log_print(f"连接设备失败: {connect_result.stderr}", "error")
                 return
                 
             self.log_print(f"设备连接成功: {device_address}")
-            
-            # 列出所有已连接的设备以供调试
-            self.log_print("当前连接的设备:")
-            devices_result = subprocess.run(
-                [adb_path, "devices"], 
-                capture_output=True, 
-                text=True, 
-                timeout=10,
-                startupinfo=startupinfo
-            )
-            if devices_result.returncode == 0:
-                self.log_print(devices_result.stdout)
-            else:
-                self.log_print(f"获取设备列表失败: {devices_result.stderr}", "error")
-                return
             
             # 获取屏幕截图
             self.log_print("正在获取屏幕截图...")
@@ -1260,11 +1186,6 @@ class DevTool(ctk.CTk):
                 startupinfo=startupinfo
             )
             
-            self.log_print(f"截图命令返回码: {screenshot_result.returncode}")
-            if screenshot_result.stderr:
-                self.log_print(f"截图命令错误输出: {screenshot_result.stderr.decode('utf-8') if isinstance(screenshot_result.stderr, bytes) else screenshot_result.stderr}", "error")
-                return
-
             if screenshot_result.returncode != 0:
                 self.log_print(f"截图命令执行失败: {screenshot_result.stderr}", "error")
                 return
@@ -1276,15 +1197,12 @@ class DevTool(ctk.CTk):
                 
             # 处理截图数据
             screenshot_data = screenshot_result.stdout
-            # self.log_print(f"原始截图数据大小: {len(screenshot_data)} 字节")
             
             if os.name == 'nt':  # Windows系统
                 screenshot_data = screenshot_data.replace(b'\r\n', b'\n')
                 
             # 将截图数据转换为numpy数组
             nparr = np.frombuffer(screenshot_data, np.uint8)
-            # self.log_print(f"解码前数据大小: {len(nparr)} 字节")
-            
             img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
             
             if img is None:
@@ -1302,12 +1220,7 @@ class DevTool(ctk.CTk):
             save_path = os.path.join(self.save_img_path, filename)
             
             # 确保目录存在
-            if not os.path.exists(self.save_img_path):
-                try:
-                    os.makedirs(self.save_img_path)
-                except Exception as e:
-                    self.log_print(f"创建目录失败: {str(e)}", "error")
-                    return
+            self._ensure_directory_exists(self.save_img_path)
             
             # 检查图像数据
             if img is None:
@@ -1327,7 +1240,7 @@ class DevTool(ctk.CTk):
             self.log_print(f"模拟器截图已保存: {filename}", "success")
             
             # 更新图片列表，将新截图加入列表
-            self.update_image_files(save_path)
+            self.update_image_files(self.save_img_path)
 
         except subprocess.TimeoutExpired:
             self.log_print("截图操作超时", "error")
@@ -1346,44 +1259,17 @@ class DevTool(ctk.CTk):
             return
 
         # 扫描目录中的1280x720 PNG文件
-        self.update_image_files_from_folder(folder_path)
+        self.update_image_files(folder_path, is_file_path=False)
 
         # 如果找到图片，加载最新的
         if self.image_files:
             latest_image_path = self.image_files[-1]  # 最后一张是最新图片
             self.load_image_by_path(latest_image_path)
-            self.log_print(f"自动加载最新图片: {os.path.basename(latest_image_path)}")
         else:
             self.log_print("目录中没有符合条件的1280x720 PNG图片", "error")
 
-    def update_image_files_from_folder(self, folder_path):
-        """从指定文件夹更新图片文件列表"""
-        all_files = []
-        for f in os.listdir(folder_path):
-            if f.lower().endswith('.png'):
-                img_path = os.path.join(folder_path, f)
-                try:
-                    img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
-                    if img is not None and img.shape[1] == 1280 and img.shape[0] == 720:
-                        all_files.append(f)
-                except Exception as e:
-                    continue
-
-        # 按修改时间排序
-        all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
-
-        self.image_files = [os.path.join(folder_path, f) for f in all_files]
-
-        # 设置当前索引为最后一张图片（最新图片）
-        if self.image_files:
-            self.current_image_index = len(self.image_files) - 1
-        else:
-            self.current_image_index = -1
-
-    def update_image_files(self, current_file_path):
-        """更新当前文件夹中的1280x720尺寸图片文件列表"""
-        folder_path = os.path.dirname(current_file_path)
-        # 获取文件夹中所有PNG文件
+    def _get_valid_images_from_folder(self, folder_path):
+        """获取文件夹中所有1280x720的PNG图片文件"""
         all_files = []
         for f in os.listdir(folder_path):
             if f.lower().endswith('.png'):
@@ -1391,24 +1277,45 @@ class DevTool(ctk.CTk):
                 img_path = os.path.join(folder_path, f)
                 try:
                     img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
-                    if img is not None:
-                        if img.shape[1] == 1280 and img.shape[0] == 720:
-                            all_files.append(f)
-                except Exception as e:
+                    if img is not None and img.shape[1] == 1280 and img.shape[0] == 720:
+                        all_files.append(f)
+                except Exception:
                     continue
+        return all_files
 
-        # 按修改时间排序，时间晚的靠后面（升序排列）
+    def update_image_files(self, folder_path_or_file_path, is_file_path=False):
+        """
+        更新图片文件列表
+        :param folder_path_or_file_path: 文件夹路径或文件路径
+        :param is_file_path: 是否为文件路径，如果是则需要根据当前文件设置索引
+        """
+        if is_file_path:
+            folder_path = os.path.dirname(folder_path_or_file_path)
+            current_filename = os.path.basename(folder_path_or_file_path)
+        else:
+            folder_path = folder_path_or_file_path
+            current_filename = None
+
+        all_files = self._get_valid_images_from_folder(folder_path)
+
+        # 按修改时间排序
         all_files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
 
         self.image_files = [os.path.join(folder_path, f) for f in all_files]
 
-        # 直接通过文件名比较来确定当前图片索引
-        current_filename = os.path.basename(current_file_path)
-        self.current_image_index = -1
-        for i, img_path in enumerate(self.image_files):
-            if os.path.basename(img_path) == current_filename:
-                self.current_image_index = i
-                break
+        if is_file_path and current_filename:
+            # 直接通过文件名比较来确定当前图片索引
+            self.current_image_index = -1
+            for i, img_path in enumerate(self.image_files):
+                if os.path.basename(img_path) == current_filename:
+                    self.current_image_index = i
+                    break
+        else:
+            # 设置当前索引为最后一张图片（最新图片）
+            if self.image_files:
+                self.current_image_index = len(self.image_files) - 1
+            else:
+                self.current_image_index = -1
 
 
 if __name__ == "__main__":
