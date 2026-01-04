@@ -273,39 +273,12 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         self.ui_click(self.I_UI_BACK_RED, self.I_CHECK_MAIN)
 
     def run_store(self):
-        self.ui_goto_page(page_mall, confirm_wait=3)
-
         if self.config.daily_trifles.trifles_config.store_sign:
             self.run_store_sign()
         if self.config.daily_trifles.trifles_config.buy_sushi_count > 0:
             self.run_buy_sushi()
 
     def run_store_sign(self):
-        # timer = Timer(5)
-        # while 1:
-        #     if timer.started() and timer.reached():
-        #         self.save_image(content="每日签到超时", push_flag=True, wait_time=0, image_type=True)
-        #         return
-        #     self.screenshot()
-        #     self.reject_invite()
-        #     if self.ui_reward_appear_click():
-        #         logger.info('Get reward of gift sign')
-        #         break
-        #     if self.ocr_appear_click(self.O_STORE_FREE_SIGN, interval=1):
-        #         continue
-        #     if self.appear_then_click(self.I_GIFT_RECOMMEND, interval=1):
-        #         timer.start()
-        #         continue
-        #     if self.appear_then_click(self.I_ROOM_GIFT, interval=1):
-        #         continue
-
-        # while 1:
-        #     self.screenshot()
-        #     if self.appear(self.I_GIFT_RECOMMEND):
-        #         break
-        #     if self.appear_then_click(self.I_ROOM_GIFT, interval=1):
-        #         continue
-
         self.ui_goto_page(page_store_sign)
         timer = Timer(5)
         timer.start()
@@ -479,8 +452,8 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('wy')
+    c = Config('du')
     t = ScriptTask(c)
 
     # t.run()
-    t.run_summon_store()
+    t.run_store()

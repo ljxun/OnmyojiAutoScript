@@ -10,8 +10,8 @@ page_store_sign.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_mall)
 
 # 进入Special 购买寿司
 page_mall_special = Page(RichManAssets.I_SIDE_CHECK_SPECIAL)
-page_mall.link(button=RichManAssets.I_SIDE_SURE_SPECIAL, destination=page_mall_special)
 page_mall.link(button=RichManAssets.I_MALL_SUNDRY, destination=page_mall_special)
+page_mall.link(button=RichManAssets.I_SIDE_SURE_SPECIAL, destination=page_mall_special)
 page_mall_special.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_mall)
 
 

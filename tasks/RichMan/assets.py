@@ -204,9 +204,9 @@ class RichManAssets:
 
 
 	# Image Rule Assets
-	# 特殊 
+	# 特殊按钮 
 	I_SIDE_SURE_SPECIAL = RuleImage(roi_front=(1172,91,70,74), roi_back=(1161,81,98,500), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_sure_special.png")
-	# 特殊 
+	# 特殊page标志 
 	I_SIDE_CHECK_SPECIAL = RuleImage(roi_front=(702,11,23,32), roi_back=(84,8,1191,46), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_check_special.png")
 	# 荣誉 
 	I_SIDE_SUER_HONOR = RuleImage(roi_front=(1180,191,59,60), roi_back=(1150,159,103,132), threshold=0.7, method="Template matching", file="./tasks/RichMan/mall/navbar/navbar_side_suer_honor.png")

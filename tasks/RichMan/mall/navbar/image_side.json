@@ -6,7 +6,7 @@
     "roiBack": "1161,81,98,500",
     "method": "Template matching",
     "threshold": 0.7,
-    "description": "特殊"
+    "description": "特殊按钮"
   },
   {
     "itemName": "side_check_special",
@@ -15,7 +15,7 @@
     "roiBack": "84,8,1191,46",
     "method": "Template matching",
     "threshold": 0.7,
-    "description": "特殊"
+    "description": "特殊page标志"
   },
   {
     "itemName": "side_suer_honor",

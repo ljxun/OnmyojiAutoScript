@@ -39,6 +39,6 @@ class CourtyardAffairs(GameUi, CourtyardAffairsAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config("4399-1")
+    c = Config("du")
     t = CourtyardAffairs(c)
     t.courtyard_affairs()

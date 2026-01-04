@@ -78,7 +78,7 @@ class DailyTriflesAssets:
 	# Image Rule Assets
 	# 礼包屋 
 	I_ROOM_GIFT = RuleImage(roi_front=(1138,658,52,40), roi_back=(1119,621,103,94), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_room_gift.png")
-	# description 
+	# 日常（每日免费黑蛋） 
 	I_GIFT_RECOMMEND = RuleImage(roi_front=(1183,454,53,64), roi_back=(1161,74,105,484), threshold=0.7, method="Template matching", file="./tasks/DailyTrifles/store/store_gift_recommend.png")
 	# 免费一抽领黑蛋 
 	I_GIFT_SIGN = RuleImage(roi_front=(629,192,129,149), roi_back=(130,129,891,473), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_gift_sign.png")
