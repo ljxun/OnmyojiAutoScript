@@ -269,37 +269,75 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                 break
             next_page = path[i + 1]
             logger.attr('Page switch', f'{current_page} -> {next_page}')
-            # 获取页面跳转操作
-            button = current_page.links.get(next_page)
-            if not button:
+            # 获取页面跳转操作 - 现在返回按钮列表
+            buttons = current_page.links.get(next_page, [])
+            if not buttons:
                 logger.warning(f"No link from {current_page} to {next_page}")
                 continue
-            # 跳转页面
-            max_wait_timer = Timer(3).start()
-            while not max_wait_timer.reached():
+
+            # 标记是否成功跳转到下一页
+            page_switched = False
+
+            # 尝试所有可能的按钮
+            for button in buttons:
                 if timeout_timer.reached():
                     return False
-                if self.appear_then_operate(button, interval=0.5, skip_first_screenshot=False):
-                    break
-                logger.warning(f"[{max_wait_timer.current():.1f}s]Failed click {button} on {current_page}, retry...")
-                sleep(0.5)
-            else:
-                self.ui_get_current_page(skip_first_screenshot=False)
-                # 当前页面不是对应路径的页面, 则尝试下一个页面
-                if self.ui_current != current_page:
+
+                logger.info(f'Trying button {button} from {current_page} to {next_page}')
+
+                # 尝试点击当前按钮
+                max_wait_timer = Timer(3).start()
+                button_clicked = False
+
+                while not max_wait_timer.reached():
+                    if timeout_timer.reached():
+                        return False
+                    if self.appear_then_operate(button, interval=0.5, skip_first_screenshot=False):
+                        button_clicked = True
+                        logger.info(f'Successfully clicked {button} on {current_page}')
+                        break
+                    logger.warning(f"[{max_wait_timer.current():.1f}s]Failed click {button} on {current_page}, retry...")
+                    sleep(0.5)
+
+                if not button_clicked:
+                    logger.warning(f"Failed to click {button}, trying next button...")
                     continue
-            max_wait_timer.reset()
-            while not max_wait_timer.reached():
-                if timeout_timer.reached():
-                    return False
-                if self.ui_wait_until_appear(next_page, timeout=1.5, skip_first_screenshot=False):
-                    logger.info(f'[{max_wait_timer.current():.1f}s]Page arrived {next_page}')
-                    self.ui_current = next_page
+
+                # 等待页面跳转完成
+                max_wait_timer.reset()
+                page_arrived = False
+
+                while not max_wait_timer.reached():
+                    if timeout_timer.reached():
+                        return False
+                    if self.ui_wait_until_appear(next_page, timeout=1.5, skip_first_screenshot=False):
+                        logger.info(f'[{max_wait_timer.current():.1f}s]Page arrived {next_page}')
+                        self.ui_current = next_page
+                        page_switched = True
+                        page_arrived = True
+                        break
+                    sleep(0.2)  # 短暂等待
+
+                if page_arrived:
+                    # 成功跳转到下一页，跳出按钮循环
                     break
-            else:
-                # 重新获取当前页
+                else:
+                    # 当前按钮未成功跳转，尝试下一个按钮
+                    logger.info(f'Button {button} did not lead to {next_page}, trying next button...')
+                    self.ui_get_current_page(skip_first_screenshot=False)  # 重新获取当前页面状态
+                    # 确保我们仍在当前页面才能继续尝试其他按钮
+                    if self.ui_current != current_page:
+                        logger.warning(f'Current page changed to {self.ui_current}, not {current_page}')
+                        break
+
+            if not page_switched:
+                logger.error(f'Failed to switch from {current_page} to {next_page} using any button')
+                # 重新获取当前页面状态，以便后续路径计算
                 self.ui_get_current_page(skip_first_screenshot=False)
+                return False
+
         return self.ui_current == path[-1]
+
 
     def run_additional(self, page: Page, interval: float = None, skip_first_screenshot: bool = True):
         """执行页面附加操作"""
@@ -354,7 +392,7 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon, page_all_active
+    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon, page_all_active,page_awake_zones
 
     # PageRegistry.unregister(page_login)
     # PageRegistry.unregister(page_main)
@@ -365,4 +403,8 @@ if __name__ == '__main__':
     # print(len(game.ui_pages))
     # for page in game.ui_pages:
     #     print(page)
-    game.ui_goto_active('庭院事务')
+    game.ui_goto_page(page_main)
+    game.ui_goto_page(page_awake_zones)
+    game.ui_goto_page(page_summon)
+
+    # game.ui_goto_active('庭院事务')

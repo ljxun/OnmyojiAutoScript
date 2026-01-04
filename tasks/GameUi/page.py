@@ -24,7 +24,9 @@ class Page:
         if links is None:
             links = {}
         self.check_button = check_button
-        self.links = links
+        # 修改数据结构为 {destination: [button1, button2, ...]}
+        self.links = {dest: [btn] if not isinstance(btn, list) else btn
+                      for dest, btn in links.items()} if links else {}
         self.additional: list = None  # 附加按钮或者是ocr检测按钮
         (filename, line_number, function_name, text) = traceback.extract_stack()[-2]
         self.name = text[:text.find('=')].strip()
@@ -40,7 +42,18 @@ class Page:
         return self.name
 
     def link(self, button, destination):
-        self.links[destination] = button
+
+        # 统一处理：将单个按钮转换为列表
+        buttons = button if isinstance(button, (list, tuple)) else [button]
+
+        # 初始化目标页面的按钮列表
+        if destination not in self.links:
+            self.links[destination] = []
+
+        # 添加不在列表中的按钮
+        for btn in buttons:
+            if btn not in self.links[destination]:
+                self.links[destination].append(btn)
 
 
 # 登录login
