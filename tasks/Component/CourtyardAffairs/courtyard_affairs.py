@@ -12,8 +12,6 @@ from tasks.Restart.assets import RestartAssets
 class CourtyardAffairs(GameUi, CourtyardAffairsAssets):
     """ 庭院事务 """
     def courtyard_affairs(self) -> None:
-        self.ui_goto_page(page_main)
-        self.ui_click(self.I_REFRESH, self.I_COURTYARD_AFFAIRS_BUTTON)
         self.ui_goto_page(page_courtyard_affairs)
 
         click_count = 0
