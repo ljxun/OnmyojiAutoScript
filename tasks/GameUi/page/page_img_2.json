@@ -132,22 +132,22 @@
     "roiBack": "827,149,148,100",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "description"
+    "description": "町进入百鬼"
+  },
+  {
+    "itemName": "town_goto_hyakkiyakou_2",
+    "imageName": "page_town_goto_hyakkiyakou_2.png",
+    "roiFront": "714,139,16,63",
+    "roiBack": "657,111,123,123",
+    "method": "Template matching",
+    "threshold": 0.7,
+    "description": "町进入百鬼_2"
   },
   {
     "itemName": "check_kyakkiyakou",
     "imageName": "page_check_kyakkiyakou.png",
     "roiFront": "305,567,56,64",
     "roiBack": "280,545,100,100",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
-    "itemName": "hyakkiyakou_close",
-    "imageName": "page_hyakkiyakou_close.png",
-    "roiFront": "1063,181,47,43",
-    "roiBack": "1063,181,47,43",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "description"

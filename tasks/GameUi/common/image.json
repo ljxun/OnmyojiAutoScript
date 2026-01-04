@@ -18,6 +18,15 @@
     "description": "左上角蓝色返回"
   },
   {
+    "itemName": "back_red",
+    "imageName": "back_red.png",
+    "roiFront": "1041,111,34,38",
+    "roiBack": "834,15,427,200",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "红色❌"
+  },
+  {
     "itemName": "refresh",
     "imageName": "refresh.png",
     "roiFront": "1194,530,24,25",

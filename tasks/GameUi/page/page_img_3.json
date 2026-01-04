@@ -171,24 +171,6 @@
     "description": "description"
   },
   {
-    "itemName": "back_friends",
-    "imageName": "page_back_friends.png",
-    "roiFront": "1152,87,53,52",
-    "roiBack": "1152,87,53,52",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
-    "itemName": "back_daily",
-    "imageName": "page_back_daily.png",
-    "roiFront": "33,13,39,50",
-    "roiBack": "33,13,39,50",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "new",
     "imageName": "image_name.png",
     "roiFront": "0,0,100,100",

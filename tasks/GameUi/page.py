@@ -61,7 +61,7 @@ page_login = Page(G.I_CHECK_LOGIN_FORM)
 # Main Home 主页
 page_main = Page(G.I_CHECK_MAIN)
 page_login.link(button=RestartAssets.O_LOGIN_ENTER_GAME, destination=page_main)
-page_main.additional = [G.I_AD_CLOSE_RED, G.I_BACK_FRIENDS, RestartAssets.I_LOGIN_SCROOLL_CLOSE]
+page_main.additional = [G.I_BACK_RED, RestartAssets.I_LOGIN_SCROOLL_CLOSE]
 # 召唤summon
 page_summon = Page(G.I_CHECK_SUMMON)
 page_summon.link(button=G.I_SUMMON_GOTO_MAIN, destination=page_main)
@@ -86,11 +86,11 @@ page_soul_zones.link(button=G.I_BACK_YELLOW, destination=page_exploration)
 page_exploration.link(button=G.I_EXPLORATION_GOTO_SOUL_ZONE, destination=page_soul_zones)
 # 结界突破 realm raid
 page_realm_raid = Page(G.I_CHECK_REALM_RAID)
-page_realm_raid.link(button=G.I_REALM_RAID_GOTO_EXPLORATION, destination=page_exploration)
+page_realm_raid.link(button=G.I_BACK_RED, destination=page_exploration)
 page_exploration.link(button=G.I_EXPLORATION_GOTO_REALM_RAID, destination=page_realm_raid)
 # 寮突破 击破奖励
 page_kekkai_toppa = Page(RyouToppaAssets.I_RYOU_REWARD)
-page_kekkai_toppa.link(button=G.I_REALM_RAID_GOTO_EXPLORATION, destination=page_exploration)
+page_kekkai_toppa.link(button=G.I_BACK_RED, destination=page_exploration)
 page_realm_raid.link(button=RyouToppaAssets.I_RYOU_TOPPA, destination=page_kekkai_toppa)
 page_kekkai_toppa.link(button=G.I_RYOUTOPPA_GOTO_REALMRAID, destination=page_realm_raid)
 # 御灵 goryou realm
@@ -115,7 +115,7 @@ page_heian_kitan.link(button=G.I_CHECK_HEIAN_KITAN, destination=page_exploration
 page_exploration.link(button=G.I_EXPLORATION_GOTO_HEIAN_KITAN, destination=page_heian_kitan)
 # 六道之门 six gates
 page_six_gates = Page(G.I_CHECK_SIX_GATES)
-page_six_gates.link(button=G.I_SIX_GATES_GOTO_EXPLORATION, destination=page_exploration)
+page_six_gates.link(button=G.I_BACK_BLUE, destination=page_exploration)
 page_exploration.link(button=G.I_EXPLORATION_GOTO_SIX_GATES, destination=page_six_gates)
 # 契灵之境 bondling fairyland
 page_bondling_fairyland = Page(G.I_CHECK_BONDLING_FAIRYLAND)
@@ -149,8 +149,8 @@ page_hyakkisen.link(button=G.I_BACK_YELLOW, destination=page_town)
 page_town.link(button=G.I_TOWN_GOTO_HYAKKISEN, destination=page_hyakkisen)
 # 百鬼夜行
 page_hyakkiyakou = Page(G.I_CHECK_KYAKKIYAKOU)
-page_hyakkiyakou.link(button=G.I_HYAKKIYAKOU_CLOSE, destination=page_town)
-page_town.link(button=G.I_TOWN_GOTO_HYAKKIYAKOU, destination=page_hyakkiyakou)
+page_hyakkiyakou.link(button=G.I_BACK_RED, destination=page_town)
+page_town.link(button=[G.I_TOWN_GOTO_HYAKKIYAKOU, G.I_TOWN_GOTO_HYAKKIYAKOU_2], destination=page_hyakkiyakou)
 
 # ************************************* 庭院部分 *****************************************#
 # 式神录 shikigami_records
@@ -168,7 +168,7 @@ page_friends.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_FRIENDS, destination=page_friends)
 # 商店 mall
 page_mall = Page(check_button=[G.I_CHECK_MALL, DailyTriflesAssets.I_ROOM_GIFT])
-page_mall.additional = [G.I_AD_CLOSE_RED, G.I_BACK_YELLOW, G.I_DLC_CLOSE]
+page_mall.additional = [G.I_BACK_RED, G.I_BACK_YELLOW, G.I_DLC_CLOSE]
 page_mall.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_MALL, destination=page_mall)
 # 阴阳寮 guild

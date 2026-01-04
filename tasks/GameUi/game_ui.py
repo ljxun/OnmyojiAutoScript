@@ -17,7 +17,7 @@ from module.logger import logger
 from pathlib import Path
 from tasks.Component.GeneralBattle.assets import GeneralBattleAssets
 from tasks.GameUi.assets import GameUiAssets
-from tasks.GameUi.page import Page, PageRegistry, page_main
+from tasks.GameUi.page import Page, PageRegistry
 from tasks.Restart.assets import RestartAssets
 from tasks.SixRealms.assets import SixRealmsAssets
 from tasks.base_task import BaseTask
@@ -25,9 +25,9 @@ from tasks.base_task import BaseTask
 
 class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
     ui_current: Page = None
-    ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1, GeneralBattleAssets.I_WIN, GeneralBattleAssets.I_FALSE, GeneralBattleAssets.I_REWARD,
-                BaseTask.I_UI_BACK_RED, GameUiAssets.I_BACK_BLUE, GameUiAssets.I_BACK_YELLOW,
-                GameUiAssets.I_BACK_FRIENDS, GameUiAssets.I_BACK_DAILY, GameUiAssets.I_REALM_RAID_GOTO_EXPLORATION, GameUiAssets.I_SIX_GATES_GOTO_EXPLORATION,
+    ui_close = [GeneralBattleAssets.I_EXIT_ENSURE, GeneralBattleAssets.I_EXIT_ENSURE1,
+                GeneralBattleAssets.I_WIN, GeneralBattleAssets.I_FALSE, GeneralBattleAssets.I_REWARD,
+                GameUiAssets.I_BACK_RED, GameUiAssets.I_BACK_BLUE, GameUiAssets.I_BACK_YELLOW,
                 SixRealmsAssets.I_EXIT_SIXREALMS,
                 RestartAssets.I_HARVEST_CHAT_CLOSE,
                 ]
@@ -338,7 +338,6 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 
         return self.ui_current == path[-1]
 
-
     def run_additional(self, page: Page, interval: float = None, skip_first_screenshot: bool = True):
         """执行页面附加操作"""
         if not page.additional:
@@ -392,11 +391,7 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from tasks.GameUi.page import PageRegistry, page_login, page_main, page_summon, page_all_active,page_awake_zones
-
-    # PageRegistry.unregister(page_login)
-    # PageRegistry.unregister(page_main)
-    # PageRegistry.unregister(page_summon)
+    from tasks.GameUi.page import PageRegistry, page_main, page_summon, page_all_active,page_awake_zones
 
     c = Config('du')
     game = GameUi(config=c)

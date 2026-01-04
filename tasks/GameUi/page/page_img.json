@@ -224,15 +224,6 @@
     "description": "description"
   },
   {
-    "itemName": "six_gates_goto_exploration",
-    "imageName": "page_six_gates_goto_exploration.png",
-    "roiFront": "18,19,52,55",
-    "roiBack": "18,19,52,55",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "bondling_goto_exploration",
     "imageName": "page_bondling_goto_exploration.png",
     "roiFront": "20,13,60,59",
