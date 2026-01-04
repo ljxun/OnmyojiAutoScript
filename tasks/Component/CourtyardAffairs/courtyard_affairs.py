@@ -2,10 +2,9 @@
 # @author runhey
 # github https://github.com/runhey
 from module.logger import logger
-from tasks.CourtyardAffairs.assets import CourtyardAffairsAssets
-from tasks.CourtyardAffairs.page import page_courtyard_affairs
+from tasks.Component.CourtyardAffairs.assets import CourtyardAffairsAssets
+from tasks.Component.CourtyardAffairs.page import page_courtyard_affairs
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main
 from tasks.Restart.assets import RestartAssets
 
 
@@ -39,6 +38,6 @@ class CourtyardAffairs(GameUi, CourtyardAffairsAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config("du")
+    c = Config("MI")
     t = CourtyardAffairs(c)
     t.courtyard_affairs()
