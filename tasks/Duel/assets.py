@@ -91,7 +91,7 @@ class DuelAssets:
 	# 战 
 	I_D_WORD_BATTLE = RuleImage(roi_front=(612,41,54,54), roi_back=(612,41,54,54), threshold=0.8, method="Template matching", path="./duel/duel_d_word_battle.png", file="./tasks/Duel/duel/duel_d_word_battle.png")
 	# 名士的星星 
-	I_D_CELEB_STAR = RuleImage(roi_front=(586,456,30,32), roi_back=(574,444,53,54), threshold=0.75, method="Template matching", path="./duel/duel_d_celeb_star.png", file="./tasks/Duel/duel/duel_d_celeb_star.png")
+	I_D_CELEB_STAR = RuleImage(roi_front=(556,443,178,50), roi_back=(556,443,178,50), threshold=0.75, method="Template matching", path="./duel/duel_d_celeb_star.png", file="./tasks/Duel/duel/duel_d_celeb_star.png")
 	# 名士专属 
 	I_D_CELEB_HONOR = RuleImage(roi_front=(665,531,25,30), roi_back=(652,517,52,53), threshold=0.75, method="Template matching", path="./duel/duel_d_celeb_honor.png", file="./tasks/Duel/duel/duel_d_celeb_honor.png")
 	# 练 
@@ -118,7 +118,7 @@ class DuelAssets:
 	# 分数 
 	O_D_SCORE = RuleOcr(roi=(606,487,45,22), area=(606,487,45,22), mode="Digit", method="Default", keyword="", name="d_score")
 	# 名士星星数 
-	O_D_CELEB_STAR = RuleOcr(roi=(625,454,77,37), area=(625,454,77,37), mode="Digit", method="Default", keyword="", name="d_celeb_star")
+	O_D_CELEB_STAR = RuleOcr(roi=(689,453,77,37), area=(689,453,77,37), mode="Digit", method="Default", keyword="", name="d_celeb_star")
 	# 手动 
 	O_D_HAND = RuleOcr(roi=(31,639,63,45), area=(31,639,63,45), mode="Single", method="Default", keyword="手动", name="d_hand")
 	# 自动 

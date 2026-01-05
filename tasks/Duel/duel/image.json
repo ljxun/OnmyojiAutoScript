@@ -146,8 +146,8 @@
   {
     "itemName": "d_celeb_star",
     "imageName": "duel_d_celeb_star.png",
-    "roiFront": "586,456,30,32",
-    "roiBack": "574,444,53,54",
+    "roiFront": "556,443,178,50",
+    "roiBack": "556,443,178,50",
     "method": "Template matching",
     "threshold": 0.75,
     "description": "名士的星星"
