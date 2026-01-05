@@ -21,7 +21,17 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
         self.character = self.config.restart.login_character_config.character
         self.O_LOGIN_SPECIFIC_SERVE.keyword = self.character
         self.mail_harvested = 0  # 添加执行标记
-        # self.specific_usr = kwargs['config'].
+
+    def app_handle_login(self) -> bool:
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
+        self._app_handle_login()
+        if self.config.restart.harvest_config.enable:
+            # self.check_login(self.config.global_game.costume_config)
+            self.harvest()
+            # 庭院事务
+            self.courtyard_affairs()
+        return True
 
     def _app_handle_login(self) -> bool:
         """
@@ -29,7 +39,6 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
         :return:
         """
         logger.hr('App login')
-        # self.device.stuck_record_add('LOGIN_CHECK')
 
         confirm_timer = Timer(1.5, count=2).start()
         orientation_timer = Timer(10)
@@ -69,46 +78,18 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
             if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
                 logger.info('Login success')
                 login_success = True
-
-            # 网络异常
-            # if self.ocr_appear(self.O_LOGIN_NETWORK):
-            #     logger.error('Network error')
-            #     raise RequestHumanTakeover('Network error')
-
-            # 跳过观看视频
-            # if self.ocr_appear_click(self.O_LOGIN_SKIP_1, interval=1):
-            #     continue
-            # 下载插画
-            if self.appear_then_click(self.I_LOGIN_LOAD_DOWN, interval=1):
-                logger.info('Download inbetweening')
-                continue
             # 不观看视频
             if self.appear_then_click(self.I_WATCH_VIDEO_CANCEL, interval=0.6):
                 logger.info('Close video')
                 continue
             # 右上角的红色的关闭
-            if self.appear_then_click(self.I_LOGIN_RED_CLOSE, interval=0.6):
+            if self.appear_then_click(self.I_BACK_RED, interval=0.6):
                 logger.info('Close red close')
                 continue
             # 左上角的黄色关闭
-            if self.appear_then_click(self.I_LOGIN_YELLOW_CLOSE, interval=0.6):
+            if self.appear_then_click(self.I_BACK_YELLOW, interval=0.6):
                 logger.info('Close yellow close')
                 continue
-            # 绑定手机号弹窗
-            if self.appear_then_click(self.I_LOGIN_LOGIN_GOTO_BIND_PHONE):
-                while 1:
-                    self.screenshot()
-                    if self.appear_then_click(self.I_LOGIN_LOGIN_CANCEL_BIND_PHONE):
-                        logger.info("Close bind phone")
-                        break
-                continue
-            # 关闭各种邀请弹窗(主要时结界卡寄养邀请)
-            from tasks.Component.GeneralInvite.assets import GeneralInviteAssets as gia
-            if not hasattr(self, "invite_handled"):
-                if self.appear_then_click(gia.I_I_REJECT, interval=0.8):
-                    logger.info("reject invites")
-                    self.invite_handled = True  # 标记为已处理
-                    continue
             # 点击屏幕进入游戏
             if self.appear(self.I_LOGIN_SPECIFIC_SERVE, interval=0.6) and self.ocr_appear_click(self.O_LOGIN_SPECIFIC_SERVE, interval=0.6):
                 logger.info(f'多角色区服选择成功: {self.O_LOGIN_SPECIFIC_SERVE.keyword}')
@@ -137,17 +118,6 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
 
         return login_success
 
-    def app_handle_login(self) -> bool:
-        self.device.stuck_record_clear()
-        self.device.click_record_clear()
-        self._app_handle_login()
-        if self.config.restart.harvest_config.enable:
-            # self.check_login(self.config.global_game.costume_config)
-            self.harvest()
-            # 庭院事务
-            self.courtyard_affairs()
-        return True
-
     def harvest(self):
         """
         获得奖励
@@ -163,7 +133,7 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
                 logger.info('是否启用插画？-点击取消')
                 continue
             # 红色的关闭
-            if self.appear_then_click(self.I_LOGIN_RED_CLOSE, interval=1):
+            if self.appear_then_click(self.I_BACK_RED, interval=1):
                 timer_harvest.reset()
                 continue
             # 点击'获得奖励'
@@ -180,7 +150,7 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
                 continue
             # 偶尔会进入其他页面
             # 左上角的黄色关闭
-            if self.appear_then_click(self.I_LOGIN_YELLOW_CLOSE, interval=0.6):
+            if self.appear_then_click(self.I_BACK_YELLOW, interval=0.6):
                 timer_harvest.reset()
                 logger.info('Close yellow close')
                 continue
@@ -189,22 +159,14 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
                 timer_harvest.reset()
                 logger.info('Close yellow close')
                 continue
-            # 关闭姿度出现的蒙版
-            if self.appear(self.I_HARVEST_ZIDU, interval=1):
-                self.I_HARVEST_ZIDU.roi_front[0] -= 200
-                self.I_HARVEST_ZIDU.roi_front[1] -= 200
-                if self.click(self.I_HARVEST_ZIDU, interval=2):
-                    logger.info('Close zidu')
-                timer_harvest.reset()
-                continue
             if self.appear_then_click(self.I_LIAO_MESSAGE, interval=1):
                 timer_harvest.reset()
                 logger.info('关闭寮消息通知')
                 continue
             # 关闭阴阳师精灵提示
-            # if self.appear_then_click(self.I_LOGIN_LOGIN_ONMYOJI_GENIE):
-            #     logger.info("关闭阴阳师精灵提示")
-            #     continue
+            if self.appear_then_click(self.I_LOGIN_LOGIN_ONMYOJI_GENIE):
+                logger.info("关闭阴阳师精灵提示")
+                continue
             # 各种邀请框
             self.reject_invite()
 
