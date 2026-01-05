@@ -21,27 +21,27 @@ class SougenbiAssets:
 
 	# Image Rule Assets
 	# 进入业原火 
-	I_S_SOUGENBI = RuleImage(roi_front=(405,97,301,414), roi_back=(405,97,301,414), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_sougenbi.png", path="./s/s_s_sougenbi.png")
+	I_S_SOUGENBI = RuleImage(roi_front=(405,97,301,414), roi_back=(405,97,301,414), threshold=0.8, method="Template matching", path="./s/s_s_sougenbi.png", file="./tasks/Sougenbi/s/s_s_sougenbi.png")
 	# 贪 
-	I_S_GREED = RuleImage(roi_front=(167,143,307,100), roi_back=(167,143,307,100), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_greed.png", path="./s/s_s_greed.png")
+	I_S_GREED = RuleImage(roi_front=(167,143,307,100), roi_back=(167,143,307,100), threshold=0.8, method="Template matching", path="./s/s_s_greed.png", file="./tasks/Sougenbi/s/s_s_greed.png")
 	#  
-	I_S_ANGER = RuleImage(roi_front=(164,291,307,100), roi_back=(164,291,307,100), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_anger.png", path="./s/s_s_anger.png")
+	I_S_ANGER = RuleImage(roi_front=(164,291,307,100), roi_back=(164,291,307,100), threshold=0.8, method="Template matching", path="./s/s_s_anger.png", file="./tasks/Sougenbi/s/s_s_anger.png")
 	# 痴 
-	I_S_FOOLERY = RuleImage(roi_front=(164,436,307,100), roi_back=(164,436,307,100), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_foolery.png", path="./s/s_s_foolery.png")
+	I_S_FOOLERY = RuleImage(roi_front=(164,436,307,100), roi_back=(164,436,307,100), threshold=0.8, method="Template matching", path="./s/s_s_foolery.png", file="./tasks/Sougenbi/s/s_s_foolery.png")
 	# description 
-	I_S_TEAM_LOCK = RuleImage(roi_front=(559,562,31,36), roi_back=(559,562,31,36), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_team_lock.png", path="./s/s_s_team_lock.png")
+	I_S_TEAM_LOCK = RuleImage(roi_front=(559,562,31,36), roi_back=(559,562,31,36), threshold=0.8, method="Template matching", path="./s/s_s_team_lock.png", file="./tasks/Sougenbi/s/s_s_team_lock.png")
 	# description 
-	I_S_TEAM_UNLOCK = RuleImage(roi_front=(555,561,33,33), roi_back=(555,561,33,33), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_team_unlock.png", path="./s/s_s_team_unlock.png")
+	I_S_TEAM_UNLOCK = RuleImage(roi_front=(555,561,33,33), roi_back=(555,561,33,33), threshold=0.8, method="Template matching", path="./s/s_s_team_unlock.png", file="./tasks/Sougenbi/s/s_s_team_unlock.png")
 	# 挑战 
-	I_S_FIRE = RuleImage(roi_front=(1105,585,100,100), roi_back=(1105,585,100,100), threshold=0.7, method="Template matching", file="./tasks/Sougenbi/s/s_s_fire.png", path="./s/s_s_fire.png")
+	I_S_FIRE = RuleImage(roi_front=(1105,585,100,100), roi_back=(1105,585,100,100), threshold=0.7, method="Template matching", path="./s/s_s_fire.png", file="./tasks/Sougenbi/s/s_s_fire.png")
 	# 确认进入业原火 
-	I_S_CHECK_SOUGENBI = RuleImage(roi_front=(772,222,307,292), roi_back=(772,222,307,292), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_check_sougenbi.png", path="./s/s_s_check_sougenbi.png")
+	I_S_CHECK_SOUGENBI = RuleImage(roi_front=(772,222,307,292), roi_back=(772,222,307,292), threshold=0.8, method="Template matching", path="./s/s_s_check_sougenbi.png", file="./tasks/Sougenbi/s/s_s_check_sougenbi.png")
 	# 贪 
-	I_S_FIRE_GREED = RuleImage(roi_front=(1132,640,21,33), roi_back=(1122,635,41,48), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_fire_greed.png", path="./s/s_s_fire_greed.png")
+	I_S_FIRE_GREED = RuleImage(roi_front=(1132,640,21,33), roi_back=(1122,635,41,48), threshold=0.8, method="Template matching", path="./s/s_s_fire_greed.png", file="./tasks/Sougenbi/s/s_s_fire_greed.png")
 	# description 
-	I_S_FIRE_ANGER = RuleImage(roi_front=(1131,643,21,30), roi_back=(1122,636,40,42), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_fire_anger.png", path="./s/s_s_fire_anger.png")
+	I_S_FIRE_ANGER = RuleImage(roi_front=(1131,643,21,30), roi_back=(1122,636,40,42), threshold=0.8, method="Template matching", path="./s/s_s_fire_anger.png", file="./tasks/Sougenbi/s/s_s_fire_anger.png")
 	# 痴 
-	I_S_FIRE_FOOLERY = RuleImage(roi_front=(1130,641,22,31), roi_back=(1117,630,46,52), threshold=0.8, method="Template matching", file="./tasks/Sougenbi/s/s_s_fire_foolery.png", path="./s/s_s_fire_foolery.png")
+	I_S_FIRE_FOOLERY = RuleImage(roi_front=(1130,641,22,31), roi_back=(1117,630,46,52), threshold=0.8, method="Template matching", path="./s/s_s_fire_foolery.png", file="./tasks/Sougenbi/s/s_s_fire_foolery.png")
 
 
 	# Ocr Rule Assets

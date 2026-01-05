@@ -67,51 +67,51 @@ class SwitchAccountAssets:
 
 	# Image Rule Assets
 	# 登录界面4399-已阅读并同意 
-	I_QD_READ_AND_AGREED = RuleImage(roi_front=(693,520,191,54), roi_back=(192,28,860,620), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_read_and_agreed.png", path="./qd4399/qd_read_and_agreed.png")
+	I_QD_READ_AND_AGREED = RuleImage(roi_front=(693,520,191,54), roi_back=(192,28,860,620), threshold=0.8, method="Template matching", path="./qd4399/qd_read_and_agreed.png", file="./tasks/Component/SwitchAccount/qd4399/qd_read_and_agreed.png")
 	# 账号登录4399-清除输入的内容 
-	I_QD_CLEAR_ACCOUNT_INPUT = RuleImage(roi_front=(1100,100,155,56), roi_back=(1100,100,155,56), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png", path="./qd4399/qd_clear_input.png")
+	I_QD_CLEAR_ACCOUNT_INPUT = RuleImage(roi_front=(1100,100,155,56), roi_back=(1100,100,155,56), threshold=0.8, method="Template matching", path="./qd4399/qd_clear_input.png", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
 	# 账号登录4399-清除输入的内容 
-	I_QD_CLEAR_PASSWORD_INPUT = RuleImage(roi_front=(1167,187,89,49), roi_back=(1167,187,89,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png", path="./qd4399/qd_clear_input.png")
+	I_QD_CLEAR_PASSWORD_INPUT = RuleImage(roi_front=(1167,187,89,49), roi_back=(1167,187,89,49), threshold=0.8, method="Template matching", path="./qd4399/qd_clear_input.png", file="./tasks/Component/SwitchAccount/qd4399/qd_clear_input.png")
 	# 账号登录4399-显示密码 
-	I_QD_SHOW_PASSWORD = RuleImage(roi_front=(0,0,0,0), roi_back=(0,0,0,0), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/qd_show_password.png", path="./qd4399/qd_show_password.png")
+	I_QD_SHOW_PASSWORD = RuleImage(roi_front=(0,0,0,0), roi_back=(0,0,0,0), threshold=0.8, method="Template matching", path="./qd4399/qd_show_password.png", file="./tasks/Component/SwitchAccount/qd4399/qd_show_password.png")
 	# 账号登录4399-未点击同意 
-	I_QD_NO_AGREED = RuleImage(roi_front=(388,252,214,105), roi_back=(388,252,214,105), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/no_agreed.png", path="./qd4399/no_agreed.png")
+	I_QD_NO_AGREED = RuleImage(roi_front=(388,252,214,105), roi_back=(388,252,214,105), threshold=0.8, method="Template matching", path="./qd4399/no_agreed.png", file="./tasks/Component/SwitchAccount/qd4399/no_agreed.png")
 	# 账号登录4399-同意 
-	I_QD_AGREED = RuleImage(roi_front=(388,252,214,105), roi_back=(388,252,214,105), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/agreed.png", path="./qd4399/agreed.png")
+	I_QD_AGREED = RuleImage(roi_front=(388,252,214,105), roi_back=(388,252,214,105), threshold=0.8, method="Template matching", path="./qd4399/agreed.png", file="./tasks/Component/SwitchAccount/qd4399/agreed.png")
 	# login_in 
-	I_LOGIN_IN = RuleImage(roi_front=(575,367,124,36), roi_back=(481,314,307,155), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/login_in.png", path="./qd4399/login_in.png")
+	I_LOGIN_IN = RuleImage(roi_front=(575,367,124,36), roi_back=(481,314,307,155), threshold=0.8, method="Template matching", path="./qd4399/login_in.png", file="./tasks/Component/SwitchAccount/qd4399/login_in.png")
 	# change_account 
-	I_CHANGE_ACCOUNT = RuleImage(roi_front=(182,427,49,52), roi_back=(107,345,301,222), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/change_account.png", path="./qd4399/change_account.png")
+	I_CHANGE_ACCOUNT = RuleImage(roi_front=(182,427,49,52), roi_back=(107,345,301,222), threshold=0.8, method="Template matching", path="./qd4399/change_account.png", file="./tasks/Component/SwitchAccount/qd4399/change_account.png")
 	# 接受协议 
-	I_ACCEPT_AGREEMENT = RuleImage(roi_front=(751,603,76,31), roi_back=(673,581,237,73), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/qd4399/accept_agreement.png", path="./qd4399/accept_agreement.png")
+	I_ACCEPT_AGREEMENT = RuleImage(roi_front=(751,603,76,31), roi_back=(673,581,237,73), threshold=0.8, method="Template matching", path="./qd4399/accept_agreement.png", file="./tasks/Component/SwitchAccount/qd4399/accept_agreement.png")
 
 
 	# Image Rule Assets
 	# 用于判断是否在登录界面的 
-	I_CHECK_LOGIN_FORM = RuleImage(roi_front=(178,572,53,60), roi_back=(1,547,241,105), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/check_login_form.png", path="./res/check_login_form.png")
+	I_CHECK_LOGIN_FORM = RuleImage(roi_front=(178,572,53,60), roi_back=(1,547,241,105), threshold=0.8, method="Template matching", path="./res/check_login_form.png", file="./tasks/Component/SwitchAccount/res/check_login_form.png")
 	# 游戏内-点击头像弹出的设置界面-左侧-用户中心按钮 
-	I_SA_USER_CENTER = RuleImage(roi_front=(190,390,330,200), roi_back=(190,390,330,200), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_user_center.png", path="./res/sa_user_center.png")
+	I_SA_USER_CENTER = RuleImage(roi_front=(190,390,330,200), roi_back=(190,390,330,200), threshold=0.8, method="Template matching", path="./res/sa_user_center.png", file="./tasks/Component/SwitchAccount/res/sa_user_center.png")
 	# 游戏内-点击头像弹出的设置界面-顶部设置字样 
-	I_SA_USER_CENTER_PROFILE = RuleImage(roi_front=(590,60,90,55), roi_back=(590,60,90,55), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_user_center_profile.png", path="./res/sa_user_center_profile.png")
+	I_SA_USER_CENTER_PROFILE = RuleImage(roi_front=(590,60,90,55), roi_back=(590,60,90,55), threshold=0.8, method="Template matching", path="./res/sa_user_center_profile.png", file="./tasks/Component/SwitchAccount/res/sa_user_center_profile.png")
 	# 游戏内点击用户中心后弹出的 切换用户按钮 
-	I_SA_SWITCH_ACCOUNT_BTN = RuleImage(roi_front=(930,170,160,75), roi_back=(930,170,160,75), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_switch_account_btn.png", path="./res/sa_switch_account_btn.png")
+	I_SA_SWITCH_ACCOUNT_BTN = RuleImage(roi_front=(930,170,160,75), roi_back=(930,170,160,75), threshold=0.8, method="Template matching", path="./res/sa_switch_account_btn.png", file="./tasks/Component/SwitchAccount/res/sa_switch_account_btn.png")
 	# 登录界面 已登录状态下 点击用户中心后弹出的对话框中 复制账号按钮 
-	I_SA_USER_CENTER_COPY_BTN = RuleImage(roi_front=(460,280,640,50), roi_back=(460,280,640,50), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_user_center_copy_btn.png", path="./res/sa_user_center_copy_btn.png")
+	I_SA_USER_CENTER_COPY_BTN = RuleImage(roi_front=(460,280,640,50), roi_back=(460,280,640,50), threshold=0.8, method="Template matching", path="./res/sa_user_center_copy_btn.png", file="./tasks/Component/SwitchAccount/res/sa_user_center_copy_btn.png")
 	# 登录界面-选取账号界面-顶部网易游戏LOGO 
-	I_SA_NETEASE_GAME_LOGO = RuleImage(roi_front=(500,170,300,90), roi_back=(500,170,300,90), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_netease_game_logo.png", path="./res/sa_netease_game_logo.png")
+	I_SA_NETEASE_GAME_LOGO = RuleImage(roi_front=(500,170,300,90), roi_back=(500,170,300,90), threshold=0.8, method="Template matching", path="./res/sa_netease_game_logo.png", file="./tasks/Component/SwitchAccount/res/sa_netease_game_logo.png")
 	# 登录界面-选取账号界面-账号下拉菜单-关闭标志. 
-	I_SA_ACCOUNT_DROP_DOWN_CLOSED = RuleImage(roi_front=(850,320,30,25), roi_back=(850,320,30,25), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_account_drop_down_closed.png", path="./res/sa_account_drop_down_closed.png")
+	I_SA_ACCOUNT_DROP_DOWN_CLOSED = RuleImage(roi_front=(850,320,30,25), roi_back=(850,320,30,25), threshold=0.8, method="Template matching", path="./res/sa_account_drop_down_closed.png", file="./tasks/Component/SwitchAccount/res/sa_account_drop_down_closed.png")
 	# 登录界面-选取账号界面-账号下拉菜单-添加新账号. 
-	I_SA_ACCOUNT_DROP_DOWN_ADD_ACCOUNT = RuleImage(roi_front=(400,540,220,60), roi_back=(400,540,220,60), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_account_drop_down_add_account.png", path="./res/sa_account_drop_down_add_account.png")
+	I_SA_ACCOUNT_DROP_DOWN_ADD_ACCOUNT = RuleImage(roi_front=(400,540,220,60), roi_back=(400,540,220,60), threshold=0.8, method="Template matching", path="./res/sa_account_drop_down_add_account.png", file="./tasks/Component/SwitchAccount/res/sa_account_drop_down_add_account.png")
 	# 登录界面-选取账号界面-账号下拉菜单-已经打开标志. 
-	I_SA_ACCOUNT_LOGIN_BTN = RuleImage(roi_front=(400,400,480,90), roi_back=(400,400,480,90), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_account_login_btn.png", path="./res/sa_account_login_btn.png")
+	I_SA_ACCOUNT_LOGIN_BTN = RuleImage(roi_front=(400,400,480,90), roi_back=(400,400,480,90), threshold=0.8, method="Template matching", path="./res/sa_account_login_btn.png", file="./tasks/Component/SwitchAccount/res/sa_account_login_btn.png")
 	# 登录界面-选择手机类型为苹果. 
-	I_SA_LOGIN_FORM_APPLE = RuleImage(roi_front=(490,350,100,100), roi_back=(378,244,533,300), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_login_form_apple.png", path="./res/sa_login_form_apple.png")
+	I_SA_LOGIN_FORM_APPLE = RuleImage(roi_front=(490,350,100,100), roi_back=(378,244,533,300), threshold=0.8, method="Template matching", path="./res/sa_login_form_apple.png", file="./tasks/Component/SwitchAccount/res/sa_login_form_apple.png")
 	# 登录界面-选择手机类型为android 
-	I_SA_LOGIN_FORM_ANDROID = RuleImage(roi_front=(690,350,100,100), roi_back=(378,244,533,300), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_login_form_android.png", path="./res/sa_login_form_android.png")
+	I_SA_LOGIN_FORM_ANDROID = RuleImage(roi_front=(690,350,100,100), roi_back=(378,244,533,300), threshold=0.8, method="Template matching", path="./res/sa_login_form_android.png", file="./tasks/Component/SwitchAccount/res/sa_login_form_android.png")
 	# 判断是否在 选择服务器 界面的标志物 角色的服务器图标还未显示时 
-	I_SA_CHECK_SELECT_SVR_1 = RuleImage(roi_front=(240,530,120,40), roi_back=(240,530,120,40), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_check_select_svr.png", path="./res/sa_check_select_svr.png")
+	I_SA_CHECK_SELECT_SVR_1 = RuleImage(roi_front=(240,530,120,40), roi_back=(240,530,120,40), threshold=0.8, method="Template matching", path="./res/sa_check_select_svr.png", file="./tasks/Component/SwitchAccount/res/sa_check_select_svr.png")
 	# 判断是否在 选择服务器 界面的标志物 角色的服务器图标已经显示时 
-	I_SA_CHECK_SELECT_SVR_2 = RuleImage(roi_front=(240,410,120,40), roi_back=(240,410,120,40), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchAccount/res/sa_check_select_svr.png", path="./res/sa_check_select_svr.png")
+	I_SA_CHECK_SELECT_SVR_2 = RuleImage(roi_front=(240,410,120,40), roi_back=(240,410,120,40), threshold=0.8, method="Template matching", path="./res/sa_check_select_svr.png", file="./tasks/Component/SwitchAccount/res/sa_check_select_svr.png")
 
 

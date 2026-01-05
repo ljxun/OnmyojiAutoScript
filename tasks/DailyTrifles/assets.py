@@ -12,11 +12,11 @@ class DailyTriflesAssets:
 
 	# Image Rule Assets
 	# 进入普通召唤 
-	I_BM_ENTER = RuleImage(roi_front=(435,601,62,68), roi_back=(435,601,62,68), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_enter.png", path="./broken_amulet/broken_amulet_bm_enter.png")
+	I_BM_ENTER = RuleImage(roi_front=(435,601,62,68), roi_back=(435,601,62,68), threshold=0.8, method="Template matching", path="./broken_amulet/broken_amulet_bm_enter.png", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_enter.png")
 	# 确定 
-	I_BM_CONFIRM = RuleImage(roi_front=(418,620,173,59), roi_back=(418,620,173,59), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_confirm.png", path="./broken_amulet/broken_amulet_bm_confirm.png")
+	I_BM_CONFIRM = RuleImage(roi_front=(418,620,173,59), roi_back=(418,620,173,59), threshold=0.8, method="Template matching", path="./broken_amulet/broken_amulet_bm_confirm.png", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_confirm.png")
 	# 再次召唤 
-	I_BM_AGAIN = RuleImage(roi_front=(686,617,178,60), roi_back=(686,617,178,60), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_again.png", path="./broken_amulet/broken_amulet_bm_again.png")
+	I_BM_AGAIN = RuleImage(roi_front=(686,617,178,60), roi_back=(686,617,178,60), threshold=0.8, method="Template matching", path="./broken_amulet/broken_amulet_bm_again.png", file="./tasks/DailyTrifles/broken_amulet/broken_amulet_bm_again.png")
 
 
 	# Ocr Rule Assets
@@ -28,64 +28,64 @@ class DailyTriflesAssets:
 
 	# Image Rule Assets
 	# guild_info 
-	I_GUILD_INFO = RuleImage(roi_front=(1181,625,50,45), roi_back=(1181,625,50,45), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/guild_info.png", path="./guild/guild_info.png")
+	I_GUILD_INFO = RuleImage(roi_front=(1181,625,50,45), roi_back=(1181,625,50,45), threshold=0.8, method="Template matching", path="./guild/guild_info.png", file="./tasks/DailyTrifles/guild/guild_info.png")
 	# guild_management 
-	I_GUILD_MANAGEMENT = RuleImage(roi_front=(260,84,66,45), roi_back=(260,84,66,45), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/guild_management.png", path="./guild/guild_management.png")
+	I_GUILD_MANAGEMENT = RuleImage(roi_front=(260,84,66,45), roi_back=(260,84,66,45), threshold=0.8, method="Template matching", path="./guild/guild_management.png", file="./tasks/DailyTrifles/guild/guild_management.png")
 	# guild_management_1 
-	I_GUILD_MANAGEMENT_1 = RuleImage(roi_front=(352,612,75,37), roi_back=(352,612,75,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/guild_management_1.png", path="./guild/guild_management_1.png")
+	I_GUILD_MANAGEMENT_1 = RuleImage(roi_front=(352,612,75,37), roi_back=(352,612,75,37), threshold=0.8, method="Template matching", path="./guild/guild_management_1.png", file="./tasks/DailyTrifles/guild/guild_management_1.png")
 	# recruit_members 
-	I_RECRUIT_MEMBERS = RuleImage(roi_front=(339,372,120,30), roi_back=(291,346,213,233), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/recruit_members.png", path="./guild/recruit_members.png")
+	I_RECRUIT_MEMBERS = RuleImage(roi_front=(339,372,120,30), roi_back=(291,346,213,233), threshold=0.8, method="Template matching", path="./guild/recruit_members.png", file="./tasks/DailyTrifles/guild/recruit_members.png")
 	# member_add 
-	I_MEMBER_ADD = RuleImage(roi_front=(1100,155,39,38), roi_back=(1075,137,86,400), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/member_add.png", path="./guild/member_add.png")
+	I_MEMBER_ADD = RuleImage(roi_front=(1100,155,39,38), roi_back=(1075,137,86,400), threshold=0.8, method="Template matching", path="./guild/member_add.png", file="./tasks/DailyTrifles/guild/member_add.png")
 	# member_flush 
-	I_MEMBER_FLUSH = RuleImage(roi_front=(1004,615,92,32), roi_back=(1004,615,92,32), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/member_flush.png", path="./guild/member_flush.png")
+	I_MEMBER_FLUSH = RuleImage(roi_front=(1004,615,92,32), roi_back=(1004,615,92,32), threshold=0.8, method="Template matching", path="./guild/member_flush.png", file="./tasks/DailyTrifles/guild/member_flush.png")
 	# 发布招新公告 
-	I_POSTS = RuleImage(roi_front=(244,526,71,37), roi_back=(244,526,71,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/guild/posts.png", path="./guild/posts.png")
+	I_POSTS = RuleImage(roi_front=(244,526,71,37), roi_back=(244,526,71,37), threshold=0.8, method="Template matching", path="./guild/posts.png", file="./tasks/DailyTrifles/guild/posts.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_L_FRIENDS = RuleImage(roi_front=(67,625,70,72), roi_back=(67,625,70,72), threshold=0.9, method="Template matching", file="./tasks/DailyTrifles/love/love_l_friends.png", path="./love/love_l_friends.png")
+	I_L_FRIENDS = RuleImage(roi_front=(67,625,70,72), roi_back=(67,625,70,72), threshold=0.9, method="Template matching", path="./love/love_l_friends.png", file="./tasks/DailyTrifles/love/love_l_friends.png")
 	# l_friends_select 
-	I_L_FRIENDS_SELECT = RuleImage(roi_front=(165,100,52,30), roi_back=(141,86,103,56), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/l_friends_select.png", path="./love/l_friends_select.png")
+	I_L_FRIENDS_SELECT = RuleImage(roi_front=(165,100,52,30), roi_back=(141,86,103,56), threshold=0.8, method="Template matching", path="./love/l_friends_select.png", file="./tasks/DailyTrifles/love/l_friends_select.png")
 	# description 
-	I_L_LOVE = RuleImage(roi_front=(123,625,67,72), roi_back=(123,625,67,72), threshold=0.9, method="Template matching", file="./tasks/DailyTrifles/love/love_l_love.png", path="./love/love_l_love.png")
+	I_L_LOVE = RuleImage(roi_front=(123,625,67,72), roi_back=(123,625,67,72), threshold=0.9, method="Template matching", path="./love/love_l_love.png", file="./tasks/DailyTrifles/love/love_l_love.png")
 	# 一键收取 
-	I_L_COLLECT = RuleImage(roi_front=(47,537,129,56), roi_back=(47,537,129,56), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/love_l_collect.png", path="./love/love_l_collect.png")
+	I_L_COLLECT = RuleImage(roi_front=(47,537,129,56), roi_back=(47,537,129,56), threshold=0.8, method="Template matching", path="./love/love_l_collect.png", file="./tasks/DailyTrifles/love/love_l_collect.png")
 	# 吉闻 
-	I_LUCK_MSG = RuleImage(roi_front=(22,47,46,27), roi_back=(22,47,46,27), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/Screenshots_luck_msg.png", path="./love/Screenshots_luck_msg.png")
+	I_LUCK_MSG = RuleImage(roi_front=(22,47,46,27), roi_back=(22,47,46,27), threshold=0.8, method="Template matching", path="./love/Screenshots_luck_msg.png", file="./tasks/DailyTrifles/love/Screenshots_luck_msg.png")
 	# 一键祝福 
-	I_ONE_CLICK_BLESS = RuleImage(roi_front=(1115,500,93,33), roi_back=(1115,500,93,33), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/Screenshots_one_click_bless.png", path="./love/Screenshots_one_click_bless.png")
+	I_ONE_CLICK_BLESS = RuleImage(roi_front=(1115,500,93,33), roi_back=(1115,500,93,33), threshold=0.8, method="Template matching", path="./love/Screenshots_one_click_bless.png", file="./tasks/DailyTrifles/love/Screenshots_one_click_bless.png")
 	# 点击祝福 
-	I_CLICK_BLESS = RuleImage(roi_front=(617,442,92,39), roi_back=(617,442,92,39), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/Screenshots_click_bless.png", path="./love/Screenshots_click_bless.png")
+	I_CLICK_BLESS = RuleImage(roi_front=(617,442,92,39), roi_back=(617,442,92,39), threshold=0.8, method="Template matching", path="./love/Screenshots_click_bless.png", file="./tasks/DailyTrifles/love/Screenshots_click_bless.png")
 	# 吉闻页 
-	I_LUCK_TITLE = RuleImage(roi_front=(600,52,131,67), roi_back=(600,52,131,67), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/Screenshots_luck_title.png", path="./love/Screenshots_luck_title.png")
+	I_LUCK_TITLE = RuleImage(roi_front=(600,52,131,67), roi_back=(600,52,131,67), threshold=0.8, method="Template matching", path="./love/Screenshots_luck_title.png", file="./tasks/DailyTrifles/love/Screenshots_luck_title.png")
 	# 好友羁绊提升弹窗 
-	I_FRIENDSHIP_UP = RuleImage(roi_front=(1147,80,27,28), roi_back=(1147,80,27,28), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/love/friendship_up.png", path="./love/friendship_up.png")
+	I_FRIENDSHIP_UP = RuleImage(roi_front=(1147,80,27,28), roi_back=(1147,80,27,28), threshold=0.8, method="Template matching", path="./love/friendship_up.png", file="./tasks/DailyTrifles/love/friendship_up.png")
 
 
 	# Image Rule Assets
 	# 集结 
-	I_MASSED = RuleImage(roi_front=(213,521,50,56), roi_back=(213,521,50,56), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/massed.png", path="./massed/massed.png")
+	I_MASSED = RuleImage(roi_front=(213,521,50,56), roi_back=(213,521,50,56), threshold=0.8, method="Template matching", path="./massed/massed.png", file="./tasks/DailyTrifles/massed/massed.png")
 	# battle 
-	I_BATTLE = RuleImage(roi_front=(1068,605,117,35), roi_back=(1068,605,117,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/battle.png", path="./massed/battle.png")
+	I_BATTLE = RuleImage(roi_front=(1068,605,117,35), roi_back=(1068,605,117,35), threshold=0.8, method="Template matching", path="./massed/battle.png", file="./tasks/DailyTrifles/massed/battle.png")
 	# after_on 
-	I_AFTER_ON = RuleImage(roi_front=(1008,432,99,30), roi_back=(1008,432,99,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/after_on.png", path="./massed/after_on.png")
+	I_AFTER_ON = RuleImage(roi_front=(1008,432,99,30), roi_back=(1008,432,99,30), threshold=0.8, method="Template matching", path="./massed/after_on.png", file="./tasks/DailyTrifles/massed/after_on.png")
 	# click_any_position 
-	I_CLICK_ANY_POSITION = RuleImage(roi_front=(542,511,214,28), roi_back=(542,511,214,28), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/massed/click_any_position.png", path="./massed/click_any_position.png")
+	I_CLICK_ANY_POSITION = RuleImage(roi_front=(542,511,214,28), roi_back=(542,511,214,28), threshold=0.8, method="Template matching", path="./massed/click_any_position.png", file="./tasks/DailyTrifles/massed/click_any_position.png")
 
 
 	# Image Rule Assets
 	# 礼包屋 
-	I_ROOM_GIFT = RuleImage(roi_front=(1138,658,52,40), roi_back=(1119,621,103,94), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_room_gift.png", path="./store/store_room_gift.png")
+	I_ROOM_GIFT = RuleImage(roi_front=(1138,658,52,40), roi_back=(1119,621,103,94), threshold=0.8, method="Template matching", path="./store/store_room_gift.png", file="./tasks/DailyTrifles/store/store_room_gift.png")
 	# 日常（每日免费黑蛋） 
-	I_GIFT_RECOMMEND = RuleImage(roi_front=(1183,454,53,64), roi_back=(1161,74,105,484), threshold=0.7, method="Template matching", file="./tasks/DailyTrifles/store/store_gift_recommend.png", path="./store/store_gift_recommend.png")
+	I_GIFT_RECOMMEND = RuleImage(roi_front=(1183,454,53,64), roi_back=(1161,74,105,484), threshold=0.7, method="Template matching", path="./store/store_gift_recommend.png", file="./tasks/DailyTrifles/store/store_gift_recommend.png")
 	# 免费一抽领黑蛋 
-	I_GIFT_SIGN = RuleImage(roi_front=(629,192,129,149), roi_back=(130,129,891,473), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_gift_sign.png", path="./store/store_gift_sign.png")
+	I_GIFT_SIGN = RuleImage(roi_front=(629,192,129,149), roi_back=(130,129,891,473), threshold=0.8, method="Template matching", path="./store/store_gift_sign.png", file="./tasks/DailyTrifles/store/store_gift_sign.png")
 	# 体力 
-	I_SPECIAL_SUSHI = RuleImage(roi_front=(180,130,800,460), roi_back=(180,130,800,460), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_sushi.png", path="./store/store_sushi.png")
+	I_SPECIAL_SUSHI = RuleImage(roi_front=(180,130,800,460), roi_back=(180,130,800,460), threshold=0.8, method="Template matching", path="./store/store_sushi.png", file="./tasks/DailyTrifles/store/store_sushi.png")
 	# 购买时货币类型为勾玉 
-	I_STORE_COST_TYPE_JADE = RuleImage(roi_front=(600,490,50,60), roi_back=(600,490,50,60), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/store/store_cost_type_jade.png", path="./store/store_cost_type_jade.png")
+	I_STORE_COST_TYPE_JADE = RuleImage(roi_front=(600,490,50,60), roi_back=(600,490,50,60), threshold=0.8, method="Template matching", path="./store/store_cost_type_jade.png", file="./tasks/DailyTrifles/store/store_cost_type_jade.png")
 
 
 	# Ocr Rule Assets
@@ -99,13 +99,13 @@ class DailyTriflesAssets:
 
 	# Image Rule Assets
 	# 点击今忆召唤票 
-	I_RECALL_TICKET = RuleImage(roi_front=(595,586,65,76), roi_back=(595,586,65,76), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summonRecall/recall_ticket.png", path="./summonRecall/recall_ticket.png")
+	I_RECALL_TICKET = RuleImage(roi_front=(595,586,65,76), roi_back=(595,586,65,76), threshold=0.8, method="Template matching", path="./summonRecall/recall_ticket.png", file="./tasks/DailyTrifles/summonRecall/recall_ticket.png")
 	# 今忆召唤单抽 
-	I_RECALL_ONE_TICKET = RuleImage(roi_front=(459,604,76,76), roi_back=(459,604,76,76), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summonRecall/recall_one_ticket.png", path="./summonRecall/recall_one_ticket.png")
+	I_RECALL_ONE_TICKET = RuleImage(roi_front=(459,604,76,76), roi_back=(459,604,76,76), threshold=0.8, method="Template matching", path="./summonRecall/recall_one_ticket.png", file="./tasks/DailyTrifles/summonRecall/recall_one_ticket.png")
 	# description 
-	I_RECALL_SM_CONFIRM = RuleImage(roi_front=(424,628,174,61), roi_back=(424,628,174,61), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summonRecall/recall_sm_confirm.png", path="./summonRecall/recall_sm_confirm.png")
+	I_RECALL_SM_CONFIRM = RuleImage(roi_front=(424,628,174,61), roi_back=(424,628,174,61), threshold=0.8, method="Template matching", path="./summonRecall/recall_sm_confirm.png", file="./tasks/DailyTrifles/summonRecall/recall_sm_confirm.png")
 	# 抽到的时候出现的 
-	I_SM_CONFIRM_2 = RuleImage(roi_front=(377,630,206,62), roi_back=(377,630,206,62), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summonRecall/sm_sm_confirm_2.png", path="./summonRecall/sm_sm_confirm_2.png")
+	I_SM_CONFIRM_2 = RuleImage(roi_front=(377,630,206,62), roi_back=(377,630,206,62), threshold=0.8, method="Template matching", path="./summonRecall/sm_sm_confirm_2.png", file="./tasks/DailyTrifles/summonRecall/sm_sm_confirm_2.png")
 
 
 	# Ocr Rule Assets
@@ -125,28 +125,28 @@ class DailyTriflesAssets:
 
 	# Image Rule Assets
 	# 召唤商店 
-	I_SUMMON_STORE = RuleImage(roi_front=(1214,626,40,37), roi_back=(1214,626,40,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store.png", path="./summon_store/summon_store.png")
+	I_SUMMON_STORE = RuleImage(roi_front=(1214,626,40,37), roi_back=(1214,626,40,37), threshold=0.8, method="Template matching", path="./summon_store/summon_store.png", file="./tasks/DailyTrifles/summon_store/summon_store.png")
 	# 召唤商店page 
-	I_SUMMON_STORE_PAGE = RuleImage(roi_front=(99,11,185,59), roi_back=(99,11,185,59), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_page.png", path="./summon_store/summon_store_page.png")
+	I_SUMMON_STORE_PAGE = RuleImage(roi_front=(99,11,185,59), roi_back=(99,11,185,59), threshold=0.8, method="Template matching", path="./summon_store/summon_store_page.png", file="./tasks/DailyTrifles/summon_store/summon_store_page.png")
 	# 祈愿福礼 
-	I_SUMMON_STORE_LUCKY = RuleImage(roi_front=(94,102,84,33), roi_back=(94,102,84,33), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_lucky.png", path="./summon_store/summon_store_lucky.png")
+	I_SUMMON_STORE_LUCKY = RuleImage(roi_front=(94,102,84,33), roi_back=(94,102,84,33), threshold=0.8, method="Template matching", path="./summon_store/summon_store_lucky.png", file="./tasks/DailyTrifles/summon_store/summon_store_lucky.png")
 	# 免费 
-	I_SUMMON_STORE_FREE = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free.png", path="./summon_store/summon_store_free.png")
+	I_SUMMON_STORE_FREE = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", path="./summon_store/summon_store_free.png", file="./tasks/DailyTrifles/summon_store/summon_store_free.png")
 	# 免费_1 
-	I_SUMMON_STORE_FREE_1 = RuleImage(roi_front=(561,510,167,53), roi_back=(561,510,167,53), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free_1.png", path="./summon_store/summon_store_free_1.png")
+	I_SUMMON_STORE_FREE_1 = RuleImage(roi_front=(561,510,167,53), roi_back=(561,510,167,53), threshold=0.8, method="Template matching", path="./summon_store/summon_store_free_1.png", file="./tasks/DailyTrifles/summon_store/summon_store_free_1.png")
 	# 已领取 
-	I_SUMMON_STORE_FREE_OVER = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/summon_store_free_over.png", path="./summon_store/summon_store_free_over.png")
+	I_SUMMON_STORE_FREE_OVER = RuleImage(roi_front=(394,581,106,37), roi_back=(394,581,106,37), threshold=0.8, method="Template matching", path="./summon_store/summon_store_free_over.png", file="./tasks/DailyTrifles/summon_store/summon_store_free_over.png")
 	# free_1 
-	I_FREE_1 = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_1.png", path="./summon_store/free_1.png")
+	I_FREE_1 = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", path="./summon_store/free_1.png", file="./tasks/DailyTrifles/summon_store/free_1.png")
 	# free_2 
-	I_FREE_2 = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_2.png", path="./summon_store/free_2.png")
+	I_FREE_2 = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", path="./summon_store/free_2.png", file="./tasks/DailyTrifles/summon_store/free_2.png")
 	# free_3 
-	I_FREE_3 = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_3.png", path="./summon_store/free_3.png")
+	I_FREE_3 = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", path="./summon_store/free_3.png", file="./tasks/DailyTrifles/summon_store/free_3.png")
 	# free_3_over 
-	I_FREE_3_OVER = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_3_over.png", path="./summon_store/free_3_over.png")
+	I_FREE_3_OVER = RuleImage(roi_front=(502,490,41,35), roi_back=(502,490,41,35), threshold=0.8, method="Template matching", path="./summon_store/free_3_over.png", file="./tasks/DailyTrifles/summon_store/free_3_over.png")
 	# free_2_over 
-	I_FREE_2_OVER = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_2_over.png", path="./summon_store/free_2_over.png")
+	I_FREE_2_OVER = RuleImage(roi_front=(430,494,38,24), roi_back=(430,494,38,24), threshold=0.8, method="Template matching", path="./summon_store/free_2_over.png", file="./tasks/DailyTrifles/summon_store/free_2_over.png")
 	# free_1_over 
-	I_FREE_1_OVER = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", file="./tasks/DailyTrifles/summon_store/free_1_over.png", path="./summon_store/free_1_over.png")
+	I_FREE_1_OVER = RuleImage(roi_front=(360,493,31,30), roi_back=(360,493,31,30), threshold=0.8, method="Template matching", path="./summon_store/free_1_over.png", file="./tasks/DailyTrifles/summon_store/free_1_over.png")
 
 

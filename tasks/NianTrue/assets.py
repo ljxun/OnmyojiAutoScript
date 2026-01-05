@@ -17,14 +17,14 @@ class NianTrueAssets:
 
 	# Image Rule Assets
 	# 等待进入，也是关闭按钮 
-	I_N_WAITING = RuleImage(roi_front=(735,28,54,51), roi_back=(735,28,54,51), threshold=0.7, method="Template matching", file="./tasks/NianTrue/nian/nian_n_waiting.png", path="./nian/nian_n_waiting.png")
+	I_N_WAITING = RuleImage(roi_front=(735,28,54,51), roi_back=(735,28,54,51), threshold=0.7, method="Template matching", path="./nian/nian_n_waiting.png", file="./tasks/NianTrue/nian/nian_n_waiting.png")
 	# 华北年兽 
-	I_N_HUABEI = RuleImage(roi_front=(409,330,156,45), roi_back=(409,330,156,45), threshold=0.8, method="Template matching", file="./tasks/NianTrue/nian/nian_n_huabei.png", path="./nian/nian_n_huabei.png")
+	I_N_HUABEI = RuleImage(roi_front=(409,330,156,45), roi_back=(409,330,156,45), threshold=0.8, method="Template matching", path="./nian/nian_n_huabei.png", file="./tasks/NianTrue/nian/nian_n_huabei.png")
 	# 年兽战斗结束，通关奖励 
-	I_BATTLE_OVER = RuleImage(roi_front=(531,212,205,61), roi_back=(531,212,205,61), threshold=0.8, method="Template matching", file="./tasks/NianTrue/nian/nian_battle_over.png", path="./nian/nian_battle_over.png")
+	I_BATTLE_OVER = RuleImage(roi_front=(531,212,205,61), roi_back=(531,212,205,61), threshold=0.8, method="Template matching", path="./nian/nian_battle_over.png", file="./tasks/NianTrue/nian/nian_battle_over.png")
 	# 年兽来袭页面 
-	I_N_PAGE = RuleImage(roi_front=(94,29,129,40), roi_back=(94,29,129,40), threshold=0.8, method="Template matching", file="./tasks/NianTrue/nian/nian_n_page.png", path="./nian/nian_n_page.png")
+	I_N_PAGE = RuleImage(roi_front=(94,29,129,40), roi_back=(94,29,129,40), threshold=0.8, method="Template matching", path="./nian/nian_n_page.png", file="./tasks/NianTrue/nian/nian_n_page.png")
 	# 年兽战斗结束，已经拥有转为金币，点击确认 
-	I_N_OK = RuleImage(roi_front=(593,442,100,65), roi_back=(593,442,100,65), threshold=0.8, method="Template matching", file="./tasks/NianTrue/nian/nian_n_ok.png", path="./nian/nian_n_ok.png")
+	I_N_OK = RuleImage(roi_front=(593,442,100,65), roi_back=(593,442,100,65), threshold=0.8, method="Template matching", path="./nian/nian_n_ok.png", file="./tasks/NianTrue/nian/nian_n_ok.png")
 
 

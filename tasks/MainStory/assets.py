@@ -19,28 +19,28 @@ class MainStoryAssets:
 
 	# Image Rule Assets
 	# 庭院三个点入口 
-	I_THREE_POINTS = RuleImage(roi_front=(711,159,308,212), roi_back=(711,159,308,212), threshold=0.7, method="Template matching", file="./tasks/MainStory/res/res_three_points.png", path="./res/res_three_points.png")
+	I_THREE_POINTS = RuleImage(roi_front=(711,159,308,212), roi_back=(711,159,308,212), threshold=0.7, method="Template matching", path="./res/res_three_points.png", file="./tasks/MainStory/res/res_three_points.png")
 	# 返回按钮 
-	I_BACK = RuleImage(roi_front=(22,30,37,28), roi_back=(22,30,37,28), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_back.png", path="./res/res_back.png")
+	I_BACK = RuleImage(roi_front=(22,30,37,28), roi_back=(22,30,37,28), threshold=0.8, method="Template matching", path="./res/res_back.png", file="./tasks/MainStory/res/res_back.png")
 	# 省略号对话 
-	I_THREE_POINTS_2 = RuleImage(roi_front=(1054,327,51,44), roi_back=(0,83,1279,609), threshold=0.7, method="Template matching", file="./tasks/MainStory/res/res_three_points_2.png", path="./res/res_three_points_2.png")
+	I_THREE_POINTS_2 = RuleImage(roi_front=(1054,327,51,44), roi_back=(0,83,1279,609), threshold=0.7, method="Template matching", path="./res/res_three_points_2.png", file="./tasks/MainStory/res/res_three_points_2.png")
 	# 遮层返回按钮 
-	I_MASK_BACK = RuleImage(roi_front=(863,262,40,43), roi_back=(4,161,1275,538), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_mask_back.png", path="./res/res_mask_back.png")
+	I_MASK_BACK = RuleImage(roi_front=(863,262,40,43), roi_back=(4,161,1275,538), threshold=0.8, method="Template matching", path="./res/res_mask_back.png", file="./tasks/MainStory/res/res_mask_back.png")
 	# 开始战斗 
-	I_RES_BATTLE_IN = RuleImage(roi_front=(850,526,24,22), roi_back=(1,110,1278,590), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_battle_in.png", path="./res/res_battle_in.png")
+	I_RES_BATTLE_IN = RuleImage(roi_front=(850,526,24,22), roi_back=(1,110,1278,590), threshold=0.8, method="Template matching", path="./res/res_battle_in.png", file="./tasks/MainStory/res/res_battle_in.png")
 	# 剧情中眼睛点开对话 
-	I_EYE = RuleImage(roi_front=(635,189,52,34), roi_back=(6,105,1273,612), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_eye.png", path="./res/res_eye.png")
+	I_EYE = RuleImage(roi_front=(635,189,52,34), roi_back=(6,105,1273,612), threshold=0.8, method="Template matching", path="./res/res_eye.png", file="./tasks/MainStory/res/res_eye.png")
 	# 回忆视频1倍速 
-	I_SPEED_1_X = RuleImage(roi_front=(1142,38,46,37), roi_back=(1142,38,46,37), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_speed_1_x.png", path="./res/res_speed_1_x.png")
+	I_SPEED_1_X = RuleImage(roi_front=(1142,38,46,37), roi_back=(1142,38,46,37), threshold=0.8, method="Template matching", path="./res/res_speed_1_x.png", file="./tasks/MainStory/res/res_speed_1_x.png")
 	# 回忆视频2倍速 
-	I_SPEED_2_X = RuleImage(roi_front=(1140,34,50,45), roi_back=(1140,34,50,45), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_speed_2_x.png", path="./res/res_speed_2_x.png")
+	I_SPEED_2_X = RuleImage(roi_front=(1140,34,50,45), roi_back=(1140,34,50,45), threshold=0.8, method="Template matching", path="./res/res_speed_2_x.png", file="./tasks/MainStory/res/res_speed_2_x.png")
 	# 跳过对话 
-	I_SKIP_DIALOGUE = RuleImage(roi_front=(848,524,24,22), roi_back=(848,524,29,27), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_skip_dialogue.png", path="./res/res_skip_dialogue.png")
+	I_SKIP_DIALOGUE = RuleImage(roi_front=(848,524,24,22), roi_back=(848,524,29,27), threshold=0.8, method="Template matching", path="./res/res_skip_dialogue.png", file="./tasks/MainStory/res/res_skip_dialogue.png")
 	# 获取式神界面 
-	I_GET_SHIKIAGMI = RuleImage(roi_front=(3,375.5,57,53), roi_back=(1,122,1278,560), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_get_shikiagmi.png", path="./res/res_get_shikiagmi.png")
+	I_GET_SHIKIAGMI = RuleImage(roi_front=(3,375.5,57,53), roi_back=(1,122,1278,560), threshold=0.8, method="Template matching", path="./res/res_get_shikiagmi.png", file="./tasks/MainStory/res/res_get_shikiagmi.png")
 	# 问号对话 
-	I_QUESTION_DIALOGUE = RuleImage(roi_front=(965,125,35,40), roi_back=(1,83,1275,630), threshold=0.7, method="Template matching", file="./tasks/MainStory/res/res_question_dialogue.png", path="./res/res_question_dialogue.png")
+	I_QUESTION_DIALOGUE = RuleImage(roi_front=(965,125,35,40), roi_back=(1,83,1275,630), threshold=0.7, method="Template matching", path="./res/res_question_dialogue.png", file="./tasks/MainStory/res/res_question_dialogue.png")
 	# 关闭视频 
-	I_VIDEO_CLOSE = RuleImage(roi_front=(1162,12,36,41), roi_back=(1162,12,36,41), threshold=0.8, method="Template matching", file="./tasks/MainStory/res/res_video_close.png", path="./res/res_video_close.png")
+	I_VIDEO_CLOSE = RuleImage(roi_front=(1162,12,36,41), roi_back=(1162,12,36,41), threshold=0.8, method="Template matching", path="./res/res_video_close.png", file="./tasks/MainStory/res/res_video_close.png")
 
 

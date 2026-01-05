@@ -17,35 +17,35 @@ class DemonEncounterAssets:
 
 	# Image Rule Assets
 	# 地震鲇 
-	I_BOSS_NAMAZU = RuleImage(roi_front=(589,294,100,100), roi_back=(589,294,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_namazu.png", path="./boss/boss_boss_namazu.png")
+	I_BOSS_NAMAZU = RuleImage(roi_front=(589,294,100,100), roi_back=(589,294,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_namazu.png", file="./tasks/DemonEncounter/boss/boss_boss_namazu.png")
 	# 蜃气楼 
-	I_BOSS_SHINKIRO = RuleImage(roi_front=(587,279,100,100), roi_back=(587,279,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_shinkiro.png", path="./boss/boss_boss_shinkiro.png")
+	I_BOSS_SHINKIRO = RuleImage(roi_front=(587,279,100,100), roi_back=(587,279,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_shinkiro.png", file="./tasks/DemonEncounter/boss/boss_boss_shinkiro.png")
 	# 荒骷髅 
-	I_BOSS_ODOKURO = RuleImage(roi_front=(596,287,100,100), roi_back=(596,287,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_odokuro.png", path="./boss/boss_boss_odokuro.png")
+	I_BOSS_ODOKURO = RuleImage(roi_front=(596,287,100,100), roi_back=(596,287,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_odokuro.png", file="./tasks/DemonEncounter/boss/boss_boss_odokuro.png")
 	# 胧车 
-	I_BOSS_OBOROGURUMA = RuleImage(roi_front=(588,285,100,100), roi_back=(588,285,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_oboroguruma.png", path="./boss/boss_boss_oboroguruma.png")
+	I_BOSS_OBOROGURUMA = RuleImage(roi_front=(588,285,100,100), roi_back=(588,285,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_oboroguruma.png", file="./tasks/DemonEncounter/boss/boss_boss_oboroguruma.png")
 	# 土蜘蛛 
-	I_BOSS_TSUCHIGUMO = RuleImage(roi_front=(603,294,100,66), roi_back=(603,294,100,66), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_tsuchigumo.png", path="./boss/boss_boss_tsuchigumo.png")
+	I_BOSS_TSUCHIGUMO = RuleImage(roi_front=(603,294,100,66), roi_back=(603,294,100,66), threshold=0.8, method="Template matching", path="./boss/boss_boss_tsuchigumo.png", file="./tasks/DemonEncounter/boss/boss_boss_tsuchigumo.png")
 	# 歌姬 
-	I_BOSS_SONGSTRESS = RuleImage(roi_front=(592,323,67,61), roi_back=(592,323,67,61), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_songstress.png", path="./boss/boss_boss_songstress.png")
+	I_BOSS_SONGSTRESS = RuleImage(roi_front=(592,323,67,61), roi_back=(592,323,67,61), threshold=0.8, method="Template matching", path="./boss/boss_boss_songstress.png", file="./tasks/DemonEncounter/boss/boss_boss_songstress.png")
 	# 集结挑战 
-	I_BOSS_FIRE = RuleImage(roi_front=(1062,549,100,100), roi_back=(1062,549,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_fire.png", path="./boss/boss_boss_fire.png")
+	I_BOSS_FIRE = RuleImage(roi_front=(1062,549,100,100), roi_back=(1062,549,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_fire.png", file="./tasks/DemonEncounter/boss/boss_boss_fire.png")
 	# description 
-	I_BOSS_CONFIRM = RuleImage(roi_front=(671,400,175,61), roi_back=(671,400,175,61), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_confirm.png", path="./boss/boss_boss_confirm.png")
+	I_BOSS_CONFIRM = RuleImage(roi_front=(671,400,175,61), roi_back=(671,400,175,61), threshold=0.8, method="Template matching", path="./boss/boss_boss_confirm.png", file="./tasks/DemonEncounter/boss/boss_boss_confirm.png")
 	# 已选中 
-	I_BOSS_SELECTED = RuleImage(roi_front=(543,339,37,41), roi_back=(543,339,37,41), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_selected.png", path="./boss/boss_boss_selected.png")
+	I_BOSS_SELECTED = RuleImage(roi_front=(543,339,37,41), roi_back=(543,339,37,41), threshold=0.8, method="Template matching", path="./boss/boss_boss_selected.png", file="./tasks/DemonEncounter/boss/boss_boss_selected.png")
 	# 还没选中 
-	I_BOSS_NO_SELECT = RuleImage(roi_front=(544,337,37,43), roi_back=(544,337,37,43), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_no_select.png", path="./boss/boss_boss_no_select.png")
+	I_BOSS_NO_SELECT = RuleImage(roi_front=(544,337,37,43), roi_back=(544,337,37,43), threshold=0.8, method="Template matching", path="./boss/boss_boss_no_select.png", file="./tasks/DemonEncounter/boss/boss_boss_no_select.png")
 	# 集结 
-	I_BOSS_GATHER = RuleImage(roi_front=(801,589,100,100), roi_back=(801,589,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_gather.png", path="./boss/boss_boss_gather.png")
+	I_BOSS_GATHER = RuleImage(roi_front=(801,589,100,100), roi_back=(801,589,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_gather.png", file="./tasks/DemonEncounter/boss/boss_boss_gather.png")
 	# 战斗胜利 
-	I_BOSS_WIN = RuleImage(roi_front=(380,43,100,100), roi_back=(380,43,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_win.png", path="./boss/boss_boss_win.png")
+	I_BOSS_WIN = RuleImage(roi_front=(380,43,100,100), roi_back=(380,43,100,100), threshold=0.8, method="Template matching", path="./boss/boss_boss_win.png", file="./tasks/DemonEncounter/boss/boss_boss_win.png")
 	# 白色退出 
-	I_BOSS_BACK_WHITE = RuleImage(roi_front=(16,12,39,40), roi_back=(16,12,39,40), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_back_white.png", path="./boss/boss_boss_back_white.png")
+	I_BOSS_BACK_WHITE = RuleImage(roi_front=(16,12,39,40), roi_back=(16,12,39,40), threshold=0.8, method="Template matching", path="./boss/boss_boss_back_white.png", file="./tasks/DemonEncounter/boss/boss_boss_back_white.png")
 	# 已击败 
-	I_BOSS_KILLED = RuleImage(roi_front=(654,596,35,68), roi_back=(614,537,123,176), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_boss_killed.png", path="./boss/boss_boss_killed.png")
+	I_BOSS_KILLED = RuleImage(roi_front=(654,596,35,68), roi_back=(614,537,123,176), threshold=0.8, method="Template matching", path="./boss/boss_boss_killed.png", file="./tasks/DemonEncounter/boss/boss_boss_killed.png")
 	# 极逢魔集结挑战 
-	I_BEST_BOSS_FIRE = RuleImage(roi_front=(1087,562,100,36), roi_back=(1087,562,100,36), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/boss/boss_best_boss_fire.png", path="./boss/boss_best_boss_fire.png")
+	I_BEST_BOSS_FIRE = RuleImage(roi_front=(1087,562,100,36), roi_back=(1087,562,100,36), threshold=0.8, method="Template matching", path="./boss/boss_best_boss_fire.png", file="./tasks/DemonEncounter/boss/boss_best_boss_fire.png")
 
 
 	# Ocr Rule Assets
@@ -66,56 +66,56 @@ class DemonEncounterAssets:
 
 	# Image Rule Assets
 	# 红色达摩 
-	I_DE_RED_DHARMA = RuleImage(roi_front=(1216,215,32,33), roi_back=(1209,208,51,50), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_red_dharma.png", path="./demon/demon_de_red_dharma.png")
+	I_DE_RED_DHARMA = RuleImage(roi_front=(1216,215,32,33), roi_back=(1209,208,51,50), threshold=0.7, method="Template matching", path="./demon/demon_de_red_dharma.png", file="./tasks/DemonEncounter/demon/demon_de_red_dharma.png")
 	# 点击右下角的寻找封魔 
-	I_DE_FIND = RuleImage(roi_front=(1136,593,100,100), roi_back=(1136,593,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_find.png", path="./demon/demon_de_find.png")
+	I_DE_FIND = RuleImage(roi_front=(1136,593,100,100), roi_back=(1136,593,100,100), threshold=0.8, method="Template matching", path="./demon/demon_de_find.png", file="./tasks/DemonEncounter/demon/demon_de_find.png")
 	# 点击首领 
-	I_DE_BOSS = RuleImage(roi_front=(1001,645,45,45), roi_back=(1001,645,45,45), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_boss.png", path="./demon/demon_de_boss.png")
+	I_DE_BOSS = RuleImage(roi_front=(1001,645,45,45), roi_back=(1001,645,45,45), threshold=0.8, method="Template matching", path="./demon/demon_de_boss.png", file="./tasks/DemonEncounter/demon/demon_de_boss.png")
 	# 点击封魔极 
-	I_DE_BOSS_BEST = RuleImage(roi_front=(900,644,45,50), roi_back=(900,644,45,50), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_boss_best.png", path="./demon/demon_de_boss_best.png")
+	I_DE_BOSS_BEST = RuleImage(roi_front=(900,644,45,50), roi_back=(900,644,45,50), threshold=0.8, method="Template matching", path="./demon/demon_de_boss_best.png", file="./tasks/DemonEncounter/demon/demon_de_boss_best.png")
 	# 式神录 
-	I_DE_SHI_RECORDS = RuleImage(roi_front=(789,639,48,48), roi_back=(789,639,48,48), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_shi_records.png", path="./demon/demon_de_shi_records.png")
+	I_DE_SHI_RECORDS = RuleImage(roi_front=(789,639,48,48), roi_back=(789,639,48,48), threshold=0.8, method="Template matching", path="./demon/demon_de_shi_records.png", file="./tasks/DemonEncounter/demon/demon_de_shi_records.png")
 	# 左下角小指针 
-	I_DE_LOCATION = RuleImage(roi_front=(26,653,44,47), roi_back=(26,653,44,47), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_location.png", path="./demon/demon_de_location.png")
+	I_DE_LOCATION = RuleImage(roi_front=(26,653,44,47), roi_back=(26,653,44,47), threshold=0.8, method="Template matching", path="./demon/demon_de_location.png", file="./tasks/DemonEncounter/demon/demon_de_location.png")
 	# 逢魔蓝票 
-	I_BLUE_PIAO = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/blue_piao.png", path="./demon/blue_piao.png")
+	I_BLUE_PIAO = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", path="./demon/blue_piao.png", file="./tasks/DemonEncounter/demon/blue_piao.png")
 	# 逢魔体力100 
-	I_SUSHI_100 = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/sushi_100.png", path="./demon/sushi_100.png")
+	I_SUSHI_100 = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", path="./demon/sushi_100.png", file="./tasks/DemonEncounter/demon/sushi_100.png")
 	# 50勾玉购买 
-	I_JADE_50 = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/jade_50.png", path="./demon/jade_50.png")
+	I_JADE_50 = RuleImage(roi_front=(420,226,444,262), roi_back=(420,226,444,262), threshold=0.8, method="Template matching", path="./demon/jade_50.png", file="./tasks/DemonEncounter/demon/jade_50.png")
 
 
 	# Image Rule Assets
 	# 右侧的气球 
-	I_DE_BALLOON = RuleImage(roi_front=(1214,295,28,27), roi_back=(1198,269,81,266), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_balloon.png", path="./demon/demon_de_balloon.png")
+	I_DE_BALLOON = RuleImage(roi_front=(1214,295,28,27), roi_back=(1198,269,81,266), threshold=0.8, method="Template matching", path="./demon/demon_de_balloon.png", file="./tasks/DemonEncounter/demon/demon_de_balloon.png")
 	# 右侧的宝箱 
-	I_DE_BOX = RuleImage(roi_front=(1210,295,34,33), roi_back=(1183,278,96,277), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_box.png", path="./demon/demon_de_box.png")
+	I_DE_BOX = RuleImage(roi_front=(1210,295,34,33), roi_back=(1183,278,96,277), threshold=0.8, method="Template matching", path="./demon/demon_de_box.png", file="./tasks/DemonEncounter/demon/demon_de_box.png")
 	# 挑战某一个后的封印图片 
-	I_DE_DEFEAT_2 = RuleImage(roi_front=(1211,422,28,35), roi_back=(1211,422,28,35), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_defeat_2.png", path="./demon/demon_de_defeat_2.png")
+	I_DE_DEFEAT_2 = RuleImage(roi_front=(1211,422,28,35), roi_back=(1211,422,28,35), threshold=0.7, method="Template matching", path="./demon/demon_de_defeat_2.png", file="./tasks/DemonEncounter/demon/demon_de_defeat_2.png")
 	# description 
-	I_DE_DEFEAT_1 = RuleImage(roi_front=(1223,489,42,41), roi_back=(1223,489,42,41), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_defeat_1.png", path="./demon/demon_de_defeat_1.png")
+	I_DE_DEFEAT_1 = RuleImage(roi_front=(1223,489,42,41), roi_back=(1223,489,42,41), threshold=0.7, method="Template matching", path="./demon/demon_de_defeat_1.png", file="./tasks/DemonEncounter/demon/demon_de_defeat_1.png")
 	# description 
-	I_DE_DEFEAT_3 = RuleImage(roi_front=(1231,358,38,35), roi_back=(1231,358,38,35), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_defeat_3.png", path="./demon/demon_de_defeat_3.png")
+	I_DE_DEFEAT_3 = RuleImage(roi_front=(1231,358,38,35), roi_back=(1231,358,38,35), threshold=0.7, method="Template matching", path="./demon/demon_de_defeat_3.png", file="./tasks/DemonEncounter/demon/demon_de_defeat_3.png")
 	# description 
-	I_DE_DEFEAT_4 = RuleImage(roi_front=(1215,295,35,35), roi_back=(1215,295,35,35), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_defeat_4.png", path="./demon/demon_de_defeat_4.png")
+	I_DE_DEFEAT_4 = RuleImage(roi_front=(1215,295,35,35), roi_back=(1215,295,35,35), threshold=0.7, method="Template matching", path="./demon/demon_de_defeat_4.png", file="./tasks/DemonEncounter/demon/demon_de_defeat_4.png")
 	# 已领取四次的奖励 
-	I_DE_AWARD = RuleImage(roi_front=(1216,214,42,36), roi_back=(1195,198,74,67), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_award.png", path="./demon/demon_de_award.png")
+	I_DE_AWARD = RuleImage(roi_front=(1216,214,42,36), roi_back=(1195,198,74,67), threshold=0.8, method="Template matching", path="./demon/demon_de_award.png", file="./tasks/DemonEncounter/demon/demon_de_award.png")
 	# 信 
-	I_DE_LETTER = RuleImage(roi_front=(1236,358,33,35), roi_back=(1177,261,100,294), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_letter.png", path="./demon/demon_de_letter.png")
+	I_DE_LETTER = RuleImage(roi_front=(1236,358,33,35), roi_back=(1177,261,100,294), threshold=0.8, method="Template matching", path="./demon/demon_de_letter.png", file="./tasks/DemonEncounter/demon/demon_de_letter.png")
 	# 封魔密信 
-	I_MALL = RuleImage(roi_front=(510,70,95,48), roi_back=(510,70,95,48), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_mall.png", path="./demon/demon_mall.png")
+	I_MALL = RuleImage(roi_front=(510,70,95,48), roi_back=(510,70,95,48), threshold=0.8, method="Template matching", path="./demon/demon_mall.png", file="./tasks/DemonEncounter/demon/demon_mall.png")
 	# 关闭封魔密信 
-	I_LETTER_CLOSE = RuleImage(roi_front=(851,43,45,45), roi_back=(851,43,45,45), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_letter_close.png", path="./demon/demon_letter_close.png")
+	I_LETTER_CLOSE = RuleImage(roi_front=(851,43,45,45), roi_back=(851,43,45,45), threshold=0.8, method="Template matching", path="./demon/demon_letter_close.png", file="./tasks/DemonEncounter/demon/demon_letter_close.png")
 	# 小鬼王的挑战 
-	I_DE_SMALL_FIRE = RuleImage(roi_front=(1064,549,100,100), roi_back=(1064,549,100,100), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_small_fire.png", path="./demon/demon_de_small_fire.png")
+	I_DE_SMALL_FIRE = RuleImage(roi_front=(1064,549,100,100), roi_back=(1064,549,100,100), threshold=0.8, method="Template matching", path="./demon/demon_de_small_fire.png", file="./tasks/DemonEncounter/demon/demon_de_small_fire.png")
 	# 神秘任务 
-	I_DE_MYSTERY = RuleImage(roi_front=(1216,296,27,29), roi_back=(1192,278,85,261), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_mystery.png", path="./demon/demon_de_mystery.png")
+	I_DE_MYSTERY = RuleImage(roi_front=(1216,296,27,29), roi_back=(1192,278,85,261), threshold=0.8, method="Template matching", path="./demon/demon_de_mystery.png", file="./tasks/DemonEncounter/demon/demon_de_mystery.png")
 	# 打结界的 
-	I_DE_REALM = RuleImage(roi_front=(1209,431,30,22), roi_back=(1190,274,88,273), threshold=0.75, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_realm.png", path="./demon/demon_de_realm.png")
+	I_DE_REALM = RuleImage(roi_front=(1209,431,30,22), roi_back=(1190,274,88,273), threshold=0.75, method="Template matching", path="./demon/demon_de_realm.png", file="./tasks/DemonEncounter/demon/demon_de_realm.png")
 	# 结界-进攻 
-	I_DE_REALM_FIRE = RuleImage(roi_front=(696,421,129,63), roi_back=(162,99,1106,610), threshold=0.8, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_realm_fire.png", path="./demon/demon_de_realm_fire.png")
+	I_DE_REALM_FIRE = RuleImage(roi_front=(696,421,129,63), roi_back=(162,99,1106,610), threshold=0.8, method="Template matching", path="./demon/demon_de_realm_fire.png", file="./tasks/DemonEncounter/demon/demon_de_realm_fire.png")
 	# 发现大boss 
-	I_DE_FIND_BOSS = RuleImage(roi_front=(1210,425,29,36), roi_back=(1182,279,93,266), threshold=0.7, method="Template matching", file="./tasks/DemonEncounter/demon/demon_de_find_boss.png", path="./demon/demon_de_find_boss.png")
+	I_DE_FIND_BOSS = RuleImage(roi_front=(1210,425,29,36), roi_back=(1182,279,93,266), threshold=0.7, method="Template matching", path="./demon/demon_de_find_boss.png", file="./tasks/DemonEncounter/demon/demon_de_find_boss.png")
 
 
 	# Ocr Rule Assets

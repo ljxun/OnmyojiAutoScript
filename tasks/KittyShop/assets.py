@@ -33,35 +33,35 @@ class KittyShopAssets:
 
 	# Image Rule Assets
 	# 进入经营 
-	I_GO1 = RuleImage(roi_front=(350,136,46,185), roi_back=(315,76,100,342), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_go1.png", path="./ks/ks_go1.png")
+	I_GO1 = RuleImage(roi_front=(350,136,46,185), roi_back=(315,76,100,342), threshold=0.8, method="Template matching", path="./ks/ks_go1.png", file="./tasks/KittyShop/ks/ks_go1.png")
 	# 点击经营 
-	I_START_FARMING = RuleImage(roi_front=(1131,579,100,100), roi_back=(995,484,279,234), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_start_farming.png", path="./ks/ks_start_farming.png")
+	I_START_FARMING = RuleImage(roi_front=(1131,579,100,100), roi_back=(995,484,279,234), threshold=0.8, method="Template matching", path="./ks/ks_start_farming.png", file="./tasks/KittyShop/ks/ks_start_farming.png")
 	# 开启 
-	I_START_ENSURE = RuleImage(roi_front=(1094,583,82,78), roi_back=(954,522,322,196), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_start_ensure.png", path="./ks/ks_start_ensure.png")
+	I_START_ENSURE = RuleImage(roi_front=(1094,583,82,78), roi_back=(954,522,322,196), threshold=0.8, method="Template matching", path="./ks/ks_start_ensure.png", file="./tasks/KittyShop/ks/ks_start_ensure.png")
 	# 没有选择 
-	I_UNSELECTED = RuleImage(roi_front=(247,562,76,70), roi_back=(143,524,941,127), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_unselected.png", path="./ks/ks_unselected.png")
+	I_UNSELECTED = RuleImage(roi_front=(247,562,76,70), roi_back=(143,524,941,127), threshold=0.8, method="Template matching", path="./ks/ks_unselected.png", file="./tasks/KittyShop/ks/ks_unselected.png")
 	# 里面的 
-	I_MAIN_FLAG = RuleImage(roi_front=(13,102,61,50), roi_back=(1,34,279,247), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_flag.png", path="./ks/ks_main_flag.png")
+	I_MAIN_FLAG = RuleImage(roi_front=(13,102,61,50), roi_back=(1,34,279,247), threshold=0.8, method="Template matching", path="./ks/ks_main_flag.png", file="./tasks/KittyShop/ks/ks_main_flag.png")
 	# 加号 
-	I_MAIN_ADD = RuleImage(roi_front=(159,178,46,50), roi_back=(125,50,1078,491), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_add.png", path="./ks/ks_main_add.png")
+	I_MAIN_ADD = RuleImage(roi_front=(159,178,46,50), roi_back=(125,50,1078,491), threshold=0.8, method="Template matching", path="./ks/ks_main_add.png", file="./tasks/KittyShop/ks/ks_main_add.png")
 	# 收菜按钮 
-	I_MAIN_GIFT = RuleImage(roi_front=(155,185,55,46), roi_back=(89,52,1184,506), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_gift.png", path="./ks/ks_main_gift.png")
+	I_MAIN_GIFT = RuleImage(roi_front=(155,185,55,46), roi_back=(89,52,1184,506), threshold=0.8, method="Template matching", path="./ks/ks_main_gift.png", file="./tasks/KittyShop/ks/ks_main_gift.png")
 	# 营业中，不可使用 
-	I_MAIN_BUSY = RuleImage(roi_front=(452,626,64,24), roi_back=(237,549,832,170), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy.png", path="./ks/ks_main_busy.png")
+	I_MAIN_BUSY = RuleImage(roi_front=(452,626,64,24), roi_back=(237,549,832,170), threshold=0.8, method="Template matching", path="./ks/ks_main_busy.png", file="./tasks/KittyShop/ks/ks_main_busy.png")
 	# 结束后的分享 
-	I_MAIN_SHARE = RuleImage(roi_front=(1156,595,68,77), roi_back=(839,474,440,245), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_share.png", path="./ks/ks_main_share.png")
+	I_MAIN_SHARE = RuleImage(roi_front=(1156,595,68,77), roi_back=(839,474,440,245), threshold=0.8, method="Template matching", path="./ks/ks_main_share.png", file="./tasks/KittyShop/ks/ks_main_share.png")
 	# 里面没有选猫咪 
-	I_MAIN_FLAG1 = RuleImage(roi_front=(1065,681,89,37), roi_back=(1065,681,89,37), threshold=0.95, method="Template matching", file="./tasks/KittyShop/ks/ks_main_flag1.png", path="./ks/ks_main_flag1.png")
+	I_MAIN_FLAG1 = RuleImage(roi_front=(1065,681,89,37), roi_back=(1065,681,89,37), threshold=0.95, method="Template matching", path="./ks/ks_main_flag1.png", file="./tasks/KittyShop/ks/ks_main_flag1.png")
 	# description 
-	I_MAIN_BUSY_1 = RuleImage(roi_front=(292,633,64,24), roi_back=(240,571,154,143), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy_1.png", path="./ks/ks_main_busy_1.png")
+	I_MAIN_BUSY_1 = RuleImage(roi_front=(292,633,64,24), roi_back=(240,571,154,143), threshold=0.8, method="Template matching", path="./ks/ks_main_busy_1.png", file="./tasks/KittyShop/ks/ks_main_busy_1.png")
 	# description 
-	I_MAIN_BUSY_2 = RuleImage(roi_front=(452,626,64,24), roi_back=(394,569,169,148), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy_2.png", path="./ks/ks_main_busy_2.png")
+	I_MAIN_BUSY_2 = RuleImage(roi_front=(452,626,64,24), roi_back=(394,569,169,148), threshold=0.8, method="Template matching", path="./ks/ks_main_busy_2.png", file="./tasks/KittyShop/ks/ks_main_busy_2.png")
 	# description 
-	I_MAIN_BUSY_3 = RuleImage(roi_front=(630,623,64,24), roi_back=(563,567,171,141), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy_3.png", path="./ks/ks_main_busy_3.png")
+	I_MAIN_BUSY_3 = RuleImage(roi_front=(630,623,64,24), roi_back=(563,567,171,141), threshold=0.8, method="Template matching", path="./ks/ks_main_busy_3.png", file="./tasks/KittyShop/ks/ks_main_busy_3.png")
 	# description 
-	I_MAIN_BUSY_4 = RuleImage(roi_front=(781,634,64,24), roi_back=(731,572,170,142), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy_4.png", path="./ks/ks_main_busy_4.png")
+	I_MAIN_BUSY_4 = RuleImage(roi_front=(781,634,64,24), roi_back=(731,572,170,142), threshold=0.8, method="Template matching", path="./ks/ks_main_busy_4.png", file="./tasks/KittyShop/ks/ks_main_busy_4.png")
 	# description 
-	I_MAIN_BUSY_5 = RuleImage(roi_front=(961,626,64,24), roi_back=(900,571,165,136), threshold=0.8, method="Template matching", file="./tasks/KittyShop/ks/ks_main_busy_5.png", path="./ks/ks_main_busy_5.png")
+	I_MAIN_BUSY_5 = RuleImage(roi_front=(961,626,64,24), roi_back=(900,571,165,136), threshold=0.8, method="Template matching", path="./ks/ks_main_busy_5.png", file="./tasks/KittyShop/ks/ks_main_busy_5.png")
 
 
 	# Swipe Rule Assets

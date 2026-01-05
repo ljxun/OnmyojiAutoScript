@@ -12,15 +12,15 @@ class QuizAssets:
 
 	# Image Rule Assets
 	# description 
-	I_ENTRY = RuleImage(roi_front=(143,363,40,128), roi_back=(119,246,100,326), threshold=0.8, method="Template matching", file="./tasks/Quiz/quiz/quiz_entry.png", path="./quiz/quiz_entry.png")
+	I_ENTRY = RuleImage(roi_front=(143,363,40,128), roi_back=(119,246,100,326), threshold=0.8, method="Template matching", path="./quiz/quiz_entry.png", file="./tasks/Quiz/quiz/quiz_entry.png")
 	# 开始 
-	I_START = RuleImage(roi_front=(1149,608,66,41), roi_back=(1136,574,100,100), threshold=0.8, method="Template matching", file="./tasks/Quiz/quiz/quiz_start.png", path="./quiz/quiz_start.png")
+	I_START = RuleImage(roi_front=(1149,608,66,41), roi_back=(1136,574,100,100), threshold=0.8, method="Template matching", path="./quiz/quiz_start.png", file="./tasks/Quiz/quiz/quiz_start.png")
 	# 标志 
-	I_MESSAGE = RuleImage(roi_front=(75,488,58,41), roi_back=(50,460,100,100), threshold=0.8, method="Template matching", file="./tasks/Quiz/quiz/quiz_message.png", path="./quiz/quiz_message.png")
+	I_MESSAGE = RuleImage(roi_front=(75,488,58,41), roi_back=(50,460,100,100), threshold=0.8, method="Template matching", path="./quiz/quiz_message.png", file="./tasks/Quiz/quiz/quiz_message.png")
 	# 失败然后离开 
-	I_FAIL_QUIT = RuleImage(roi_front=(416,529,183,45), roi_back=(354,502,275,100), threshold=0.8, method="Template matching", file="./tasks/Quiz/quiz/quiz_fail_quit.png", path="./quiz/quiz_fail_quit.png")
+	I_FAIL_QUIT = RuleImage(roi_front=(416,529,183,45), roi_back=(354,502,275,100), threshold=0.8, method="Template matching", path="./quiz/quiz_fail_quit.png", file="./tasks/Quiz/quiz/quiz_fail_quit.png")
 	# 结算分享 
-	I_SHARE = RuleImage(roi_front=(1171,625,53,44), roi_back=(1152,592,100,100), threshold=0.8, method="Template matching", file="./tasks/Quiz/quiz/quiz_share.png", path="./quiz/quiz_share.png")
+	I_SHARE = RuleImage(roi_front=(1171,625,53,44), roi_back=(1152,592,100,100), threshold=0.8, method="Template matching", path="./quiz/quiz_share.png", file="./tasks/Quiz/quiz/quiz_share.png")
 
 
 	# Ocr Rule Assets

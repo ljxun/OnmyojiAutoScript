@@ -12,24 +12,24 @@ class LBSAssets:
 
 	# Image Rule Assets
 	# flush 
-	I_FLUSH = RuleImage(roi_front=(1189,243,31,30), roi_back=(1163,138,82,404), threshold=0.8, method="Template matching", file="./tasks/LBS/res/flush.png", path="./res/flush.png")
+	I_FLUSH = RuleImage(roi_front=(1189,243,31,30), roi_back=(1163,138,82,404), threshold=0.8, method="Template matching", path="./res/flush.png", file="./tasks/LBS/res/flush.png")
 	# 1 
-	I_1 = RuleImage(roi_front=(1189,243,31,30), roi_back=(1163,138,82,404), threshold=0.8, method="Template matching", file="./tasks/LBS/res/1.png", path="./res/1.png")
+	I_1 = RuleImage(roi_front=(1189,243,31,30), roi_back=(1163,138,82,404), threshold=0.8, method="Template matching", path="./res/1.png", file="./tasks/LBS/res/1.png")
 	# 2 
-	I_2 = RuleImage(roi_front=(1130,570,64,58), roi_back=(1130,570,64,58), threshold=0.8, method="Template matching", file="./tasks/LBS/res/2.png", path="./res/2.png")
+	I_2 = RuleImage(roi_front=(1130,570,64,58), roi_back=(1130,570,64,58), threshold=0.8, method="Template matching", path="./res/2.png", file="./tasks/LBS/res/2.png")
 	# 3 
-	I_3 = RuleImage(roi_front=(963,492,39,34), roi_back=(963,492,39,34), threshold=0.8, method="Template matching", file="./tasks/LBS/res/3.png", path="./res/3.png")
+	I_3 = RuleImage(roi_front=(963,492,39,34), roi_back=(963,492,39,34), threshold=0.8, method="Template matching", path="./res/3.png", file="./tasks/LBS/res/3.png")
 	# 4 
-	I_4 = RuleImage(roi_front=(598,493,79,35), roi_back=(598,493,79,35), threshold=0.8, method="Template matching", file="./tasks/LBS/res/4.png", path="./res/4.png")
+	I_4 = RuleImage(roi_front=(598,493,79,35), roi_back=(598,493,79,35), threshold=0.8, method="Template matching", path="./res/4.png", file="./tasks/LBS/res/4.png")
 	# 5 
-	I_5 = RuleImage(roi_front=(1196,617,54,45), roi_back=(1196,617,54,45), threshold=0.8, method="Template matching", file="./tasks/LBS/res/5.png", path="./res/5.png")
+	I_5 = RuleImage(roi_front=(1196,617,54,45), roi_back=(1196,617,54,45), threshold=0.8, method="Template matching", path="./res/5.png", file="./tasks/LBS/res/5.png")
 	# 6 
-	I_6 = RuleImage(roi_front=(1149,562,63,45), roi_back=(1149,562,63,45), threshold=0.8, method="Template matching", file="./tasks/LBS/res/6.png", path="./res/6.png")
+	I_6 = RuleImage(roi_front=(1149,562,63,45), roi_back=(1149,562,63,45), threshold=0.8, method="Template matching", path="./res/6.png", file="./tasks/LBS/res/6.png")
 	# 7 
-	I_7 = RuleImage(roi_front=(463,98,61,63), roi_back=(463,98,61,63), threshold=0.8, method="Template matching", file="./tasks/LBS/res/7.png", path="./res/7.png")
+	I_7 = RuleImage(roi_front=(463,98,61,63), roi_back=(463,98,61,63), threshold=0.8, method="Template matching", path="./res/7.png", file="./tasks/LBS/res/7.png")
 	# 8 
-	I_8 = RuleImage(roi_front=(611,521,54,56), roi_back=(611,521,54,56), threshold=0.8, method="Template matching", file="./tasks/LBS/res/8.png", path="./res/8.png")
+	I_8 = RuleImage(roi_front=(611,521,54,56), roi_back=(611,521,54,56), threshold=0.8, method="Template matching", path="./res/8.png", file="./tasks/LBS/res/8.png")
 	# 9 
-	I_9 = RuleImage(roi_front=(589,454,95,39), roi_back=(589,454,95,39), threshold=0.8, method="Template matching", file="./tasks/LBS/res/9.png", path="./res/9.png")
+	I_9 = RuleImage(roi_front=(589,454,95,39), roi_back=(589,454,95,39), threshold=0.8, method="Template matching", path="./res/9.png", file="./tasks/LBS/res/9.png")
 
 
