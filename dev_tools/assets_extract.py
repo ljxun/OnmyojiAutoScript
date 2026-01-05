@@ -59,9 +59,9 @@ class ImageExtractor:
         self.file = str(Path(file).resolve().relative_to((Path.cwd()).resolve()).as_posix())
         self.task_path_1 = str(Path(task_path).resolve().relative_to((Path.cwd()).resolve()).as_posix())
 
-        self.image_path = Path(self.file).parent.as_posix()
+        self.image_file = Path(self.file).parent.as_posix()
 
-        self.task_path_2 = Path(self.file.replace(self.task_path_1, "")).parent.as_posix().replace("/", "", 1)
+        self.image_path = Path(self.file.replace(self.task_path_1, "")).parent.as_posix().replace("/", "", 1)
 
         self._result = '\n\n\t# Image Rule Assets\n'
         for item in data:
@@ -83,8 +83,8 @@ class ImageExtractor:
                     f'roi_back=({item["roiBack"]}), ' \
                     f'threshold={item["threshold"]}, ' \
                     f'method="{item["method"]}", ' \
-                    f'file="./{self.image_path}/{item["imageName"]}", ' \
-                    f'path="./{self.task_path_2}/{item["imageName"]}")\n'
+                    f'path="./{self.image_path}/{item["imageName"]}", ' \
+                    f'file="./{self.image_file}/{item["imageName"]}")\n'
         return description + name
 
 
