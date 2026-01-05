@@ -118,11 +118,10 @@ class MallNavbar(GameUi, RichManAssets):
     def mall_check_money(self, index: int, least: int) -> bool:
         return self.mall_resource(index) >= least
 
+
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = MallNavbar(c, d)
+    t = MallNavbar(c)
 

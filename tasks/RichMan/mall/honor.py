@@ -28,7 +28,7 @@ class Honor(Special):
         self.save_image()
 
     def _honor_mystery_amulet(self, enable: bool=False):
-        logger.hr('Buy mystery amulet', 3)
+        logger.hr('荣誉点购买蓝票', 3)
         if not enable:
             logger.info('Buy mystery amulet is disabled')
             return
@@ -54,7 +54,7 @@ class Honor(Special):
         time.sleep(1)
 
     def _honor_black_daruma_scrap(self, enable: bool=False):
-        logger.hr('Buy black daruma scrap', 3)
+        logger.hr('荣誉点购买黑碎', 3)
         if not enable:
             logger.info('Buy black daruma scrap is disabled')
             return
@@ -85,13 +85,12 @@ class Honor(Special):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
-    c = Config('du')
-    d = Device(c)
-    t = Honor(c, d)
+    c = Config('mi')
+    t = Honor(c)
 
-    t.execute_honor()
+    t._honor_mystery_amulet(True)
+
 
 
 
