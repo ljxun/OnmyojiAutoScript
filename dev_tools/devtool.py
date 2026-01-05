@@ -1037,8 +1037,7 @@ class DevTool(ctk.CTk):
                     roi_back=roi_back,
                     threshold=threshold,
                     method=method,
-                    file=file,
-                    path=""
+                    file=file
                 )
 
                 self._perform_match(template_rule)

@@ -15,7 +15,7 @@ from module.atom.base_atom import BaseAtom
 
 class RuleImage(BaseAtom):
 
-    def __init__(self, roi_front: tuple, roi_back: tuple, method: str, threshold: float, file: str, path: str) -> None:
+    def __init__(self, roi_front: tuple, roi_back: tuple, method: str, threshold: float, file: str, path='') -> None:
         """
         初始化
         :param roi_front: 前置roi
@@ -35,7 +35,6 @@ class RuleImage(BaseAtom):
         self.roi_back = roi_back
         self.threshold = threshold
         self.file = file
-        self.path = path
 
     def __set_name__(self, owner, name):
         """自动记录变量名（当 RuleImage 实例作为类属性被定义时触发）"""

@@ -36,7 +36,7 @@ class RuleAnimate(RuleImage):
             roi_back=list(roi_back),
             method='Template matching',
             threshold=threshold,
-            file=''
+            file='',
         )
 
         if name is not None:
