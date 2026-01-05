@@ -42,6 +42,12 @@
     "description": "点击魂外部"
   },
   {
+    "itemName": "sca_souls_get_1",
+    "roiFront": "1215,520,46,93",
+    "roiBack": "1215,520,46,93",
+    "description": "点击魂外部(紫色蛇皮兑换)"
+  },
+  {
     "itemName": "sca_souls_back",
     "roiFront": "118,14,503,51",
     "roiBack": "118,14,503,51",

@@ -84,7 +84,7 @@ class Scales(Buy, MallNavbar):
                     self.screenshot()
                     if not self.appear(self.I_SCA_SIX_STAR):
                         break
-                    if self.click(self.C_SCA_SOULS_GET, interval=1):
+                    if self.click(self.C_SCA_SOULS_GET_1, interval=1):
                         continue
                 # 收获购买的东西
                 logger.info('Scales get success')
@@ -366,6 +366,6 @@ if __name__ == '__main__':
     t.execute_scales()
 
     # 朴素的御魂
-    con = c.rich_man.scales
-    t._scales_orochi(con.orochi_scales)
+    # con = c.rich_man.scales
+    # t._scales_orochi(con.orochi_scales)
     # t._scales_sea(buy_number=30)

@@ -256,6 +256,8 @@ class RichManAssets:
 	C_SCA_DEMON_6 = RuleClick(roi_front=(560,155,100,100), roi_back=(560,155,100,100), name="sca_demon_6")
 	# 点击魂外部 
 	C_SCA_SOULS_GET = RuleClick(roi_front=(116,70,952,45), roi_back=(116,70,952,45), name="sca_souls_get")
+	# 点击魂外部(紫色蛇皮兑换) 
+	C_SCA_SOULS_GET_1 = RuleClick(roi_front=(1215,520,46,93), roi_back=(1215,520,46,93), name="sca_souls_get_1")
 	# 点击外部的区域返回到御魂礼盒主界面 
 	C_SCA_SOULS_BACK = RuleClick(roi_front=(118,14,503,51), roi_back=(118,14,503,51), name="sca_souls_back")
 
