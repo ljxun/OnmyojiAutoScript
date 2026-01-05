@@ -227,18 +227,18 @@ class RichManAssets:
 
 
 	# Ocr Rule Assets
-	# 左数第一个 
-	O_MALL_RESOURCE_1 = RuleOcr(roi=(144,7,100,43), area=(144,7,100,43), mode="Digit", method="Default", keyword="", name="mall_resource_1")
-	# 左数第二个 
-	O_MALL_RESOURCE_2 = RuleOcr(roi=(326,8,124,39), area=(326,8,124,39), mode="Digit", method="Default", keyword="", name="mall_resource_2")
-	# 左数第二个 
-	O_MALL_RESOURCE_3 = RuleOcr(roi=(550,9,107,38), area=(550,9,107,38), mode="Single", method="Default", keyword="", name="mall_resource_3")
-	# 左数第二个 
-	O_MALL_RESOURCE_4 = RuleOcr(roi=(792,9,100,39), area=(792,9,100,39), mode="Digit", method="Default", keyword="", name="mall_resource_4")
-	# 左数第二个 
-	O_MALL_RESOURCE_5 = RuleOcr(roi=(935,11,100,37), area=(935,11,100,37), mode="Digit", method="Default", keyword="", name="mall_resource_5")
-	# 左数第二个 
-	O_MALL_RESOURCE_6 = RuleOcr(roi=(1129,6,100,41), area=(1129,6,100,41), mode="Digit", method="Default", keyword="", name="mall_resource_6")
+	# 右6 
+	O_MALL_RESOURCE_1 = RuleOcr(roi=(278,14,76,30), area=(278,14,76,30), mode="Digit", method="Default", keyword="", name="mall_resource_1")
+	# 右5 
+	O_MALL_RESOURCE_2 = RuleOcr(roi=(445,14,76,30), area=(445,14,76,30), mode="Digit", method="Default", keyword="", name="mall_resource_2")
+	# 右4 
+	O_MALL_RESOURCE_3 = RuleOcr(roi=(624,14,76,30), area=(624,14,76,30), mode="Single", method="Default", keyword="", name="mall_resource_3")
+	# 右3 
+	O_MALL_RESOURCE_4 = RuleOcr(roi=(791,14,76,30), area=(791,14,76,30), mode="Digit", method="Default", keyword="", name="mall_resource_4")
+	# 右2 
+	O_MALL_RESOURCE_5 = RuleOcr(roi=(965,14,76,30), area=(965,14,76,30), mode="Digit", method="Default", keyword="", name="mall_resource_5")
+	# 右1 
+	O_MALL_RESOURCE_6 = RuleOcr(roi=(1142,14,76,30), area=(1142,14,76,30), mode="Digit", method="Default", keyword="", name="mall_resource_6")
 
 
 	# Click Rule Assets
