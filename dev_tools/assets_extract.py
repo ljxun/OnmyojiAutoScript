@@ -79,7 +79,8 @@ class ImageExtractor:
                     f'roi_back=({item["roiBack"]}), ' \
                     f'threshold={item["threshold"]}, ' \
                     f'method="{item["method"]}", ' \
-                    f'file="./{self.image_path}/{item["imageName"]}")\n'
+                    f'file="./{self.image_path}/{item["imageName"]}", ' \
+                    f'path="./{Path(self.file).parent.name}/{item["imageName"]}")\n'
         return description + name
 
 
