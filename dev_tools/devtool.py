@@ -237,13 +237,17 @@ class DevTool(ctk.CTk):
             
             self.match_method_combo = ctk.CTkComboBox(
                 self.template_tab,
-                values=["图片匹配", "RuleImage匹配"],
+                values=["模板匹配", "图片匹配"],
                 width=200,
                 command=self.on_match_method_change
             )
-            self.match_method_combo.set("RuleImage匹配")  # 默认选择
+            self.match_method_combo.set("模板匹配")  # 默认选择
             self.match_method_combo.grid(row=0, column=1, padx=5, pady=5, sticky="e")
-            
+
+            # 模板匹配参数输入框 (用于RuleImage或RuleOcr匹配)
+            self.rule_param_entry = ctk.CTkEntry(self.template_tab, placeholder_text="请输入RuleImage或RuleOcr匹配", width=260)
+            self.rule_param_entry.grid(row=2, column=0, columnspan=2, padx=10, pady=5, sticky="ew")
+
             # 模板路径显示 (用于图片匹配)
             self.template_path_label = ctk.CTkLabel(self.template_tab, text="未选择模板")
             self.template_path_label.grid(row=1, column=0, padx=10, pady=5, sticky="w")
@@ -252,19 +256,16 @@ class DevTool(ctk.CTk):
             self.select_template_button = ctk.CTkButton(self.template_tab, text="选择模板", width=20, command=self.select_template)
             self.select_template_button.grid(row=1, column=1, padx=5, pady=10, sticky="e")
             self.select_template_button.grid_remove()  # 默认隐藏
-            
-            # RuleImage参数输入框 (用于RuleImage匹配)
-            self.ruleimage_param_entry = ctk.CTkEntry(self.template_tab, placeholder_text="请输入RuleImage参数", width=260)
-            self.ruleimage_param_entry.grid(row=2, column=0, columnspan=2, padx=10, pady=5, sticky="ew")
-
-            # 阈值显示
+            # 阈值显示 (用于图片匹配)
             self.threshold_label = ctk.CTkLabel(self.template_tab, text="匹配阈值: 0.80")
             self.threshold_label.grid(row=3, column=0, padx=10, pady=10, sticky="w")
-            # 阈值滑块
+            self.threshold_label.grid_remove()  # 默认隐藏
+            # 阈值滑块 (用于图片匹配)
             self.threshold_slider = ctk.CTkSlider(self.template_tab, from_=0.1, to=1.0, number_of_steps=90, command=self.update_threshold_label)
             self.threshold_slider.set(0.8)
             self.threshold_slider.grid(row=3, column=1, padx=10, pady=10, sticky="ew")
-            
+            self.threshold_slider.grid_remove()  # 默认隐藏
+
             # 模板匹配按钮
             self.template_match_button = ctk.CTkButton(self.template_tab, text="模板匹配", width=30, command=self.perform_template_match)
             self.template_match_button.grid(row=4, column=1, padx=5, pady=10, sticky="e")
@@ -798,7 +799,7 @@ class DevTool(ctk.CTk):
             
             # 执行OCR
             ocr_result = ocr_rule.detect_and_ocr(rgb_image)
-            
+
             # 显示结果
             if ocr_result:
                 self.ocr_result_textbox.delete("0.0", "end")
@@ -839,18 +840,22 @@ class DevTool(ctk.CTk):
     def on_match_method_change(self, choice):
         """处理匹配方式选择改变"""
         if choice == "图片匹配":
+            # 隐藏模板匹配参数输入框
+            self.rule_param_entry.grid_remove()
             # 显示模板选择控件
             self.template_path_label.grid()
             self.select_template_button.grid()
-            # 隐藏RuleImage参数输入框
-            self.ruleimage_param_entry.grid_remove()
-        else:  # RuleImage匹配
+            self.threshold_label.grid()
+            self.threshold_slider.grid()
+        else:
             # 隐藏模板选择控件
             self.template_path_label.grid_remove()
             self.select_template_button.grid_remove()
-            # 显示RuleImage参数输入框
-            self.ruleimage_param_entry.grid()
-            
+            self.threshold_label.grid_remove()
+            self.threshold_slider.grid_remove()
+            # 显示模板匹配参数输入框
+            self.rule_param_entry.grid()
+
         self.log_print(f"匹配方式已更改为: {choice}")
 
     # 新增功能：模板匹配
@@ -899,8 +904,16 @@ class DevTool(ctk.CTk):
                 self.log_print(f"模板匹配执行出错: {str(e)}", "error")
 
         else:
-            # 执行RuleImage匹配逻辑
-            self._perform_ruleimage_match()
+            param = self.rule_param_entry.get().strip()
+
+            if "RuleImage" in param and param.endswith(")"):
+                # 执行RuleImage匹配逻辑
+                self._perform_ruleimage_match(param)
+
+            elif "RuleOcr" in param and param.endswith(")"):
+                # 执行RuleOCR匹配逻辑
+                self._perform_ruleocr_match(param)
+
 
     def _perform_image_match(self, x1, y1, x2, y2, threshold):
         """执行图片匹配"""
@@ -915,12 +928,84 @@ class DevTool(ctk.CTk):
         print(f"Template matching: {template_rule.roi_front}")
         self._perform_match(template_rule)
 
-    def _perform_ruleimage_match(self):
+    def _perform_ruleocr_match(self, ruleocr_param):
+        """执行RuleOcr匹配"""
+        try:
+            print(f"使用RuleOcr参数: {ruleocr_param}")
+
+            # 解析字符串参数并创建RuleOcr对象
+            # 假设输入格式为: RuleOcr(roi=(40,319,41,23), area=(40,319,41,23), mode="Digit", method="Default", keyword="", name="sca_number_orochi")
+            if "RuleOcr" in ruleocr_param and ruleocr_param.endswith(")"):
+                # 提取参数部分
+                params_str = ruleocr_param[9:-1]  # 去掉"RuleOcr("和最后的")"
+
+                # 使用正则表达式一次性提取所有参数
+                roi_match = re.search(r'roi=\(([^)]+)\)', params_str)
+                area_match = re.search(r'area=\(([^)]+)\)', params_str)
+                mode_match = re.search(r'mode=([\'"])([^\'"]+)\1', params_str)
+                method_match = re.search(r'method=([\'"])([^\'"]+)\1', params_str)
+                keyword_match = re.search(r'keyword=([\'"])([^\'"]*)\1', params_str)
+                name_match = re.search(r'name=([\'"])([^\'"]+)\1', params_str)
+
+                if not all([roi_match, area_match, mode_match, method_match, keyword_match, name_match]):
+                    self.log_print("RuleOcr参数格式不正确", "error")
+                    return
+
+                roi = tuple(map(int, roi_match.group(1).split(',')))
+                area = tuple(map(int, area_match.group(1).split(',')))
+                mode = mode_match.group(2)
+                method = method_match.group(2)
+                keyword = keyword_match.group(2)
+                name = name_match.group(2)
+
+                # 创建RuleOcr对象
+                ocr_rule = RuleOcr(
+                    roi=roi,
+                    area=area,
+                    mode=mode,
+                    method=method,
+                    keyword=keyword,
+                    name=name
+                )
+
+                self._perform_ocr_match(ocr_rule)
+            else:
+                self.log_print("RuleOcr参数格式不正确", "error")
+
+        except Exception as e:
+            self.log_print(f"RuleOcr参数解析出错: {str(e)}", "error")
+
+    def _perform_ocr_match(self, ocr_rule):
+        """执行OCR匹配"""
+        try:
+            print(f"RuleOcr: {ocr_rule}")
+            # 转换图片格式
+            rgb_image = cv2.cvtColor(self.np_image, cv2.COLOR_BGR2RGB)
+
+            # 在画布上绘制OCR区域
+            self.screen_canvas.delete("ocr_result")
+            roi = ocr_rule.roi
+            # 转换回画布坐标系
+            canvas_x1, canvas_y1 = roi[0] + 4, roi[1] + 4
+            canvas_x2, canvas_y2 = roi[2], roi[3]
+            self.screen_canvas.create_rectangle(
+                canvas_x1, canvas_y1, canvas_x1 + canvas_x2, canvas_y1 + canvas_y2,
+                outline="green", width=1, tags="ocr_result"  # 使用蓝色区分OCR结果
+            )
+
+            # 执行OCR识别
+            ocr_result = ocr_rule.ocr(rgb_image)
+
+            # 在日志中显示结果
+            self.log_print(f"OCR识别结果: {ocr_result}")
+
+        except Exception as e:
+            self.log_print(f"OCR匹配执行出错: {str(e)}", "error")
+
+    def _perform_ruleimage_match(self, ruleimage_param):
         """执行RuleImage匹配"""
         try:
             # 获取RuleImage参数
-            ruleimage_param = self.ruleimage_param_entry.get().strip()
-            # self.log_print(f"使用RuleImage参数: {ruleimage_param}")
             print(f"RuleImage: {ruleimage_param}")
 
             # 解析字符串参数并创建RuleImage对象
@@ -969,6 +1054,17 @@ class DevTool(ctk.CTk):
             # 转换图片格式
             rgb_image = cv2.cvtColor(self.np_image, cv2.COLOR_BGR2RGB)
 
+            # 在画布上绘制匹配结果
+            self.screen_canvas.delete("match_result")
+            roi = template_rule.roi_front
+            # 转换回画布坐标系
+            canvas_x1, canvas_y1 = roi[0] + 4, roi[1] + 4
+            canvas_x2, canvas_y2 = roi[2], roi[3]
+            self.screen_canvas.create_rectangle(
+                canvas_x1, canvas_y1, canvas_x1 + canvas_x2, canvas_y1 + canvas_y2,
+                outline="blue", width=1, tags="match_result"  # 使用不同颜色区分
+            )
+
             # 执行模板匹配
             match_result, max_val = template_rule.match_test(rgb_image)
 
@@ -986,7 +1082,6 @@ class DevTool(ctk.CTk):
                 )
                 self.log_print(f"匹配成功 {roi} 置信度 [{max_val}]")
             else:
-                self.screen_canvas.delete("match_result")
                 self.log_print(f"匹配失败 置信度 [{max_val}]", "error")
         except Exception as e:
             self.log_print(f"匹配执行出错: {str(e)}", "error")
