@@ -35,43 +35,43 @@ class SwitchSoulAssets:
 
 	# Image Rule Assets
 	# 退出式神录 
-	I_RECORD_SOUL_BACK = RuleImage(roi_front=(19,9,51,44), roi_back=(19,9,51,44), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_record_soul_back.png")
+	I_RECORD_SOUL_BACK = RuleImage(roi_front=(19,9,51,44), roi_back=(19,9,51,44), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_record_soul_back.png", path="./ss/ss_record_soul_back.png")
 	# 预设 
-	I_SOUL_PRESET = RuleImage(roi_front=(335,73,90,51), roi_back=(310,57,169,72), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_soul_preset.png")
+	I_SOUL_PRESET = RuleImage(roi_front=(335,73,90,51), roi_back=(310,57,169,72), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_soul_preset.png", path="./ss/ss_soul_preset.png")
 	# description 
-	I_SOU_SWITCH_1 = RuleImage(roi_front=(971,149,34,32), roi_back=(962,141,51,48), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png")
+	I_SOU_SWITCH_1 = RuleImage(roi_front=(971,149,34,32), roi_back=(962,141,51,48), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png", path="./ss/ss_sou_switch.png")
 	# description 
-	I_SOU_SWITCH_2 = RuleImage(roi_front=(967,296,42,39), roi_back=(961,292,54,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png")
+	I_SOU_SWITCH_2 = RuleImage(roi_front=(967,296,42,39), roi_back=(961,292,54,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png", path="./ss/ss_sou_switch.png")
 	# description 
-	I_SOU_SWITCH_3 = RuleImage(roi_front=(968,448,41,38), roi_back=(962,442,52,48), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png")
+	I_SOU_SWITCH_3 = RuleImage(roi_front=(968,448,41,38), roi_back=(962,442,52,48), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png", path="./ss/ss_sou_switch.png")
 	# description 
-	I_SOU_SWITCH_4 = RuleImage(roi_front=(967,597,42,25), roi_back=(962,592,53,34), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png")
+	I_SOU_SWITCH_4 = RuleImage(roi_front=(967,597,42,25), roi_back=(962,592,53,34), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch.png", path="./ss/ss_sou_switch.png")
 	# description 
-	I_SOU_SWITCH_SURE = RuleImage(roi_front=(668,401,180,61), roi_back=(668,401,180,61), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch_sure.png")
+	I_SOU_SWITCH_SURE = RuleImage(roi_front=(668,401,180,61), roi_back=(668,401,180,61), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_switch_sure.png", path="./ss/ss_sou_switch_sure.png")
 	# 用于判断是否在式神录里面 
-	I_SOU_CHECK_IN = RuleImage(roi_front=(269,69,50,49), roi_back=(269,69,50,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_in.png")
+	I_SOU_CHECK_IN = RuleImage(roi_front=(269,69,50,49), roi_back=(269,69,50,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_in.png", path="./ss/ss_sou_check_in.png")
 	# description 
-	I_SOU_CHECK_GROUP_1 = RuleImage(roi_front=(1086,91,22,57), roi_back=(1086,91,22,57), threshold=0.9, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_1.png")
+	I_SOU_CHECK_GROUP_1 = RuleImage(roi_front=(1086,91,22,57), roi_back=(1086,91,22,57), threshold=0.9, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_1.png", path="./ss/ss_sou_check_group_1.png")
 	# description 
-	I_SOU_CHECK_GROUP_2 = RuleImage(roi_front=(1086,163,25,57), roi_back=(1086,163,25,57), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_2.png")
+	I_SOU_CHECK_GROUP_2 = RuleImage(roi_front=(1086,163,25,57), roi_back=(1086,163,25,57), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_2.png", path="./ss/ss_sou_check_group_2.png")
 	# description 
-	I_SOU_CHECK_GROUP_3 = RuleImage(roi_front=(1085,234,22,49), roi_back=(1085,234,22,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_3.png")
+	I_SOU_CHECK_GROUP_3 = RuleImage(roi_front=(1085,234,22,49), roi_back=(1085,234,22,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_3.png", path="./ss/ss_sou_check_group_3.png")
 	# description 
-	I_SOU_CHECK_GROUP_4 = RuleImage(roi_front=(1086,303,21,56), roi_back=(1086,303,21,56), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_4.png")
+	I_SOU_CHECK_GROUP_4 = RuleImage(roi_front=(1086,303,21,56), roi_back=(1086,303,21,56), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_4.png", path="./ss/ss_sou_check_group_4.png")
 	# description 
-	I_SOU_CHECK_GROUP_5 = RuleImage(roi_front=(1088,370,21,53), roi_back=(1088,370,21,53), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_5.png")
+	I_SOU_CHECK_GROUP_5 = RuleImage(roi_front=(1088,370,21,53), roi_back=(1088,370,21,53), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_5.png", path="./ss/ss_sou_check_group_5.png")
 	# description 
-	I_SOU_CHECK_GROUP_6 = RuleImage(roi_front=(1085,443,23,54), roi_back=(1085,443,23,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_6.png")
+	I_SOU_CHECK_GROUP_6 = RuleImage(roi_front=(1085,443,23,54), roi_back=(1085,443,23,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_6.png", path="./ss/ss_sou_check_group_6.png")
 	# description 
-	I_SOU_CHECK_GROUP_7 = RuleImage(roi_front=(1088,512,21,54), roi_back=(1088,512,21,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_7.png")
+	I_SOU_CHECK_GROUP_7 = RuleImage(roi_front=(1088,512,21,54), roi_back=(1088,512,21,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_7.png", path="./ss/ss_sou_check_group_7.png")
 	# description 
-	I_SOU_CHECK_GROUP_8 = RuleImage(roi_front=(1090,571,21,54), roi_back=(1090,571,21,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_8.png")
+	I_SOU_CHECK_GROUP_8 = RuleImage(roi_front=(1090,571,21,54), roi_back=(1090,571,21,54), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_check_group_8.png", path="./ss/ss_sou_check_group_8.png")
 	# 匹配队伍预设 
-	I_SOU_TEAM_PRESENT = RuleImage(roi_front=(737,82,148,43), roi_back=(727,71,165,63), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_team_present.png")
+	I_SOU_TEAM_PRESENT = RuleImage(roi_front=(737,82,148,43), roi_back=(727,71,165,63), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_team_present.png", path="./ss/ss_sou_team_present.png")
 	# 需要切换的预设按钮(颜色深一点) 
-	I_SOU_CLICK_PRESENT = RuleImage(roi_front=(967,305,43,22), roi_back=(965,142,48,480), threshold=0.9, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_click_present.png")
+	I_SOU_CLICK_PRESENT = RuleImage(roi_front=(967,305,43,22), roi_back=(965,142,48,480), threshold=0.9, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_sou_click_present.png", path="./ss/ss_sou_click_present.png")
 	# 误触点到式神检查 
-	I_CHECK_BLOCK = RuleImage(roi_front=(572,408,137,49), roi_back=(572,408,137,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_check_block.png")
+	I_CHECK_BLOCK = RuleImage(roi_front=(572,408,137,49), roi_back=(572,408,137,49), threshold=0.8, method="Template matching", file="./tasks/Component/SwitchSoul/ss/ss_check_block.png", path="./ss/ss_check_block.png")
 
 
 	# Ocr Rule Assets

@@ -33,81 +33,81 @@ class RyouToppaAssets:
 
 	# Image Rule Assets
 	# 区域1攻略失败 
-	I_AREA_1_IS_FAILURE = RuleImage(roi_front=(673,146,63,32), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_1_IS_FAILURE = RuleImage(roi_front=(673,146,63,32), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域2攻略失败 
-	I_AREA_2_IS_FAILURE = RuleImage(roi_front=(1011,146,63,30), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_2_IS_FAILURE = RuleImage(roi_front=(1011,146,63,30), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域3攻略失败 
-	I_AREA_3_IS_FAILURE = RuleImage(roi_front=(665,283,73,40), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_3_IS_FAILURE = RuleImage(roi_front=(665,283,73,40), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域4攻略失败 
-	I_AREA_4_IS_FAILURE = RuleImage(roi_front=(1000,283,72,38), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_4_IS_FAILURE = RuleImage(roi_front=(1000,283,72,38), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域5攻略失败 
-	I_AREA_5_IS_FAILURE = RuleImage(roi_front=(669,419,65,29), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_5_IS_FAILURE = RuleImage(roi_front=(669,419,65,29), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域6攻略失败 
-	I_AREA_6_IS_FAILURE = RuleImage(roi_front=(988,416,84,37), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_6_IS_FAILURE = RuleImage(roi_front=(988,416,84,37), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域7攻略失败 
-	I_AREA_7_IS_FAILURE = RuleImage(roi_front=(672,556,61,37), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_7_IS_FAILURE = RuleImage(roi_front=(672,556,61,37), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域8攻略失败 
-	I_AREA_8_IS_FAILURE = RuleImage(roi_front=(1004,556,64,29), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png")
+	I_AREA_8_IS_FAILURE = RuleImage(roi_front=(1004,556,64,29), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_1.png", path="./dev/loser_sign_1.png")
 	# 区域1攻略失败（最近一次） 
-	I_AREA_1_IS_FAILURE_NEW = RuleImage(roi_front=(673,146,63,32), roi_back=(421,123,325,138), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_1_IS_FAILURE_NEW = RuleImage(roi_front=(673,146,63,32), roi_back=(421,123,325,138), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域2攻略失败（最近一次） 
-	I_AREA_2_IS_FAILURE_NEW = RuleImage(roi_front=(1011,146,63,30), roi_back=(757,126,327,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_2_IS_FAILURE_NEW = RuleImage(roi_front=(1011,146,63,30), roi_back=(757,126,327,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域3攻略失败（最近一次） 
-	I_AREA_3_IS_FAILURE_NEW = RuleImage(roi_front=(665,283,73,40), roi_back=(419,261,327,137), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_3_IS_FAILURE_NEW = RuleImage(roi_front=(665,283,73,40), roi_back=(419,261,327,137), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区4攻略失败（最近一次） 
-	I_AREA_4_IS_FAILURE_NEW = RuleImage(roi_front=(1000,283,72,38), roi_back=(756,258,325,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_4_IS_FAILURE_NEW = RuleImage(roi_front=(1000,283,72,38), roi_back=(756,258,325,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域5攻略失败（最近一次） 
-	I_AREA_5_IS_FAILURE_NEW = RuleImage(roi_front=(669,419,65,29), roi_back=(418,394,328,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_5_IS_FAILURE_NEW = RuleImage(roi_front=(669,419,65,29), roi_back=(418,394,328,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域6攻略失败（最近一次） 
-	I_AREA_6_IS_FAILURE_NEW = RuleImage(roi_front=(988,416,84,37), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_6_IS_FAILURE_NEW = RuleImage(roi_front=(988,416,84,37), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域7攻略失败（最近一次） 
-	I_AREA_7_IS_FAILURE_NEW = RuleImage(roi_front=(672,556,61,37), roi_back=(420,533,326,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_7_IS_FAILURE_NEW = RuleImage(roi_front=(672,556,61,37), roi_back=(420,533,326,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 	# 区域8攻略失败（最近一次） 
-	I_AREA_8_IS_FAILURE_NEW = RuleImage(roi_front=(1004,556,64,29), roi_back=(756,532,327,122), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png")
+	I_AREA_8_IS_FAILURE_NEW = RuleImage(roi_front=(1004,556,64,29), roi_back=(756,532,327,122), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/loser_sign_2.png", path="./dev/loser_sign_2.png")
 
 
 	# Image Rule Assets
 	# 区域1已攻破 
-	I_AREA_1_FINISHED = RuleImage(roi_front=(658,141,93,91), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_1_FINISHED = RuleImage(roi_front=(658,141,93,91), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域2已攻破 
-	I_AREA_2_FINISHED = RuleImage(roi_front=(983,137,100,100), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_2_FINISHED = RuleImage(roi_front=(983,137,100,100), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域3已攻破 
-	I_AREA_3_FINISHED = RuleImage(roi_front=(681,312,47,37), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_3_FINISHED = RuleImage(roi_front=(681,312,47,37), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域4已攻破 
-	I_AREA_4_FINISHED = RuleImage(roi_front=(996,271,100,100), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_4_FINISHED = RuleImage(roi_front=(996,271,100,100), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域5已攻破 
-	I_AREA_5_FINISHED = RuleImage(roi_front=(647,404,100,100), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_5_FINISHED = RuleImage(roi_front=(647,404,100,100), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域6已攻破 
-	I_AREA_6_FINISHED = RuleImage(roi_front=(1015,448,56,35), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_6_FINISHED = RuleImage(roi_front=(1015,448,56,35), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域7已攻破 
-	I_AREA_7_FINISHED = RuleImage(roi_front=(643,543,100,100), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_7_FINISHED = RuleImage(roi_front=(643,543,100,100), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域8已攻破 
-	I_AREA_8_FINISHED = RuleImage(roi_front=(983,541,100,100), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png")
+	I_AREA_8_FINISHED = RuleImage(roi_front=(983,541,100,100), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_1.png", path="./dev/finished_1.png")
 	# 区域1已攻破新 
-	I_AREA_1_FINISHED_NEW = RuleImage(roi_front=(658,141,93,91), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_1_FINISHED_NEW = RuleImage(roi_front=(658,141,93,91), roi_back=(421,127,325,134), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域2已攻破新 
-	I_AREA_2_FINISHED_NEW = RuleImage(roi_front=(983,137,100,100), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_2_FINISHED_NEW = RuleImage(roi_front=(983,137,100,100), roi_back=(757,125,327,140), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域3已攻破新 
-	I_AREA_3_FINISHED_NEW = RuleImage(roi_front=(681,312,47,37), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_3_FINISHED_NEW = RuleImage(roi_front=(681,312,47,37), roi_back=(419,254,327,144), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域4已攻破新 
-	I_AREA_4_FINISHED_NEW = RuleImage(roi_front=(996,271,100,100), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_4_FINISHED_NEW = RuleImage(roi_front=(996,271,100,100), roi_back=(756,260,325,139), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域5已攻破新 
-	I_AREA_5_FINISHED_NEW = RuleImage(roi_front=(647,404,100,100), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_5_FINISHED_NEW = RuleImage(roi_front=(647,404,100,100), roi_back=(418,392,328,142), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域6已攻破新 
-	I_AREA_6_FINISHED_NEW = RuleImage(roi_front=(1015,448,56,35), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_6_FINISHED_NEW = RuleImage(roi_front=(1015,448,56,35), roi_back=(755,395,328,141), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域7已攻破新 
-	I_AREA_7_FINISHED_NEW = RuleImage(roi_front=(643,543,100,100), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_7_FINISHED_NEW = RuleImage(roi_front=(643,543,100,100), roi_back=(420,530,326,127), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 	# 区域8已攻破新 
-	I_AREA_8_FINISHED_NEW = RuleImage(roi_front=(983,541,100,100), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png")
+	I_AREA_8_FINISHED_NEW = RuleImage(roi_front=(983,541,100,100), roi_back=(756,530,327,124), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/finished_2.png", path="./dev/finished_2.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_TOPPA_RECORD = RuleImage(roi_front=(66,628,64,39), roi_back=(66,628,64,39), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/res_toppa_record.png")
+	I_TOPPA_RECORD = RuleImage(roi_front=(66,628,64,39), roi_back=(66,628,64,39), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/res_toppa_record.png", path="./dev/res_toppa_record.png")
 	# description 
-	I_TOPPA_LOCK_TEAM = RuleImage(roi_front=(203,602,26,32), roi_back=(203,602,26,32), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/dev_toppa_lock_team.png")
+	I_TOPPA_LOCK_TEAM = RuleImage(roi_front=(203,602,26,32), roi_back=(203,602,26,32), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/dev_toppa_lock_team.png", path="./dev/dev_toppa_lock_team.png")
 	# description 
-	I_TOPPA_UNLOCK_TEAM = RuleImage(roi_front=(202,603,25,31), roi_back=(202,603,25,31), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/dev_toppa_unlock_team.png")
+	I_TOPPA_UNLOCK_TEAM = RuleImage(roi_front=(202,603,25,31), roi_back=(202,603,25,31), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/dev/dev_toppa_unlock_team.png", path="./dev/dev_toppa_unlock_team.png")
 
 
 	# Click Rule Assets
@@ -117,21 +117,21 @@ class RyouToppaAssets:
 
 	# Image Rule Assets
 	# 寮突 
-	I_RYOU_TOPPA = RuleImage(roi_front=(1191,352,78,116), roi_back=(1161,323,118,193), threshold=0.6, method="Template matching", file="./tasks/RyouToppa/res/res_ryou_toppa.png")
+	I_RYOU_TOPPA = RuleImage(roi_front=(1191,352,78,116), roi_back=(1161,323,118,193), threshold=0.6, method="Template matching", file="./tasks/RyouToppa/res/res_ryou_toppa.png", path="./res/res_ryou_toppa.png")
 	# 寮突选择阴阳寮按钮 
-	I_SELECT_RYOU_BUTTON = RuleImage(roi_front=(560,577,156,46), roi_back=(560,577,156,46), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_select_ryou_button.png")
+	I_SELECT_RYOU_BUTTON = RuleImage(roi_front=(560,577,156,46), roi_back=(560,577,156,46), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_select_ryou_button.png", path="./res/res_select_ryou_button.png")
 	# 寮突未选择阴阳寮 
-	I_NO_SELECT_RYOU = RuleImage(roi_front=(554,180,100,167), roi_back=(554,180,100,167), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_no_select_ryou.png")
+	I_NO_SELECT_RYOU = RuleImage(roi_front=(554,180,100,167), roi_back=(554,180,100,167), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_no_select_ryou.png", path="./res/res_no_select_ryou.png")
 	# 开始寮突按钮 
-	I_START_TOPPA_BUTTON = RuleImage(roi_front=(832,279,130,43), roi_back=(1,1,1055,718), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_start_toppa_button.png")
+	I_START_TOPPA_BUTTON = RuleImage(roi_front=(832,279,130,43), roi_back=(1,1,1055,718), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_start_toppa_button.png", path="./res/res_start_toppa_button.png")
 	# 寮击破奖励 
-	I_RYOU_REWARD = RuleImage(roi_front=(134,417,241,40), roi_back=(134,417,241,40), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_ryou_reward.png")
+	I_RYOU_REWARD = RuleImage(roi_front=(134,417,241,40), roi_back=(134,417,241,40), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_ryou_reward.png", path="./res/res_ryou_reward.png")
 	# 勋章奖励标题 
-	I_GUILD_ORDERS_REWARDS = RuleImage(roi_front=(1123,31,115,56), roi_back=(1123,31,115,56), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_guild_orders_rewards.png")
+	I_GUILD_ORDERS_REWARDS = RuleImage(roi_front=(1123,31,115,56), roi_back=(1123,31,115,56), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_guild_orders_rewards.png", path="./res/res_guild_orders_rewards.png")
 	# 攻破阴阳寮 
-	I_SUCCESS_PENETRATION = RuleImage(roi_front=(141,374,234,37), roi_back=(141,374,234,37), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_success_penetration.png")
+	I_SUCCESS_PENETRATION = RuleImage(roi_front=(141,374,234,37), roi_back=(141,374,234,37), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_success_penetration.png", path="./res/res_success_penetration.png")
 	# 个人突破刷新按钮 
-	I_REAL_RAID_REFRESH = RuleImage(roi_front=(963,569,174,60), roi_back=(963,569,174,60), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_real_raid_refresh.png")
+	I_REAL_RAID_REFRESH = RuleImage(roi_front=(963,569,174,60), roi_back=(963,569,174,60), threshold=0.8, method="Template matching", file="./tasks/RyouToppa/res/res_real_raid_refresh.png", path="./res/res_real_raid_refresh.png")
 
 
 	# Ocr Rule Assets

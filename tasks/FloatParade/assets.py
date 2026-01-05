@@ -12,34 +12,34 @@ class FloatParadeAssets:
 
 	# Image Rule Assets
 	# 从庭院进入花车活动 
-	I_FP_ACCESS = RuleImage(roi_front=(1178,168,43,34), roi_back=(1051,101,210,472), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_access.png")
+	I_FP_ACCESS = RuleImage(roi_front=(1178,168,43,34), roi_back=(1051,101,210,472), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_access.png", path="./fp/fp_fp_access.png")
 	# description 
-	I_FP_GETALL0 = RuleImage(roi_front=(1153,287,65,56), roi_back=(1134,261,100,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_getall0.png")
+	I_FP_GETALL0 = RuleImage(roi_front=(1153,287,65,56), roi_back=(1134,261,100,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_getall0.png", path="./fp/fp_fp_getall0.png")
 	# description 
-	I_FP_GETALL1 = RuleImage(roi_front=(1198,555,53,54), roi_back=(1163,506,113,164), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_getall1.png")
+	I_FP_GETALL1 = RuleImage(roi_front=(1198,555,53,54), roi_back=(1163,506,113,164), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_getall1.png", path="./fp/fp_fp_getall1.png")
 	# description 
-	I_FP_BATCH = RuleImage(roi_front=(985,520,94,31), roi_back=(978,507,112,64), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch.png")
+	I_FP_BATCH = RuleImage(roi_front=(985,520,94,31), roi_back=(978,507,112,64), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch.png", path="./fp/fp_fp_batch.png")
 	# description 
-	I_FP_BATCH_TRUE = RuleImage(roi_front=(938,518,35,37), roi_back=(924,506,64,62), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch_true.png")
+	I_FP_BATCH_TRUE = RuleImage(roi_front=(938,518,35,37), roi_back=(924,506,64,62), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch_true.png", path="./fp/fp_fp_batch_true.png")
 	# description 
-	I_FP_BATCH_FALSE = RuleImage(roi_front=(936,515,40,45), roi_back=(924,505,63,65), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch_false.png")
+	I_FP_BATCH_FALSE = RuleImage(roi_front=(936,515,40,45), roi_back=(924,505,63,65), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_batch_false.png", path="./fp/fp_fp_batch_false.png")
 	# 右下角的任务 
-	I_FP_TASKS = RuleImage(roi_front=(1175,617,79,76), roi_back=(1162,605,100,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_tasks.png")
+	I_FP_TASKS = RuleImage(roi_front=(1175,617,79,76), roi_back=(1162,605,100,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_tasks.png", path="./fp/fp_fp_tasks.png")
 	# 升级 
-	I_FP_UPGRADE = RuleImage(roi_front=(1086,74,116,49), roi_back=(1040,52,169,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_upgrade.png")
+	I_FP_UPGRADE = RuleImage(roi_front=(1086,74,116,49), roi_back=(1040,52,169,100), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_upgrade.png", path="./fp/fp_fp_upgrade.png")
 	# 红色关闭 
-	I_FP_RED_CLOSE = RuleImage(roi_front=(1170,109,43,44), roi_back=(1157,101,72,62), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_red_close.png")
+	I_FP_RED_CLOSE = RuleImage(roi_front=(1170,109,43,44), roi_back=(1157,101,72,62), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_red_close.png", path="./fp/fp_fp_red_close.png")
 	# 寻找花车的切换按钮 
-	I_TOGGLE_BUTTON = RuleImage(roi_front=(1193,462,21,23), roi_back=(1116,127,150,377), threshold=0.7, method="Template matching", file="./tasks/FloatParade/fp/fp_toggle_button.png")
+	I_TOGGLE_BUTTON = RuleImage(roi_front=(1193,462,21,23), roi_back=(1116,127,150,377), threshold=0.7, method="Template matching", file="./tasks/FloatParade/fp/fp_toggle_button.png", path="./fp/fp_toggle_button.png")
 	# 批量选择 
-	I_BATCH_SELECTION = RuleImage(roi_front=(933,517,44,40), roi_back=(933,517,44,40), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_batch_selection.png")
+	I_BATCH_SELECTION = RuleImage(roi_front=(933,517,44,40), roi_back=(933,517,44,40), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_batch_selection.png", path="./fp/fp_batch_selection.png")
 	# 批量选择确认 
-	I_BATCH_SELECTION_CONFIRM = RuleImage(roi_front=(676,392,130,63), roi_back=(676,392,130,63), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_batch_selection_confirm.png")
+	I_BATCH_SELECTION_CONFIRM = RuleImage(roi_front=(676,392,130,63), roi_back=(676,392,130,63), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_batch_selection_confirm.png", path="./fp/fp_batch_selection_confirm.png")
 	# 礼包关闭 
-	I_FP_GIFT_CLOSE = RuleImage(roi_front=(1056,96,36,38), roi_back=(1046,89,60,60), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_close.png")
+	I_FP_GIFT_CLOSE = RuleImage(roi_front=(1056,96,36,38), roi_back=(1046,89,60,60), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_close.png", path="./fp/fp_fp_gift_close.png")
 	# 礼包类型1 
-	I_FP_GIFT_FLAG1 = RuleImage(roi_front=(559,295,55,44), roi_back=(559,295,55,44), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_flag1.png")
+	I_FP_GIFT_FLAG1 = RuleImage(roi_front=(559,295,55,44), roi_back=(559,295,55,44), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_flag1.png", path="./fp/fp_fp_gift_flag1.png")
 	# 礼包类型2 
-	I_FP_GIFT_FLAG2 = RuleImage(roi_front=(557,293,58,47), roi_back=(557,293,58,47), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_flag2.png")
+	I_FP_GIFT_FLAG2 = RuleImage(roi_front=(557,293,58,47), roi_back=(557,293,58,47), threshold=0.8, method="Template matching", file="./tasks/FloatParade/fp/fp_fp_gift_flag2.png", path="./fp/fp_fp_gift_flag2.png")
 
 

@@ -12,49 +12,49 @@ class HeroTestAssets:
 
 	# Image Rule Assets
 	# 进入活动第一步 
-	I_ONE = RuleImage(roi_front=(633,106,88,105), roi_back=(633,106,88,105), threshold=0.7, method="Template matching", file="./tasks/HeroTest/as/as_one.png")
+	I_ONE = RuleImage(roi_front=(633,106,88,105), roi_back=(633,106,88,105), threshold=0.7, method="Template matching", file="./tasks/HeroTest/as/as_one.png", path="./as/as_one.png")
 	# 进入活动第二步 
-	I_TWO = RuleImage(roi_front=(842,671,49,26), roi_back=(842,671,49,26), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_two.png")
+	I_TWO = RuleImage(roi_front=(842,671,49,26), roi_back=(842,671,49,26), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_two.png", path="./as/as_two.png")
 	# 点击鬼兵演武 
-	I_GBB = RuleImage(roi_front=(95,344,37,131), roi_back=(95,344,37,131), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_gbb.png")
+	I_GBB = RuleImage(roi_front=(95,344,37,131), roi_back=(95,344,37,131), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_gbb.png", path="./as/as_gbb.png")
 	# 爬塔返回按钮 
-	I_GBB_BACK = RuleImage(roi_front=(11,13,63,56), roi_back=(11,13,63,56), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_gbb_back.png")
+	I_GBB_BACK = RuleImage(roi_front=(11,13,63,56), roi_back=(11,13,63,56), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_gbb_back.png", path="./as/as_gbb_back.png")
 	# 鬼兵演武返回按钮 
-	I_BACK = RuleImage(roi_front=(20,24,75,76), roi_back=(20,24,75,76), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_back.png")
+	I_BACK = RuleImage(roi_front=(20,24,75,76), roi_back=(20,24,75,76), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_back.png", path="./as/as_back.png")
 	# 挑战按钮 
-	I_BATTLE = RuleImage(roi_front=(1129,588,99,49), roi_back=(1129,588,99,49), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_battle.png")
+	I_BATTLE = RuleImage(roi_front=(1129,588,99,49), roi_back=(1129,588,99,49), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_battle.png", path="./as/as_battle.png")
 	# 解锁阵容 
-	I_UNLOCK = RuleImage(roi_front=(817,648,33,31), roi_back=(817,648,33,31), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_unlock.png")
+	I_UNLOCK = RuleImage(roi_front=(817,648,33,31), roi_back=(817,648,33,31), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_unlock.png", path="./as/as_unlock.png")
 	# description 
-	I_LOCK = RuleImage(roi_front=(816,644,36,38), roi_back=(816,644,36,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_lock.png")
+	I_LOCK = RuleImage(roi_front=(816,644,36,38), roi_back=(816,644,36,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_lock.png", path="./as/as_lock.png")
 	# 兵藏秘境 
-	I_BCMJ = RuleImage(roi_front=(1086,350,45,131), roi_back=(1086,350,45,131), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj.png")
+	I_BCMJ = RuleImage(roi_front=(1086,350,45,131), roi_back=(1086,350,45,131), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj.png", path="./as/as_bcmj.png")
 	# 兵藏秘境阵容锁 
-	I_BCMJ_LOCK = RuleImage(roi_front=(901,159.5,36,26), roi_back=(901,650,36,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_lock.png")
+	I_BCMJ_LOCK = RuleImage(roi_front=(901,159.5,36,26), roi_back=(901,650,36,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_lock.png", path="./as/as_bcmj_lock.png")
 	# 兵藏秘境挑战 
-	I_BCMJ_BATTLE = RuleImage(roi_front=(1131,598,92,50), roi_back=(1131,598,92,50), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_battle.png")
+	I_BCMJ_BATTLE = RuleImage(roi_front=(1131,598,92,50), roi_back=(1131,598,92,50), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_battle.png", path="./as/as_bcmj_battle.png")
 	# 兵藏秘境胜利 
-	I_BCMJ_WIN = RuleImage(roi_front=(431,141,100,100), roi_back=(431,141,100,100), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_win.png")
+	I_BCMJ_WIN = RuleImage(roi_front=(431,141,100,100), roi_back=(431,141,100,100), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_win.png", path="./as/as_bcmj_win.png")
 	# 兵藏秘境选择八华斩 
-	I_BCMJ_SKILL_ADD1 = RuleImage(roi_front=(109,361,90,32), roi_back=(103,359,1076,37), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add1.png")
+	I_BCMJ_SKILL_ADD1 = RuleImage(roi_front=(109,361,90,32), roi_back=(103,359,1076,37), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add1.png", path="./as/as_bcmj_skill_add1.png")
 	# 技能选择 无畏 
-	I_BCMJ_SKILL_ADD2 = RuleImage(roi_front=(728,359,61,32), roi_back=(106,356,1068,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add2.png")
+	I_BCMJ_SKILL_ADD2 = RuleImage(roi_front=(728,359,61,32), roi_back=(106,356,1068,38), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add2.png", path="./as/as_bcmj_skill_add2.png")
 	# 技能祝福确定 
-	I_BCMJ_SKILL_ADD_CONFIRM = RuleImage(roi_front=(608,633,64,36), roi_back=(608,633,64,36), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add_confirm.png")
+	I_BCMJ_SKILL_ADD_CONFIRM = RuleImage(roi_front=(608,633,64,36), roi_back=(608,633,64,36), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_skill_add_confirm.png", path="./as/as_bcmj_skill_add_confirm.png")
 	# 兵藏秘境的暴击伤害属性奖励 
-	I_BCMJ_PROPERTY_ADD_CRITICAL = RuleImage(roi_front=(704,359,115,34), roi_back=(120,356,1038,39), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_property_add_critical.png")
+	I_BCMJ_PROPERTY_ADD_CRITICAL = RuleImage(roi_front=(704,359,115,34), roi_back=(120,356,1038,39), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_property_add_critical.png", path="./as/as_bcmj_property_add_critical.png")
 	# 兵藏秘境默认祝福 
-	I_BCMJ_BLESS = RuleImage(roi_front=(261,159,21,20), roi_back=(256,156,939,27), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_bless.png")
+	I_BCMJ_BLESS = RuleImage(roi_front=(261,159,21,20), roi_back=(256,156,939,27), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_bless.png", path="./as/as_bcmj_bless.png")
 	# 默认属性 
-	I_BCMJ__DEFALUT_ATTRIBUTE = RuleImage(roi_front=(1168,159,21,22), roi_back=(255,155,944,31), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj__defalut_attribute.png")
+	I_BCMJ__DEFALUT_ATTRIBUTE = RuleImage(roi_front=(1168,159,21,22), roi_back=(255,155,944,31), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj__defalut_attribute.png", path="./as/as_bcmj__defalut_attribute.png")
 	# 兵藏秘境的阵容未锁 
-	I_BCMJ_UNLOCK = RuleImage(roi_front=(906,652,22,30), roi_back=(906,652,22,30), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_unlock.png")
+	I_BCMJ_UNLOCK = RuleImage(roi_front=(906,652,22,30), roi_back=(906,652,22,30), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_unlock.png", path="./as/as_bcmj_unlock.png")
 	# 通过兵藏秘境确认重置按钮 
-	I_BCMJ_RESET_CONFIRM = RuleImage(roi_front=(668,399,180,70), roi_back=(668,399,180,70), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_reset_confirm.png")
+	I_BCMJ_RESET_CONFIRM = RuleImage(roi_front=(668,399,180,70), roi_back=(668,399,180,70), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_reset_confirm.png", path="./as/as_bcmj_reset_confirm.png")
 	# 通过兵藏秘境取消重置按钮 
-	I_BCMJ_RESET_CLOSE = RuleImage(roi_front=(429,397,186,71), roi_back=(429,397,186,71), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_reset_close.png")
+	I_BCMJ_RESET_CLOSE = RuleImage(roi_front=(429,397,186,71), roi_back=(429,397,186,71), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_bcmj_reset_close.png", path="./as/as_bcmj_reset_close.png")
 	# 周一点击确认开始挑战 
-	I_START_CHALLENGE = RuleImage(roi_front=(685,407,142,47), roi_back=(685,407,142,47), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_start_challenge.png")
+	I_START_CHALLENGE = RuleImage(roi_front=(685,407,142,47), roi_back=(685,407,142,47), threshold=0.8, method="Template matching", file="./tasks/HeroTest/as/as_start_challenge.png", path="./as/as_start_challenge.png")
 
 
 	# Ocr Rule Assets

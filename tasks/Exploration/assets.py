@@ -12,41 +12,41 @@ class ExplorationAssets:
 
 	# Image Rule Assets
 	# description 
-	I_LIGHTTEST = RuleImage(roi_front=(550,288,85,82), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_lighttest.png")
+	I_LIGHTTEST = RuleImage(roi_front=(550,288,85,82), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_lighttest.png", path="./highlight/highlight_lighttest.png")
 	# description 
-	I_LIGHT1 = RuleImage(roi_front=(498,297,86,87), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light1.png")
+	I_LIGHT1 = RuleImage(roi_front=(498,297,86,87), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light1.png", path="./highlight/highlight_light1.png")
 	# description 
-	I_LIGHT2 = RuleImage(roi_front=(497,300,86,82), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light2.png")
+	I_LIGHT2 = RuleImage(roi_front=(497,300,86,82), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light2.png", path="./highlight/highlight_light2.png")
 	# description 
-	I_LIGHT3 = RuleImage(roi_front=(495,301,85,77), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light3.png")
+	I_LIGHT3 = RuleImage(roi_front=(495,301,85,77), roi_back=(97,182,1130,409), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light3.png", path="./highlight/highlight_light3.png")
 	# description 
-	I_LIGHT4 = RuleImage(roi_front=(496,296,85,85), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light4.png")
+	I_LIGHT4 = RuleImage(roi_front=(496,296,85,85), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light4.png", path="./highlight/highlight_light4.png")
 	# description 
-	I_LIGHT5 = RuleImage(roi_front=(494,296,82,86), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light5.png")
+	I_LIGHT5 = RuleImage(roi_front=(494,296,82,86), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light5.png", path="./highlight/highlight_light5.png")
 	# description 
-	I_LIGHT6 = RuleImage(roi_front=(490,295,83,85), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light6.png")
+	I_LIGHT6 = RuleImage(roi_front=(490,295,83,85), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light6.png", path="./highlight/highlight_light6.png")
 	# description 
-	I_LIGHT7 = RuleImage(roi_front=(486,295,84,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light7.png")
+	I_LIGHT7 = RuleImage(roi_front=(486,295,84,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light7.png", path="./highlight/highlight_light7.png")
 	# description 
-	I_LIGHT8 = RuleImage(roi_front=(485,298,84,81), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light8.png")
+	I_LIGHT8 = RuleImage(roi_front=(485,298,84,81), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light8.png", path="./highlight/highlight_light8.png")
 	# description 
-	I_LIGHT9 = RuleImage(roi_front=(484,295,85,84), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light9.png")
+	I_LIGHT9 = RuleImage(roi_front=(484,295,85,84), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light9.png", path="./highlight/highlight_light9.png")
 	# description 
-	I_LIGHT10 = RuleImage(roi_front=(479,297,84,78), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light10.png")
+	I_LIGHT10 = RuleImage(roi_front=(479,297,84,78), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light10.png", path="./highlight/highlight_light10.png")
 	# description 
-	I_LIGHT11 = RuleImage(roi_front=(479,296,83,82), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light11.png")
+	I_LIGHT11 = RuleImage(roi_front=(479,296,83,82), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light11.png", path="./highlight/highlight_light11.png")
 	# description 
-	I_LIGHT12 = RuleImage(roi_front=(477,290,85,90), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light12.png")
+	I_LIGHT12 = RuleImage(roi_front=(477,290,85,90), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light12.png", path="./highlight/highlight_light12.png")
 	# description 
-	I_LIGHT13 = RuleImage(roi_front=(478,293,82,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light13.png")
+	I_LIGHT13 = RuleImage(roi_front=(478,293,82,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light13.png", path="./highlight/highlight_light13.png")
 	# description 
-	I_LIGHT14 = RuleImage(roi_front=(474,290,82,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light14.png")
+	I_LIGHT14 = RuleImage(roi_front=(474,290,82,87), roi_back=(0,0,100,100), threshold=0.6, method="Template matching", file="./tasks/Exploration/highlight/highlight_light14.png", path="./highlight/highlight_light14.png")
 	# 经验怪 
-	I_UP_EXP = RuleImage(roi_front=(471,518,74,71), roi_back=(1,225,1278,410), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_exp.png")
+	I_UP_EXP = RuleImage(roi_front=(471,518,74,71), roi_back=(1,225,1278,410), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_exp.png", path="./highlight/highlight_up_exp.png")
 	# 金币怪 
-	I_UP_COIN = RuleImage(roi_front=(330,529,74,74), roi_back=(1,317,1278,316), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_coin.png")
+	I_UP_COIN = RuleImage(roi_front=(330,529,74,74), roi_back=(1,317,1278,316), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_coin.png", path="./highlight/highlight_up_coin.png")
 	# 达摩怪 
-	I_UP_DARUMA = RuleImage(roi_front=(1146,510,80,80), roi_back=(1,265,1278,369), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_daruma.png")
+	I_UP_DARUMA = RuleImage(roi_front=(1146,510,80,80), roi_back=(1,265,1278,369), threshold=0.8, method="Sift Flann", file="./tasks/Exploration/highlight/highlight_up_daruma.png", path="./highlight/highlight_up_daruma.png")
 
 
 	# Click Rule Assets
@@ -74,67 +74,67 @@ class ExplorationAssets:
 
 	# Image Rule Assets
 	# 进入难度选择界面 
-	I_E_EXPLORATION_OPEN = RuleImage(roi_front=(1077,248,37,80), roi_back=(1072,242,47,92), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exploration_open.png")
+	I_E_EXPLORATION_OPEN = RuleImage(roi_front=(1077,248,37,80), roi_back=(1072,242,47,92), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exploration_open.png", path="./res/res_e_exploration_open.png")
 	# 探索按钮 
-	I_E_EXPLORATION_CLICK = RuleImage(roi_front=(898,518,96,42), roi_back=(898,518,96,42), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exploration_click.png")
+	I_E_EXPLORATION_CLICK = RuleImage(roi_front=(898,518,96,42), roi_back=(898,518,96,42), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exploration_click.png", path="./res/res_e_exploration_click.png")
 	# 自动轮换开着 
-	I_E_AUTO_ROTATE_ON = RuleImage(roi_front=(119,658,23,24), roi_back=(119,658,23,24), threshold=0.9, method="Template matching", file="./tasks/Exploration/res/res_e_auto_rotate_on.png")
+	I_E_AUTO_ROTATE_ON = RuleImage(roi_front=(119,658,23,24), roi_back=(119,658,23,24), threshold=0.9, method="Template matching", file="./tasks/Exploration/res/res_e_auto_rotate_on.png", path="./res/res_e_auto_rotate_on.png")
 	# 自动轮换关闭 
-	I_E_AUTO_ROTATE_OFF = RuleImage(roi_front=(119,658,23,24), roi_back=(119,658,23,24), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/res_e_auto_rotate_off.png")
+	I_E_AUTO_ROTATE_OFF = RuleImage(roi_front=(119,658,23,24), roi_back=(119,658,23,24), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/res_e_auto_rotate_off.png", path="./res/res_e_auto_rotate_off.png")
 	# 锁定阵容关闭 
-	I_LOCK_OFF = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_off.png")
+	I_LOCK_OFF = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_off.png", path="./res/lock_off.png")
 	# 锁定阵容开启 
-	I_LOCK_ON = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_on.png")
+	I_LOCK_ON = RuleImage(roi_front=(888,644,155,53), roi_back=(888,644,155,53), threshold=0.85, method="Template matching", file="./tasks/Exploration/res/lock_on.png", path="./res/lock_on.png")
 	# 成功打开设置 
-	I_E_OPEN_SETTINGS = RuleImage(roi_front=(466,110,170,50), roi_back=(466,110,170,50), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_open_settings.png")
+	I_E_OPEN_SETTINGS = RuleImage(roi_front=(466,110,170,50), roi_back=(466,110,170,50), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_open_settings.png", path="./res/res_e_open_settings.png")
 	# 选择式神稀有度 
-	I_E_ENTER_CHOOSE_RARITY = RuleImage(roi_front=(34,288,62,47), roi_back=(34,288,62,47), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_enter_choose_rarity.png")
+	I_E_ENTER_CHOOSE_RARITY = RuleImage(roi_front=(34,288,62,47), roi_back=(34,288,62,47), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_enter_choose_rarity.png", path="./res/res_e_enter_choose_rarity.png")
 	# 候补N卡 
-	I_E_N_RARITY = RuleImage(roi_front=(42,625,46,49), roi_back=(42,625,46,49), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_n_rarity.png")
+	I_E_N_RARITY = RuleImage(roi_front=(42,625,46,49), roi_back=(42,625,46,49), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_n_rarity.png", path="./res/res_e_n_rarity.png")
 	# 候补素材 
-	I_E_S_RARITY = RuleImage(roi_front=(33,620,63,59), roi_back=(33,620,63,59), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_s_rarity.png")
+	I_E_S_RARITY = RuleImage(roi_front=(33,620,63,59), roi_back=(33,620,63,59), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_s_rarity.png", path="./res/res_e_s_rarity.png")
 	# 已候补出战的狗粮 
-	I_E_RATATE_EXSIT = RuleImage(roi_front=(108,580,995,32), roi_back=(108,580,995,32), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_ratate_exsit.png")
+	I_E_RATATE_EXSIT = RuleImage(roi_front=(108,580,995,32), roi_back=(108,580,995,32), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_ratate_exsit.png", path="./res/res_e_ratate_exsit.png")
 	# 确定按钮 
-	I_E_SURE_BUTTON = RuleImage(roi_front=(1135,426,43,37), roi_back=(1135,426,43,37), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_sure_button.png")
+	I_E_SURE_BUTTON = RuleImage(roi_front=(1135,426,43,37), roi_back=(1135,426,43,37), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_sure_button.png", path="./res/res_e_sure_button.png")
 	# 设置按钮 
-	I_E_SETTINGS_BUTTON = RuleImage(roi_front=(37,692,53,26), roi_back=(37,692,53,26), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_settings_button.png")
+	I_E_SETTINGS_BUTTON = RuleImage(roi_front=(37,692,53,26), roi_back=(37,692,53,26), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_settings_button.png", path="./res/res_e_settings_button.png")
 	# 普通怪 
-	I_NORMAL_BATTLE_BUTTON = RuleImage(roi_front=(636,263,42,39), roi_back=(0,0,1279,719), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_normal_battle_button.png")
+	I_NORMAL_BATTLE_BUTTON = RuleImage(roi_front=(636,263,42,39), roi_back=(0,0,1279,719), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_normal_battle_button.png", path="./res/res_normal_battle_button.png")
 	# boss 
-	I_BOSS_BATTLE_BUTTON = RuleImage(roi_front=(683,256,38,34), roi_back=(0,0,1276,719), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_boss_battle_button.png")
+	I_BOSS_BATTLE_BUTTON = RuleImage(roi_front=(683,256,38,34), roi_back=(0,0,1276,719), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_boss_battle_button.png", path="./res/res_boss_battle_button.png")
 	# 战后奖励 
-	I_BATTLE_REWARD = RuleImage(roi_front=(647,395,31,21), roi_back=(1,1,1278,718), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_battle_reward.png")
+	I_BATTLE_REWARD = RuleImage(roi_front=(647,395,31,21), roi_back=(1,1,1278,718), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_battle_reward.png", path="./res/res_battle_reward.png")
 	# 妖 
-	I_EXPLORATION_TITLE = RuleImage(roi_front=(1133,124,47,43), roi_back=(1133,124,47,43), threshold=0.7, method="Template matching", file="./tasks/Exploration/res/res_exploration_title.png")
+	I_EXPLORATION_TITLE = RuleImage(roi_front=(1133,124,47,43), roi_back=(1133,124,47,43), threshold=0.7, method="Template matching", file="./tasks/Exploration/res/res_exploration_title.png", path="./res/res_exploration_title.png")
 	# description 
-	I_BATTLE_START = RuleImage(roi_front=(555,688,39,27.5), roi_back=(221,677,561,41), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_battle_start.png")
+	I_BATTLE_START = RuleImage(roi_front=(555,688,39,27.5), roi_back=(221,677,561,41), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_battle_start.png", path="./res/res_battle_start.png")
 	# description 
-	I_GET_REWARD = RuleImage(roi_front=(464,231,339,44), roi_back=(464,231,339,44), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_get_reward.png")
+	I_GET_REWARD = RuleImage(roi_front=(464,231,339,44), roi_back=(464,231,339,44), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_get_reward.png", path="./res/res_get_reward.png")
 	# description 
-	I_RED_CLOSE = RuleImage(roi_front=(1027,129,41,42), roi_back=(1021,121,54,55), threshold=0.6, method="Template matching", file="./tasks/Exploration/res/res_red_close.png")
+	I_RED_CLOSE = RuleImage(roi_front=(1027,129,41,42), roi_back=(1021,121,54,55), threshold=0.6, method="Template matching", file="./tasks/Exploration/res/res_red_close.png", path="./res/res_red_close.png")
 	# description 
-	I_E_EXIT_CONFIRM = RuleImage(roi_front=(694,380,163,49), roi_back=(694,380,163,49), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exit_confirm.png")
+	I_E_EXIT_CONFIRM = RuleImage(roi_front=(694,380,163,49), roi_back=(694,380,163,49), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_e_exit_confirm.png", path="./res/res_e_exit_confirm.png")
 	# 宝箱 
-	I_TREASURE_BOX_CLICK = RuleImage(roi_front=(33,476,70,49), roi_back=(2,130,135,406), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_treasure_box_click.png")
+	I_TREASURE_BOX_CLICK = RuleImage(roi_front=(33,476,70,49), roi_back=(2,130,135,406), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_treasure_box_click.png", path="./res/res_treasure_box_click.png")
 	# 地图宝箱 
-	I_MAP_BOX_CLICK = RuleImage(roi_front=(680,203,100,100), roi_back=(192,46,822,551), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_treasure_box_click.png")
+	I_MAP_BOX_CLICK = RuleImage(roi_front=(680,203,100,100), roi_back=(192,46,822,551), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_treasure_box_click.png", path="./res/res_treasure_box_click.png")
 	# 困28滚动到最后 
-	I_SWIPE_END = RuleImage(roi_front=(994,234,119,100), roi_back=(968,196,311,165), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_swipe_end.png")
+	I_SWIPE_END = RuleImage(roi_front=(994,234,119,100), roi_back=(968,196,311,165), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_swipe_end.png", path="./res/res_swipe_end.png")
 	# 队伍的表情标志 
-	I_TEAM_EMOJI = RuleImage(roi_front=(36,437,44,46), roi_back=(4,407,100,100), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_team_emoji.png")
+	I_TEAM_EMOJI = RuleImage(roi_front=(36,437,44,46), roi_back=(4,407,100,100), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_team_emoji.png", path="./res/res_team_emoji.png")
 	# 组队按钮 
-	I_EXP_CREATE_TEAM = RuleImage(roi_front=(590,514,122,52), roi_back=(543,490,192,100), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_exp_create_team.png")
+	I_EXP_CREATE_TEAM = RuleImage(roi_front=(590,514,122,52), roi_back=(543,490,192,100), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_exp_create_team.png", path="./res/res_exp_create_team.png")
 	# 创建确认 
-	I_EXP_CREATE_ENSURE = RuleImage(roi_front=(534,486,218,59), roi_back=(516,475,244,85), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_exp_create_ensure.png")
+	I_EXP_CREATE_ENSURE = RuleImage(roi_front=(534,486,218,59), roi_back=(516,475,244,85), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/res_exp_create_ensure.png", path="./res/res_exp_create_ensure.png")
 	# 小图标困难-就是普通模式 
-	I_SMALL_HARD = RuleImage(roi_front=(437,215,66,33), roi_back=(437,215,66,33), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/small_hard.png")
+	I_SMALL_HARD = RuleImage(roi_front=(437,215,66,33), roi_back=(437,215,66,33), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/small_hard.png", path="./res/small_hard.png")
 	# 大图标困难-就是困难模式 
-	I_BIG_HARD = RuleImage(roi_front=(437,215,66,33), roi_back=(437,215,66,33), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/big_hard.png")
+	I_BIG_HARD = RuleImage(roi_front=(437,215,66,33), roi_back=(437,215,66,33), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/big_hard.png", path="./res/big_hard.png")
 	# 大图标普通-就是普通模式 
-	I_BIG_EASY = RuleImage(roi_front=(296,200,83,58), roi_back=(296,200,83,58), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/big_easy.png")
+	I_BIG_EASY = RuleImage(roi_front=(296,200,83,58), roi_back=(296,200,83,58), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/big_easy.png", path="./res/big_easy.png")
 	# 小图标普通-就是困难模式 
-	I_SMALL_EASY = RuleImage(roi_front=(307,208,63,42), roi_back=(307,208,63,42), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/small_easy.png")
+	I_SMALL_EASY = RuleImage(roi_front=(307,208,63,42), roi_back=(307,208,63,42), threshold=0.8, method="Template matching", file="./tasks/Exploration/res/small_easy.png", path="./res/small_easy.png")
 
 
 	# Long Click Rule Assets

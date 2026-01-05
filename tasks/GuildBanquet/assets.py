@@ -12,23 +12,23 @@ class GuildBanquetAssets:
 
 	# Image Rule Assets
 	# description 
-	I_FLAG = RuleImage(roi_front=(1035,12,33,60), roi_back=(1035,12,33,60), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/res_flag.png")
+	I_FLAG = RuleImage(roi_front=(1035,12,33,60), roi_back=(1035,12,33,60), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/res_flag.png", path="./res/res_flag.png")
 	# description 
-	I_SECRET_9_LAYER = RuleImage(roi_front=(188,354,39,25), roi_back=(91,253,484,410), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer.png")
+	I_SECRET_9_LAYER = RuleImage(roi_front=(188,354,39,25), roi_back=(91,253,484,410), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer.png", path="./res/secret_9_layer.png")
 	# 百战九层 
-	I_SECRET_9_LAYER_BZ = RuleImage(roi_front=(210,377,50,27), roi_back=(91,253,484,410), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer_bz.png")
+	I_SECRET_9_LAYER_BZ = RuleImage(roi_front=(210,377,50,27), roi_back=(91,253,484,410), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer_bz.png", path="./res/secret_9_layer_bz.png")
 	# description 
-	I_SECRET_9_LAYER_FLAG = RuleImage(roi_front=(694,159,60,45), roi_back=(694,159,60,45), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer_flag.png")
+	I_SECRET_9_LAYER_FLAG = RuleImage(roi_front=(694,159,60,45), roi_back=(694,159,60,45), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_9_layer_flag.png", path="./res/secret_9_layer_flag.png")
 	# description 
-	I_SECRET_HC = RuleImage(roi_front=(309,281,53,30), roi_back=(123,132,695,497), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_hc.png")
+	I_SECRET_HC = RuleImage(roi_front=(309,281,53,30), roi_back=(123,132,695,497), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_hc.png", path="./res/secret_hc.png")
 	# description 
-	I_SECRET_HC_FLAG = RuleImage(roi_front=(1010,243,43,56), roi_back=(864,147,347,316), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_hc_flag.png")
+	I_SECRET_HC_FLAG = RuleImage(roi_front=(1010,243,43,56), roi_back=(864,147,347,316), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/secret_hc_flag.png", path="./res/secret_hc_flag.png")
 	# 秘闻挑战 
-	I_SE_FIRE = RuleImage(roi_front=(1015,503,182,188), roi_back=(1015,502,254,201), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire.png")
+	I_SE_FIRE = RuleImage(roi_front=(1015,503,182,188), roi_back=(1015,502,254,201), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire.png", path="./res/se_se_fire.png")
 	# 百战秘闻挑战 
-	I_SE_FIRE_BZ = RuleImage(roi_front=(1108,551,100,100), roi_back=(1100,541,120,120), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire_bz.png")
+	I_SE_FIRE_BZ = RuleImage(roi_front=(1108,551,100,100), roi_back=(1100,541,120,120), threshold=0.7, method="Template matching", file="./tasks/GuildBanquet/res/se_se_fire_bz.png", path="./res/se_se_fire_bz.png")
 	# 宴会进度10/10 
-	I_GUILD_BANQUET_FINSH = RuleImage(roi_front=(8,82,131,35), roi_back=(8,82,131,35), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/guild_banquet_finsh.png")
+	I_GUILD_BANQUET_FINSH = RuleImage(roi_front=(8,82,131,35), roi_back=(8,82,131,35), threshold=0.8, method="Template matching", file="./tasks/GuildBanquet/res/guild_banquet_finsh.png", path="./res/guild_banquet_finsh.png")
 
 
 	# Swipe Rule Assets

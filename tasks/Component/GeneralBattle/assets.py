@@ -27,9 +27,9 @@ class GeneralBattleAssets:
 
 	# Image Rule Assets
 	# 自动（代表战斗中） 
-	I_IN_BATTLE_AUTO = RuleImage(roi_front=(35,648,55,29), roi_back=(35,648,55,29), threshold=0.65, method="Template matching mask", file="./tasks/Component/GeneralBattle/battle/auto_battle.png")
+	I_IN_BATTLE_AUTO = RuleImage(roi_front=(35,648,55,29), roi_back=(35,648,55,29), threshold=0.65, method="Template matching mask", file="./tasks/Component/GeneralBattle/battle/auto_battle.png", path="./battle/auto_battle.png")
 	# 鬼火（代表战斗中） 
-	I_IN_BATTLE_FIRE = RuleImage(roi_front=(262,689,27,24), roi_back=(262,689,27,24), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/battle/battle_fire.png")
+	I_IN_BATTLE_FIRE = RuleImage(roi_front=(262,689,27,24), roi_back=(262,689,27,24), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/battle/battle_fire.png", path="./battle/battle_fire.png")
 
 
 	# Click Rule Assets
@@ -73,74 +73,74 @@ class GeneralBattleAssets:
 
 	# Image Rule Assets
 	# 奖励，就是那个魂 
-	I_REWARD = RuleImage(roi_front=(547,518,172,96), roi_back=(547,518,172,96), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward.png")
+	I_REWARD = RuleImage(roi_front=(547,518,172,96), roi_back=(547,518,172,96), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward.png", path="./gb/gb_reward.png")
 	# 预设的小图标 
-	I_PRESET = RuleImage(roi_front=(32,650,47,45), roi_back=(32,650,47,45), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset.png")
+	I_PRESET = RuleImage(roi_front=(32,650,47,45), roi_back=(32,650,47,45), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset.png", path="./gb/gb_preset.png")
 	# 准备 
-	I_PREPARE_HIGHLIGHT = RuleImage(roi_front=(1128,536,100,100), roi_back=(1032,492,239,210), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_prepare_highlight.png")
+	I_PREPARE_HIGHLIGHT = RuleImage(roi_front=(1128,536,100,100), roi_back=(1032,492,239,210), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_prepare_highlight.png", path="./gb/gb_prepare_highlight.png")
 	# 战斗胜利 
-	I_WIN = RuleImage(roi_front=(385,47,100,100), roi_back=(296,33,414,224), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_win.png")
+	I_WIN = RuleImage(roi_front=(385,47,100,100), roi_back=(296,33,414,224), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_win.png", path="./gb/gb_win.png")
 	# 准备但是界面还未加载这个时候是黑色的 
-	I_PREPARE_DARK = RuleImage(roi_front=(1131,538,100,100), roi_back=(1131,538,100,100), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_prepare_dark.png")
+	I_PREPARE_DARK = RuleImage(roi_front=(1131,538,100,100), roi_back=(1131,538,100,100), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_prepare_dark.png", path="./gb/gb_prepare_dark.png")
 	# 失败 
-	I_FALSE = RuleImage(roi_front=(413,124,100,100), roi_back=(345,56,248,181), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_false.png")
+	I_FALSE = RuleImage(roi_front=(413,124,100,100), roi_back=(345,56,248,181), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_false.png", path="./gb/gb_false.png")
 	# 确认预设的队伍 
-	I_PRESET_ENSURE = RuleImage(roi_front=(352,643,141,50), roi_back=(305,625,236,83), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_ensure.png")
+	I_PRESET_ENSURE = RuleImage(roi_front=(352,643,141,50), roi_back=(305,625,236,83), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_ensure.png", path="./gb/gb_preset_ensure.png")
 	# 选择buff 
-	I_BUFF = RuleImage(roi_front=(115,657,42,50), roi_back=(106,641,67,77), threshold=0.7, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff.png")
+	I_BUFF = RuleImage(roi_front=(115,657,42,50), roi_back=(106,641,67,77), threshold=0.7, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff.png", path="./gb/gb_buff.png")
 	# 觉醒加成 
-	I_BUFF_AWAKEN = RuleImage(roi_front=(373,126,383,53), roi_back=(373,126,383,53), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_awaken.png")
+	I_BUFF_AWAKEN = RuleImage(roi_front=(373,126,383,53), roi_back=(373,126,383,53), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_awaken.png", path="./gb/gb_buff_awaken.png")
 	# 御魂加成 
-	I_BUFF_SOUL = RuleImage(roi_front=(377,192,371,56), roi_back=(377,192,371,56), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_soul.png")
+	I_BUFF_SOUL = RuleImage(roi_front=(377,192,371,56), roi_back=(377,192,371,56), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_soul.png", path="./gb/gb_buff_soul.png")
 	# 金币加成50 
-	I_BUFF_GOLD_50 = RuleImage(roi_front=(375,259,373,56), roi_back=(375,259,373,56), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_gold_50.png")
+	I_BUFF_GOLD_50 = RuleImage(roi_front=(375,259,373,56), roi_back=(375,259,373,56), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_gold_50.png", path="./gb/gb_buff_gold_50.png")
 	# 金币加成100 
-	I_BUFF_GOLD_100 = RuleImage(roi_front=(371,329,389,54), roi_back=(371,329,389,54), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_gold_100.png")
+	I_BUFF_GOLD_100 = RuleImage(roi_front=(371,329,389,54), roi_back=(371,329,389,54), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_gold_100.png", path="./gb/gb_buff_gold_100.png")
 	# 经验加成50 
-	I_BUFF_EXP_50 = RuleImage(roi_front=(378,400,370,50), roi_back=(378,400,370,50), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_exp_50.png")
+	I_BUFF_EXP_50 = RuleImage(roi_front=(378,400,370,50), roi_back=(378,400,370,50), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_exp_50.png", path="./gb/gb_buff_exp_50.png")
 	# 经验加成100 
-	I_BUFF_EXP_100 = RuleImage(roi_front=(372,463,386,50), roi_back=(372,463,386,50), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_exp_100.png")
+	I_BUFF_EXP_100 = RuleImage(roi_front=(372,463,386,50), roi_back=(372,463,386,50), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_buff_exp_100.png", path="./gb/gb_buff_exp_100.png")
 	# 左下角的位置指针 
-	I_LOCAL = RuleImage(roi_front=(25,563,30,34), roi_back=(25,563,30,34), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_local.png")
+	I_LOCAL = RuleImage(roi_front=(25,563,30,34), roi_back=(25,563,30,34), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_local.png", path="./gb/gb_local.png")
 	# 左上角的退出 
-	I_EXIT = RuleImage(roi_front=(14,12,43,41), roi_back=(14,12,43,41), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit.png")
+	I_EXIT = RuleImage(roi_front=(14,12,43,41), roi_back=(14,12,43,41), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit.png", path="./gb/gb_exit.png")
 	# 退出确认 
-	I_EXIT_ENSURE = RuleImage(roi_front=(674,388,135,63), roi_back=(524,181,518,383), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit_ensure.png")
+	I_EXIT_ENSURE = RuleImage(roi_front=(674,388,135,63), roi_back=(524,181,518,383), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit_ensure.png", path="./gb/gb_exit_ensure.png")
 	# 退出确定 
-	I_EXIT_ENSURE1 = RuleImage(roi_front=(674,388,135,63), roi_back=(524,181,518,383), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit_ensure1.png")
+	I_EXIT_ENSURE1 = RuleImage(roi_front=(674,388,135,63), roi_back=(524,181,518,383), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_exit_ensure1.png", path="./gb/gb_exit_ensure1.png")
 	# 左上角好友图标 
-	I_FRIENDS = RuleImage(roi_front=(89,14,36,36), roi_back=(89,14,36,36), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_friends.png")
+	I_FRIENDS = RuleImage(roi_front=(89,14,36,36), roi_back=(89,14,36,36), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_friends.png", path="./gb/gb_friends.png")
 	# 结算金币 
-	I_REWARD_GOLD = RuleImage(roi_front=(943,312,97,69), roi_back=(943,312,97,69), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_gold.png")
+	I_REWARD_GOLD = RuleImage(roi_front=(943,312,97,69), roi_back=(943,312,97,69), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_gold.png", path="./gb/gb_reward_gold.png")
 	# 结算紫蛇皮 
-	I_REWARD_PURPLE_SNAKE_SKIN = RuleImage(roi_front=(604,213,67,37), roi_back=(108,163,1070,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_purple_snake_skin.png")
+	I_REWARD_PURPLE_SNAKE_SKIN = RuleImage(roi_front=(604,213,67,37), roi_back=(108,163,1070,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_purple_snake_skin.png", path="./gb/gb_reward_purple_snake_skin.png")
 	# 结算金蛇皮 
-	I_REWARD_GOLD_SNAKE_SKIN = RuleImage(roi_front=(537,176,97,75), roi_back=(254,163,797,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_gold_snake_skin.png")
+	I_REWARD_GOLD_SNAKE_SKIN = RuleImage(roi_front=(537,176,97,75), roi_back=(254,163,797,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_gold_snake_skin.png", path="./gb/gb_reward_gold_snake_skin.png")
 	# 结算四星青吉鬼 
-	I_REWARD_EXP_SOUL_4 = RuleImage(roi_front=(806,177,97,69), roi_back=(254,163,797,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_exp_soul_4.png")
+	I_REWARD_EXP_SOUL_4 = RuleImage(roi_front=(806,177,97,69), roi_back=(254,163,797,261), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_exp_soul_4.png", path="./gb/gb_reward_exp_soul_4.png")
 	# 结算五星御魂 
-	I_REWARD_SOUL_5 = RuleImage(roi_front=(266,533,97,20), roi_back=(254,163,797,396), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_soul_5.png")
+	I_REWARD_SOUL_5 = RuleImage(roi_front=(266,533,97,20), roi_back=(254,163,797,396), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_soul_5.png", path="./gb/gb_reward_soul_5.png")
 	# 结算六星御魂 
-	I_REWARD_SOUL_6 = RuleImage(roi_front=(942,397,97,20), roi_back=(254,163,797,396), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_soul_6.png")
+	I_REWARD_SOUL_6 = RuleImage(roi_front=(942,397,97,20), roi_back=(254,163,797,396), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_reward_soul_6.png", path="./gb/gb_reward_soul_6.png")
 	# 针对封魔的特殊 
-	I_DE_WIN = RuleImage(roi_front=(472,49,100,100), roi_back=(239,36,399,133), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_de_win.png")
+	I_DE_WIN = RuleImage(roi_front=(472,49,100,100), roi_back=(239,36,399,133), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_de_win.png", path="./gb/gb_de_win.png")
 	# description 
-	I_PRESENT_LESS_THAN_5 = RuleImage(roi_front=(222,648,418,43), roi_back=(222,648,418,43), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_present_less_than_5.png")
+	I_PRESENT_LESS_THAN_5 = RuleImage(roi_front=(222,648,418,43), roi_back=(222,648,418,43), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_present_less_than_5.png", path="./gb/gb_present_less_than_5.png")
 	# 御魂溢出确认 
-	I_SOUL_FULL_ENSURE = RuleImage(roi_front=(677,393,125,59), roi_back=(677,393,125,59), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/soul_full_ensure.png")
+	I_SOUL_FULL_ENSURE = RuleImage(roi_front=(677,393,125,59), roi_back=(677,393,125,59), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/soul_full_ensure.png", path="./gb/soul_full_ensure.png")
 	# 结算时左下角统计图标 
-	I_REWARD_STATISTICS = RuleImage(roi_front=(51,629,54,59), roi_back=(17,305,643,389), threshold=0.7, method="Template matching mask", file="./tasks/Component/GeneralBattle/gb/gb_reward_statistics.png")
+	I_REWARD_STATISTICS = RuleImage(roi_front=(51,629,54,59), roi_back=(17,305,643,389), threshold=0.7, method="Template matching mask", file="./tasks/Component/GeneralBattle/gb/gb_reward_statistics.png", path="./gb/gb_reward_statistics.png")
 	# 新版本的预设图案带数字 
-	I_PRESET_WIT_NUMBER = RuleImage(roi_front=(40,655,37,37), roi_back=(9,636,100,74), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_wit_number.png")
+	I_PRESET_WIT_NUMBER = RuleImage(roi_front=(40,655,37,37), roi_back=(9,636,100,74), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_preset_wit_number.png", path="./gb/gb_preset_wit_number.png")
 	# 战斗信息标识 
-	I_BATTLE_INFO = RuleImage(roi_front=(230,12,37,39), roi_back=(210,1,147,72), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_battle_info.png")
+	I_BATTLE_INFO = RuleImage(roi_front=(230,12,37,39), roi_back=(210,1,147,72), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_battle_info.png", path="./gb/gb_battle_info.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_GREED_GHOST = RuleImage(roi_front=(56,40,45,45), roi_back=(56,40,45,45), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_greed_ghost.png")
+	I_GREED_GHOST = RuleImage(roi_front=(56,40,45,45), roi_back=(56,40,45,45), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_greed_ghost.png", path="./gb/gb_greed_ghost.png")
 	# 确认按钮 
-	I_CONFIRM = RuleImage(roi_front=(732,383,83,43), roi_back=(330,228,615,286), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_confirm.png")
+	I_CONFIRM = RuleImage(roi_front=(732,383,83,43), roi_back=(330,228,615,286), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBattle/gb/gb_confirm.png", path="./gb/gb_confirm.png")
 
 
 	# Ocr Rule Assets

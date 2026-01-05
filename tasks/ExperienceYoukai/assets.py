@@ -12,6 +12,6 @@ class ExperienceYoukaiAssets:
 
 	# Image Rule Assets
 	# 经验妖怪的赢 
-	I_EXP_WIN = RuleImage(roi_front=(380,44,100,100), roi_back=(380,44,100,100), threshold=0.8, method="Template matching", file="./tasks/ExperienceYoukai/ey/ey_exp_win.png")
+	I_EXP_WIN = RuleImage(roi_front=(380,44,100,100), roi_back=(380,44,100,100), threshold=0.8, method="Template matching", file="./tasks/ExperienceYoukai/ey/ey_exp_win.png", path="./ey/ey_exp_win.png")
 
 

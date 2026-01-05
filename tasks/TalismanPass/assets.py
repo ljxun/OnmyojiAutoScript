@@ -17,26 +17,26 @@ class TalismanPassAssets:
 
 	# Image Rule Assets
 	# accomplishments_1 
-	I_ACCOMPLISHMENTS_1 = RuleImage(roi_front=(1085,644,45,54), roi_back=(1085,644,45,54), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_1.png")
+	I_ACCOMPLISHMENTS_1 = RuleImage(roi_front=(1085,644,45,54), roi_back=(1085,644,45,54), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_1.png", path="./accomplishment/accomplishments_1.png")
 	# accomplishments_2 
-	I_ACCOMPLISHMENTS_2 = RuleImage(roi_front=(102,21,72,42), roi_back=(102,21,72,42), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_2.png")
+	I_ACCOMPLISHMENTS_2 = RuleImage(roi_front=(102,21,72,42), roi_back=(102,21,72,42), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_2.png", path="./accomplishment/accomplishments_2.png")
 	# accomplishments_3 
-	I_ACCOMPLISHMENTS_3 = RuleImage(roi_front=(1077,423,36,42), roi_back=(1077,423,36,42), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_3.png")
+	I_ACCOMPLISHMENTS_3 = RuleImage(roi_front=(1077,423,36,42), roi_back=(1077,423,36,42), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/accomplishment/accomplishments_3.png", path="./accomplishment/accomplishments_3.png")
 
 
 	# Image Rule Assets
 	# 新手奖励 
-	I_NEWBIE = RuleImage(roi_front=(309,331,32,30), roi_back=(24,222,756,256), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie.png")
+	I_NEWBIE = RuleImage(roi_front=(309,331,32,30), roi_back=(24,222,756,256), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie.png", path="./newbie/newbie.png")
 	# 新手奖励_page 
-	I_NEWBIE_PAGE = RuleImage(roi_front=(98,22,78,30), roi_back=(98,22,78,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie_page.png")
+	I_NEWBIE_PAGE = RuleImage(roi_front=(98,22,78,30), roi_back=(98,22,78,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/newbie_page.png", path="./newbie/newbie_page.png")
 	# 缘初之路 
-	I_YC_ROAD = RuleImage(roi_front=(50,166,100,27), roi_back=(35,96,142,346), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/yc_road.png")
+	I_YC_ROAD = RuleImage(roi_front=(50,166,100,27), roi_back=(35,96,142,346), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/yc_road.png", path="./newbie/yc_road.png")
 	# 补给 
-	I_RESUPPLY = RuleImage(roi_front=(1219,388,23,60), roi_back=(1219,388,23,60), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply.png")
+	I_RESUPPLY = RuleImage(roi_front=(1219,388,23,60), roi_back=(1219,388,23,60), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply.png", path="./newbie/resupply.png")
 	# 补给_page 
-	I_RESUPPLY_PAGE = RuleImage(roi_front=(235,256,180,27), roi_back=(235,256,180,27), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply_page.png")
+	I_RESUPPLY_PAGE = RuleImage(roi_front=(235,256,180,27), roi_back=(235,256,180,27), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/resupply_page.png", path="./newbie/resupply_page.png")
 	# 一键领取 
-	I_ONE_COLLECT = RuleImage(roi_front=(1198,569,40,30), roi_back=(1198,569,40,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/one_collect.png")
+	I_ONE_COLLECT = RuleImage(roi_front=(1198,569,40,30), roi_back=(1198,569,40,30), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/newbie/one_collect.png", path="./newbie/one_collect.png")
 
 
 	# Click Rule Assets
@@ -53,30 +53,30 @@ class TalismanPassAssets:
 
 	# Image Rule Assets
 	# 领取全部 
-	I_TP_GET_ALL = RuleImage(roi_front=(903,599,70,71), roi_back=(903,599,70,71), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_get_all.png")
+	I_TP_GET_ALL = RuleImage(roi_front=(903,599,70,71), roi_back=(903,599,70,71), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_get_all.png", path="./tp/tp_tp_get_all.png")
 	# 任务 的右上方红点 
-	I_RED_POINT_TASK = RuleImage(roi_front=(1226,312,23,24), roi_back=(1226,312,23,24), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_task.png")
+	I_RED_POINT_TASK = RuleImage(roi_front=(1226,312,23,24), roi_back=(1226,312,23,24), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_task.png", path="./tp/tp_red_point_task.png")
 	# 今日 的右上方红点 
-	I_RED_POINT_DAY = RuleImage(roi_front=(632,157,23,26), roi_back=(632,157,23,26), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_day.png")
+	I_RED_POINT_DAY = RuleImage(roi_front=(632,157,23,26), roi_back=(632,157,23,26), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_day.png", path="./tp/tp_red_point_day.png")
 	# 本周 的右上方红点 
-	I_RED_POINT_WEEK = RuleImage(roi_front=(795,156,24,25), roi_back=(795,156,24,25), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_week.png")
+	I_RED_POINT_WEEK = RuleImage(roi_front=(795,156,24,25), roi_back=(795,156,24,25), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_week.png", path="./tp/tp_red_point_week.png")
 	# 等级奖励 
-	I_RED_POINT_LEVEL = RuleImage(roi_front=(1222,174,21,22), roi_back=(1214,165,40,43), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_level.png")
+	I_RED_POINT_LEVEL = RuleImage(roi_front=(1222,174,21,22), roi_back=(1214,165,40,43), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_red_point_level.png", path="./tp/tp_red_point_level.png")
 	# 选择一号奖励 
-	I_TP_LEVEL_1 = RuleImage(roi_front=(203,435,122,59), roi_back=(203,435,122,59), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_1.png")
+	I_TP_LEVEL_1 = RuleImage(roi_front=(203,435,122,59), roi_back=(203,435,122,59), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_1.png", path="./tp/tp_tp_level_1.png")
 	# 选择二号奖励 
-	I_TP_LEVEL_2 = RuleImage(roi_front=(577,435,122,55), roi_back=(577,435,122,55), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_2.png")
+	I_TP_LEVEL_2 = RuleImage(roi_front=(577,435,122,55), roi_back=(577,435,122,55), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_2.png", path="./tp/tp_tp_level_2.png")
 	# 选择三号奖励 
-	I_TP_LEVEL_3 = RuleImage(roi_front=(967,433,109,61), roi_back=(967,433,109,61), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_3.png")
+	I_TP_LEVEL_3 = RuleImage(roi_front=(967,433,109,61), roi_back=(967,433,109,61), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_level_3.png", path="./tp/tp_tp_level_3.png")
 	# 前往 
-	I_TP_GOTO = RuleImage(roi_front=(995,254,85,34), roi_back=(928,219,206,315), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_goto.png")
+	I_TP_GOTO = RuleImage(roi_front=(995,254,85,34), roi_back=(928,219,206,315), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_goto.png", path="./tp/tp_tp_goto.png")
 	# 经验的 
-	I_TP_EXP = RuleImage(roi_front=(922,254,32,36), roi_back=(884,215,100,331), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_exp.png")
+	I_TP_EXP = RuleImage(roi_front=(922,254,32,36), roi_back=(884,215,100,331), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_exp.png", path="./tp/tp_tp_exp.png")
 	# 溢出确认 
-	I_OVERFLOW_CONFIRME = RuleImage(roi_front=(585,410,116,44), roi_back=(585,410,116,44), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_overflow_confirme.png")
+	I_OVERFLOW_CONFIRME = RuleImage(roi_front=(585,410,116,44), roi_back=(585,410,116,44), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_overflow_confirme.png", path="./tp/tp_overflow_confirme.png")
 	# tp_task 
-	I_TP_TASK = RuleImage(roi_front=(1200,343,35,57), roi_back=(1188,305,59,115), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_task.png")
+	I_TP_TASK = RuleImage(roi_front=(1200,343,35,57), roi_back=(1188,305,59,115), threshold=0.8, method="Template matching", file="./tasks/TalismanPass/tp/tp_task.png", path="./tp/tp_task.png")
 	# 跳过 
-	I_TP_SKIP = RuleImage(roi_front=(1089,119,72,41), roi_back=(988,7,284,205), threshold=0.7, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_skip.png")
+	I_TP_SKIP = RuleImage(roi_front=(1089,119,72,41), roi_back=(988,7,284,205), threshold=0.7, method="Template matching", file="./tasks/TalismanPass/tp/tp_tp_skip.png", path="./tp/tp_tp_skip.png")
 
 

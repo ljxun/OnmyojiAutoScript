@@ -45,131 +45,131 @@ class HyakkiyakouAssets:
 
 	# Image Rule Assets
 	# 邀请按钮 
-	I_HINVITE = RuleImage(roi_front=(139,593,63,39), roi_back=(105,535,129,147), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hinvite.png")
+	I_HINVITE = RuleImage(roi_front=(139,593,63,39), roi_back=(105,535,129,147), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hinvite.png", path="./hya/hya_hinvite.png")
 	# 进入 
-	I_HACCESS = RuleImage(roi_front=(1059,554,100,100), roi_back=(1059,554,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_haccess.png")
+	I_HACCESS = RuleImage(roi_front=(1059,554,100,100), roi_back=(1059,554,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_haccess.png", path="./hya/hya_haccess.png")
 	# 开始 
-	I_HSTART = RuleImage(roi_front=(1119,555,100,100), roi_back=(1119,555,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hstart.png")
+	I_HSTART = RuleImage(roi_front=(1119,555,100,100), roi_back=(1119,555,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hstart.png", path="./hya/hya_hstart.png")
 	# 押注 
-	I_HSELECTED = RuleImage(roi_front=(980,265,41,44), roi_back=(226,53,836,348), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hselected.png")
+	I_HSELECTED = RuleImage(roi_front=(980,265,41,44), roi_back=(226,53,836,348), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hselected.png", path="./hya/hya_hselected.png")
 	# 结束 
-	I_HEND = RuleImage(roi_front=(81,164,86,299), roi_back=(81,164,86,299), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hend.png")
+	I_HEND = RuleImage(roi_front=(81,164,86,299), roi_back=(81,164,86,299), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hend.png", path="./hya/hya_hend.png")
 	# 冰冻 
-	I_HFREEZE = RuleImage(roi_front=(1092,665,187,54), roi_back=(1092,665,187,54), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hfreeze.png")
+	I_HFREEZE = RuleImage(roi_front=(1092,665,187,54), roi_back=(1092,665,187,54), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hfreeze.png", path="./hya/hya_hfreeze.png")
 	# description 
-	I_HTITLE = RuleImage(roi_front=(578,21,134,48), roi_back=(578,21,134,48), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_htitle.png")
+	I_HTITLE = RuleImage(roi_front=(578,21,134,48), roi_back=(578,21,134,48), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_htitle.png", path="./hya/hya_htitle.png")
 	# description 
-	I_HCLOSE_RED = RuleImage(roi_front=(1056,177,54,54), roi_back=(1056,177,54,54), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hclose_red.png")
+	I_HCLOSE_RED = RuleImage(roi_front=(1056,177,54,54), roi_back=(1056,177,54,54), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hclose_red.png", path="./hya/hya_hclose_red.png")
 	# 回归任务 
-	I_ENSURE_RECALL = RuleImage(roi_front=(1060,145,66,62), roi_back=(877,72,307,211), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_ensure_recall.png")
+	I_ENSURE_RECALL = RuleImage(roi_front=(1060,145,66,62), roi_back=(877,72,307,211), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_ensure_recall.png", path="./hya/hya_ensure_recall.png")
 
 
 	# Image Rule Assets
 	# 左边概率up 
-	I_HYA_STATE_BUFF06 = RuleImage(roi_front=(331,7,126,41), roi_back=(137,1,342,66), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff06.png")
+	I_HYA_STATE_BUFF06 = RuleImage(roi_front=(331,7,126,41), roi_back=(137,1,342,66), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff06.png", path="./hya/hya_hya_state_buff06.png")
 	# 冰冻 
-	I_HYA_STATE_BUFF05 = RuleImage(roi_front=(158,5,127,45), roi_back=(147,0,322,62), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff05.png")
+	I_HYA_STATE_BUFF05 = RuleImage(roi_front=(158,5,127,45), roi_back=(147,0,322,62), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff05.png", path="./hya/hya_hya_state_buff05.png")
 	# 左边好友up 
-	I_HYA_STATE_BUFF07 = RuleImage(roi_front=(157,7,127,43), roi_back=(143,0,347,80), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff07.png")
+	I_HYA_STATE_BUFF07 = RuleImage(roi_front=(157,7,127,43), roi_back=(143,0,347,80), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff07.png", path="./hya/hya_hya_state_buff07.png")
 	# 左边减速 
-	I_HYA_STATE_BUFF02 = RuleImage(roi_front=(157,6,128,39), roi_back=(146,1,348,55), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff02.png")
+	I_HYA_STATE_BUFF02 = RuleImage(roi_front=(157,6,128,39), roi_back=(146,1,348,55), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff02.png", path="./hya/hya_hya_state_buff02.png")
 	# 左边砸豆加速 
-	I_HYA_STATE_BUFF03 = RuleImage(roi_front=(326,4,129,44), roi_back=(143,3,326,59), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff03.png")
+	I_HYA_STATE_BUFF03 = RuleImage(roi_front=(326,4,129,44), roi_back=(143,3,326,59), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_hya_state_buff03.png", path="./hya/hya_hya_state_buff03.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_RESF_0 = RuleImage(roi_front=(615,13,30,46), roi_back=(606,11,43,51), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_0.png")
+	I_RESF_0 = RuleImage(roi_front=(615,13,30,46), roi_back=(606,11,43,51), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_0.png", path="./hya/hya_resf_0.png")
 	# description 
-	I_RESF_1 = RuleImage(roi_front=(617,13,31,46), roi_back=(610,11,42,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_1.png")
+	I_RESF_1 = RuleImage(roi_front=(617,13,31,46), roi_back=(610,11,42,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_1.png", path="./hya/hya_resf_1.png")
 	# description 
-	I_RESF_2 = RuleImage(roi_front=(611,14,33,47), roi_back=(602,10,47,57), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_2.png")
+	I_RESF_2 = RuleImage(roi_front=(611,14,33,47), roi_back=(602,10,47,57), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_2.png", path="./hya/hya_resf_2.png")
 	# description 
-	I_RESF_3 = RuleImage(roi_front=(619,14,28,45), roi_back=(610,12,40,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_3.png")
+	I_RESF_3 = RuleImage(roi_front=(619,14,28,45), roi_back=(610,12,40,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_3.png", path="./hya/hya_resf_3.png")
 	# description 
-	I_RESF_4 = RuleImage(roi_front=(611,14,37,47), roi_back=(608,14,43,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_4.png")
+	I_RESF_4 = RuleImage(roi_front=(611,14,37,47), roi_back=(608,14,43,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_4.png", path="./hya/hya_resf_4.png")
 	# description 
-	I_RESF_5 = RuleImage(roi_front=(612,10,35,48), roi_back=(612,10,35,48), threshold=0.9, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_5.png")
+	I_RESF_5 = RuleImage(roi_front=(612,10,35,48), roi_back=(612,10,35,48), threshold=0.9, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_5.png", path="./hya/hya_resf_5.png")
 	# description 
-	I_RESF_6 = RuleImage(roi_front=(616,10,29,49), roi_back=(616,10,29,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_6.png")
+	I_RESF_6 = RuleImage(roi_front=(616,10,29,49), roi_back=(616,10,29,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_6.png", path="./hya/hya_resf_6.png")
 	# description 
-	I_RESF_7 = RuleImage(roi_front=(611,14,38,44), roi_back=(611,14,38,44), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_7.png")
+	I_RESF_7 = RuleImage(roi_front=(611,14,38,44), roi_back=(611,14,38,44), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_7.png", path="./hya/hya_resf_7.png")
 	# description 
-	I_RESF_8 = RuleImage(roi_front=(615,10,32,50), roi_back=(615,10,32,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_8.png")
+	I_RESF_8 = RuleImage(roi_front=(615,10,32,50), roi_back=(615,10,32,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_8.png", path="./hya/hya_resf_8.png")
 	# description 
-	I_RESF_9 = RuleImage(roi_front=(612,12,38,49), roi_back=(612,12,38,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_9.png")
+	I_RESF_9 = RuleImage(roi_front=(612,12,38,49), roi_back=(612,12,38,49), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resf_9.png", path="./hya/hya_resf_9.png")
 	# description 
-	I_RESR_0 = RuleImage(roi_front=(636,11,34,47), roi_back=(636,11,34,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_0.png")
+	I_RESR_0 = RuleImage(roi_front=(636,11,34,47), roi_back=(636,11,34,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_0.png", path="./hya/hya_resr_0.png")
 	# description 
-	I_RESR_1 = RuleImage(roi_front=(638,13,29,48), roi_back=(638,13,29,48), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_1.png")
+	I_RESR_1 = RuleImage(roi_front=(638,13,29,48), roi_back=(638,13,29,48), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_1.png", path="./hya/hya_resr_1.png")
 	# description 
-	I_RESR_2 = RuleImage(roi_front=(639,15,30,39), roi_back=(639,15,30,39), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_2.png")
+	I_RESR_2 = RuleImage(roi_front=(639,15,30,39), roi_back=(639,15,30,39), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_2.png", path="./hya/hya_resr_2.png")
 	# description 
-	I_RESR_3 = RuleImage(roi_front=(639,14,30,41), roi_back=(639,14,30,41), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_3.png")
+	I_RESR_3 = RuleImage(roi_front=(639,14,30,41), roi_back=(639,14,30,41), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_3.png", path="./hya/hya_resr_3.png")
 	# description 
-	I_RESR_4 = RuleImage(roi_front=(636,13,32,46), roi_back=(636,13,32,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_4.png")
+	I_RESR_4 = RuleImage(roi_front=(636,13,32,46), roi_back=(636,13,32,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_4.png", path="./hya/hya_resr_4.png")
 	# description 
-	I_RESR_5 = RuleImage(roi_front=(639,13,31,46), roi_back=(639,13,31,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_5.png")
+	I_RESR_5 = RuleImage(roi_front=(639,13,31,46), roi_back=(639,13,31,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_5.png", path="./hya/hya_resr_5.png")
 	# description 
-	I_RESR_6 = RuleImage(roi_front=(638,12,32,44), roi_back=(638,12,32,44), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_6.png")
+	I_RESR_6 = RuleImage(roi_front=(638,12,32,44), roi_back=(638,12,32,44), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_6.png", path="./hya/hya_resr_6.png")
 	# description 
-	I_RESR_7 = RuleImage(roi_front=(638,15,34,42), roi_back=(638,15,34,42), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_7.png")
+	I_RESR_7 = RuleImage(roi_front=(638,15,34,42), roi_back=(638,15,34,42), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_7.png", path="./hya/hya_resr_7.png")
 	# description 
-	I_RESR_8 = RuleImage(roi_front=(638,13,33,47), roi_back=(638,13,33,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_8.png")
+	I_RESR_8 = RuleImage(roi_front=(638,13,33,47), roi_back=(638,13,33,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_8.png", path="./hya/hya_resr_8.png")
 	# description 
-	I_RESR_9 = RuleImage(roi_front=(638,12,32,47), roi_back=(638,12,32,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_9.png")
+	I_RESR_9 = RuleImage(roi_front=(638,12,32,47), roi_back=(638,12,32,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_resr_9.png", path="./hya/hya_resr_9.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_BEAN0 = RuleImage(roi_front=(150,648,13,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean0.png")
+	I_BEAN0 = RuleImage(roi_front=(150,648,13,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean0.png", path="./hya/hya_bean0.png")
 	# description 
-	I_BEAN1 = RuleImage(roi_front=(134,648,11,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean1.png")
+	I_BEAN1 = RuleImage(roi_front=(134,648,11,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean1.png", path="./hya/hya_bean1.png")
 	# description 
-	I_BEAN2 = RuleImage(roi_front=(134,649,14,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean2.png")
+	I_BEAN2 = RuleImage(roi_front=(134,649,14,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean2.png", path="./hya/hya_bean2.png")
 	# description 
-	I_BEAN3 = RuleImage(roi_front=(134,649,14,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean3.png")
+	I_BEAN3 = RuleImage(roi_front=(134,649,14,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean3.png", path="./hya/hya_bean3.png")
 	# description 
-	I_BEAN4 = RuleImage(roi_front=(135,647,13,23), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean4.png")
+	I_BEAN4 = RuleImage(roi_front=(135,647,13,23), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean4.png", path="./hya/hya_bean4.png")
 	# description 
-	I_BEAN5 = RuleImage(roi_front=(135,649,13,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean5.png")
+	I_BEAN5 = RuleImage(roi_front=(135,649,13,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean5.png", path="./hya/hya_bean5.png")
 	# description 
-	I_BEAN6 = RuleImage(roi_front=(132,649,15,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean6.png")
+	I_BEAN6 = RuleImage(roi_front=(132,649,15,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean6.png", path="./hya/hya_bean6.png")
 	# description 
-	I_BEAN7 = RuleImage(roi_front=(133,648,15,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean7.png")
+	I_BEAN7 = RuleImage(roi_front=(133,648,15,22), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean7.png", path="./hya/hya_bean7.png")
 	# description 
-	I_BEAN8 = RuleImage(roi_front=(132,646,14,23), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean8.png")
+	I_BEAN8 = RuleImage(roi_front=(132,646,14,23), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean8.png", path="./hya/hya_bean8.png")
 	# description 
-	I_BEAN9 = RuleImage(roi_front=(133,649,15,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean9.png")
+	I_BEAN9 = RuleImage(roi_front=(133,649,15,21), roi_back=(0,0,100,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean9.png", path="./hya/hya_bean9.png")
 	# description 
-	I_BEAN05 = RuleImage(roi_front=(387,640,32,35), roi_back=(371,631,86,52), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean05.png")
+	I_BEAN05 = RuleImage(roi_front=(387,640,32,35), roi_back=(371,631,86,52), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean05.png", path="./hya/hya_bean05.png")
 	# description 
-	I_BEAN10 = RuleImage(roi_front=(560,640,32,35), roi_back=(531,634,72,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean10.png")
+	I_BEAN10 = RuleImage(roi_front=(560,640,32,35), roi_back=(531,634,72,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_bean10.png", path="./hya/hya_bean10.png")
 
 
 	# Image Rule Assets
 	# description 
-	I_FRIEND_SAME_1 = RuleImage(roi_front=(349,124,83,50), roi_back=(349,124,83,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png")
+	I_FRIEND_SAME_1 = RuleImage(roi_front=(349,124,83,50), roi_back=(349,124,83,50), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png", path="./hya/hya_friend_same_1.png")
 	# description 
-	I_FRIEND_REMOTE_1 = RuleImage(roi_front=(444,127,81,46), roi_back=(444,127,81,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png")
+	I_FRIEND_REMOTE_1 = RuleImage(roi_front=(444,127,81,46), roi_back=(444,127,81,46), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png", path="./hya/hya_friend_remote_1.png")
 	# description 
-	I_FRIEND_SAME_2 = RuleImage(roi_front=(355,125,80,47), roi_back=(355,125,80,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png")
+	I_FRIEND_SAME_2 = RuleImage(roi_front=(355,125,80,47), roi_back=(355,125,80,47), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png", path="./hya/hya_friend_same_2.png")
 	# description 
-	I_FRIEND_REMOTE_2 = RuleImage(roi_front=(440,122,89,56), roi_back=(440,122,89,56), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png")
+	I_FRIEND_REMOTE_2 = RuleImage(roi_front=(440,122,89,56), roi_back=(440,122,89,56), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png", path="./hya/hya_friend_remote_2.png")
 	# 回归活动使用 
-	I_FRIEND_SAME_1_RECALL = RuleImage(roi_front=(167,123,106,62), roi_back=(154,105,132,94), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png")
+	I_FRIEND_SAME_1_RECALL = RuleImage(roi_front=(167,123,106,62), roi_back=(154,105,132,94), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_1.png", path="./hya/hya_friend_same_1.png")
 	# 回归活动使用 
-	I_FRIEND_REMOTE_1_RECALL = RuleImage(roi_front=(288,123,106,56), roi_back=(269,106,159,91), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png")
+	I_FRIEND_REMOTE_1_RECALL = RuleImage(roi_front=(288,123,106,56), roi_back=(269,106,159,91), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_1.png", path="./hya/hya_friend_remote_1.png")
 	# 回归活动使用 
-	I_FRIEND_SAME_2_RECALL = RuleImage(roi_front=(168,126,100,60), roi_back=(152,112,133,80), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png")
+	I_FRIEND_SAME_2_RECALL = RuleImage(roi_front=(168,126,100,60), roi_back=(152,112,133,80), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_same_2.png", path="./hya/hya_friend_same_2.png")
 	# 回归活动使用 
-	I_FRIEND_REMOTE_2_RECALL = RuleImage(roi_front=(296,122,100,56), roi_back=(278,115,131,81), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png")
+	I_FRIEND_REMOTE_2_RECALL = RuleImage(roi_front=(296,122,100,56), roi_back=(278,115,131,81), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_remote_2.png", path="./hya/hya_friend_remote_2.png")
 	# 寮 
-	I_FRIEND_RYOU_1 = RuleImage(roi_front=(537,126,80,45), roi_back=(537,126,80,45), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_ryou_1.png")
+	I_FRIEND_RYOU_1 = RuleImage(roi_front=(537,126,80,45), roi_back=(537,126,80,45), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_ryou_1.png", path="./hya/hya_friend_ryou_1.png")
 	# description 
-	I_FRIEND_RYOU_2 = RuleImage(roi_front=(536,127,80,45), roi_back=(536,127,80,45), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_ryou_2.png")
+	I_FRIEND_RYOU_2 = RuleImage(roi_front=(536,127,80,45), roi_back=(536,127,80,45), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_friend_ryou_2.png", path="./hya/hya_friend_ryou_2.png")
 	# 判断是否进入邀请页面 
-	I_CHECK_INVITATION = RuleImage(roi_front=(629,140,272,57), roi_back=(308,113,826,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_check_invitation.png")
+	I_CHECK_INVITATION = RuleImage(roi_front=(629,140,272,57), roi_back=(308,113,826,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/hya/hya_check_invitation.png", path="./hya/hya_check_invitation.png")
 
 
 	# Ocr Rule Assets
@@ -191,37 +191,37 @@ class HyakkiyakouAssets:
 
 	# Image Rule Assets
 	# 缘结之庭 
-	I_TPAGE_1 = RuleImage(roi_front=(238,504,221,123), roi_back=(121,480,950,166), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_1.png")
+	I_TPAGE_1 = RuleImage(roi_front=(238,504,221,123), roi_back=(121,480,950,166), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_1.png", path="./train/train_tpage_1.png")
 	# 本丸御殿 
-	I_TPAGE_2 = RuleImage(roi_front=(411,506,231,120), roi_back=(132,479,933,171), threshold=0.5, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_2.png")
+	I_TPAGE_2 = RuleImage(roi_front=(411,506,231,120), roi_back=(132,479,933,171), threshold=0.5, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_2.png", path="./train/train_tpage_2.png")
 	# 之境 
-	I_TPAGE_3 = RuleImage(roi_front=(748,504,240,118), roi_back=(125,482,937,166), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_3.png")
+	I_TPAGE_3 = RuleImage(roi_front=(748,504,240,118), roi_back=(125,482,937,166), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_3.png", path="./train/train_tpage_3.png")
 	# 鲸歌潜岸 
-	I_TPAGE_4 = RuleImage(roi_front=(281,507,233,120), roi_back=(124,484,933,163), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_4.png")
+	I_TPAGE_4 = RuleImage(roi_front=(281,507,233,120), roi_back=(124,484,933,163), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_4.png", path="./train/train_tpage_4.png")
 	# 杨帆远航 
-	I_TPAGE_5 = RuleImage(roi_front=(539,506,238,120), roi_back=(130,483,940,166), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_5.png")
+	I_TPAGE_5 = RuleImage(roi_front=(539,506,238,120), roi_back=(130,483,940,166), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_5.png", path="./train/train_tpage_5.png")
 	# 繁影留住 
-	I_TPAGE_6 = RuleImage(roi_front=(801,505,232,118), roi_back=(128,493,937,153), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_6.png")
+	I_TPAGE_6 = RuleImage(roi_front=(801,505,232,118), roi_back=(128,493,937,153), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tpage_6.png", path="./train/train_tpage_6.png")
 	# description 
-	I_TCHECK_1 = RuleImage(roi_front=(19,246,100,100), roi_back=(2,218,135,215), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_1.png")
+	I_TCHECK_1 = RuleImage(roi_front=(19,246,100,100), roi_back=(2,218,135,215), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_1.png", path="./train/train_tcheck_1.png")
 	# description 
-	I_TCHECK_2 = RuleImage(roi_front=(9,216,157,226), roi_back=(0,197,186,263), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_2.png")
+	I_TCHECK_2 = RuleImage(roi_front=(9,216,157,226), roi_back=(0,197,186,263), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_2.png", path="./train/train_tcheck_2.png")
 	# description 
-	I_TCHECK_3 = RuleImage(roi_front=(5,126,138,299), roi_back=(2,110,147,345), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_3.png")
+	I_TCHECK_3 = RuleImage(roi_front=(5,126,138,299), roi_back=(2,110,147,345), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_3.png", path="./train/train_tcheck_3.png")
 	# description 
-	I_TCHECK_4 = RuleImage(roi_front=(7,108,100,332), roi_back=(0,101,120,347), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_4.png")
+	I_TCHECK_4 = RuleImage(roi_front=(7,108,100,332), roi_back=(0,101,120,347), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_4.png", path="./train/train_tcheck_4.png")
 	# description 
-	I_TCHECK_5 = RuleImage(roi_front=(132,28,77,103), roi_back=(94,13,152,234), threshold=0.4, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_5.png")
+	I_TCHECK_5 = RuleImage(roi_front=(132,28,77,103), roi_back=(94,13,152,234), threshold=0.4, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_5.png", path="./train/train_tcheck_5.png")
 	# description 
-	I_TCHECK_6 = RuleImage(roi_front=(9,107,100,350), roi_back=(3,97,113,369), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_6.png")
+	I_TCHECK_6 = RuleImage(roi_front=(9,107,100,350), roi_back=(3,97,113,369), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_6.png", path="./train/train_tcheck_6.png")
 	# description 
-	I_SWITCH_BACKGROUND = RuleImage(roi_front=(992,649,105,36), roi_back=(969,627,152,72), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_switch_background.png")
+	I_SWITCH_BACKGROUND = RuleImage(roi_front=(992,649,105,36), roi_back=(969,627,152,72), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_switch_background.png", path="./train/train_switch_background.png")
 	# description 
-	I_TCHECK_22 = RuleImage(roi_front=(14,150,100,100), roi_back=(5,139,124,127), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_22.png")
+	I_TCHECK_22 = RuleImage(roi_front=(14,150,100,100), roi_back=(5,139,124,127), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_22.png", path="./train/train_tcheck_22.png")
 	# description 
-	I_TCHECK_32 = RuleImage(roi_front=(35,175,100,100), roi_back=(26,155,123,141), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_32.png")
+	I_TCHECK_32 = RuleImage(roi_front=(35,175,100,100), roi_back=(26,155,123,141), threshold=0.7, method="Template matching", file="./tasks/Hyakkiyakou/train/train_tcheck_32.png", path="./train/train_tcheck_32.png")
 	# 检查是否在砸豆子 
-	I_CHECK_RUN = RuleImage(roi_front=(95,598,92,45), roi_back=(68,578,143,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_check_run.png")
+	I_CHECK_RUN = RuleImage(roi_front=(95,598,92,45), roi_back=(68,578,143,100), threshold=0.8, method="Template matching", file="./tasks/Hyakkiyakou/train/train_check_run.png", path="./train/train_check_run.png")
 
 
 	# Swipe Rule Assets

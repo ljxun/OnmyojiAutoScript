@@ -12,12 +12,12 @@ class AutoCakeAssets:
 
 	# Image Rule Assets
 	# 进入活动第二步 
-	I_STEP_2 = RuleImage(roi_front=(207,210,37,138), roi_back=(207,210,37,138), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_step_2.png")
+	I_STEP_2 = RuleImage(roi_front=(207,210,37,138), roi_back=(207,210,37,138), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_step_2.png", path="./res/res_step_2.png")
 	# 是否到达活动界面 
-	I_IS_REACH = RuleImage(roi_front=(87,16,130,41), roi_back=(87,16,130,41), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_is_reach.png")
+	I_IS_REACH = RuleImage(roi_front=(87,16,130,41), roi_back=(87,16,130,41), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_is_reach.png", path="./res/res_is_reach.png")
 	# description 
-	I_IS_OVER = RuleImage(roi_front=(706,254,69,64), roi_back=(706,254,69,64), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_is_over.png")
+	I_IS_OVER = RuleImage(roi_front=(706,254,69,64), roi_back=(706,254,69,64), threshold=0.8, method="Template matching", file="./tasks/AutoCake/res/res_is_over.png", path="./res/res_is_over.png")
 	# 已关闭樱饼 
-	I_IS_CLOSE = RuleImage(roi_front=(970,663,22,21), roi_back=(970,663,22,21), threshold=0.6, method="Template matching", file="./tasks/AutoCake/res/res_is_close.png")
+	I_IS_CLOSE = RuleImage(roi_front=(970,663,22,21), roi_back=(970,663,22,21), threshold=0.6, method="Template matching", file="./tasks/AutoCake/res/res_is_close.png", path="./res/res_is_close.png")
 
 

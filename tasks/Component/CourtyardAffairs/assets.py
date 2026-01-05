@@ -12,12 +12,12 @@ class CourtyardAffairsAssets:
 
 	# Image Rule Assets
 	# 进入庭院事务按钮 
-	I_COURTYARD_AFFAIRS_BUTTON = RuleImage(roi_front=(1189,299,35,33), roi_back=(1168,127,76,389), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/courtyard_affairs_button.png")
+	I_COURTYARD_AFFAIRS_BUTTON = RuleImage(roi_front=(1189,299,35,33), roi_back=(1168,127,76,389), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/courtyard_affairs_button.png", path="./res/courtyard_affairs_button.png")
 	# 庭院事务主页面 
-	I_COURTYARD_AFFAIRS_PAGE = RuleImage(roi_front=(277,41,160,51), roi_back=(277,41,160,51), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/courtyard_affairs_page.png")
+	I_COURTYARD_AFFAIRS_PAGE = RuleImage(roi_front=(277,41,160,51), roi_back=(277,41,160,51), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/courtyard_affairs_page.png", path="./res/courtyard_affairs_page.png")
 	# 一键完成 
-	I_COMPLETE_WITH_ONE_CLICK = RuleImage(roi_front=(1128,600,70,67), roi_back=(1128,600,70,67), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/complete_with_one_click.png")
+	I_COMPLETE_WITH_ONE_CLICK = RuleImage(roi_front=(1128,600,70,67), roi_back=(1128,600,70,67), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/complete_with_one_click.png", path="./res/complete_with_one_click.png")
 	# 领取成功 
-	I_SUCCESS_CLAIMED = RuleImage(roi_front=(319,33,160,51), roi_back=(319,33,160,51), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/success_claimed.png")
+	I_SUCCESS_CLAIMED = RuleImage(roi_front=(319,33,160,51), roi_back=(319,33,160,51), threshold=0.8, method="Template matching", file="./tasks/Component/CourtyardAffairs/res/success_claimed.png", path="./res/success_claimed.png")
 
 

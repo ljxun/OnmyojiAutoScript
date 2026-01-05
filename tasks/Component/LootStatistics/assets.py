@@ -12,6 +12,6 @@ class LootStatisticsAssets:
 
 	# Image Rule Assets
 	# 突破卷 
-	I_REALM_RAID_PASS = RuleImage(roi_front=(402,175,100,100), roi_back=(251,161,809,128), threshold=0.8, method="Template matching", file="./tasks/Component/LootStatistics/ls/ls_realm_raid_pass.png")
+	I_REALM_RAID_PASS = RuleImage(roi_front=(402,175,100,100), roi_back=(251,161,809,128), threshold=0.8, method="Template matching", file="./tasks/Component/LootStatistics/ls/ls_realm_raid_pass.png", path="./ls/ls_realm_raid_pass.png")
 
 

@@ -12,15 +12,15 @@ class SummonAssets:
 
 	# Image Rule Assets
 	# 点击蓝票 
-	I_BLUE_TICKET = RuleImage(roi_front=(595,586,65,76), roi_back=(523,563,211,111), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_blue_ticket.png")
+	I_BLUE_TICKET = RuleImage(roi_front=(595,586,65,76), roi_back=(523,563,211,111), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_blue_ticket.png", path="./sm/sm_blue_ticket.png")
 	# 点击厕所票 
-	I_LOW_TICKET = RuleImage(roi_front=(436,605,63,65), roi_back=(378,577,157,99), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_low_ticket.png")
+	I_LOW_TICKET = RuleImage(roi_front=(436,605,63,65), roi_back=(378,577,157,99), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_low_ticket.png", path="./sm/sm_low_ticket.png")
 	# 单抽 
-	I_ONE_TICKET = RuleImage(roi_front=(396,599,76,76), roi_back=(396,599,76,76), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_one_ticket.png")
+	I_ONE_TICKET = RuleImage(roi_front=(396,599,76,76), roi_back=(396,599,76,76), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_one_ticket.png", path="./sm/sm_one_ticket.png")
 	# description 
-	I_SM_CONFIRM = RuleImage(roi_front=(419,617,174,61), roi_back=(419,617,174,61), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_sm_confirm.png")
+	I_SM_CONFIRM = RuleImage(roi_front=(419,617,174,61), roi_back=(419,617,174,61), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_sm_confirm.png", path="./sm/sm_sm_confirm.png")
 	# 抽到的时候出现的 
-	I_SM_CONFIRM_2 = RuleImage(roi_front=(377,630,206,62), roi_back=(377,630,206,62), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_sm_confirm_2.png")
+	I_SM_CONFIRM_2 = RuleImage(roi_front=(377,630,206,62), roi_back=(377,630,206,62), threshold=0.8, method="Template matching", file="./tasks/Component/Summon/sm/sm_sm_confirm_2.png", path="./sm/sm_sm_confirm_2.png")
 
 
 	# Ocr Rule Assets

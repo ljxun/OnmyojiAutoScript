@@ -12,23 +12,23 @@ class KekkaiUtilizeAssets:
 
 	# Image Rule Assets
 	# 寮信息 
-	I_GUILD_INFO = RuleImage(roi_front=(1157,599,97,91), roi_back=(1157,599,97,91), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_info.png")
+	I_GUILD_INFO = RuleImage(roi_front=(1157,599,97,91), roi_back=(1157,599,97,91), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_info.png", path="./ku/ku_guild_info.png")
 	# 寮结界 
-	I_GUILD_REALM = RuleImage(roi_front=(1065,620,67,61), roi_back=(1065,620,67,61), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_realm.png")
+	I_GUILD_REALM = RuleImage(roi_front=(1065,620,67,61), roi_back=(1065,620,67,61), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_realm.png", path="./ku/ku_guild_realm.png")
 	# 祈愿 
-	I_GUILD_WISH = RuleImage(roi_front=(965,622,60,63), roi_back=(965,622,60,63), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_wish.png")
+	I_GUILD_WISH = RuleImage(roi_front=(965,622,60,63), roi_back=(965,622,60,63), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_wish.png", path="./ku/ku_guild_wish.png")
 	# 神灶 
-	I_GUILD_SHIRNE = RuleImage(roi_front=(872,624,60,62), roi_back=(872,624,60,62), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_shirne.png")
+	I_GUILD_SHIRNE = RuleImage(roi_front=(872,624,60,62), roi_back=(872,624,60,62), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_shirne.png", path="./ku/ku_guild_shirne.png")
 	# 寮体力 
-	I_GUILD_AP = RuleImage(roi_front=(483,314,22,22), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_ap.png")
+	I_GUILD_AP = RuleImage(roi_front=(483,314,22,22), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_ap.png", path="./ku/ku_guild_ap.png")
 	# 寮资金 
-	I_GUILD_ASSETS = RuleImage(roi_front=(315,311,23,28), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_assets.png")
+	I_GUILD_ASSETS = RuleImage(roi_front=(315,311,23,28), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_assets.png", path="./ku/ku_guild_assets.png")
 	# 领取寮资金 
-	I_GUILD_ASSETS_RECEIVE = RuleImage(roi_front=(565,426,144,63), roi_back=(565,426,144,63), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_assets_receive.png")
+	I_GUILD_ASSETS_RECEIVE = RuleImage(roi_front=(565,426,144,63), roi_back=(565,426,144,63), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_assets_receive.png", path="./ku/ku_guild_assets_receive.png")
 	# 收起的寮活动横幅 
-	I_GUILD_COLLAPSE = RuleImage(roi_front=(28,159,19,22), roi_back=(12,125,88,101), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_collapse.png")
+	I_GUILD_COLLAPSE = RuleImage(roi_front=(28,159,19,22), roi_back=(12,125,88,101), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_collapse.png", path="./ku/ku_guild_collapse.png")
 	# 展开的寮活动横幅 
-	I_GUILD_EXPAND = RuleImage(roi_front=(264,162,16,18), roi_back=(212,102,110,124), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_expand.png")
+	I_GUILD_EXPAND = RuleImage(roi_front=(264,162,16,18), roi_back=(212,102,110,124), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/ku/ku_guild_expand.png", path="./ku/ku_guild_expand.png")
 
 
 	# Swipe Rule Assets
@@ -38,11 +38,11 @@ class KekkaiUtilizeAssets:
 
 	# Image Rule Assets
 	# lottery_box 
-	I_LOTTERY_BOX = RuleImage(roi_front=(489,317,20,17), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_box.png")
+	I_LOTTERY_BOX = RuleImage(roi_front=(489,317,20,17), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_box.png", path="./lottery_box/lottery_box.png")
 	# lottery_box_page 
-	I_LOTTERY_BOX_PAGE = RuleImage(roi_front=(119,21,95,39), roi_back=(119,21,95,39), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_box_page.png")
+	I_LOTTERY_BOX_PAGE = RuleImage(roi_front=(119,21,95,39), roi_back=(119,21,95,39), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_box_page.png", path="./lottery_box/lottery_box_page.png")
 	# lottery_click 
-	I_LOTTERY_CLICK = RuleImage(roi_front=(785,520,60,81), roi_back=(785,520,60,81), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_click.png")
+	I_LOTTERY_CLICK = RuleImage(roi_front=(785,520,60,81), roi_back=(785,520,60,81), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/lottery_box/lottery_click.png", path="./lottery_box/lottery_click.png")
 
 
 	# Ocr Rule Assets
@@ -57,29 +57,29 @@ class KekkaiUtilizeAssets:
 
 	# Image Rule Assets
 	# 育成 
-	I_SHI_GROWN = RuleImage(roi_front=(595,291,35,38), roi_back=(530,254,181,198), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_grown.png")
+	I_SHI_GROWN = RuleImage(roi_front=(595,291,35,38), roi_back=(530,254,181,198), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_grown.png", path="./realm/realm_shi_grown.png")
 	# 结界卡 
-	I_SHI_CARD = RuleImage(roi_front=(886,290,38,56), roi_back=(870,276,75,86), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_card.png")
+	I_SHI_CARD = RuleImage(roi_front=(886,290,38,56), roi_back=(870,276,75,86), threshold=0.6, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_card.png", path="./realm/realm_shi_card.png")
 	# description 
-	I_SHI_DEFENSE = RuleImage(roi_front=(294,298,49,56), roi_back=(215,207,208,221), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_defense.png")
+	I_SHI_DEFENSE = RuleImage(roi_front=(294,298,49,56), roi_back=(215,207,208,221), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_shi_defense.png", path="./realm/realm_shi_defense.png")
 	# 收取经验（没有满的图） 
-	I_CARD_EXP = RuleImage(roi_front=(889,151,57,54), roi_back=(829,107,199,185), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_card_exp.png")
+	I_CARD_EXP = RuleImage(roi_front=(889,151,57,54), roi_back=(829,107,199,185), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_card_exp.png", path="./realm/realm_card_exp.png")
 	# 收取体力（没有满） 
-	I_BOX_AP = RuleImage(roi_front=(815,435,57,51), roi_back=(744,336,202,204), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_ap.png")
+	I_BOX_AP = RuleImage(roi_front=(815,435,57,51), roi_back=(744,336,202,204), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_ap.png", path="./realm/realm_box_ap.png")
 	# 收取盒子的经验（没有满） 
-	I_BOX_EXP = RuleImage(roi_front=(893,440,42,45), roi_back=(862,396,147,127), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_exp.png")
+	I_BOX_EXP = RuleImage(roi_front=(893,440,42,45), roi_back=(862,396,147,127), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_exp.png", path="./realm/realm_box_exp.png")
 	# 结界皮肤 
-	I_REALM_SHIN = RuleImage(roi_front=(175,460,54,58), roi_back=(22,380,393,308), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_realm_shin.png")
+	I_REALM_SHIN = RuleImage(roi_front=(175,460,54,58), roi_back=(22,380,393,308), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_realm_shin.png", path="./realm/realm_realm_shin.png")
 	# 寄养别人的经验 
-	I_UTILIZE_EXP = RuleImage(roi_front=(583,144,58,43), roi_back=(531,112,156,123), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_utilize_exp.png")
+	I_UTILIZE_EXP = RuleImage(roi_front=(583,144,58,43), roi_back=(531,112,156,123), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_utilize_exp.png", path="./realm/realm_utilize_exp.png")
 	# 取出 
-	I_AP_EXTRACT = RuleImage(roi_front=(592,501,100,75), roi_back=(592,501,100,75), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_ap_extract.png")
+	I_AP_EXTRACT = RuleImage(roi_front=(592,501,100,75), roi_back=(592,501,100,75), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_ap_extract.png", path="./realm/realm_ap_extract.png")
 	# 提取 
-	I_EXP_EXTRACT = RuleImage(roi_front=(592,448,100,73), roi_back=(592,448,100,73), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_exp_extract.png")
+	I_EXP_EXTRACT = RuleImage(roi_front=(592,448,100,73), roi_back=(592,448,100,73), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_exp_extract.png", path="./realm/realm_exp_extract.png")
 	# 盒子经验满 
-	I_BOX_EXP_MAX = RuleImage(roi_front=(889,430,61,64), roi_back=(829,372,228,186), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_exp_max.png")
+	I_BOX_EXP_MAX = RuleImage(roi_front=(889,430,61,64), roi_back=(829,372,228,186), threshold=0.7, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_box_exp_max.png", path="./realm/realm_box_exp_max.png")
 	# 种树活动关闭标识 
-	I_PLANT_TREE_CLOSE = RuleImage(roi_front=(777,91,36,34), roi_back=(695,40,446,432), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_plant_tree_close.png")
+	I_PLANT_TREE_CLOSE = RuleImage(roi_front=(777,91,36,34), roi_back=(695,40,446,432), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/realm/realm_plant_tree_close.png", path="./realm/realm_plant_tree_close.png")
 
 
 	# Click Rule Assets
@@ -97,70 +97,70 @@ class KekkaiUtilizeAssets:
 
 	# Image Rule Assets
 	# 右上角的放置好友寄养 
-	I_UTILIZE_ADD = RuleImage(roi_front=(1149,54,74,67), roi_back=(1149,54,74,67), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_add.png")
+	I_UTILIZE_ADD = RuleImage(roi_front=(1149,54,74,67), roi_back=(1149,54,74,67), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_add.png", path="./utilize/utilize_utilize_add.png")
 	# 好友这组 
-	I_UTILIZE_FRIEND_GROUP = RuleImage(roi_front=(216,92,109,70), roi_back=(216,92,109,70), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_friend_group.png")
+	I_UTILIZE_FRIEND_GROUP = RuleImage(roi_front=(216,92,109,70), roi_back=(216,92,109,70), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_friend_group.png", path="./utilize/utilize_utilize_friend_group.png")
 	# 跨区 
-	I_UTILIZE_ZONES_GROUP = RuleImage(roi_front=(337,92,109,66), roi_back=(337,92,109,66), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_zones_group.png")
+	I_UTILIZE_ZONES_GROUP = RuleImage(roi_front=(337,92,109,66), roi_back=(337,92,109,66), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_utilize_zones_group.png", path="./utilize/utilize_utilize_zones_group.png")
 	# description 
-	I_U_TAIKO_3 = RuleImage(roi_front=(548,424,47,44), roi_back=(541,183,75,398), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_3.png")
+	I_U_TAIKO_3 = RuleImage(roi_front=(548,424,47,44), roi_back=(541,183,75,398), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_3.png", path="./utilize/utilize_u_taiko_3.png")
 	# description 
-	I_U_TAIKO_4 = RuleImage(roi_front=(543,316,60,43), roi_back=(541,171,73,438), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_4.png")
+	I_U_TAIKO_4 = RuleImage(roi_front=(543,316,60,43), roi_back=(541,171,73,438), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_4.png", path="./utilize/utilize_u_taiko_4.png")
 	# description 
-	I_U_TAIKO_5 = RuleImage(roi_front=(543,201,62,54), roi_back=(538,179,79,426), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_5.png")
+	I_U_TAIKO_5 = RuleImage(roi_front=(543,201,62,54), roi_back=(538,179,79,426), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_5.png", path="./utilize/utilize_u_taiko_5.png")
 	# description 
-	I_U_TAIKO_6 = RuleImage(roi_front=(543,521,62,54), roi_back=(533,156,87,450), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_6.png")
+	I_U_TAIKO_6 = RuleImage(roi_front=(543,521,62,54), roi_back=(533,156,87,450), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_taiko_6.png", path="./utilize/utilize_u_taiko_6.png")
 	# description 
-	I_U_FISH_3 = RuleImage(roi_front=(552,216,41,33), roi_back=(543,178,69,412), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_3.png")
+	I_U_FISH_3 = RuleImage(roi_front=(552,216,41,33), roi_back=(543,178,69,412), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_3.png", path="./utilize/utilize_u_fish_3.png")
 	# description 
-	I_U_FISH_4 = RuleImage(roi_front=(549,310,51,50), roi_back=(542,177,73,401), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_4.png")
+	I_U_FISH_4 = RuleImage(roi_front=(549,310,51,50), roi_back=(542,177,73,401), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_4.png", path="./utilize/utilize_u_fish_4.png")
 	# description 
-	I_U_FISH_5 = RuleImage(roi_front=(543,412,62,54), roi_back=(541,183,71,403), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_5.png")
+	I_U_FISH_5 = RuleImage(roi_front=(543,412,62,54), roi_back=(541,183,71,403), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_5.png", path="./utilize/utilize_u_fish_5.png")
 	# description 
-	I_U_FISH_6 = RuleImage(roi_front=(542,197,62,54), roi_back=(530,184,82,416), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_6.png")
+	I_U_FISH_6 = RuleImage(roi_front=(542,197,62,54), roi_back=(530,184,82,416), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_fish_6.png", path="./utilize/utilize_u_fish_6.png")
 	# 进入结界 
-	I_U_ENTER_REALM = RuleImage(roi_front=(792,531,178,67), roi_back=(792,531,178,67), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_enter_realm.png")
+	I_U_ENTER_REALM = RuleImage(roi_front=(792,531,178,67), roi_back=(792,531,178,67), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_enter_realm.png", path="./utilize/utilize_u_enter_realm.png")
 	# 右侧大的图片 
-	I_U_BIG_3 = RuleImage(roi_front=(835,321,100,25), roi_back=(835,321,100,25), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_3.png")
+	I_U_BIG_3 = RuleImage(roi_front=(835,321,100,25), roi_back=(835,321,100,25), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_3.png", path="./utilize/utilize_u_big_3.png")
 	# description 
-	I_U_BIG_4 = RuleImage(roi_front=(836,322,100,25), roi_back=(836,322,100,25), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_4.png")
+	I_U_BIG_4 = RuleImage(roi_front=(836,322,100,25), roi_back=(836,322,100,25), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_4.png", path="./utilize/utilize_u_big_4.png")
 	# description 
-	I_U_BIG_5 = RuleImage(roi_front=(834,320,100,26), roi_back=(834,320,100,26), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_5.png")
+	I_U_BIG_5 = RuleImage(roi_front=(834,320,100,26), roi_back=(834,320,100,26), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_5.png", path="./utilize/utilize_u_big_5.png")
 	# description 
-	I_U_BIG_6 = RuleImage(roi_front=(833,320,100,27), roi_back=(833,320,100,27), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_6.png")
+	I_U_BIG_6 = RuleImage(roi_front=(833,320,100,27), roi_back=(833,320,100,27), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_big_6.png", path="./utilize/utilize_u_big_6.png")
 	# 右上，右数第一个 
-	I_U_ADD_1 = RuleImage(roi_front=(1144,59,86,69), roi_back=(1144,59,86,69), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_add_1.png")
+	I_U_ADD_1 = RuleImage(roi_front=(1144,59,86,69), roi_back=(1144,59,86,69), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_add_1.png", path="./utilize/utilize_u_add_1.png")
 	# 右上，右数第二个 
-	I_U_ADD_2 = RuleImage(roi_front=(979,52,76,69), roi_back=(979,52,76,69), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_add_2.png")
+	I_U_ADD_2 = RuleImage(roi_front=(979,52,76,69), roi_back=(979,52,76,69), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_add_2.png", path="./utilize/utilize_u_add_2.png")
 	# description 
-	I_U_CONFIRM_SMALL = RuleImage(roi_front=(672,513,131,60), roi_back=(672,513,131,60), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_confirm_small.png")
+	I_U_CONFIRM_SMALL = RuleImage(roi_front=(672,513,131,60), roi_back=(672,513,131,60), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_confirm_small.png", path="./utilize/utilize_u_confirm_small.png")
 	# description 
-	I_SELECT_REALM_ON_1 = RuleImage(roi_front=(608,191,21,59), roi_back=(608,191,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_1.png")
+	I_SELECT_REALM_ON_1 = RuleImage(roi_front=(608,191,21,59), roi_back=(608,191,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_1.png", path="./utilize/select_realm_on_1.png")
 	# description 
-	I_SELECT_REALM_ON_2 = RuleImage(roi_front=(606,298,21,59), roi_back=(606,298,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_2.png")
+	I_SELECT_REALM_ON_2 = RuleImage(roi_front=(606,298,21,59), roi_back=(606,298,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_2.png", path="./utilize/select_realm_on_2.png")
 	# description 
-	I_SELECT_REALM_ON_3 = RuleImage(roi_front=(607,404,21,59), roi_back=(607,404,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_3.png")
+	I_SELECT_REALM_ON_3 = RuleImage(roi_front=(607,404,21,59), roi_back=(607,404,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_3.png", path="./utilize/select_realm_on_3.png")
 	# description 
-	I_SELECT_REALM_ON_4 = RuleImage(roi_front=(607,516,21,59), roi_back=(607,516,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_4.png")
+	I_SELECT_REALM_ON_4 = RuleImage(roi_front=(607,516,21,59), roi_back=(607,516,21,59), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/select_realm_on_4.png", path="./utilize/select_realm_on_4.png")
 
 
 	# Image Rule Assets
 	# 太阴6 
-	I_U_MOON_6 = RuleImage(roi_front=(548,194,54,54), roi_back=(540,189,68,404), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_6.png")
+	I_U_MOON_6 = RuleImage(roi_front=(548,194,54,54), roi_back=(540,189,68,404), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_6.png", path="./utilize/utilize_u_moon_6.png")
 	# description 
-	I_U_MOON_5 = RuleImage(roi_front=(548,205,48,46), roi_back=(540,196,66,407), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_5.png")
+	I_U_MOON_5 = RuleImage(roi_front=(548,205,48,46), roi_back=(540,196,66,407), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_5.png", path="./utilize/utilize_u_moon_5.png")
 	# description 
-	I_U_MOON_4 = RuleImage(roi_front=(548,309,49,50), roi_back=(533,167,81,437), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_4.png")
+	I_U_MOON_4 = RuleImage(roi_front=(548,309,49,50), roi_back=(533,167,81,437), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_4.png", path="./utilize/utilize_u_moon_4.png")
 	# description 
-	I_U_MOON_3 = RuleImage(roi_front=(549,305,53,53), roi_back=(535,173,77,430), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_3.png")
+	I_U_MOON_3 = RuleImage(roi_front=(549,305,53,53), roi_back=(535,173,77,430), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_3.png", path="./utilize/utilize_u_moon_3.png")
 	# description 
-	I_U_MOON_2 = RuleImage(roi_front=(552,313,46,44), roi_back=(542,174,81,437), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_2.png")
+	I_U_MOON_2 = RuleImage(roi_front=(552,313,46,44), roi_back=(542,174,81,437), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_u_moon_2.png", path="./utilize/utilize_u_moon_2.png")
 	# description 
-	I_CHECK_FRIEND_REALM_1 = RuleImage(roi_front=(1059,17,90,21), roi_back=(844,4,421,65), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_1.png")
+	I_CHECK_FRIEND_REALM_1 = RuleImage(roi_front=(1059,17,90,21), roi_back=(844,4,421,65), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_1.png", path="./utilize/utilize_check_friend_realm_1.png")
 	# description 
-	I_CHECK_FRIEND_REALM_2 = RuleImage(roi_front=(590,143,44,52), roi_back=(538,106,161,158), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_2.png")
+	I_CHECK_FRIEND_REALM_2 = RuleImage(roi_front=(590,143,44,52), roi_back=(538,106,161,158), threshold=0.8, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_2.png", path="./utilize/utilize_check_friend_realm_2.png")
 	# 好友寄养 
-	I_CHECK_FRIEND_REALM_3 = RuleImage(roi_front=(900,23,22,120), roi_back=(884,11,271,160), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_3.png")
+	I_CHECK_FRIEND_REALM_3 = RuleImage(roi_front=(900,23,22,120), roi_back=(884,11,271,160), threshold=0.9, method="Template matching", file="./tasks/KekkaiUtilize/utilize/utilize_check_friend_realm_3.png", path="./utilize/utilize_check_friend_realm_3.png")
 
 
 	# Ocr Rule Assets

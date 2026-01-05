@@ -12,27 +12,27 @@ class GeneralBuffAssets:
 
 	# Image Rule Assets
 	# 庭院左上角的加成 
-	I_BUFF_1 = RuleImage(roi_front=(363,32,32,46), roi_back=(344,14,128,76), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_buff_1.png")
+	I_BUFF_1 = RuleImage(roi_front=(363,32,32,46), roi_back=(344,14,128,76), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_buff_1.png", path="./gb/gb_buff_1.png")
 	# description 
-	I_AWAKE = RuleImage(roi_front=(381,130,35,45), roi_back=(360,107,80,447), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_awake.png")
+	I_AWAKE = RuleImage(roi_front=(381,130,35,45), roi_back=(360,107,80,447), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_awake.png", path="./gb/gb_awake.png")
 	# 御魂加成 
-	I_SOUL = RuleImage(roi_front=(377,203,39,40), roi_back=(361,121,71,388), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_soul.png")
+	I_SOUL = RuleImage(roi_front=(377,203,39,40), roi_back=(361,121,71,388), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_soul.png", path="./gb/gb_soul.png")
 	# description 
-	I_GOLD_50 = RuleImage(roi_front=(373,269,52,36), roi_back=(367,120,64,391), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_gold_50.png")
+	I_GOLD_50 = RuleImage(roi_front=(373,269,52,36), roi_back=(367,120,64,391), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_gold_50.png", path="./gb/gb_gold_50.png")
 	# description 
-	I_GOLD_100 = RuleImage(roi_front=(378,338,43,39), roi_back=(365,121,74,407), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_gold_100.png")
+	I_GOLD_100 = RuleImage(roi_front=(378,338,43,39), roi_back=(365,121,74,407), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_gold_100.png", path="./gb/gb_gold_100.png")
 	# description 
-	I_EXP_50 = RuleImage(roi_front=(379,406,44,43), roi_back=(365,127,70,393), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_exp_50.png")
+	I_EXP_50 = RuleImage(roi_front=(379,406,44,43), roi_back=(365,127,70,393), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_exp_50.png", path="./gb/gb_exp_50.png")
 	# description 
-	I_EXP_100 = RuleImage(roi_front=(383,406,30,40), roi_back=(368,126,58,386), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_exp_100.png")
+	I_EXP_100 = RuleImage(roi_front=(383,406,30,40), roi_back=(368,126,58,386), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_exp_100.png", path="./gb/gb_exp_100.png")
 	# description 
-	I_OPEN_YELLOW = RuleImage(roi_front=(772,347,21,21), roi_back=(766,133,35,366), threshold=0.7, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_open_yellow.png")
+	I_OPEN_YELLOW = RuleImage(roi_front=(772,347,21,21), roi_back=(766,133,35,366), threshold=0.7, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_open_yellow.png", path="./gb/gb_open_yellow.png")
 	# description 
-	I_CLOSE_RED = RuleImage(roi_front=(774,143,21,21), roi_back=(764,134,38,369), threshold=0.63, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_close_red.png")
+	I_CLOSE_RED = RuleImage(roi_front=(774,143,21,21), roi_back=(764,134,38,369), threshold=0.63, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_close_red.png", path="./gb/gb_close_red.png")
 	# 用来判定是否点击的那个 
-	I_CLOUD = RuleImage(roi_front=(356,505,65,38), roi_back=(356,505,65,38), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_cloud.png")
+	I_CLOUD = RuleImage(roi_front=(356,505,65,38), roi_back=(356,505,65,38), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/gb_cloud.png", path="./gb/gb_cloud.png")
 	# buff关闭标志 
-	I_BUFF_OFF = RuleImage(roi_front=(0,0,21,25), roi_back=(862,276,21,25), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/buff_off.png")
+	I_BUFF_OFF = RuleImage(roi_front=(0,0,21,25), roi_back=(862,276,21,25), threshold=0.8, method="Template matching", file="./tasks/Component/GeneralBuff/gb/buff_off.png", path="./gb/buff_off.png")
 
 
 	# Ocr Rule Assets
