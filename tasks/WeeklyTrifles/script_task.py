@@ -3,7 +3,6 @@
 # github https://github.com/runhey
 import time
 
-from GameUi.page import page_main
 from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
@@ -197,8 +196,6 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
         if self.appear(self.I_WT_SE_WECHAT):
             # 点击分享
             self.click_share(self.I_WT_SE_WECHAT)
-        # 返回
-        self.ui_goto_page(page_main)
 
     def _broken_amulet(self, num: int):
         """
