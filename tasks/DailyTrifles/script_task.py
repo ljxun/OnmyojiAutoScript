@@ -480,7 +480,7 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('du')
+    c = Config('mi')
     t = ScriptTask(c)
 
     # t.run()

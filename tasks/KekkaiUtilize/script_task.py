@@ -52,16 +52,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
             self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
         raise TaskEnd
 
-    def recive_guild_ap_or_assets(self):
-        for i in range(1, 5):
-            self.ui_goto_page(page_guild)
-            # 在寮的主界面 检查是否有收取体力或者是收取寮资金
-            if self.check_guild_ap_or_assets():
-                logger.warning(f'第[{i}]次检查寮收获,成功')
-                return
-            else:
-                logger.warning(f'第[{i}]次检查寮收获寮收获,失败')
-                self.ui_goto_page(page_main)
+
 
     def check_utilize_add(self):
         con = self.config.kekkai_utilize.utilize_config
@@ -114,176 +105,185 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
 
         # 进入寮结界
         self.ui_goto_page(page_realm)
-
-    def check_guild_ap_or_assets(self, ap_enable: bool = True, assets_enable: bool = True) -> bool:
-        """
-        在寮的主界面 检查是否有收取体力或者是收取寮资金
-        如果有就顺带收取
-        :return:
-        """
-        timer_check = Timer(2)
-        timer_check.start()
-        click_ap = False
-        while 1:
-            self.screenshot()
-
-            # 获得奖励
-            if self.ui_reward_appear_click():
-                timer_check.reset()
-                continue
-
-            if timer_check.reached():
-                return False
-
-            if click_ap and not self.appear(self.I_GUILD_AP) and not self.appear(self.I_UI_REWARD):
-                return True
-
-            # 关闭展开的寮活动横幅
-            if self.appear_then_click(self.I_GUILD_EXPAND):
-                timer_check.reset()
-                continue
-
-            # 资金收取确认
-            if self.appear_then_click(self.I_GUILD_ASSETS_RECEIVE, interval=1):
-                time.sleep(1)
-                timer_check.reset()
-                continue
-
-            # 收资金
-            if self.appear_then_click(self.I_GUILD_ASSETS, interval=1.5, threshold=0.6):
-                timer_check.reset()
-                continue
-
-            # 收体力
-            if self.appear_then_click(self.I_GUILD_AP, interval=1):
-                # 等待1秒，看到获得奖励
-                time.sleep(1)
-                logger.info('appear_click guild_ap success')
-                if self.ui_reward_appear_click(True):
-                    logger.info('appear_click reward success')
-                    click_ap = True
-                    timer_check.reset()
-                continue
-
-    def check_box_ap_or_exp(self, ap_enable: bool = True, exp_enable: bool = True, exp_waste: bool = True) -> bool:
-        """
-        顺路检查盒子
-        :param ap_enable:
-        :param exp_enable:
-        :return:
-        """
-
-        # 退出到寮结界
-        def _exit_to_realm():
-            # 右上方关闭红色
-            while 1:
-                self.screenshot()
-                if self.appear(self.I_REALM_SHIN):
-                    break
-                if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
-                    continue
-
-        # 先是体力盒子
-        def _check_ap_box(appear: bool = False):
-            if not appear:
-                return False
-            # 点击盒子
-            timer_ap = Timer(6)
-            timer_ap.start()
-            while 1:
-                self.screenshot()
-
-                if self.appear(self.I_UI_REWARD):
-                    while 1:
-                        self.screenshot()
-                        if not self.appear(self.I_UI_REWARD):
-                            break
-                        if self.appear_then_click(self.I_UI_REWARD, self.C_UI_REWARD, interval=1, threshold=0.6):
-                            continue
-                    logger.info('Reward box')
-                    break
-
-                if self.appear_then_click(self.I_BOX_AP, interval=1):
-                    continue
-                if self.appear_then_click(self.I_AP_EXTRACT, interval=2):
-                    continue
-                if timer_ap.reached():
-                    logger.warning('Extract ap box timeout')
-                    break
-            logger.info('Extract AP box finished')
-            _exit_to_realm()
-
-        # 经验盒子
-        def _check_exp_box(appear: bool = False):
-            if not appear:
-                logger.info('No exp box')
-                return False
-
-            time_exp = Timer(12)
-            time_exp.start()
-            while 1:
-                self.screenshot()
-                # 如果出现结界皮肤， 表示收取好了
-                if self.appear(self.I_REALM_SHIN) and not self.appear(self.I_BOX_EXP, threshold=0.6):
-                    break
-                # 如果出现收取确认，表明进入到了有满级的
-                if self.appear(self.I_UI_CONFIRM):
-                    self.screenshot()
-                    if not self.appear(self.I_UI_CANCEL):
-                        logger.info('No cancel button')
-                        continue
-                    if exp_waste:
-                        check_button = self.I_UI_CONFIRM
-                    else:
-                        check_button = self.I_UI_CANCEL
-                    while 1:
-                        self.screenshot()
-                        if not self.appear(check_button):
-                            break
-                        if self.appear_then_click(check_button, interval=1):
-                            continue
-                    break
-
-                if self.appear(self.I_EXP_EXTRACT):
-                    # 如果达到今日领取的最大，就不领取了
-                    cur, res, totol = self.O_BOX_EXP.ocr(self.device.image)
-                    if cur == res == totol == 0:
-                        continue
-                    if cur == totol and cur + res == totol:
-                        logger.info('Exp box reach max do not collect')
-                        break
-                if self.appear_then_click(self.I_BOX_EXP, threshold=0.6, interval=1):
-                    continue
-                if self.appear_then_click(self.I_EXP_EXTRACT, interval=1):
-                    continue
-
-                if time_exp.reached():
-                    logger.warning('Extract exp box timeout')
-                    break
-            _exit_to_realm()
-
-        self.screenshot()
-        box_ap = self.appear(self.I_BOX_AP)
-        box_exp = self.appear(self.I_BOX_EXP, threshold=0.6) or self.appear(self.I_BOX_EXP_MAX, threshold=0.6)
-        if ap_enable:
-            _check_ap_box(box_ap)
-        if exp_enable:
-            _check_exp_box(box_exp)
-
-    def check_utilize_harvest(self) -> bool:
-        """
-        在寮结界界面检查是否有收获
-        :return: 如果没有返回False, 如果有就收菜返回True
-        """
-        self.screenshot()
-        appear = self.appear(self.I_UTILIZE_EXP)
-        if not appear:
-            logger.info('No utilize harvest')
-            return False
-
-        # 收获
-        self.ui_get_reward(self.I_UTILIZE_EXP)
-        return True
+    # def recive_guild_ap_or_assets(self):
+    #     for i in range(1, 5):
+    #         self.ui_goto_page(page_guild)
+    #         # 在寮的主界面 检查是否有收取体力或者是收取寮资金
+    #         if self.check_guild_ap_or_assets():
+    #             logger.warning(f'第[{i}]次检查寮收获,成功')
+    #             return
+    #         else:
+    #             logger.warning(f'第[{i}]次检查寮收获寮收获,失败')
+    #             self.ui_goto_page(page_main)
+    # def check_guild_ap_or_assets(self, ap_enable: bool = True, assets_enable: bool = True) -> bool:
+    #     """
+    #     在寮的主界面 检查是否有收取体力或者是收取寮资金
+    #     如果有就顺带收取
+    #     :return:
+    #     """
+    #     timer_check = Timer(2)
+    #     timer_check.start()
+    #     click_ap = False
+    #     while 1:
+    #         self.screenshot()
+    #
+    #         # 获得奖励
+    #         if self.ui_reward_appear_click():
+    #             timer_check.reset()
+    #             continue
+    #
+    #         if timer_check.reached():
+    #             return False
+    #
+    #         if click_ap and not self.appear(self.I_GUILD_AP) and not self.appear(self.I_UI_REWARD):
+    #             return True
+    #
+    #         # 关闭展开的寮活动横幅
+    #         if self.appear_then_click(self.I_GUILD_EXPAND):
+    #             timer_check.reset()
+    #             continue
+    #
+    #         # 资金收取确认
+    #         if self.appear_then_click(self.I_GUILD_ASSETS_RECEIVE, interval=1):
+    #             time.sleep(1)
+    #             timer_check.reset()
+    #             continue
+    #
+    #         # 收资金
+    #         if self.appear_then_click(self.I_GUILD_ASSETS, interval=1.5, threshold=0.6):
+    #             timer_check.reset()
+    #             continue
+    #
+    #         # 收体力
+    #         if self.appear_then_click(self.I_GUILD_AP, interval=1):
+    #             # 等待1秒，看到获得奖励
+    #             time.sleep(1)
+    #             logger.info('appear_click guild_ap success')
+    #             if self.ui_reward_appear_click(True):
+    #                 logger.info('appear_click reward success')
+    #                 click_ap = True
+    #                 timer_check.reset()
+    #             continue
+    #
+    # def check_box_ap_or_exp(self, ap_enable: bool = True, exp_enable: bool = True, exp_waste: bool = True) -> bool:
+    #     """
+    #     顺路检查盒子
+    #     :param ap_enable:
+    #     :param exp_enable:
+    #     :return:
+    #     """
+    #
+    #     # 退出到寮结界
+    #     def _exit_to_realm():
+    #         # 右上方关闭红色
+    #         while 1:
+    #             self.screenshot()
+    #             if self.appear(self.I_REALM_SHIN):
+    #                 break
+    #             if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+    #                 continue
+    #
+    #     # 先是体力盒子
+    #     def _check_ap_box(appear: bool = False):
+    #         if not appear:
+    #             return False
+    #         # 点击盒子
+    #         timer_ap = Timer(6)
+    #         timer_ap.start()
+    #         while 1:
+    #             self.screenshot()
+    #
+    #             if self.appear(self.I_UI_REWARD):
+    #                 while 1:
+    #                     self.screenshot()
+    #                     if not self.appear(self.I_UI_REWARD):
+    #                         break
+    #                     if self.appear_then_click(self.I_UI_REWARD, self.C_UI_REWARD, interval=1, threshold=0.6):
+    #                         continue
+    #                 logger.info('Reward box')
+    #                 break
+    #
+    #             if self.appear_then_click(self.I_BOX_AP, interval=1):
+    #                 continue
+    #             if self.appear_then_click(self.I_AP_EXTRACT, interval=2):
+    #                 continue
+    #             if timer_ap.reached():
+    #                 logger.warning('Extract ap box timeout')
+    #                 break
+    #         logger.info('Extract AP box finished')
+    #         _exit_to_realm()
+    #
+    #     # 经验盒子
+    #     def _check_exp_box(appear: bool = False):
+    #         if not appear:
+    #             logger.info('No exp box')
+    #             return False
+    #
+    #         time_exp = Timer(12)
+    #         time_exp.start()
+    #         while 1:
+    #             self.screenshot()
+    #             # 如果出现结界皮肤， 表示收取好了
+    #             if self.appear(self.I_REALM_SHIN) and not self.appear(self.I_BOX_EXP, threshold=0.6):
+    #                 break
+    #             # 如果出现收取确认，表明进入到了有满级的
+    #             if self.appear(self.I_UI_CONFIRM):
+    #                 self.screenshot()
+    #                 if not self.appear(self.I_UI_CANCEL):
+    #                     logger.info('No cancel button')
+    #                     continue
+    #                 if exp_waste:
+    #                     check_button = self.I_UI_CONFIRM
+    #                 else:
+    #                     check_button = self.I_UI_CANCEL
+    #                 while 1:
+    #                     self.screenshot()
+    #                     if not self.appear(check_button):
+    #                         break
+    #                     if self.appear_then_click(check_button, interval=1):
+    #                         continue
+    #                 break
+    #
+    #             if self.appear(self.I_EXP_EXTRACT):
+    #                 # 如果达到今日领取的最大，就不领取了
+    #                 cur, res, totol = self.O_BOX_EXP.ocr(self.device.image)
+    #                 if cur == res == totol == 0:
+    #                     continue
+    #                 if cur == totol and cur + res == totol:
+    #                     logger.info('Exp box reach max do not collect')
+    #                     break
+    #             if self.appear_then_click(self.I_BOX_EXP, threshold=0.6, interval=1):
+    #                 continue
+    #             if self.appear_then_click(self.I_EXP_EXTRACT, interval=1):
+    #                 continue
+    #
+    #             if time_exp.reached():
+    #                 logger.warning('Extract exp box timeout')
+    #                 break
+    #         _exit_to_realm()
+    #
+    #     self.screenshot()
+    #     box_ap = self.appear(self.I_BOX_AP)
+    #     box_exp = self.appear(self.I_BOX_EXP, threshold=0.6) or self.appear(self.I_BOX_EXP_MAX, threshold=0.6)
+    #     if ap_enable:
+    #         _check_ap_box(box_ap)
+    #     if exp_enable:
+    #         _check_exp_box(box_exp)
+    #
+    # def check_utilize_harvest(self) -> bool:
+    #     """
+    #     在寮结界界面检查是否有收获
+    #     :return: 如果没有返回False, 如果有就收菜返回True
+    #     """
+    #     self.screenshot()
+    #     appear = self.appear(self.I_UTILIZE_EXP)
+    #     if not appear:
+    #         logger.info('No utilize harvest')
+    #         return False
+    #
+    #     # 收获
+    #     self.ui_get_reward(self.I_UTILIZE_EXP)
+    #     return True
 
     def realm_goto_grown(self):
         """
