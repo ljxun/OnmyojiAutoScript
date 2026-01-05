@@ -50,14 +50,18 @@ def name_transform(name: str) -> str:
 
 class ImageExtractor:
 
-    def __init__(self, file: str, data: list) -> None:
+    def __init__(self, file: str, data: list, task_path: str) -> None:
         """
         image rule 提取
         :param data:  json解析后的数据
         """
         # 这个时候的路径分隔符变成了 /
         self.file = str(Path(file).resolve().relative_to((Path.cwd()).resolve()).as_posix())
+        self.task_path_1 = str(Path(task_path).resolve().relative_to((Path.cwd()).resolve()).as_posix())
+
         self.image_path = Path(self.file).parent.as_posix()
+
+        self.task_path_2 = Path(self.file.replace(self.task_path_1, "")).parent.as_posix().replace("/", "", 1)
 
         self._result = '\n\n\t# Image Rule Assets\n'
         for item in data:
@@ -80,7 +84,7 @@ class ImageExtractor:
                     f'threshold={item["threshold"]}, ' \
                     f'method="{item["method"]}", ' \
                     f'file="./{self.image_path}/{item["imageName"]}", ' \
-                    f'path="./{Path(self.file).parent.name}/{item["imageName"]}")\n'
+                    f'path="./{self.task_path_2}/{item["imageName"]}")\n'
         return description + name
 
 
@@ -388,7 +392,7 @@ class AssetsExtractor:
                 result += ListExtractor(file, data).result
                 continue
             if self.is_image_file(data):
-                result += ImageExtractor(file, data).result
+                result += ImageExtractor(file, data, self.task_path).result
             elif self.is_click_file(data):
                 result += ClickExtractor(file, data).result
             elif self.is_long_click_file(data):
