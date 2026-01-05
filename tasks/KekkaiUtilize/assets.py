@@ -37,25 +37,6 @@ class KekkaiUtilizeAssets:
 
 
 	# Image Rule Assets
-	# lottery_box 
-	I_LOTTERY_BOX = RuleImage(roi_front=(489,317,20,17), roi_back=(6,137,1215,363), threshold=0.8, method="Template matching", path="./lottery_box/lottery_box.png", file="./tasks/KekkaiUtilize/lottery_box/lottery_box.png")
-	# lottery_box_page 
-	I_LOTTERY_BOX_PAGE = RuleImage(roi_front=(119,21,95,39), roi_back=(119,21,95,39), threshold=0.8, method="Template matching", path="./lottery_box/lottery_box_page.png", file="./tasks/KekkaiUtilize/lottery_box/lottery_box_page.png")
-	# lottery_click 
-	I_LOTTERY_CLICK = RuleImage(roi_front=(785,520,60,81), roi_back=(785,520,60,81), threshold=0.8, method="Template matching", path="./lottery_box/lottery_click.png", file="./tasks/KekkaiUtilize/lottery_box/lottery_click.png")
-
-
-	# Ocr Rule Assets
-	# 抽奖次数 
-	O_LOTTERY_NUMBER = RuleOcr(roi=(424,460,49,27), area=(424,460,49,27), mode="DigitCounter", method="Default", keyword="", name="lottery_number")
-
-
-	# Swipe Rule Assets
-	# description 
-	S_SWIPE_LOTTERY_BOX = RuleSwipe(roi_front=(625,180,30,232), roi_back=(625,400,30,232), mode="default", name="swipe_lottery_box")
-
-
-	# Image Rule Assets
 	# 育成 
 	I_SHI_GROWN = RuleImage(roi_front=(595,291,35,38), roi_back=(530,254,181,198), threshold=0.6, method="Template matching", path="./realm/realm_shi_grown.png", file="./tasks/KekkaiUtilize/realm/realm_shi_grown.png")
 	# 结界卡 

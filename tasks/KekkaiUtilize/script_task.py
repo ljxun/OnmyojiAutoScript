@@ -44,9 +44,6 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         # 收取寮资金和体力
         # self.recive_guild_ap_or_assets()
 
-        # 抽奖箱
-        self.check_lottery_box()
-
         # 庭院事务
         if con.courtyard_affairs_enable:
             self.courtyard_affairs()
@@ -54,31 +51,6 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
         if not con.utilize_enable:
             self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
         raise TaskEnd
-
-    def check_lottery_box(self):
-        self.ui_goto_page(page_guild)
-        while 1:
-            self.screenshot()
-            if self.wait_until_appear_then_click(self.I_LOTTERY_BOX, wait_time=2):
-                if self.wait_until_appear(self.I_LOTTERY_BOX_PAGE, wait_time=5):
-                    break
-            else:
-                logger.info(f'未发现抽奖箱')
-                return
-
-        while 1:
-            self.screenshot()
-            if self.ui_reward_appear_click():
-                continue
-            # 获得奖励
-            cu, re, total = self.ocr_result(self.O_LOTTERY_NUMBER)
-            if cu + re == total and cu != 0:
-                logger.info(f'抽奖次数: [{cu}]')
-                self.swipe(self.S_SWIPE_LOTTERY_BOX, interval=5)
-                time.sleep(5)
-            else:
-                logger.info(f'没有可以抽奖的次数')
-                return
 
     def recive_guild_ap_or_assets(self):
         for i in range(1, 5):

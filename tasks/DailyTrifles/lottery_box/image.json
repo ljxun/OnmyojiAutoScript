@@ -11,8 +11,8 @@
   {
     "itemName": "lottery_box_page",
     "imageName": "lottery_box_page.png",
-    "roiFront": "119,21,95,39",
-    "roiBack": "119,21,95,39",
+    "roiFront": "101,17,156,48",
+    "roiBack": "101,17,156,48",
     "method": "Template matching",
     "threshold": 0.8,
     "description": "lottery_box_page"

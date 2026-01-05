@@ -24,6 +24,7 @@ class DailyTriflesConfig(BaseModel):
     # 每天购买体力数量
     buy_sushi_count: int = Field(title='Buy Sushi Count', default=-1)
     recruit_members: bool = Field(title='Mecruit Members', default=False, description='招募寮成员')
+    lottery_box: bool = Field(title='Lottery Box', default=True, description='抽奖箱抽奖')
 
 
 class DailyTrifles(ConfigBase):

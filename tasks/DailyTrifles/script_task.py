@@ -47,9 +47,37 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         # 招募寮成员
         if con.recruit_members:
             self.run_recruit_members()
+        # 抽奖箱抽奖
+        if con.lottery_box:
+            self.check_lottery_box()
 
         self.set_next_run('DailyTrifles', success=True, finish=False)
         raise TaskEnd('DailyTrifles')
+
+    def check_lottery_box(self):
+        self.ui_goto_page(page_guild)
+        while 1:
+            self.screenshot()
+            if self.wait_until_appear_then_click(self.I_LOTTERY_BOX, wait_time=2):
+                if self.wait_until_appear(self.I_LOTTERY_BOX_PAGE, wait_time=5):
+                    break
+            else:
+                logger.info(f'未发现抽奖箱')
+                return
+
+        while 1:
+            self.screenshot()
+            if self.ui_reward_appear_click():
+                continue
+            # 获得奖励
+            cu, re, total = self.ocr_result(self.O_LOTTERY_NUMBER)
+            if cu + re == total and cu != 0:
+                logger.info(f'抽奖次数: [{cu}]')
+                self.swipe(self.S_SWIPE_LOTTERY_BOX, interval=5)
+                sleep(5)
+            else:
+                logger.info(f'没有可以抽奖的次数')
+                return
 
     def run_summon_store(self):
         self.ui_goto_page(page_summon_store)
