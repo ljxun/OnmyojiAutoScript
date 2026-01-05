@@ -375,7 +375,7 @@ class AssetsExtractor:
 
     def extract(self) -> str:
         """
-        生成一个assets.py文件
+        生成一个assets.py文件，如果没有资源文件则不生成
         :return:
         """
         result = ''
@@ -399,12 +399,12 @@ class AssetsExtractor:
                 result += OcrExtractor(file, data).result
 
         if result == '':
-            logger.error(f'There are no resource files under the {self.task_name} task')
-            self._result += '\tpass'
+            logger.warning(f'在 {self.task_name} 任务下没有资源文件，跳过生成 assets.py')
         else:
             self._result += result
-        self._result += '\n\n'
-        self.write_file()
+            self._result += '\n\n'
+            self.write_file()  # 只在有内容时写入文件
+
 
 
 class AllAssetsExtractor:
