@@ -81,8 +81,11 @@ class Summon(GameUi, BaseTask, SummonAssets):
                     self.ui_click_until_disappear(self.I_SM_CONFIRM)
                     break
                 if self.appear(self.I_SM_CONFIRM_2, interval=0.6):
+                    self.push_notify('抽卡出货了')
                     self.ui_click_until_disappear(self.I_SM_CONFIRM_2)
                     break
+                if self.appear_then_click(self.I_BACK_CLOSE, interval=0.8):
+                    continue
                 if self.appear(self.I_ONE_TICKET, interval=1):
                     # 某些时候会点击到 “语言召唤”
                     if self.appear_then_click(self.I_UI_CANCEL, interval=0.8):
