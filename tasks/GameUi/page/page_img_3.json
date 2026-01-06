@@ -117,6 +117,15 @@
     "description": "商店页面"
   },
   {
+    "itemName": "check_mall_2",
+    "imageName": "page_check_mall_2.png",
+    "roiFront": "170,31,123,22",
+    "roiBack": "170,31,123,22",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "商店页面2"
+  },
+  {
     "itemName": "check_guild",
     "imageName": "page_check_guild.png",
     "roiFront": "1072,630,49,46",

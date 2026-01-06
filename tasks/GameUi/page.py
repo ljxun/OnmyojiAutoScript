@@ -167,7 +167,7 @@ page_friends = Page(G.I_CHECK_FRIENDS)
 page_friends.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_FRIENDS, destination=page_friends)
 # 商店 mall
-page_mall = Page(check_button=G.I_CHECK_MALL)
+page_mall = Page(check_button=[G.I_CHECK_MALL, G.I_CHECK_MALL_2])
 page_mall.additional = [G.I_BACK_RED]
 page_mall.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_MALL, destination=page_mall)

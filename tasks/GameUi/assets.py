@@ -167,6 +167,8 @@ class GameUiAssets:
 	I_CHECK_DAILY = RuleImage(roi_front=(102,23,97,36), roi_back=(20,7,236,74), threshold=0.7, method="Template matching", path="./page/page_check_daily.png", file="./tasks/GameUi/page/page_check_daily.png")
 	# 商店页面 
 	I_CHECK_MALL = RuleImage(roi_front=(512,271,66,87), roi_back=(512,271,66,87), threshold=0.8, method="Template matching", path="./page/page_check_mall.png", file="./tasks/GameUi/page/page_check_mall.png")
+	# 商店页面2 
+	I_CHECK_MALL_2 = RuleImage(roi_front=(170,31,123,22), roi_back=(170,31,123,22), threshold=0.8, method="Template matching", path="./page/page_check_mall_2.png", file="./tasks/GameUi/page/page_check_mall_2.png")
 	# description 
 	I_CHECK_GUILD = RuleImage(roi_front=(1072,630,49,46), roi_back=(1072,630,49,46), threshold=0.8, method="Template matching", path="./page/page_check_guild.png", file="./tasks/GameUi/page/page_check_guild.png")
 	# 结界界面 
