@@ -27,6 +27,15 @@
     "description": "红色❌"
   },
   {
+    "itemName": "back_close",
+    "imageName": "back_close.png",
+    "roiFront": "452,428,79,35",
+    "roiBack": "399,383,217,106",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "取消"
+  },
+  {
     "itemName": "refresh",
     "imageName": "refresh.png",
     "roiFront": "1194,530,24,25",

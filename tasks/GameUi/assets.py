@@ -38,6 +38,8 @@ class GameUiAssets:
 	I_BACK_BLUE = RuleImage(roi_front=(32,37,54,52), roi_back=(3,2,130,114), threshold=0.8, method="Template matching", path="./common/back_blue.png", file="./tasks/GameUi/common/back_blue.png")
 	# 红色❌ 
 	I_BACK_RED = RuleImage(roi_front=(1041,111,34,38), roi_back=(834,15,427,200), threshold=0.8, method="Template matching", path="./common/back_red.png", file="./tasks/GameUi/common/back_red.png")
+	# 取消 
+	I_BACK_CLOSE = RuleImage(roi_front=(452,428,79,35), roi_back=(399,383,217,106), threshold=0.8, method="Template matching", path="./common/back_close.png", file="./tasks/GameUi/common/back_close.png")
 	# 刷新 
 	I_REFRESH = RuleImage(roi_front=(1194,530,24,25), roi_back=(1167,123,66,445), threshold=0.8, method="Template matching", path="./common/refresh.png", file="./tasks/GameUi/common/refresh.png")
 	# 活动总览 

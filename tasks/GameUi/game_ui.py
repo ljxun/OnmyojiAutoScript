@@ -394,14 +394,17 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
 if __name__ == '__main__':
     from module.config.config import Config
     from tasks.GameUi.page import PageRegistry, page_main, page_summon, page_all_active,page_awake_zones
+    from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store
 
-    c = Config('du')
+    c = Config('4399')
     game = GameUi(config=c)
     # print(len(game.ui_pages))
     # for page in game.ui_pages:
     #     print(page)
-    game.ui_goto_page(page_main)
-    game.ui_goto_page(page_awake_zones)
-    game.ui_goto_page(page_summon)
+    # game.ui_goto_page(page_main)
+    # game.ui_goto_page(page_awake_zones)
+    # game.ui_goto_page(page_summon)
+    game.ui_goto_page(page_store_sign)
+    game.ui_goto_page(page_mall_special)
 
     # game.ui_goto_active('庭院事务')
