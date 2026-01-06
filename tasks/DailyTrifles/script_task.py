@@ -31,19 +31,18 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         self.massed_run()
         # 召唤商店
         self.run_summon_store()
-
-
-        if con.guild_wish:
-            pass
-        # 友情点
+        # 友情点 （现在已经可以通过庭院任务获取了）
         # if con.friend_love:
         #     self.run_friend_love()
         # 吉闻
         if con.luck_msg:
             self.run_luck_msg()
-        # 商店签到 or 购买寿司
-        if con.store_sign or con.buy_sushi_count > 0:
-            self.run_store()
+        # 商店签到
+        if con.store_sign:
+            self.run_store_sign()
+        # 购买寿司体力
+        if con.buy_sushi_count > 0:
+            self.run_buy_sushi()
         # 招募寮成员
         if con.recruit_members:
             self.run_recruit_members()
@@ -211,12 +210,6 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
                 break
 
         self.ui_click(self.I_UI_BACK_RED, self.I_CHECK_MAIN)
-
-    def run_store(self):
-        if self.config.daily_trifles.trifles_config.store_sign:
-            self.run_store_sign()
-        if self.config.daily_trifles.trifles_config.buy_sushi_count > 0:
-            self.run_buy_sushi()
 
     def run_store_sign(self):
         self.ui_goto_page(page_store_sign)

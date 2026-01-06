@@ -15,9 +15,8 @@ class SummonType(str, Enum):
 class DailyTriflesConfig(BaseModel):
     one_summon: bool = Field(title='One Summon', default=False)
     # 召唤类型
-    summon_type: SummonType = Field(default=SummonType.default, description='召唤类型')
+    # summon_type: SummonType = Field(default=SummonType.default, description='召唤类型')
     broken_amulet: int = Field(title='Broken Amulet', default=0, description='trifles_broken_amulet_help')
-    guild_wish: bool = Field(title='Guild Wish', default=False)
     friend_love: bool = Field(title='Friend Love', default=False)
     luck_msg: bool = Field(title='Luck Msg', default=False)
     store_sign: bool = Field(title='Store Sign', default=False, description='store_sign_help')
