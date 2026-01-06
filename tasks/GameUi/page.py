@@ -91,8 +91,8 @@ page_exploration.link(button=G.I_EXPLORATION_GOTO_REALM_RAID, destination=page_r
 # 寮突破 击破奖励
 page_kekkai_toppa = Page(RyouToppaAssets.I_RYOU_REWARD)
 page_kekkai_toppa.link(button=G.I_BACK_RED, destination=page_exploration)
-page_realm_raid.link(button=RyouToppaAssets.I_RYOU_TOPPA, destination=page_kekkai_toppa)
 page_kekkai_toppa.link(button=G.I_RYOUTOPPA_GOTO_REALMRAID, destination=page_realm_raid)
+page_realm_raid.link(button=RyouToppaAssets.I_RYOU_TOPPA, destination=page_kekkai_toppa)
 # 御灵 goryou realm
 page_goryou_realm = Page(G.I_CHECK_GORYOU)
 page_goryou_realm.link(button=G.I_BACK_YELLOW, destination=page_exploration)
@@ -155,7 +155,7 @@ page_town.link(button=[G.I_TOWN_GOTO_HYAKKIYAKOU, G.I_TOWN_GOTO_HYAKKIYAKOU_2], 
 # ************************************* 庭院部分 *****************************************#
 # 式神录 shikigami_records
 page_shikigami_records = Page(G.I_CHECK_RECORDS)
-page_shikigami_records.additional = [G.I_AD_DISAPPEAR, G.I_RECORDS_CLOSE]
+page_shikigami_records.additional = [G.I_BACK_RED]
 page_shikigami_records.link(button=G.I_BACK_YELLOW, destination=page_main)
 page_main.link(button=G.I_MAIN_GOTO_SHIKIGAMI_RECORDS, destination=page_shikigami_records)
 # 阴阳术 onmyodo

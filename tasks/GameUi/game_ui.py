@@ -124,18 +124,12 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                     logger.attr("Current page", page.name)
                     self.ui_current = page
                     return page
-            logger.warning("未知的UI页面 ⚠️")
             # Try to close unknown page
             if self.try_close_unknown_page():
                 timeout = Timer(10, count=20).start()
-            # else:
-                # entirely unknown page, click safe random area
-                # self.click(random_click(), interval=4)
-            # wait to ui
-            sleep(0.3)
-            app_check()
-            # minicap_check()
-            # rotation_check()
+                sleep(0.5)
+            else:
+                app_check()
         # Unknown page, need manual switching
         logger.warning("Unknown ui page")
         logger.attr("EMULATOR__SCREENSHOT_METHOD", self.config.script.device.screenshot_method)
@@ -184,7 +178,7 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                     self.try_close_unknown_page(skip_screenshot=False)
                     self.ui_current = None
         else:
-            logger.error(f'不能到达 [{destination}], 超时 [{timeout}s ⚠️]')
+            logger.error(f'⚠️ 不能到达 [{destination}], 超时 [{timeout}s]')
         return False
 
     def ui_goto_page(self, page: Page, confirm_wait=0, skip_first_screenshot=True, timeout: int = 60) -> bool:
@@ -241,12 +235,13 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
         :return: 执行了关闭返回True, 否则False
         """
         self.maybe_screenshot(skip_screenshot)
-        timer = Timer(None).start()
+        # timer = Timer(None).start()
+        # logger.warning('⚠️ 未知页面, 尝试点击UI按钮, 切换到支持的页面')
         for close in self.ui_close:
             if self.appear_then_click(close, interval=1.5):
-                logger.warning('尝试点击通用按钮, 切换到支持的页面 ⚠️')
-                logger.info(f'[{timer.current():.1f}s]Click {close} on {self.ui_current} success')
+                # logger.info(f'⚠️ [{timer.current():.1f}s] 点击按钮 {close} 在 {self.ui_current} 页')
                 return True
+        # logger.warning('❌ 当前页没有可点击的UI按钮')
         return False
 
     def _execute_path(self, path: list, timeout_timer):
@@ -273,11 +268,8 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
             # 获取页面跳转操作 - 现在返回按钮列表
             buttons = current_page.links.get(next_page, [])
             if not buttons:
-                logger.warning(f"No link from {current_page} to {next_page}")
+                logger.error(f"❌ No link from {current_page} to {next_page}")
                 continue
-
-            # 标记是否成功跳转到下一页
-            page_switched = False
 
             # 尝试所有可能的按钮
             for button in buttons:
@@ -287,34 +279,22 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                 logger.info(f'尝试点击按钮 {button} 从 {current_page} 到 {next_page}')
 
                 # 尝试点击当前按钮
-                max_wait_timer = Timer(3).start()
-                button_clicked = False
-
-                while not max_wait_timer.reached():
-                    if timeout_timer.reached():
-                        return False
-                    if self.appear_then_operate(button, interval=0.5, skip_first_screenshot=False):
-                        button_clicked = True
-                        logger.info(f'成功点击按钮 {button} 在 {current_page}')
-                        break
-                    logger.warning(f"⚠️ [{max_wait_timer.current():.1f}s] 未获取到按钮 {button} 在 {current_page}, 重试...")
-                    sleep(0.5)
-
-                if not button_clicked:
+                if self.appear_then_operate(button, interval=0.5, skip_first_screenshot=False):
+                    logger.info(f'成功点击按钮 {button} 在 {current_page}')
+                else:
                     logger.warning(f"⚠️ 未获取到按钮 {button} , 尝试下一个按钮...")
                     continue
 
                 # 等待页面跳转完成
-                max_wait_timer.reset()
+                max_wait_timer = Timer(3).start()
                 page_arrived = False
 
                 while not max_wait_timer.reached():
                     if timeout_timer.reached():
                         return False
                     if self.ui_wait_until_appear(next_page, timeout=1.5, skip_first_screenshot=False):
-                        logger.info(f'✅ [{max_wait_timer.current():.1f}s] 到达页面 {next_page} 成功')
+                        logger.info(f'✅ [{max_wait_timer.current():.1f}s] 到达页面 {next_page}')
                         self.ui_current = next_page
-                        page_switched = True
                         page_arrived = True
                         break
                     sleep(0.2)  # 短暂等待
@@ -325,18 +305,12 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                 else:
                     # 当前按钮未成功跳转
                     logger.warning(f'❌ 按钮 {button} 跳转到 {next_page} 失败')
-                    logger.info("重新获取当前页面")
+                    logger.warning("⚠️ 重新获取当前页面")
                     self.ui_get_current_page(skip_first_screenshot=False)  # 重新获取当前页面状态
                     # 确保我们仍在当前页面才能继续尝试其他按钮
                     if self.ui_current != current_page:
                         logger.warning(f'⚠️ 当前页面为 {self.ui_current}, 而不是 {current_page}')
                         break
-
-            if not page_switched:
-                logger.error(f'❌ 点击按钮无法从 {current_page} 切换到 {next_page} ')
-                # 重新获取当前页面状态，以便后续路径计算
-                self.ui_get_current_page(skip_first_screenshot=False)
-                return False
 
         return self.ui_current == path[-1]
 
@@ -395,8 +369,9 @@ if __name__ == '__main__':
     from module.config.config import Config
     from tasks.GameUi.page import PageRegistry, page_main, page_summon, page_all_active,page_awake_zones
     from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store
+    from tasks.Component.CourtyardAffairs.page import page_courtyard_affairs
 
-    c = Config('4399')
+    c = Config('du')
     game = GameUi(config=c)
     # print(len(game.ui_pages))
     # for page in game.ui_pages:
@@ -404,6 +379,7 @@ if __name__ == '__main__':
     # game.ui_goto_page(page_main)
     # game.ui_goto_page(page_awake_zones)
     # game.ui_goto_page(page_summon)
+    game.ui_goto_page(page_courtyard_affairs)
     game.ui_goto_page(page_store_sign)
     game.ui_goto_page(page_mall_special)
 
