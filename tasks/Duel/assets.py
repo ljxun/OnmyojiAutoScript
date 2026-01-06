@@ -103,7 +103,7 @@ class DuelAssets:
 	# 活动的战斗按钮 
 	I_D_BATTLE2 = RuleImage(roi_front=(1171,592,69,78), roi_back=(1119,566,154,143), threshold=0.8, method="Template matching", path="./duel/duel_d_battle2.png", file="./tasks/Duel/duel/duel_d_battle2.png")
 	# 禁用 
-	I_BAN = RuleImage(roi_front=(1112,537,100,100), roi_back=(1112,537,100,100), threshold=0.8, method="Template matching", path="./duel/duel_ban.png", file="./tasks/Duel/duel/duel_ban.png")
+	I_BAN = RuleImage(roi_front=(1112,537,100,100), roi_back=(1090,512,172,164), threshold=0.8, method="Template matching", path="./duel/duel_ban.png", file="./tasks/Duel/duel/duel_ban.png")
 	# 式神被办第五个上的式神跟原先不同，来判断是否被办 
 	I_BAN_FLAG = RuleImage(roi_front=(100,16,61,59), roi_back=(100,16,61,59), threshold=0.7, method="Template matching", path="./duel/duel_ban_flag.png", file="./tasks/Duel/duel/duel_ban_flag.png")
 	# 左上角的退出 

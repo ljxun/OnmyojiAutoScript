@@ -303,7 +303,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
             if self.appear(self.I_D_AUTO_ENTRY) or self.appear(self.I_D_PREPARE):
                 break
             # 名士以上禁用
-            if self.appear_then_click(self.I_BAN, interval=1):
+            if self.appear_then_click(self.I_BAN, interval=3):
                 celeb_status = True
                 continue
             # 战斗按钮
