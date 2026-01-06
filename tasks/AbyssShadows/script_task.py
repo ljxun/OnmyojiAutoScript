@@ -359,7 +359,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
                     self.screenshot()
                     if not self.appear(self.I_ABYSS_MAP):
                         break
-                    self.appear_then_click(self.I_UI_BACK_RED, interval=1)
+                    self.appear_then_click(self.I_BACK_RED, interval=1)
                 break
         if success:
             self.boss_fight_count += 1

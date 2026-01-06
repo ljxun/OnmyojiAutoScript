@@ -103,7 +103,7 @@ class ScriptTask(GameUi, QuizAssets, ActivityShikigamiAssets, Debugger):
             if self.appear(self.I_SHARE):
                 # 结算
                 logger.info('Quiz Victory and exit')
-                self.ui_click(self.I_UI_BACK_RED, self.I_START)
+                self.ui_click(self.I_BACK_RED, self.I_START)
                 break
             if quiz_timer.reached():
                 quiz_timer.reset()

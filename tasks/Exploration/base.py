@@ -55,7 +55,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
         if self.appear(self.I_CHECK_EXPLORATION) and not (self.appear(self.I_E_SETTINGS_BUTTON) or self.appear(self.I_E_AUTO_ROTATE_ON) or self.appear(self.I_E_AUTO_ROTATE_OFF)):
             scene = Scene.WORLD
             log_message = "在探索大世界中"
-        elif self.appear(self.I_UI_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
+        elif self.appear(self.I_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
             scene = Scene.ENTRANCE
             log_message = "在探索入口弹窗中"
         elif self.appear(self.I_E_SETTINGS_BUTTON) or self.appear(self.I_E_AUTO_ROTATE_ON) or self.appear(self.I_E_AUTO_ROTATE_OFF) or self.appear(self.I_LOCK_ON) or self.appear(self.I_LOCK_OFF):
@@ -133,7 +133,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
             text1 = [result.ocr_text for result in results]
             logger.info(f"当前章节: {text1}")
             if not text1:
-                self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                self.ui_click_until_disappear(self.I_BACK_RED)
                 continue
             logger.info(f"目标章节: {goal_level}")
 
@@ -388,7 +388,7 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
         logger.info('退出本次探索')
         while 1:
             self.screenshot()
-            if self.appear(self.I_UI_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
+            if self.appear(self.I_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
                 break
             if self.appear(self.I_CHECK_EXPLORATION) and not (self.appear(self.I_E_SETTINGS_BUTTON) or self.appear(self.I_E_AUTO_ROTATE_ON) or self.appear(self.I_E_AUTO_ROTATE_OFF)):
                 break

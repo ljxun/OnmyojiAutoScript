@@ -137,10 +137,10 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
                 current, remain, total = self.O_DE_BOSS_PEOPLE.ocr(self.device.image)
                 if total == 300 and current >= 260:
                     logger.info('Boss battle people is full')
-                    if not self.appear(self.I_UI_BACK_RED):
+                    if not self.appear(self.I_BACK_RED):
                         logger.warning('Boss battle people is full but no red back')
                         continue
-                    self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                    self.ui_click_until_disappear(self.I_BACK_RED)
                     # 退出重新选一个没满员的boss
                     logger.info('Exit and reselect')
                     continue
@@ -185,7 +185,7 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
             if boss_fire_count >= 5:
                 logger.warning('Boss battle already done')
                 # self.push_notify(content=f"封魔BOSS, 5次点击未进入...")
-                self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                self.ui_click_until_disappear(self.I_BACK_RED)
                 logger.info('重新选择封魔BOSS')
                 # self.push_notify(content=f"重新选择封魔BOSS...")
                 if self.boss_count <= 3:
@@ -347,7 +347,7 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
             if self.appear(self.I_JADE_50):
                 break
             if self.appear(self.I_BOSS_FIRE) or self.appear(self.I_BEST_BOSS_FIRE):
-                self.appear_then_click(self.I_UI_BACK_RED)
+                self.appear_then_click(self.I_BACK_RED)
                 continue
             if self.click(target_click, interval=1):
                 continue
@@ -398,7 +398,7 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
             if self.appear(self.I_LETTER_CLOSE):
                 break
             if self.appear(self.I_BOSS_FIRE) or self.appear(self.I_BEST_BOSS_FIRE):
-                self.appear_then_click(self.I_UI_BACK_RED)
+                self.appear_then_click(self.I_BACK_RED)
                 continue
             if self.click(target_click, interval=1):
                 continue
@@ -471,7 +471,7 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
                 logger.info('realm Battle Start')
                 break
             if self.appear(self.I_BOSS_FIRE) or self.appear(self.I_BEST_BOSS_FIRE):
-                self.appear_then_click(self.I_UI_BACK_RED)
+                self.appear_then_click(self.I_BACK_RED)
                 continue
             if self.appear_then_click(self.I_DE_REALM_FIRE, interval=0.7):
                 continue
@@ -492,7 +492,7 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
             if self.appear(self.I_BOSS_KILLED):
                 # 这个大鬼王已经击败
                 logger.warning('Boss already killed')
-                self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                self.ui_click_until_disappear(self.I_BACK_RED)
                 break
             if self.appear(self.I_BOSS_FIRE):
                 self.execute_boss()

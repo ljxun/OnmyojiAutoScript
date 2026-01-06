@@ -63,7 +63,7 @@ class ScriptTask(GameUi, CollectiveMissionsAssets):
         self.select_gr(target)
         if not self._donate_all(0, target, 1, remain):
             if target_1:
-                self.ui_click(self.I_UI_BACK_RED, self.I_CM_RECORDS)
+                self.ui_click(self.I_BACK_RED, self.I_CM_RECORDS)
                 self.select_gr(target_1)
                 if not self._donate_all(0, target_1, 3, remain):
                     self.save_image(wait_time=0, push_flag=True, content=f'⚠️{target_1.value} 材料不足')

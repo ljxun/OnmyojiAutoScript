@@ -303,7 +303,7 @@ class ScriptTask(BaseActivity, HeroTestAssets, SwitchSoul):
         global is_update
         while 1:
             self.screenshot()
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=2):
+            if self.appear_then_click(self.I_BACK_RED, interval=2):
                 continue
             if self.appear_then_click(self.I_BACK_YELLOW, interval=2):
                 continue

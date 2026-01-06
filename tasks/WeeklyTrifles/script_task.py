@@ -109,7 +109,7 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
             self.screenshot()
             if self.appear(self.I_WT_SHIKIAGMI):
                 break
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+            if self.appear_then_click(self.I_BACK_RED, interval=1):
                 continue
             if self.appear_then_click(self.I_BACK_BLUE, interval=1):
                 continue
@@ -126,7 +126,7 @@ class ScriptTask(GameUi, GeneralBattle, WeeklyTriflesAssets):
                 self.screenshot()
                 if self.appear(self.I_WT_DAY_BATTLE) or self.appear(self.I_CHECK_EXPLORATION):
                     break
-                if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+                if self.appear_then_click(self.I_BACK_RED, interval=1):
                     continue
                 if self.appear_then_click(self.I_BACK_BLUE, interval=1):
                     continue

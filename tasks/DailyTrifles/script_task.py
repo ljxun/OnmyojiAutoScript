@@ -179,7 +179,7 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
                 logger.warning('There is no any luck msg')
                 break
 
-        self.ui_click(self.I_UI_BACK_RED, self.I_CHECK_MAIN)
+        self.ui_click(self.I_BACK_RED, self.I_CHECK_MAIN)
 
     def run_friend_love(self):
         self.ui_goto_page(page_friends)
@@ -209,7 +209,7 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
                 logger.warning('There is no any love')
                 break
 
-        self.ui_click(self.I_UI_BACK_RED, self.I_CHECK_MAIN)
+        self.ui_click(self.I_BACK_RED, self.I_CHECK_MAIN)
 
     def run_store_sign(self):
         self.ui_goto_page(page_store_sign)

@@ -89,7 +89,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, SwitchSoul, HuntAssets):
             if self.appear(self.I_NW_DONE):
                 # 今日已挑战
                 logger.warning('今日已挑战')
-                self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                self.ui_click_until_disappear(self.I_BACK_RED)
                 return False
 
     def battle_wait(self, random_click_swipt_enable: bool) -> bool:

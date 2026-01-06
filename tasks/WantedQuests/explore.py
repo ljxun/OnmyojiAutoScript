@@ -27,7 +27,7 @@ class WQExplore(BaseExploration, HighLight):
         search_fail_cnt = 0
         while 1:
             self.screenshot()
-            if self.appear(self.I_UI_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
+            if self.appear(self.I_BACK_RED) and self.appear(self.I_E_EXPLORATION_CLICK):
                 break
             if self.appear_then_click(goto, interval=2):
                 continue
@@ -38,7 +38,7 @@ class WQExplore(BaseExploration, HighLight):
             if scene == Scene.ENTRANCE:
                 if _cnt_exploration >= num:
                     logger.info('Execution exploration end')
-                    self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                    self.ui_click_until_disappear(self.I_BACK_RED)
                     if explore_only_boss:
                         raise ExploreWantedBoss
                     break

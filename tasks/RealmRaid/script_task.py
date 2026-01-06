@@ -475,7 +475,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
         while 1:
             self.screenshot()
             if not self.appear(self.I_RR_PERSON, threshold=0.8):
-                if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+                if self.appear_then_click(self.I_BACK_RED, interval=1):
                     continue
                 break
             if self.appear_then_click(self.I_FIRE, interval=1):

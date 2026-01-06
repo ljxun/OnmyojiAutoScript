@@ -433,7 +433,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
                     self.screenshot()
                     # 检查自选御魂弹窗
                     if self.current_count <= 1:
-                        if self.appear_then_click(self.I_UI_BACK_RED):
+                        if self.appear_then_click(self.I_BACK_RED):
                             # 出现关闭御魂弹窗，说明没选择自选御魂，当前自选次数减一
                             self.current_count -= 1
                             continue
@@ -458,7 +458,7 @@ class ScriptTask(GeneralBattle, GeneralInvite, GeneralBuff, GeneralRoom, SwitchS
                     self.screenshot()
                     # 检查自选御魂弹窗
                     if self.current_count <= 1:
-                        if self.appear_then_click(self.I_UI_BACK_RED):
+                        if self.appear_then_click(self.I_BACK_RED):
                             # 出现关闭御魂弹窗，说明没选择自选御魂，当前自选次数减一
                             self.current_count -= 1
                             continue

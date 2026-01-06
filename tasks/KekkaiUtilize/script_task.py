@@ -180,7 +180,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
     #             self.screenshot()
     #             if self.appear(self.I_REALM_SHIN):
     #                 break
-    #             if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+    #             if self.appear_then_click(self.I_BACK_RED, interval=1):
     #                 continue
     #
     #     # 先是体力盒子

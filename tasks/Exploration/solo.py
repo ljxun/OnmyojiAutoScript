@@ -81,7 +81,7 @@ class SoloExploration(BaseExploration):
                         if self.appear_then_click(self.I_E_EXPLORATION_CLICK):
                             continue
                 else:
-                    self.appear_then_click(self.I_UI_BACK_RED)
+                    self.appear_then_click(self.I_BACK_RED)
                 continue
             #
             elif scene == Scene.MAIN:
@@ -215,7 +215,7 @@ class SoloExploration(BaseExploration):
     #                         break
     #                     if self.appear_then_click(self.I_UI_CONFIRM, interval=0.5):
     #                         continue
-    #                     if self.appear_then_click(self.I_UI_BACK_RED, interval=0.7):
+    #                     if self.appear_then_click(self.I_BACK_RED, interval=0.7):
     #                         continue
     #                     if self.appear_then_click(self.I_UI_BACK_YELLOW, interval=1):
     #                         continue
@@ -296,7 +296,7 @@ class SoloExploration(BaseExploration):
     #             continue
     #         #
     #         elif scene == Scene.ENTRANCE:
-    #             self.ui_click_until_disappear(self.I_UI_BACK_RED)
+    #             self.ui_click_until_disappear(self.I_BACK_RED)
     #         #
     #         elif scene == Scene.TEAM:
     #             continue

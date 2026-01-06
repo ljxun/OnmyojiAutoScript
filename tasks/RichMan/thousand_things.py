@@ -54,7 +54,7 @@ class ThousandThings(GameUi, RichManAssets):
             self.screenshot()
             if self.appear(self.I_TT_ENTER):
                 break
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+            if self.appear_then_click(self.I_BACK_RED, interval=1):
                 continue
         logger.info('Exit Thousand Things')
 
@@ -155,7 +155,7 @@ class ThousandThings(GameUi, RichManAssets):
             self.screenshot()
             if self.appear(self.I_TT_ENTER):
                 break
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+            if self.appear_then_click(self.I_BACK_RED, interval=1):
                 continue
 
     def tt_buy_ap(self):
@@ -210,7 +210,7 @@ class ThousandThings(GameUi, RichManAssets):
                     self.screenshot()
                     if not self.appear(self.I_TT_BUY_UP):
                         break
-                    if self.appear_then_click(self.I_UI_BACK_RED, interval=3):
+                    if self.appear_then_click(self.I_BACK_RED, interval=3):
                         continue
                 break
 

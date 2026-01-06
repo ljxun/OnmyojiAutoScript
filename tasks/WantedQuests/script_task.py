@@ -148,11 +148,11 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
             if self.special_main and self.click(self.C_SPECIAL_MAIN, interval=3):
                 logger.info('Click special main left to find wanted quests')
                 continue
-            if self.appear(self.I_UI_BACK_RED):
+            if self.appear(self.I_BACK_RED):
                 if not done_timer.started():
                     done_timer.start()
             if done_timer.started() and done_timer.reached():
-                self.ui_click_until_disappear(self.I_UI_BACK_RED)
+                self.ui_click_until_disappear(self.I_BACK_RED)
                 return False
         # 已追踪所有任务
         logger.info('All wanted quests are traced')
@@ -164,7 +164,7 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
                 self.all_cooperation_invite(self.config.wanted_quests.wanted_quests_config.invite_friend_name)
             else:
                 self.invite_five()
-        self.ui_click_until_disappear(self.I_UI_BACK_RED)
+        self.ui_click_until_disappear(self.I_BACK_RED)
         self.ui_goto_page(page_exploration)
         return True
 
@@ -265,7 +265,7 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
         self.run_general_battle(self.battle_config)
         # self.run_general_battle()
         self.wait_until_appear(self.I_WQC_FIRE, wait_time=4)
-        self.ui_click_until_disappear(self.I_UI_BACK_RED)
+        self.ui_click_until_disappear(self.I_BACK_RED)
         # 我忘记了打完后是否需要关闭 挑战界面
 
     def secret(self, goto, num=1):
@@ -277,11 +277,11 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
             click_count = 0
             while 1:
                 self.screenshot()
-                if not self.appear(self.I_UI_BACK_RED, threshold=0.7):
+                if not self.appear(self.I_BACK_RED, threshold=0.7):
                     break
                 if self.appear_then_click(self.I_WQSE_FIRE, interval=1):
                     continue
-                if self.appear(self.I_UI_BACK_RED, threshold=0.7) and not self.appear(self.I_WQSE_FIRE):
+                if self.appear(self.I_BACK_RED, threshold=0.7) and not self.appear(self.I_WQSE_FIRE):
                     self.click(self.C_SECRET_CHAT, interval=0.8)
                     click_count += 1
                     if click_count >= 6:

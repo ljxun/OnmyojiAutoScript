@@ -291,7 +291,7 @@ class Scales(Buy, MallNavbar):
             self.screenshot()
             if self.appear(self.I_SCA_DEMON_SOULS):
                 break
-            if self.appear_then_click(self.I_UI_BACK_RED, interval=1):
+            if self.appear_then_click(self.I_BACK_RED, interval=1):
                 continue
             if self.click(self.C_SCA_SOULS_BACK, interval=1):
                 continue
