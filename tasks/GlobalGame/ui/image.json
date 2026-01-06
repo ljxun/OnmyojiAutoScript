@@ -27,15 +27,6 @@
     "description": "'获得奖励' 四个大字"
   },
   {
-    "itemName": "ui_back_red",
-    "imageName": "ui_ui_back_red.png",
-    "roiFront": "1041,111,34,38",
-    "roiBack": "834,15,427,200",
-    "method": "Template matching",
-    "threshold": 0.8,
-    "description": "description"
-  },
-  {
     "itemName": "ui_award",
     "imageName": "ui_ui_award.png",
     "roiFront": "577,499,100,100",
