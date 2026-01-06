@@ -11,14 +11,13 @@ from module.exception import TaskEnd
 from module.logger import logger
 from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
+from tasks.Component.SwitchOnmyoji.switch_onmyoji import SwitchOnmyoji
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Duel.assets import DuelAssets
-from tasks.Duel.config import Onmyoji
-from tasks.GameUi.page import page_duel
-from tasks.GameUi.page import page_main
+from tasks.GameUi.page import page_main, page_onmyodo, page_duel
 
 
-class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
+class ScriptTask(GeneralBattle, SwitchSoul, SwitchOnmyoji, DuelAssets):
     """ 斗技 """
     battle_count = 0
     battle_win_count = 0
@@ -47,23 +46,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
 
         # 切换阴阳师
         if con.switch_enabled:
-            self.ui_goto_page(page_main)
-            # 清明
-            if con.switch_onmyoji == Onmyoji.Qm:
-                self.switch_kagura(con, self.C_QM_ZHAN, self.I_QM_ZHAN)
-            # 神乐
-            elif con.switch_onmyoji == Onmyoji.Sl:
-                self.switch_kagura(con, self.C_SL_ZHAN, self.I_SL_ZHAN)
-            # 源博雅
-            elif con.switch_onmyoji == Onmyoji.Yby:
-                self.switch_kagura(con, self.C_YBY_ZHAN, self.I_YBY_ZHAN)
-            # 八百比丘尼
-            elif con.switch_onmyoji == Onmyoji.Bbbqn:
-                self.switch_kagura(con, self.C_BBBQN_ZHAN, self.I_BBBQN_ZHAN)
-            # 源赖光
-            elif con.switch_onmyoji == Onmyoji.Ylg:
-                self.switch_yorimitsu()
-
+            self.ui_goto_page(page_onmyodo)
+            self.switch_onmyoji(con.switch_onmyoji)
         self.ui_goto_page(page_duel)
         # 切换御魂
         if con.switch_all_soul:
@@ -184,68 +168,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DuelAssets):
                 continue
         logger.info('Souls Switch is complete')
         self.ui_click(self.I_BACK_YELLOW, self.I_D_TEAM)
-
-    def switch_kagura(self,con, target1, target2):
-        click_count = 0  # 计数
-        while 1:
-            self.screenshot()
-            if click_count >= 4:
-                break
-            if self.appear(self.I_YINYANGSHUOK, interval=1):
-                break
-            if self.appear_then_click(self.I_YINYANGSHU, interval=1):
-                click_count += 1
-                continue
-        click_count = 0  # 计数
-        while 1:
-            self.screenshot()
-            if click_count >= 4:
-                break
-            if self.appear(self.I_YYSJIOAHUAN, interval=1):
-                break
-            if self.appear_then_click(self.I_JIAOTI, interval=1):
-                continue
-            if self.appear_then_click(self.I_YINGJIE, interval=1):
-                click_count += 1
-                continue
-        click_count = 0  # 计数
-        while 1:
-            self.screenshot()
-            if click_count >= 4:
-                break
-            if self.appear(target2, interval=1):
-                break
-            if self.appear_then_click(self.I_JIAOTI, interval=1):
-                continue
-            if self.click(target1, interval=1):
-                click_count += 1
-                continue
-        logger.info(f'切换阴阳师{con.switch_onmyoji}')
-        self.ui_goto_page(page_main)
-
-    def switch_yorimitsu(self):
-        click_count = 0  # 计数
-        while 1:
-            self.screenshot()
-            if click_count >= 4:
-                break
-            if self.appear(self.I_YINYANGSHUOK, interval=1):
-                break
-            if self.appear_then_click(self.I_YINYANGSHU, interval=1):
-                click_count += 1
-                continue
-        click_count = 0  # 计数
-        while 1:
-            self.screenshot()
-            if click_count >= 4:
-                break
-            if self.appear(self.I_YINGJIE, interval=1):
-                break
-            if self.appear_then_click(self.I_YINYANGSHI, interval=1):
-                click_count += 1
-                continue
-        logger.info('切换英杰源赖光')
-        self.ui_goto_page(page_main)
 
     def check_honor(self) -> bool:
         """
