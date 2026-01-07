@@ -66,7 +66,7 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
                 continue
             # 确认进入庭院
             if self.appear_then_click(self.I_LOGIN_SCROOLL_CLOSE, interval=2, threshold=0.9):
-                logger.info('Open scroll')
+                logger.info('打开庭院卷轴')
                 continue
             if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.2):
                 if confirm_timer.reached():
@@ -76,15 +76,15 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
                 confirm_timer.reset()
             # 登录成功
             if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
-                logger.info('Login success')
+                logger.info('✅ 登录成功')
                 login_success = True
             # 下载插画
             if self.appear_then_click(self.I_LOGIN_LOAD_DOWN, interval=1):
-                logger.info('Download inbetweening')
+                logger.info('下载插画')
                 continue
             # 不观看视频
             if self.appear_then_click(self.I_WATCH_VIDEO_CANCEL, interval=0.6):
-                logger.info('Close video')
+                logger.info('点击取消按钮')
                 continue
             # 右上角的红色的关闭
             if self.appear_then_click(self.I_BACK_RED, interval=0.6):
@@ -108,7 +108,7 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
 
             # 创建角色, 误入新区直接重启
             if self.appear(self.I_CREATE_ACCOUNT):
-                logger.warning('Appear create account')
+                logger.warning('创建角色, 误入新区直接重启')
                 raise GameStuckError('Appear create account')
             # 点击’进入游戏‘
             if not self.appear(self.I_LOGIN_8):

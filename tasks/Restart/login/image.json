@@ -6,7 +6,7 @@
     "roiBack": "1208,609,33,83",
     "method": "Template matching",
     "threshold": 0.8,
-    "description": "庭院卷轴打开"
+    "description": "庭院卷轴打开状态"
   },
   {
     "itemName": "login_scrooll_close",
@@ -15,7 +15,7 @@
     "roiBack": "1162,595,77,112",
     "method": "Template matching",
     "threshold": 0.7,
-    "description": "庭院卷轴关闭"
+    "description": "庭院卷轴关闭状态"
   },
   {
     "itemName": "login_red_close",
