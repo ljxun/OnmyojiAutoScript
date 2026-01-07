@@ -19,16 +19,16 @@ class CourtyardAffairs(GameUi, CourtyardAffairsAssets):
 
             if click_count >= 3:
                 logger.warning('庭院暂无可完成的事务!')
-                self.save_image(task_name="庭院暂无可完成的事务",image_type=True, wait_time=0)
+                # self.save_image(task_name="庭院暂无可完成的事务",image_type=True, wait_time=0)
                 break
             # 点击取消
             if self.appear_then_click(RestartAssets.I_LOGIN_CANCEL_BATTLE):
                 logger.info('式神满级，是否提取物经验？-点击取消')
-                self.save_image(task_name="庭院事务领取？-点击取消", push_flag=True, wait_time=0, image_type=True)
+                # self.save_image(task_name="庭院事务领取？-点击取消", push_flag=True, wait_time=0, image_type=True)
                 click_count = 0
                 continue
             if self.appear(self.I_SUCCESS_CLAIMED):
-                self.save_image(task_name="庭院事务完成",image_type=True)
+                # self.save_image(task_name="庭院事务完成",image_type=True)
                 break
             if self.appear_then_click(self.I_COMPLETE_WITH_ONE_CLICK, interval=1):
                 click_count += 1
