@@ -97,8 +97,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 content = [line.strip() for line in lines if line.strip()]
                 return content
         except FileNotFoundError:
-            self.push_notify(content=f"福利寮名单文件未找到: {config_path}")
-            logger.warning(f"福利寮名单文件未找到: {config_path}")
+            self.push_notify(content=f"福利寮名单文件未找到: {welfare_file}")
+            logger.warning(f"福利寮名单文件未找到: {welfare_file}")
             return ''
         except Exception as e:
             self.push_notify(content=f"读取福利寮名单时出错: {e}")
