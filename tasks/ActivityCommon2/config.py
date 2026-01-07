@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from tasks.Component.SwitchSoul.switch_soul_config import SwitchSoulConfig
 from tasks.Component.config_base import ConfigBase, Time
 from tasks.Component.config_scheduler import Scheduler
+from tasks.ActivityCommon.config import ActiveType
 
 
 class ModeType(str, Enum):
@@ -14,6 +15,8 @@ class ModeType(str, Enum):
 
 
 class ActivityCommonConfig(BaseModel):
+    # 活动类型选择
+    active_type: ActiveType = Field(default=ActiveType.battle, description='活动类型选择')
     enable: bool = Field(default=False, description='auto_enable_help')
     # 限制次数
     limit_count: int = Field(default=200, description='limit_count_help')

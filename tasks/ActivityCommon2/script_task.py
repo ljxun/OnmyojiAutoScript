@@ -15,8 +15,13 @@ class ScriptTask(ActivityCommonScriptTask):
 
     def run(self):
         config = self.config.activity_common_2
-        # 加载所有图片
-        goto_challenge_folder = "./tasks/ActivityCommon2/goto战斗页面"
+        battle_active_type = config.activity_common_config.active_type
+        if battle_active_type == '战斗':
+            folder = 'ActivityCommon2'
+        else:
+            folder = 'ActivityCommon'
+        # 加载图片
+        goto_challenge_folder = f"./tasks/{folder}/{battle_active_type}"
         battle_folder = "./tasks/ActivityCommon/战斗中"
 
         self.Challenge.run_config(config, goto_challenge_folder, battle_folder)

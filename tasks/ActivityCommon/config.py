@@ -13,6 +13,8 @@ class ActiveType(str, Enum):
     delegate = '委派'
     huanjing = '狭间幻境'
     lingran = '灵染试炼'
+    yanwu = '逢魔演武'
+    gua = '呱呱画室'
 
 
 class ModeType(str, Enum):

@@ -21,9 +21,9 @@ class ScriptTask(SwitchSoul, GeneralBattle):
     def run(self):
         # 加载所有图片
         over_img = "over.png"
-        goto_delegate_folder1 = "./tasks/ActivityCommon/进入委派页面"
-        goto_delegate_folder2 = "./tasks/ActivityCommon/进入委派页面1"
-        goto_delegate_folder3 = "./tasks/ActivityCommon/进入委派页面2"
+        goto_delegate_folder1 = "./tasks/ActivityCommon/委派"
+        goto_delegate_folder2 = "./tasks/ActivityCommon/委派"
+        goto_delegate_folder3 = "./tasks/ActivityCommon/委派"
 
         self.ui_goto_page(page_main)
 

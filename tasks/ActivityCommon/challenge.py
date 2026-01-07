@@ -24,20 +24,20 @@ class ScriptTask(SwitchSoul, GeneralBattle):
     def run_config(self, config, goto_challenge_folder, battle_folder):
 
         # 加载进入挑战界面图片列表
-        goto_activity_templates = self._load_image_template(goto_challenge_folder)
+        goto_challenge_templates = self._load_image_template(goto_challenge_folder, threshold=0.9)
 
         # 加载战斗图片列表
-        battle_templates = self._load_image_template(battle_folder)
+        battle_templates = self._load_image_template(battle_folder, threshold=0.9)
         challenge = RuleImage(
             roi_front=(1100, 540, 170, 170),
             roi_back=(819,471,457,244),
-            threshold=0.8,
+            threshold=0.9,
             method="Template matching",
             file=f"{goto_challenge_folder}/挑战.png"
         )
         battle_templates.append(challenge)
 
-        self.run_activity(config, goto_activity_templates, battle_templates, challenge)
+        self.run_activity(config, goto_challenge_templates, battle_templates, challenge)
 
     def run_activity(self, config, goto_challenge_templates, battle_templates, challenge) -> None:
         # 切换御魂
