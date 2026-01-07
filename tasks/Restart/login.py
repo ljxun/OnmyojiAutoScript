@@ -78,6 +78,10 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
             if self.appear(self.I_LOGIN_SCROOLL_OPEN, interval=0.5):
                 logger.info('Login success')
                 login_success = True
+            # 下载插画
+            if self.appear_then_click(self.I_LOGIN_LOAD_DOWN, interval=1):
+                logger.info('Download inbetweening')
+                continue
             # 不观看视频
             if self.appear_then_click(self.I_WATCH_VIDEO_CANCEL, interval=0.6):
                 logger.info('Close video')
