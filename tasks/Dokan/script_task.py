@@ -9,7 +9,6 @@ from time import sleep
 import cv2
 import re
 import tasks.Dokan.inner_page as ipages
-from tasks.Dokan.inner_page import page_dokan
 from datetime import datetime, timedelta
 from enum import Enum
 from module.atom.click import RuleClick
@@ -18,12 +17,14 @@ from module.atom.ocr import RuleOcr
 from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
+from pathlib import Path
 from tasks.Component.GeneralBattle.config_general_battle import GreenMarkType, GeneralBattleConfig
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.GeneralInvite.assets import GeneralInviteAssets
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Dokan.assets import DokanAssets
 from tasks.Dokan.config import Dokan
+from tasks.Dokan.inner_page import page_dokan
 from tasks.GameUi.page import PageRegistry
 from tasks.GameUi.page import page_guild
 from tasks.RichMan.assets import RichManAssets
@@ -88,7 +89,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         """
         从配置文件加载福利寮名单，只加载一次
         """
-        welfare_file = 'config/福利寮名单.txt'
+        # 获取当前脚本所在目录，然后拼接文件名
+        welfare_file = Path(__file__).parent / '福利寮名单.txt'
         try:
             with open(welfare_file, 'r', encoding='utf-8') as file:
                 # 读取所有行并放到一个列表中
@@ -974,8 +976,8 @@ if __name__ == "__main__":
     t = ScriptTask(config)
     # t.save_image()
     # t.run()
-    t.dokan_switch_soul()
-    t.finish_task()
+    # t.dokan_switch_soul()
+    t.welfare_name_str()
     # t.dokan_process(config.dokan)
     # t.find_dokan(config.dokan.welfare_config, True)
     # t.find_dokan()
