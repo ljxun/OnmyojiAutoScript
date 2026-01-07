@@ -52,7 +52,6 @@ class ScriptTask(GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul, Bondlin
             if cu >= MAX_COUNT:
                 message = f'契忆数量: {cu} 大于 {MAX_COUNT}'
                 self.save_image(content=message, push_flag=True)
-                self.ui_goto_page(page_main)
                 self.next_run_week(next_run_week)
                 raise TaskEnd
 
