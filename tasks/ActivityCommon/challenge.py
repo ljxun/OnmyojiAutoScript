@@ -1,6 +1,8 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
+from time import sleep
+
 import os
 import random
 from cached_property import cached_property
@@ -24,10 +26,10 @@ class ScriptTask(SwitchSoul, GeneralBattle):
     def run_config(self, config, goto_challenge_folder, battle_folder):
 
         # 加载进入挑战界面图片列表
-        goto_challenge_templates = self._load_image_template(goto_challenge_folder, threshold=0.9)
+        goto_challenge_templates = self._load_image_template(goto_challenge_folder, threshold=0.84)
 
         # 加载战斗图片列表
-        battle_templates = self._load_image_template(battle_folder, threshold=0.9)
+        battle_templates = self._load_image_template(battle_folder)
         challenge = RuleImage(
             roi_front=(1100, 540, 170, 170),
             roi_back=(819,471,457,244),
@@ -132,6 +134,7 @@ class ScriptTask(SwitchSoul, GeneralBattle):
                         return
                 else:
                     if self.appear_then_click(goto_template, interval=1):
+                        sleep(1)
                         break
 
     def start_battle(self, config, battle_templates, challenge):
