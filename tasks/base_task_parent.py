@@ -753,13 +753,14 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
 
         return True
 
-    def ui_click(self, click, stop, interval=1):
+    def ui_click(self, click, stop, interval=1, timeout=None):
         """
         循环的一个操作，直到出现stop
         :param click: 可以是单个元素或元素列表
         :param stop: 可以是单个元素或元素列表
         :param interval: 点击间隔时间
-        :return:
+        :param timeout: 超时时间（秒），默认为None表示不启用超时检测
+        :return: 如果超时返回False，否则返回True
         """
         # 将 stop 转换为列表格式以便统一处理
         if not isinstance(stop, (list, tuple)):
@@ -770,20 +771,41 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
         else:
             click_list = click
 
+        # 初始化超时计时器
+        timeout_timer = None
+        if timeout is not None:
+            timeout_timer = Timer(timeout)
+            timeout_timer.start()
+
         while 1:
             self.screenshot()
+
+            # 检查是否超时
+            if timeout_timer and timeout_timer.reached():
+                logger.warning(f"ui_click timeout after {timeout} seconds")
+                return False
+
             # 检查是否出现 stop 列表中的任意一个元素
             if any(self.appear(stop_item) for stop_item in stop):
-                break
+                return True
 
             # 遍历 click_list 中的每个元素，依次尝试点击
+            clicked = False
             for click_item in click_list:
                 if isinstance(click_item, RuleImage) and self.appear_then_click(click_item, interval=interval):
+                    clicked = True
                     break  # 找到并点击了一个元素后跳出循环
                 elif isinstance(click_item, RuleClick) and self.click(click_item, interval=interval):
+                    clicked = True
                     break  # 找到并点击了一个元素后跳出循环
                 elif isinstance(click_item, RuleOcr) and self.ocr_appear_click(click_item, interval=interval):
+                    clicked = True
                     break  # 找到并点击了一个元素后跳出循环
+
+            # 如果没有点击任何元素，短暂休眠避免过度消耗CPU
+            if not clicked:
+                sleep(0.1)
+
 
     def ui_click_until_disappear(self, click, interval: float = 1):
         """
