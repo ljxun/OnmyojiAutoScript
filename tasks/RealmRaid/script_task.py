@@ -184,7 +184,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
                 success_count += 1
             else:
                 faile_count += 1
-            logger.info(f'Success count: {success_count}, fail count: {faile_count}, Total count: {self.current_count}')
+            logger.info(f'Success count: {success_count} / {self.current_count}, fail count: {faile_count}')
 
             if lock_before:
                 con.general_battle_config.lock_team_enable = lock_before
@@ -252,7 +252,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
                     break
             logger.info(f'Click {self.I_LOCK.name}')
 
-    def is_frog(self, screenshot: bool=True) -> bool:
+    def is_frog(self, screenshot: bool = True) -> bool:
         """
         判断是不是呱太活动
         :return:
@@ -263,7 +263,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
             return True
         return False
 
-    def check_ticket(self, base: int=0) -> bool:
+    def check_ticket(self, base: int = 0) -> bool:
         """
         检查是不是有票， 检查这个票是否大于等于基准
         :param base:
@@ -275,7 +275,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
         self.wait_until_appear(self.I_BACK_RED)
         self.screenshot()
         cu, res, total = self.O_NUMBER.ocr(self.device.image)
-        logger.info(f'Ticket is cu {cu}, res {res}, total {total}')
 
         if total == 0:
             self.reward_detect_click(False)
@@ -290,7 +289,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
                 self.reward_detect_click(False)
                 # 使用O_NUMBER.ocr方法尝试读取数字
                 cu, res, total = self.O_NUMBER.ocr(self.device.image)
-                logger.info(f'Ticket is cu {cu}, res {res}, total {total}')
             else:
                 # 如果已经读取到数字，跳出循环
                 break
@@ -300,7 +298,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
             logger.warning(f'识别出错直接返回')
             return True
         if cu == 0 and res == 30 and cu + res == total:
-            logger.warning(f'Ticket is 0')
+            logger.info(f'Ticket is 0')
             return False
         elif cu + res == total and cu < base:
             logger.warning(f'Ticket is not enough')
@@ -334,7 +332,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
         return [self.C_PARTITION_1, self.C_PARTITION_2, self.C_PARTITION_3, self.C_PARTITION_4, self.C_PARTITION_5,
                 self.C_PARTITION_6, self.C_PARTITION_7, self.C_PARTITION_8, self.C_PARTITION_9]
 
-    def find_one(self, screenshot: bool=True) -> tuple:
+    def find_one(self, screenshot: bool = True) -> tuple:
         """
         找到一个可以打的，并且检查一下是不是这一个的是第几个的
         我们约定次序是：从左到右 上到下
@@ -354,16 +352,16 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
                 self.false_image.roi_back = roi
                 if not self.appear(self.false_image):
                     continue
-                logger.info(f'Position {i+1} is a failed')
+                logger.info(f'Position {i + 1} is a failed')
                 x, y, w, h = self.partition[i].roi_back
-                image[y:y+h, x:x+w, ...] = 0
+                image[y:y + h, x:x + w, ...] = 0
         # -----------------------------------------------------
         target = self.order_medal.find_anyone(image)
         if target:
             center = target.front_center()
             for i, click in enumerate(self.partition):
                 x1, x2, y1, y2 = click.roi_front[0], click.roi_front[0] + click.roi_front[2], \
-                                 click.roi_front[1], click.roi_front[1] + click.roi_front[3]
+                    click.roi_front[1], click.roi_front[1] + click.roi_front[3]
                 if x1 < center[0] < x2 and y1 < center[1] < y2:
                     logger.info(f'Find one medal [{target}], order is {i + 1}')
                     return target, i + 1
@@ -404,7 +402,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
             return True
         return False
 
-    def reward_detect_click(self, screenshot: bool=True) -> bool:
+    def reward_detect_click(self, screenshot: bool = True) -> bool:
         """
         检测是否出现 每三次就有奖励的界面, 有就领取
         :return:
@@ -439,7 +437,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
         #         if self.appear_then_click(self.I_SOUL_RAID, interval=1.5):
         #             continue
 
-    def check_refresh(self, screenshot: bool=True) -> bool:
+    def check_refresh(self, screenshot: bool = True) -> bool:
         """
         检查是否出现了刷新的按钮
         如果可以刷新就刷新，返回True
@@ -508,7 +506,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
 
     @cached_property
     def false_image(self):
-        return RuleImage(roi_front=(0 ,0, 63, 32),
+        return RuleImage(roi_front=(0, 0, 63, 32),
                          roi_back=(0, 0, 100, 100),
                          threshold=0.8,
                          method="Template matching",
@@ -517,10 +515,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, RealmRaidAssets):
 
 if __name__ == "__main__":
     from module.config.config import Config
-    from module.device.device import Device
+
     config = Config('oas1')
-    device = Device(config)
-    t = ScriptTask(config, device)
+    t = ScriptTask(config)
 
     t.run()
-
