@@ -12,6 +12,14 @@ import subprocess
 from PIL import Image, ImageTk
 from datetime import datetime
 
+"""
+坐标系统统一说明：
+- 画布坐标系与图像坐标系完全一致
+- 不再使用4像素偏移
+- 所有坐标直接对应图像上的像素位置
+- ROI格式为 (x, y, width, height)
+"""
+
 # 将当前目录加入系统路径，以便导入项目模块
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -93,14 +101,14 @@ class DevTool(ctk.CTk):
         self.canvas_frame.grid(row=0, column=0, padx=(0, 10), pady=0, sticky="")
 
         # 创建画布
-        self.screen_canvas = ctk.CTkCanvas(self.canvas_frame, width=1280, height=720, bg="white")
+        self.screen_canvas = ctk.CTkCanvas(self.canvas_frame, width=1280, height=720, bg="white")  # 调整为图像实际尺寸
         self.screen_canvas.configure(borderwidth=2, relief="solid")
         self.screen_canvas.bind("<Enter>", self.in_canvas)
         self.screen_canvas.bind("<Leave>", self.out_canvas)
         self.screen_canvas.bind("<Button-1>", self.on_click)
         self.screen_canvas.bind("<B1-Motion>", self.on_move)
         self.screen_canvas.bind("<ButtonRelease-1>", self.on_release)
-        # 使用固定尺寸，确保画布保持1280x720
+        # 使用固定尺寸，确保画布保持1280x720（与图像尺寸一致）
         self.screen_canvas.grid(row=0, column=0, padx=10, pady=10)
         self.mouse_is_in_canvas = False
 
@@ -333,6 +341,9 @@ class DevTool(ctk.CTk):
         # 添加：启动时自动扫描并加载最新图片
         # 使用更长的延迟来提高启动速度
         self.after(200, self.load_latest_image_at_startup)
+        
+        # 初始化画布滚动区域
+        self.screen_canvas.configure(scrollregion=(0, 0, 1280, 720))
 
     def _ensure_directory_exists(self, path):
         """确保目录存在，如果不存在则创建"""
@@ -354,7 +365,8 @@ class DevTool(ctk.CTk):
     def copy_to_clipboard(self, text):
         # 修改这里：改变复制到剪贴板的坐标格式
         x1, y1, x2, y2 = self.coordinates
-        formatted_text = f"{x1-4},{y1-4},{x2-x1},{y2-y1}"
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+        formatted_text = f"{x1},{y1},{x2-x1},{y2-y1}"
         # 彻底清理所有空白字符
         formatted_text = re.sub(r'\s+', '', formatted_text)
 
@@ -425,7 +437,11 @@ class DevTool(ctk.CTk):
             # 转换为PIL Image并显示
             pil_image = Image.fromarray(cv2.cvtColor(self.np_image, cv2.COLOR_BGR2RGB))
             self.current_image = ImageTk.PhotoImage(pil_image)
-            self.screen_canvas.create_image(4, 4, anchor="nw", image=self.current_image)
+            # 直接在画布的(0,0)位置显示图像，确保完全填充画布
+            self.screen_canvas.create_image(0, 0, anchor="nw", image=self.current_image)
+
+            # 配置画布的滚动区域，确保与图像尺寸一致
+            self.screen_canvas.configure(scrollregion=(0, 0, width, height))
 
             # 设置图片名称为文件名（不含扩展名）
             img_name = os.path.splitext(os.path.basename(image_path))[0]
@@ -527,12 +543,14 @@ class DevTool(ctk.CTk):
 
         # 确保 np_image 和矩形框有效
         if self.np_image is not None and any(self.rect.values()):
+            x1, y1, x2, y2 = self.coordinates
             # 检查裁剪框的有效性
             # if not (0 <= x1 < x2 <= self.np_image.shape[1] and 0 <= y1 < y2 <= self.np_image.shape[0]):
             #     self.log_print("裁剪框的坐标无效", "error")
             #     return
             try:
-                cropped_image = self.np_image[y1 - 4 : y2 - 4, x1 - 4 : x2 - 4]
+                # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+                cropped_image = self.np_image[y1 : y2, x1 : x2]
                 cv2.imencode(".png", cropped_image)[1].tofile(path)
                 self.log_print(f"{save_name}.png 保存成功", "success")
                 # 新增：保存图片信息到 image.json
@@ -543,7 +561,8 @@ class DevTool(ctk.CTk):
     def save_image_info(self, save_name, path, x1, y1, x2, y2):
         """保存图片信息到 image.json"""
         json_file_path = os.path.join(self.folder_path_entry.get(), "image.json")
-        roi_front_back = f"{x1-4},{y1-4},{x2-x1},{y2-y1}"
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+        roi_front_back = f"{x1},{y1},{x2-x1},{y2-y1}"
         image_data = {
             "itemName": save_name,
             "imageName": f"{save_name}.png",
@@ -557,7 +576,8 @@ class DevTool(ctk.CTk):
         formatted_json = json.dumps(image_data, ensure_ascii=False, indent=2)
         self.log_print(formatted_json)
 
-        roi = x1-4, y1-4, x2-x1, y2-y1
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+        roi = x1, y1, x2-x1, y2-y1
         self.log_print(f"rule_image = RuleImage(roi_front={roi}, roi_back={roi}, threshold=0.8, method=\"Template matching\", file=\"{self.folder_path_entry.get()}\\{save_name}.png\")")
 
         # 读取现有数据或初始化为空列表
@@ -590,10 +610,11 @@ class DevTool(ctk.CTk):
 
     def format_img(self, fmt_type):
         x1, y1, x2, y2 = self.coordinates
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
         fmt_map = {
-            "image": f"{self.name}=['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}']",
-            "page": f"{self.name}=Page('{self.name}',['{self.file_path}', [{x1-4}, {y1-4}, {x2-4}, {y2-4}], '{self.name}'])",
-            "coor": f"{self.name}=({x1-4}, {y1-4}, {x2-4}, {y2-4})"
+            "image": f"{self.name}=['{self.file_path}', [{x1}, {y1}, {x2}, {y2}], '{self.name}']",
+            "page": f"{self.name}=Page('{self.name}',['{self.file_path}', [{x1}, {y1}, {x2}, {y2}], '{self.name}'])",
+            "coor": f"{self.name}=({x1}, {y1}, {x2}, {y2})"
         }
         return fmt_map.get(fmt_type, "")
 
@@ -690,7 +711,8 @@ class DevTool(ctk.CTk):
                 self.is_dragging = False
                 # 更新坐标显示
                 x1, y1, x2, y2 = self.coordinates
-                self.log_print(f"矩形框坐标：{x1-4},{y1-4},{x2-x1},{y2-y1}")
+                # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+                self.log_print(f"矩形框坐标：{x1},{y1},{x2-x1},{y2-y1}")
                 self.dyn_creat_info()
             else:
                 # 处理新矩形绘制
@@ -701,9 +723,9 @@ class DevTool(ctk.CTk):
                     # 检查是否实际拉出了矩形框（即起点和终点不同）
                     if self.rect["x1"] != self.rect["x2"] and self.rect["y1"] != self.rect["y2"]:
                         self.draw_rectangle()
-                        # 修改这里：改变日志中坐标的显示格式
+                        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
                         x1, y1, x2, y2 = self.coordinates
-                        self.log_print(f"矩形框坐标：{x1-4},{y1-4},{x2-x1},{y2-y1}")
+                        self.log_print(f"矩形框坐标：{x1},{y1},{x2-x1},{y2-y1}")
                         self.dyn_creat_info()
                 # 重置绘制状态
                 self.is_drawing = False
@@ -713,12 +735,21 @@ class DevTool(ctk.CTk):
     def dyn_creat_info(self, *args, **kwargs):
         # 修改这里：改变矩形框坐标显示框中的格式
         x1, y1, x2, y2 = self.coordinates
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
         self.rect_info.delete(0, "end")
-        self.rect_info.insert(0, f"{x1-4},{y1-4},{x2-x1},{y2-y1}")
+        self.rect_info.insert(0, f"{x1},{y1},{x2-x1},{y2-y1}")
 
     def draw_rectangle(self):
         self.screen_canvas.delete("rect")
-        self.screen_canvas.create_rectangle(self.rect["x1"], self.rect["y1"], self.rect["x2"], self.rect["y2"], outline="red", tags="rect")
+        # 使用统一的坐标系统，直接绘制矩形
+        self.screen_canvas.create_rectangle(
+            self.rect["x1"], 
+            self.rect["y1"], 
+            self.rect["x2"], 
+            self.rect["y2"], 
+            outline="red", 
+            tags="rect"
+        )
 
     def show_rectangle_from_entry(self, event=None):
         """从坐标输入框获取坐标并在画布上显示矩形框"""
@@ -737,15 +768,15 @@ class DevTool(ctk.CTk):
                 return  # 不完整的坐标不处理
 
             x, y, w, h = coords
-            # 转换为画布坐标 (加上偏移量4)
-            x1 = int(x) + 4
-            y1 = int(y) + 4
+            # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+            x1 = int(x)
+            y1 = int(y)
             x2 = x1 + int(w)
             y2 = y1 + int(h)
 
             # 检查坐标是否在图像范围内
             if self.np_image is not None:
-                if not (0 <= x1 < x2 <= self.np_image.shape[1]+8 and 0 <= y1 < y2 <= self.np_image.shape[0]+8):
+                if not (0 <= x1 < x2 <= self.np_image.shape[1] and 0 <= y1 < y2 <= self.np_image.shape[0]):
                     # 坐标超出范围时不绘制，但不清除现有矩形
                     return
 
@@ -780,8 +811,8 @@ class DevTool(ctk.CTk):
         try:
             # 获取选区坐标
             x1, y1, x2, y2 = self.coordinates
-            # 转换为图片坐标系
-            x1, y1, x2, y2 = x1 - 4, y1 - 4, x2 - 4, y2 - 4
+            # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+            # x1, y1, x2, y2 = x1 - 4, y1 - 4, x2 - 4, y2 - 4
             
             # 确保坐标有效
             x1, x2 = sorted([x1, x2])
@@ -883,8 +914,8 @@ class DevTool(ctk.CTk):
             try:
                 # 获取选区坐标
                 x1, y1, x2, y2 = self.coordinates
-                # 转换为图片坐标系
-                x1, y1, x2, y2 = x1 - 4, y1 - 4, x2 - 4, y2 - 4
+                # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+                # x1, y1, x2, y2 = x1 - 4, y1 - 4, x2 - 4, y2 - 4
 
                 # 确保坐标有效
                 x1, x2 = sorted([x1, x2])
@@ -917,6 +948,7 @@ class DevTool(ctk.CTk):
 
     def _perform_image_match(self, x1, y1, x2, y2, threshold):
         """执行图片匹配"""
+        # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
         # 创建RuleImage对象
         template_rule = RuleImage(
             roi_front=(x1, y1, x2-x1, y2-y1),
@@ -985,8 +1017,8 @@ class DevTool(ctk.CTk):
             # 在画布上绘制OCR区域
             self.screen_canvas.delete("ocr_result")
             roi = ocr_rule.roi
-            # 转换回画布坐标系
-            canvas_x1, canvas_y1 = roi[0] + 4, roi[1] + 4
+            # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+            canvas_x1, canvas_y1 = roi[0], roi[1]
             canvas_x2, canvas_y2 = roi[2], roi[3]
             self.screen_canvas.create_rectangle(
                 canvas_x1, canvas_y1, canvas_x1 + canvas_x2, canvas_y1 + canvas_y2,
@@ -1056,8 +1088,8 @@ class DevTool(ctk.CTk):
             # 在画布上绘制匹配结果
             self.screen_canvas.delete("match_result")
             roi = template_rule.roi_front
-            # 转换回画布坐标系
-            canvas_x1, canvas_y1 = roi[0] + 4, roi[1] + 4
+            # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+            canvas_x1, canvas_y1 = roi[0], roi[1]
             canvas_x2, canvas_y2 = roi[2], roi[3]
             self.screen_canvas.create_rectangle(
                 canvas_x1, canvas_y1, canvas_x1 + canvas_x2, canvas_y1 + canvas_y2,
@@ -1072,8 +1104,8 @@ class DevTool(ctk.CTk):
                 # 在画布上绘制匹配结果
                 self.screen_canvas.delete("match_result")
                 roi = template_rule.roi_front
-                # 转换回画布坐标系
-                canvas_x1, canvas_y1 = roi[0] + 4, roi[1] + 4
+                # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
+                canvas_x1, canvas_y1 = roi[0], roi[1]
                 canvas_x2, canvas_y2 = roi[2], roi[3]
                 self.screen_canvas.create_rectangle(
                     canvas_x1, canvas_y1, canvas_x1 + canvas_x2, canvas_y1 + canvas_y2,
@@ -1127,7 +1159,10 @@ class DevTool(ctk.CTk):
         frame_width = self.canvas_frame.winfo_width()
         frame_height = self.canvas_frame.winfo_height()
         self.log_print(f"父容器尺寸: {frame_width}x{frame_height}")
-
+        
+        # 输出当前坐标系统信息
+        self.log_print(f"当前坐标系统: 画布尺寸{requested_width}x{requested_height}，图像尺寸应为1280x720")
+        
     # 辅助方法：检查矩形是否有效
     def is_rect_valid(self):
         """检查当前选择的矩形是否有效"""
