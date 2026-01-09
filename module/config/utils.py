@@ -80,10 +80,11 @@ def write_file(file: str, data):
     folder = os.path.dirname(file)
     filename = os.path.basename(file)
 
-    # 分离文件名和扩展名，将文件名转换为大写
-    name, ext = os.path.splitext(filename)
-    filename_upper = name.upper() + ext
-    file = os.path.join(folder, filename_upper)
+    if 'template.json' not in filename:
+        # 分离文件名和扩展名，将文件名转换为大写
+        name, ext = os.path.splitext(filename)
+        filename_upper = name.upper() + ext
+        file = os.path.join(folder, filename_upper)
 
     if not os.path.exists(folder):
         os.mkdir(folder)
