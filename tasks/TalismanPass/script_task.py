@@ -29,14 +29,14 @@ class ScriptTask(GameUi, TalismanPassAssets):
         self.get_flower(con.level_reward)
 
         if con.get_accomplishments:
-            self.get_accomplishment()
+            self.get_accomplishment_reward()
         if con.get_newbie:
-            self.get_newbie()
+            self.get_newbie_reward()
 
         self.set_next_run(task='TalismanPass', success=True, finish=True)
         raise TaskEnd('TalismanPass')
 
-    def get_newbie(self):
+    def get_newbie_reward(self):
         """
         获取新手奖励
         :return:
@@ -71,9 +71,9 @@ class ScriptTask(GameUi, TalismanPassAssets):
         logger.info('Get all reward')
         time.sleep(0.5)
 
-    def get_accomplishment(self):
+    def get_accomplishment_reward(self):
         """
-        获取任务完成奖励
+        领取成就奖励
         :return:
         """
         self.ui_goto_page(page_accomplishment)
