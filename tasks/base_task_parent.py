@@ -756,26 +756,34 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
     def ui_click(self, click, stop, interval=1):
         """
         循环的一个操作，直到出现stop
-        :param click:
-        :param stop:
-        :parm interval
+        :param click: 可以是单个元素或元素列表
+        :param stop: 可以是单个元素或元素列表
+        :param interval: 点击间隔时间
         :return:
         """
         # 将 stop 转换为列表格式以便统一处理
         if not isinstance(stop, (list, tuple)):
             stop = [stop]
+        # 将 click 转换为列表格式以便统一处理
+        if not isinstance(click, (list, tuple)):
+            click_list = [click]
+        else:
+            click_list = click
+
         while 1:
             self.screenshot()
             # 检查是否出现 stop 列表中的任意一个元素
             if any(self.appear(stop_item) for stop_item in stop):
                 break
 
-            if isinstance(click, RuleImage) and self.appear_then_click(click, interval=interval):
-                continue
-            if isinstance(click, RuleClick) and self.click(click, interval=interval):
-                continue
-            elif isinstance(click, RuleOcr) and self.ocr_appear_click(click, interval=interval):
-                continue
+            # 遍历 click_list 中的每个元素，依次尝试点击
+            for click_item in click_list:
+                if isinstance(click_item, RuleImage) and self.appear_then_click(click_item, interval=interval):
+                    break  # 找到并点击了一个元素后跳出循环
+                elif isinstance(click_item, RuleClick) and self.click(click_item, interval=interval):
+                    break  # 找到并点击了一个元素后跳出循环
+                elif isinstance(click_item, RuleOcr) and self.ocr_appear_click(click_item, interval=interval):
+                    break  # 找到并点击了一个元素后跳出循环
 
     def ui_click_until_disappear(self, click, interval: float = 1):
         """
