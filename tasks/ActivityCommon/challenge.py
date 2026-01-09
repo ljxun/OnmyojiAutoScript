@@ -59,11 +59,12 @@ class ScriptTask(SwitchSoul, GeneralBattle):
         if config.activity_common_config.active_souls_clean:
             self.set_next_run(task='SoulsTidy', success=False, finish=False, target=datetime.now())
 
-        if battle_result:
-            next_run = datetime.combine(datetime.now().date() + timedelta(days=1), time(5, 5))
-            self.set_next_run(task=self.config.task.command, target=next_run)
-        else:
-            self.set_next_run(task=self.config.task.command, finish=True, success=True)
+        self.set_next_run()
+        # if battle_result:
+        #     next_run = datetime.combine(datetime.now().date() + timedelta(days=1), time(5, 5))
+        #     self.set_next_run(task=self.config.task.command, target=next_run)
+        # else:
+        #     self.set_next_run(task=self.config.task.command, finish=True, success=True)
         raise TaskEnd
 
 
@@ -112,9 +113,8 @@ class ScriptTask(SwitchSoul, GeneralBattle):
 
                 if should_notify:
                     self.push_notify(content=f"限制[{limit_ocr_number}]已达到: {cu}/{total}")
-                    self.set_next_run()
-                    # self.set_next_run(task=self.config.task.command, target=datetime.now() + timedelta(minutes=10))
-                    raise TaskEnd
+                    return True
+        return False
 
     def goto_challenge(self, goto_challenge_templates):
         # 进入挑战界面
@@ -203,10 +203,10 @@ class ScriptTask(SwitchSoul, GeneralBattle):
                         if enable:
                             if datetime.now() - self.start_time > self.limit_time:
                                 self.push_notify(f"{self.limit_time} 时间限制已到，结束任务")
-                                return
+                                return False
                             if self.current_count >= self.limit_count:
                                 self.push_notify(f"{self.limit_count} 次数限制已到，结束任务")
-                                return
+                                return False
 
                 if self.appear_then_click(image_template, interval=1):
                     if current_file == '御魂溢出确认.png':
