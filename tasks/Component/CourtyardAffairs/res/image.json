@@ -34,5 +34,14 @@
     "method": "Template matching",
     "threshold": 0.8,
     "description": "领取成功"
+  },
+  {
+    "itemName": "daily",
+    "imageName": "daily.png",
+    "roiFront": "1140,135,63,52",
+    "roiBack": "1126,90,112,362",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "日常"
   }
 ]

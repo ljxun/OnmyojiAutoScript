@@ -33,6 +33,8 @@ class CourtyardAffairs(GameUi, CourtyardAffairsAssets):
             if self.appear_then_click(self.I_COMPLETE_WITH_ONE_CLICK, interval=1):
                 click_count += 1
                 continue
+            if self.appear_then_click(self.I_DAILY, interval=1):
+                continue
 
 
 if __name__ == "__main__":

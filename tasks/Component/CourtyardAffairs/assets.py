@@ -19,5 +19,7 @@ class CourtyardAffairsAssets:
 	I_COMPLETE_WITH_ONE_CLICK = RuleImage(roi_front=(1128,600,70,67), roi_back=(1128,600,70,67), threshold=0.8, method="Template matching", path="./res/complete_with_one_click.png", file="./tasks/Component/CourtyardAffairs/res/complete_with_one_click.png")
 	# 领取成功 
 	I_SUCCESS_CLAIMED = RuleImage(roi_front=(319,33,160,51), roi_back=(319,33,160,51), threshold=0.8, method="Template matching", path="./res/success_claimed.png", file="./tasks/Component/CourtyardAffairs/res/success_claimed.png")
+	# 日常 
+	I_DAILY = RuleImage(roi_front=(1140,135,63,52), roi_back=(1126,90,112,362), threshold=0.8, method="Template matching", path="./res/daily.png", file="./tasks/Component/CourtyardAffairs/res/daily.png")
 
 
