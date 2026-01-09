@@ -77,6 +77,16 @@
       "costume_battle_type": "costume_battle_default"
     }
   },
+  "courtyard_affairs": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00"
+    }
+  },
   "area_boss": {
     "scheduler": {
       "enable": false,
@@ -248,11 +258,7 @@
       "shikigami_class": "N",
       "shikigami_order": 4,
       "utilize_enable": true,
-      "guild_ap_enable": true,
-      "guild_assets_enable": true,
-      "box_ap_enable": true,
-      "box_exp_enable": true,
-      "box_exp_waste": true
+      "courtyard_affairs_enable": true
     }
   },
   "kekkai_activation": {
@@ -330,14 +336,13 @@
     },
     "trifles_config": {
       "one_summon": false,
-      "summon_type": "普通召唤",
       "broken_amulet": 0,
-      "guild_wish": false,
       "friend_love": false,
       "luck_msg": false,
       "store_sign": false,
       "buy_sushi_count": -1,
-      "recruit_members": false
+      "recruit_members": false,
+      "lottery_box": true
     }
   },
   "talisman_pass": {
@@ -767,7 +772,7 @@
       "ocr_number_mode": "DigitCounter",
       "ocr_number_roi": "",
       "limit_ocr_number": -1,
-      "number_type": "战斗"
+      "number_type": "战斗次数（数值递增）"
     },
     "switch_soul_config": {
       "enable": false,
@@ -787,6 +792,7 @@
       "server_update": "09:00:00"
     },
     "activity_common_config": {
+      "active_type": "战斗",
       "enable": false,
       "limit_count": 200,
       "limit_time": "00:30:00",
@@ -798,7 +804,8 @@
       "enable": false,
       "ocr_number_mode": "DigitCounter",
       "ocr_number_roi": "",
-      "limit_ocr_number": 0
+      "limit_ocr_number": -1,
+      "number_type": "战斗次数（数值递增）"
     },
     "switch_soul_config": {
       "enable": false,

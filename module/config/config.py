@@ -100,7 +100,7 @@ class Config(ConfigState, ConfigManual, ConfigWatcher, ConfigMenu):
         super(ConfigMenu, self).__init__()
         self.model = ConfigModel(config_name=config_name)
         self.state_queue: Queue = None
-        self.scheduler_update_dt = None # 调度器更新时间
+        self.scheduler_update_dt = None  # 调度器更新时间
 
     def __getattr__(self, name):
         """
@@ -431,7 +431,9 @@ class Config(ConfigState, ConfigManual, ConfigWatcher, ConfigMenu):
 
     @cached_property
     def notifier(self):
-        notifier = Notifier(self.model.script.error.notify_config, self.model.script.error.pushtg_config, enable=self.model.script.error.notify_enable, enable_tg=self.model.script.error.pushtg_enable)
+        notifier = Notifier(self.model.script.error.notify_config, self.model.script.error.pushtg_config,
+                            enable=self.model.script.error.notify_enable,
+                            enable_tg=self.model.script.error.pushtg_enable)
         notifier.config_name = self.config_name.upper()
         logger.info(f'Notifier: {notifier.config_name}')
         return notifier
