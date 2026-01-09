@@ -332,17 +332,19 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
         :param skip_first_screenshot: 是否跳过首次截图
         :return: 是否成功操作
         """
-        self.maybe_screenshot(skip_first_screenshot)
-        operated = False
-        if isinstance(target, RuleList):
-            operated = self.list_appear_click(target, interval=interval)
-        elif isinstance(target, (RuleImage, RuleGif)):
-            operated = self.appear_then_click(target, interval=interval)
-        elif isinstance(target, RuleOcr):
-            operated = self.ocr_appear_click(target, interval=interval)
-        elif isinstance(target, RuleClick):
-            operated = self.click(target, interval=interval)
-        return operated
+        timer = Timer(interval).start()
+        while 1:
+            if timer.reached():
+                return False
+            self.maybe_screenshot(skip_first_screenshot)
+            if isinstance(target, RuleList) and self.list_appear_click(target, interval=interval):
+                return True
+            elif isinstance(target, (RuleImage, RuleGif)) and self.appear_then_click(target, interval=interval):
+                return True
+            elif isinstance(target, RuleOcr) and self.ocr_appear_click(target, interval=interval):
+                return True
+            elif isinstance(target, RuleClick) and self.click(target, interval=interval):
+                return True
 
     def ui_goto_active(self, active: str = ''):
         """
