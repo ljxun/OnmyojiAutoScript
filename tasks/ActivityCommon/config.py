@@ -23,8 +23,8 @@ class ModeType(str, Enum):
 
 
 class NumberType(str, Enum):
-    Ticket = '门票'
-    Battle = '战斗'
+    Ticket = '门票数量（数值递减）'
+    Battle = '战斗次数（数值递增）'
 
 
 class ActivityCommonConfig(BaseModel):
@@ -43,12 +43,11 @@ class ActivityCommonConfig(BaseModel):
 
 
 class CheckBattleConfig(ConfigBase):
-    enable: bool = Field(default=False, description='auto_enable_help')
-    ocr_number_mode: ModeType = Field(default=ModeType.DigitCounter, description='ocr类型')
-    ocr_number_roi: str = Field(default='', description='ocr坐标')
-    limit_ocr_number: int = Field(default=-1, description='检测限制次数')
-    number_type: NumberType = Field(default=NumberType.Battle, description='检测限制次数类型')
-
+    enable: bool = Field(default=False, description='是否启用 OCR 战斗次数检测')
+    ocr_number_mode: ModeType = Field(default=ModeType.DigitCounter, description='OCR 战斗次数检测类型')
+    ocr_number_roi: str = Field(default='', description='OCR 坐标（例如：1136,113,31,52）')
+    limit_ocr_number: int = Field(default=-1, description='限制战斗次数')
+    number_type: NumberType = Field(default=NumberType.Battle, description='限制战斗次数类型')
 
 
 class ActivityCommon(ConfigBase):
