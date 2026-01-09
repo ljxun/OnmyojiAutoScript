@@ -296,8 +296,8 @@ class RuleImage(BaseAtom):
 
     def update_roi(self, max_loc):
         # 更新ROI坐标
-        self.roi_front[0] = max_loc[0] + self.roi_back[0] - 5
-        self.roi_front[1] = max_loc[1] + self.roi_back[1] - 5
+        self.roi_front[0] = max_loc[0] + max(0, self.roi_back[0] - 5)
+        self.roi_front[1] = max_loc[1] + max(0, self.roi_back[1] - 5)
 
     def match_first(self, image: np.array, threshold: float = None) -> bool:
         """
