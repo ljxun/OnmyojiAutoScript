@@ -29,14 +29,13 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
 
     def run(self):
         con = self.config.kekkai_utilize.utilize_config
-        self.ui_goto_page(page_realm)
 
         # 育成界面去蹭卡
         if con.utilize_enable:
             self.check_utilize_add()
+            # 查看育成满级
+            self.check_max_lv(con.shikigami_class)
 
-        # 查看育成满级
-        self.check_max_lv(con.shikigami_class)
         # 检查蹭卡收获
         # self.check_utilize_harvest()
         # 收体力盒子或者是经验盒子
@@ -52,9 +51,9 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
             self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
         raise TaskEnd
 
-
-
     def check_utilize_add(self):
+        self.ui_goto_page(page_realm)
+
         con = self.config.kekkai_utilize.utilize_config
         while 1:
             if self.run_utilize_count >= 2:
