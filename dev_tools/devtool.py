@@ -1087,7 +1087,7 @@ class DevTool(ctk.CTk):
 
             # 在画布上绘制匹配结果
             self.screen_canvas.delete("match_result")
-            roi = template_rule.roi_front
+            roi = template_rule.roi_back
             # 统一坐标系统：现在画布坐标和图像坐标一致，无需偏移
             canvas_x1, canvas_y1 = roi[0], roi[1]
             canvas_x2, canvas_y2 = roi[2], roi[3]
