@@ -12,3 +12,8 @@ page_main.link(button=G.I_MAIN_GOTO_DAILY, destination=page_daily)
 page_accomplishment = Page(TalismanPassAssets.I_ACCOMPLISHMENTS_2)
 page_accomplishment.link(button=G.I_BACK_YELLOW, destination=page_daily)
 page_daily.link(button=TalismanPassAssets.I_ACCOMPLISHMENTS_1, destination=page_accomplishment)
+
+# 新手奖励page
+page_newbie = Page(TalismanPassAssets.I_NEWBIE_PAGE)
+page_newbie.link(button=G.I_BACK_YELLOW, destination=page_main)
+page_main.link(button=TalismanPassAssets.I_NEWBIE, destination=page_newbie)

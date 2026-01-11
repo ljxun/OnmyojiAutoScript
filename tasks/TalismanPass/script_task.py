@@ -10,7 +10,7 @@ from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
 from tasks.TalismanPass.assets import TalismanPassAssets
 from tasks.TalismanPass.config import TalismanConfig, LevelReward
-from tasks.TalismanPass.page import page_daily, page_accomplishment
+from tasks.TalismanPass.page import page_daily, page_accomplishment, page_newbie
 
 """ 花合战 """
 
@@ -41,12 +41,11 @@ class ScriptTask(GameUi, TalismanPassAssets):
         获取新手奖励
         :return:
         """
-        self.ui_goto_page(page_main)
-        self.ui_click(self.I_NEWBIE, self.I_NEWBIE_PAGE)
+        self.ui_goto_page(page_newbie)
         self.ui_click(self.I_YC_ROAD, self.I_RESUPPLY)
         self.ui_click(self.I_RESUPPLY, self.I_RESUPPLY_PAGE)
         if self.ui_click(self.I_ONE_COLLECT, self.I_UI_REWARD, timeout=3):
-            self.save_image(task_name="新手奖励一键领取", wait_time=0)
+            self.save_image(task_name="新手奖励", wait_time=0)
 
     def get_all(self):
         """
@@ -192,5 +191,5 @@ if __name__ == '__main__':
     # t.screenshot()
     # d.image = load_image(r"D:\共享文件夹\Screenshots\花合战\1 (1).png")
     # t.main_goto_daily()
-    t.run()
-    # t.get_newbie_reward()
+    # t.run()
+    t.get_newbie_reward()
