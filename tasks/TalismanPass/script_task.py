@@ -192,4 +192,5 @@ if __name__ == '__main__':
     # t.screenshot()
     # d.image = load_image(r"D:\共享文件夹\Screenshots\花合战\1 (1).png")
     # t.main_goto_daily()
-    t.get_newbie_reward()
+    t.run()
+    # t.get_newbie_reward()

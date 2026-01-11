@@ -805,6 +805,9 @@ class BaseTaskParent(GlobalGameAssets, CostumeBase):
             # 如果没有点击任何元素，短暂休眠避免过度消耗CPU
             if not clicked:
                 sleep(0.1)
+            else:
+                if timeout_timer:
+                    timeout_timer.reset()
 
 
     def ui_click_until_disappear(self, click, interval: float = 1):
