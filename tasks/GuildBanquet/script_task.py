@@ -72,10 +72,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, GuildBanquetAssets, SecretAssets):
 
         while True:
             self.screenshot()
-            if self.appear(self.I_GUILD_BANQUET_FINSH):
-                self.save_image("宴会进度10/10,已吃完",push_flag=True,image_type=True,wait_time=0)
-                break
-
             # 条件1: 强制检测间隔管理
             current_time = time.time()
             if current_time - last_check_time >= 10:
