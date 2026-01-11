@@ -45,19 +45,8 @@ class ScriptTask(GameUi, TalismanPassAssets):
         self.ui_click(self.I_NEWBIE, self.I_NEWBIE_PAGE)
         self.ui_click(self.I_YC_ROAD, self.I_RESUPPLY)
         self.ui_click(self.I_RESUPPLY, self.I_RESUPPLY_PAGE)
-        self.ui_get_reward(self.I_ONE_COLLECT)
-
-        check_timer = Timer(3)
-        check_timer.start()
-        while 1:
-            self.screenshot()
-            if self.ui_reward_appear_click(True):
-                break
-            if check_timer.reached():
-                break
-
-        self.save_image(task_name="新手奖励", wait_time=1)
-
+        if self.ui_click(self.I_ONE_COLLECT, self.I_UI_REWARD, timeout=3):
+            self.save_image(task_name="新手奖励一键领取", wait_time=0)
 
     def get_all(self):
         """
@@ -203,4 +192,4 @@ if __name__ == '__main__':
     # t.screenshot()
     # d.image = load_image(r"D:\共享文件夹\Screenshots\花合战\1 (1).png")
     # t.main_goto_daily()
-    t.get_newbie()
+    t.get_newbie_reward()
