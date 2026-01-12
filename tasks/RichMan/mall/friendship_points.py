@@ -36,24 +36,25 @@ class FriendshipPoints(Special):
         self.save_image()
 
     def buy_mall_one(self, buy_button: RuleImage, buy_check: RuleImage, remain_number: bool, money_ocr: RuleOcr,
-                     buy_money: int):
+                     buy_money: int, check_money=True):
         """
         针对只能买一个的
         :param buy_button:
         :param buy_check:
+        :param remain_number: 是否检查剩余数量
         :param money_ocr:
         :param buy_money: 买这一个花多少
+        :param check_money: 是否检查购买金额
         :return:
         """
-        logger.hr(buy_button.name, 3)
         self.screenshot()
         # 检查是否出现了购买按钮
-        logger.info(f'before buy_button.roi_front: {buy_button.roi_front}')
+        # logger.info(f'before buy_button.roi_front: {buy_button.roi_front}')
         result = buy_button.match(self.device.image)
         if not result:
             logger.warning(f'未匹配到目标: [{buy_button}]')
-            return
-        logger.info(f'after buy_button.roi_front: {buy_button.roi_front}')
+            return False
+        # logger.info(f'after buy_button.roi_front: {buy_button.roi_front}')
         if not self.appear_rgb(buy_button, difference=10):
             logger.warning('Buy button is not appear')
             return False
@@ -63,25 +64,27 @@ class FriendshipPoints(Special):
             if _remain == 0:
                 logger.warning('Remain number is 0')
                 return False
-        # 检查总勋章
-        current_money = money_ocr.ocr(self.device.image)
-        if '万' in current_money:
-            # 点击购买
-            return self.buy_one(buy_button, buy_check)
-        else:
-            current_money = int(current_money)
-        # if not isinstance(current_money, int):
-        #     logger.warning('Money ocr failed')
-        #     return False
-        money_enough = current_money >= buy_money
-        if not money_enough:
-            logger.warning(f'No enough money {current_money}')
-            return False
+        # 是否检查购买金额足够
+        if check_money:
+            # 检查总勋章
+            current_money = money_ocr.ocr(self.device.image)
+            if '万' in current_money:
+                # 点击购买
+                return self.buy_one(buy_button, buy_check)
+            else:
+                current_money = int(current_money)
+            # if not isinstance(current_money, int):
+            #     logger.warning('Money ocr failed')
+            #     return False
+            money_enough = current_money >= buy_money
+            if not money_enough:
+                logger.warning(f'No enough money {current_money}')
+                return False
         # 点击购买
         return self.buy_one(buy_button, buy_check)
 
     def buy_mall_more(self, buy_button: RuleImage, remain_number: bool, money_ocr: RuleOcr,
-                      buy_number: int, buy_max: int, buy_money: int):
+                      buy_number: int, buy_max: int, buy_money: int, check_money=True):
         """
         针对可以买多个的
         :param money_ocr:  检查钱的第几个
@@ -90,20 +93,20 @@ class FriendshipPoints(Special):
         :param buy_number:
         :param buy_max:
         :param buy_money:
+        :param check_money: 是否检查购买金额
         :return:
         """
-        logger.hr(buy_button.name, 3)
         if buy_number == 0:
             logger.info('Buy number is 0')
             return
         self.screenshot()
         # 检查是否出现了购买按钮
-        logger.info(f'before buy_button.roi_front: {buy_button.roi_front}')
+        # logger.info(f'before buy_button.roi_front: {buy_button.roi_front}')
         result = buy_button.test_match(self.device.image)
         if not result:
             logger.warning(f'未匹配到目标: [{buy_button}]')
             return
-        logger.info(f'after buy_button.roi_front: {buy_button.roi_front}')
+        # logger.info(f'after buy_button.roi_front: {buy_button.roi_front}')
         if not self.appear_rgb(buy_button, difference=10):
             logger.warning('Buy button is not appear')
             return
@@ -116,26 +119,28 @@ class FriendshipPoints(Special):
             if _remain < buy_number:
                 logger.warning(f'Remain number is {_remain}, buy number is {buy_number}')
                 buy_number = _remain
-        # 检查钱够不够
-        current_money = money_ocr.ocr(self.device.image)
-        if '万' in current_money:
-            # 使用正则表达式提取字符串中的数字
-            match = re.search(r'\d+', current_money)
-            if match:
-                current_money = int(match.group()) * 10000
-        else:
-            current_money = int(current_money)
-        # if not isinstance(current_money, int):
-        #     logger.warning('Money ocr failed')
-        #     return
-        money_enough = current_money >= buy_money * buy_number
-        if not money_enough:
-            logger.warning(f'Money is not enough {current_money}')
-            # 判断够不够买2个
-            if current_money < buy_money * 2:
-                logger.warning('Money is not enough 2')
-                return
-            buy_number = current_money // buy_money
+        # 是否检查购买金额 足够
+        if check_money:
+            # 检查钱够不够
+            current_money = money_ocr.ocr(self.device.image)
+            if '万' in current_money:
+                # 使用正则表达式提取字符串中的数字
+                match = re.search(r'\d+', current_money)
+                if match:
+                    current_money = int(match.group()) * 10000
+            else:
+                current_money = int(current_money)
+            # if not isinstance(current_money, int):
+            #     logger.warning('Money ocr failed')
+            #     return
+            money_enough = current_money >= buy_money * buy_number
+            if not money_enough:
+                logger.warning(f'Money is not enough {current_money}')
+                # 判断够不够买2个
+                if current_money < buy_money * 2:
+                    logger.warning('Money is not enough 2')
+                    return
+                buy_number = current_money // buy_money
         # 购买
         logger.info(f'Buy number is {buy_number}')
         if buy_number >= buy_max:

@@ -71,6 +71,7 @@ class Bondlings(BaseModel):
 class SpecialRoom(BaseModel):
     # 杂货铺 特殊购买
     enable: bool = Field(title='Enable', default=False)
+    check_money: bool = Field(title='Check Money', default=False, description='是否检查购买金额足够')
     totem_pass: bool = Field(title='Totem Pass', default=False)
     medium_bondling_discs: int = Field(title='Medium Bondling Discs', default=0, description='medium_bondling_discs_special')
     low_bondling_discs: int = Field(title='Low Bondling Discs', default=0, description='low_bondling_discs_special')
@@ -79,6 +80,7 @@ class SpecialRoom(BaseModel):
 class HonorRoom(BaseModel):
     # 杂货铺 荣誉购买
     enable: bool = Field(title='Enable', default=False)
+    check_money: bool = Field(title='Check Money', default=False, description='是否检查购买金额')
     mystery_amulet: bool = Field(title='Mystery Amulet', default=False, description='mystery_amulet_help_honor')
     black_daruma_scrap: bool = Field(title='Black Daruma Scrap', default=False, description='black_daruma_scrap_help_honor')
 
@@ -86,6 +88,7 @@ class HonorRoom(BaseModel):
 class FriendshipPoints(BaseModel):
     # 杂货铺 友情点
     enable: bool = Field(title='Enable', default=False)
+    check_money: bool = Field(title='Check Money', default=False, description='是否检查购买金额')
     white_daruma: bool = Field(title='White Daruma', default=False)
     red_daruma: int = Field(title='Red Daruma', default=0)
     broken_amulet: int = Field(title='Broken Amulet', default=0)
@@ -94,6 +97,7 @@ class FriendshipPoints(BaseModel):
 class MedalRoom(BaseModel):
     # 杂货铺 勋章购买
     enable: bool = Field(title='Enable', default=False)
+    check_money: bool = Field(title='Check Money', default=False, description='是否检查购买金额')
     black_daruma: bool = Field(title='Black Daruma', default=False)
     mystery_amulet: bool = Field(title='Mystery Amulet', default=False)
     ap_100: bool = Field(title='AP 100', default=False)
@@ -108,6 +112,7 @@ class MedalRoom(BaseModel):
 class Charisma(BaseModel):
     # 杂货铺 魅力购买
     enable: bool = Field(title='Enable', default=False)
+    check_money: bool = Field(title='Check Money', default=False, description='是否检查购买金额')
     black_daruma_scrap: bool = Field(title='Black Daruma Scrap', default=False)
     mystery_amulet: bool = Field(title='Mystery Amulet', default=False)
 
