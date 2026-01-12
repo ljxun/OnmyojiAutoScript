@@ -187,11 +187,9 @@ class ScriptTask(OrochiScriptTask, TrueOrochiAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
-    d = Device(c)
-    t = ScriptTask(c, d)
+    t = ScriptTask(c)
     t.screenshot()
 
     t.run()

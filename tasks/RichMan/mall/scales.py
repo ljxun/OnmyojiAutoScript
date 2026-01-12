@@ -82,7 +82,7 @@ class Scales(Buy, MallNavbar):
                 time.sleep(1)
                 while 1:
                     self.screenshot()
-                    if not self.appear(self.I_SCA_SIX_STAR):
+                    if not self.appear(self.I_SCA_SIX_STAR) and self.appear(start_click):
                         break
                     if self.click(self.C_SCA_SOULS_GET_1, interval=1):
                         continue
