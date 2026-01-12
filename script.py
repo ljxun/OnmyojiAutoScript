@@ -33,6 +33,8 @@ class Script:
         # 运行loop的线程
         self.loop_thread: Thread = None
         self.start_loop_count = 1
+        self.is_first_task = True
+
 
     @cached_property
     def config(self) -> "Config":
@@ -181,6 +183,7 @@ class Script:
                 break
 
             # 处理等待策略
+            self.is_first_task = False
             opt = self.config.script.optimization
             wait_duration = task.next_run - now
 
@@ -299,7 +302,6 @@ class Script:
         # 重置状态
         # logger.info(f'[准备] 正在重置状态...')
         self.failure_record = {}
-        is_first_task = True
         stop_requested = False
         self.config.model.running_task = ""
 
@@ -313,12 +315,12 @@ class Script:
                     logger.info(f'[任务] 获取到任务 | {task_chinese_name}')
 
                     # ------------------------- 跳过首次重启任务 -------------------------
-                    # if is_first_task and task == 'Restart':
-                    #     logger.info('[任务] 跳过第一次启动时的重启任务')
-                    #     self.config.task_delay(task='Restart', success=True, server=True)
-                    #     del_cached_property(self, 'config')
-                    #     is_first_task = False
-                    #     continue
+                    if self.is_first_task and task == 'Restart':
+                        logger.info('[任务] 跳过第一次启动时的重启任务')
+                        self.config.task_delay(task='Restart', success=True, server=True)
+                        del_cached_property(self, 'config')
+                        self.is_first_task = False
+                        continue
 
                     # ------------------------- 任务执行 -------------------------
                     logger.hr(f'{task_chinese_name} Start', 0)
@@ -326,7 +328,7 @@ class Script:
                     success = self.run(inflection.camelize(task))
                     self.config.model.running_task = ""
                     logger.hr(f'{task_chinese_name} End', 0)
-                    is_first_task = False
+                    self.is_first_task = False
                     del_cached_property(self, 'config')
 
                     # ------------------------- 失败处理 -------------------------
