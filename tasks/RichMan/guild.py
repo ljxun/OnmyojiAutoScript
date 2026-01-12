@@ -128,12 +128,39 @@ class Guild(Buy, GameUi, RichManAssets):
         result = self.O_GUILD_REMAIN.ocr(self.device.image)
         logger.warning(result)
         result = result.replace('？', '2').replace('?', '2').replace(':', '；')
+
         try:
-            result = re.findall(r'本周剩余数量(\d+)', result)[0]
-            result = int(result)
-        except:
+            # 改进的正则表达式，增加容错性
+            # 匹配包含"剩余数量"和数字的模式，允许中间有各种可能的错误字符
+            patterns = [
+                r'本周?剩余数量(\d+)',      # 匹配"本周剩余数量"或"本剩余数量"
+                r'本[l|周]?剩余数量(\d+)',   # 匹配"本l剩余数量"或"本周剩余数量"
+                r'剩余数量(\d+)',          # 直接匹配"剩余数量"
+                r'本.*?剩余.*?数量(\d+)',    # 使用通配符匹配中间可能的错误字符
+            ]
+
+            found = False
+            for pattern in patterns:
+                match = re.search(pattern, result)
+                if match:
+                    result = int(match.group(1))
+                    found = True
+                    break
+
+            if not found:
+                # 如果所有模式都匹配失败，尝试更宽松的模式：查找"本"和"数量"之间的数字
+                alt_match = re.search(r'本.*?数量(\d+)', result)
+                if alt_match:
+                    result = int(alt_match.group(1))
+                    found = True
+
+            if not found:
+                raise ValueError(f"No matching pattern found in: {result}")
+
+        except (IndexError, ValueError):
             self.save_image(wait_time=0, image_type=True, push_flag=True, content=f"{result}")
             result = 0
+
         logger.info('Remain: %s' % result)
         return int(result)
 
@@ -217,7 +244,7 @@ class Guild(Buy, GameUi, RichManAssets):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('4399')
+    c = Config('4399-1')
     # d = Device(c)
     t = Guild(c)
 

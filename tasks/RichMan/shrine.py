@@ -49,7 +49,7 @@ class Shrine(GameUi, RichManAssets):
             logger.info('Money is enough')
             return True
         logger.info('Money is not enough')
-        self.push_notify(f"⚠️当前御札{current}，不足{mix}")
+        logger.warning(f"⚠️当前御札{current}，不足{mix}")
         return False
 
     def _check_bought(self, target) -> bool:
