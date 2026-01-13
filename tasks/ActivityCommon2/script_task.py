@@ -2,6 +2,7 @@
 # @author runhey
 # github https://github.com/runhey
 from tasks.ActivityCommon.challenge import ScriptTask as Challenge
+from tasks.ActivityCommon.config import ActiveType
 from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.ActivityCommon.script_task import ScriptTask as ActivityCommonScriptTask
 
@@ -16,7 +17,7 @@ class ScriptTask(ActivityCommonScriptTask):
     def run(self):
         config = self.config.activity_common_2
         battle_active_type = config.activity_common_config.active_type
-        if battle_active_type == '战斗':
+        if battle_active_type == ActiveType.battle:
             folder = 'ActivityCommon2'
         else:
             folder = 'ActivityCommon'

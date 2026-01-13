@@ -342,7 +342,8 @@
       "store_sign": false,
       "buy_sushi_count": -1,
       "recruit_members": false,
-      "lottery_box": true
+      "lottery_box": true,
+      "shikigami_debris": false
     }
   },
   "talisman_pass": {
@@ -759,7 +760,7 @@
       "server_update": "09:00:00"
     },
     "activity_common_config": {
-      "active_type": "战斗",
+      "active_type": "A-通用战斗",
       "enable": false,
       "limit_count": 200,
       "limit_time": "00:30:00",
@@ -792,7 +793,7 @@
       "server_update": "09:00:00"
     },
     "activity_common_config": {
-      "active_type": "战斗",
+      "active_type": "A-通用战斗",
       "enable": false,
       "limit_count": 200,
       "limit_time": "00:30:00",
@@ -1296,23 +1297,27 @@
     },
     "special_room": {
       "enable": false,
+      "check_money": false,
       "totem_pass": false,
       "medium_bondling_discs": 0,
       "low_bondling_discs": 0
     },
     "honor_room": {
       "enable": false,
+      "check_money": false,
       "mystery_amulet": false,
       "black_daruma_scrap": false
     },
     "friendship_points": {
       "enable": false,
+      "check_money": false,
       "white_daruma": false,
       "red_daruma": 0,
       "broken_amulet": 0
     },
     "medal_room": {
       "enable": false,
+      "check_money": false,
       "black_daruma": false,
       "mystery_amulet": false,
       "ap_100": false,
@@ -1324,6 +1329,7 @@
     },
     "charisma": {
       "enable": false,
+      "check_money": false,
       "black_daruma_scrap": false,
       "mystery_amulet": false
     }
