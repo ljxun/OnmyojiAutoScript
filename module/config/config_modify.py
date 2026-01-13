@@ -6,10 +6,9 @@ import json
 
 from module.config.config import Config
 from module.config.utils import convert_to_underscore
-from module.config.config_model import ConfigModel
 
 from module.logger import logger
-from pydantic import BaseModel, ValidationError
+from pydantic import ValidationError
 
 
 

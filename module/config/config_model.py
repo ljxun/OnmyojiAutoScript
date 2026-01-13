@@ -186,11 +186,36 @@ class ConfigModel(ConfigBase):
         if not config_name:
             super().__init__()
             return
+        if config_name == "template":
+            logger.warning(f"排除{config_name}模板")
+            return
+
         data = self.read_json(config_name)
         data["config_name"] = config_name
-        # logger.set_file_logger(name=config_name)  # 新增这行
-        super().__init__(**data)
 
+        # 首先尝试直接初始化模型
+        try:
+            super().__init__(**data)
+        except ValidationError as e:
+            logger.warning(f"[{config_name}] 配置模型初始化失败: {e}")
+            try:
+                from module.config.config_validator import _fix_by_model_field_type
+                # 尝试使用模型类型信息进行更精确的修复
+                data = _fix_by_model_field_type(config_name, data, self.__class__)
+                
+                logger.info(f"[{config_name}] 配置数据已修复，正在保存到文件...")
+                self.write_json(config_name, data)
+                    
+                # 用修复后的数据重新初始化
+                super().__init__(**data)
+            except ImportError:
+                # 如果导入失败，跳过修复
+                logger.warning("无法导入配置修复函数，跳过配置修复步骤")
+                raise  # 重新抛出原始异常
+            except Exception as fix_e:
+                logger.error(f"修复配置数据时发生错误: {fix_e}")
+                raise  # 重新抛出原始异常
+        
     def __setattr__(self, key, value):
         """
         只要修改属性就会触发这个函数 自动保存
@@ -478,6 +503,7 @@ class ConfigModel(ConfigBase):
         except ValidationError as e:
             logger.error(e)
             return False
+
 
 if __name__ == "__main__":
     try:
