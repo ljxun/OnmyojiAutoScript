@@ -1,5 +1,4 @@
 import traceback
-from tasks.DailyTrifles.assets import DailyTriflesAssets
 from tasks.GameUi.assets import GameUiAssets as G
 from tasks.KekkaiUtilize.assets import KekkaiUtilizeAssets
 from tasks.Restart.assets import RestartAssets

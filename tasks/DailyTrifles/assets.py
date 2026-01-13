@@ -95,6 +95,13 @@ class DailyTriflesAssets:
 
 
 	# Image Rule Assets
+	# 式神碎片页面 
+	I_PAGE_SHIKIGAMI_DEBRIS = RuleImage(roi_front=(370,82,104,29), roi_back=(370,82,104,29), threshold=0.8, method="Template matching", path="./shikigami_debris/page_shikigami_debris.png", file="./tasks/DailyTrifles/shikigami_debris/page_shikigami_debris.png")
+	# goto_式神碎片页面 
+	I_GOTO_SHIKIGAMI_DEBRIS = RuleImage(roi_front=(36,650,63,42), roi_back=(36,650,63,42), threshold=0.8, method="Template matching", path="./shikigami_debris/goto_shikigami_debris.png", file="./tasks/DailyTrifles/shikigami_debris/goto_shikigami_debris.png")
+
+
+	# Image Rule Assets
 	# 礼包屋 
 	I_ROOM_GIFT = RuleImage(roi_front=(1138,658,52,40), roi_back=(1119,621,103,94), threshold=0.8, method="Template matching", path="./store/store_room_gift.png", file="./tasks/DailyTrifles/store/store_room_gift.png")
 	# 日常（每日免费黑蛋） 

@@ -1,5 +1,5 @@
 from tasks.DailyTrifles.assets import DailyTriflesAssets
-from tasks.GameUi.page import Page, page_mall, page_summon
+from tasks.GameUi.page import Page, page_mall, page_summon, page_main, page_shikigami_records
 from tasks.RichMan.assets import RichManAssets
 from tasks.GameUi.assets import GameUiAssets
 
@@ -19,3 +19,8 @@ page_mall_special.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_mall)
 page_summon_store = Page(DailyTriflesAssets.I_SUMMON_STORE_PAGE)
 page_summon.link(button=DailyTriflesAssets.I_SUMMON_STORE, destination=page_summon_store)
 page_summon_store.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_summon)
+
+# 式神碎片页面
+page_shikigami_debris = Page(DailyTriflesAssets.I_PAGE_SHIKIGAMI_DEBRIS)
+page_shikigami_debris.link(button=GameUiAssets.I_BACK_YELLOW, destination=page_main)
+page_shikigami_records.link(button=DailyTriflesAssets.I_GOTO_SHIKIGAMI_DEBRIS, destination=page_shikigami_debris)

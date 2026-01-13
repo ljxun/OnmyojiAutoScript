@@ -14,7 +14,6 @@ class SummonType(str, Enum):
 
 class DailyTriflesConfig(BaseModel):
     one_summon: bool = Field(title='One Summon', default=False)
-    # 召唤类型
     # summon_type: SummonType = Field(default=SummonType.default, description='召唤类型')
     broken_amulet: int = Field(title='Broken Amulet', default=0, description='trifles_broken_amulet_help')
     friend_love: bool = Field(title='Friend Love', default=False)
@@ -24,6 +23,7 @@ class DailyTriflesConfig(BaseModel):
     buy_sushi_count: int = Field(title='Buy Sushi Count', default=-1)
     recruit_members: bool = Field(title='Mecruit Members', default=False, description='招募寮成员')
     lottery_box: bool = Field(title='Lottery Box', default=True, description='抽奖箱抽奖')
+    shikigami_debris: bool = Field(title='Shikigami Debris', default=False, description='召唤式神碎片')
 
 
 class DailyTrifles(ConfigBase):

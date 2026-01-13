@@ -1,0 +1,20 @@
+[
+  {
+    "itemName": "page_shikigami_debris",
+    "imageName": "page_shikigami_debris.png",
+    "roiFront": "370,82,104,29",
+    "roiBack": "370,82,104,29",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "式神碎片页面"
+  },
+  {
+    "itemName": "goto_shikigami_debris",
+    "imageName": "goto_shikigami_debris.png",
+    "roiFront": "36,650,63,42",
+    "roiBack": "36,650,63,42",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "goto_式神碎片页面"
+  }
+]

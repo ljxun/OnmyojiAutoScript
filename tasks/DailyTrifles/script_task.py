@@ -11,9 +11,8 @@ from module.logger import logger
 from tasks.Component.GeneralBuff.general_buff import GeneralBuff
 from tasks.Component.Summon.summon import Summon
 from tasks.DailyTrifles.assets import DailyTriflesAssets
-from tasks.DailyTrifles.config import SummonType
-from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store
-from tasks.GameUi.page import page_summon, page_guild, page_mall, page_friends
+from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store, page_shikigami_debris
+from tasks.GameUi.page import page_summon, page_guild, page_friends
 
 
 class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
@@ -49,9 +48,17 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         # 抽奖箱抽奖
         if con.lottery_box:
             self.check_lottery_box()
+        # 召唤式神碎片
+        if con.shikigami_debris:
+            self.run_shikigami_debris()
 
         self.set_next_run('DailyTrifles', success=True, finish=False)
         raise TaskEnd('DailyTrifles')
+
+    def run_shikigami_debris(self):
+        self.ui_goto_page(page_shikigami_debris)
+        self.ui_click(self.I_PAGE_SHIKIGAMI_DEBRIS, self.I_EXIT_ENSURE1)
+        self.ui_click_until_disappear(self.I_EXIT_ENSURE1)
 
     def check_lottery_box(self):
         self.ui_goto_page(page_guild)
@@ -385,8 +392,8 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
 if __name__ == '__main__':
     from module.config.config import Config
 
-    c = Config('mi')
+    c = Config('4399-1')
     t = ScriptTask(c)
 
     # t.run()
-    t.run_store()
+    t.run_shikigami_debris()
