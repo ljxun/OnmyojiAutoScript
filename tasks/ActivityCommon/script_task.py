@@ -2,12 +2,11 @@
 # @author runhey
 # github https://github.com/runhey
 
-from module.exception import TaskEnd
+from module.logger import logger
 from tasks.ActivityCommon.challenge import ScriptTask as Challenge
 from tasks.ActivityCommon.delegate import ScriptTask as Delegate
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
-from tasks.ActivityCommon.config import ActiveType
 
 
 class ScriptTask(SwitchSoul, GeneralBattle):
@@ -31,6 +30,7 @@ class ScriptTask(SwitchSoul, GeneralBattle):
         # 战斗图片路径
         battle_folder = "./tasks/ActivityCommon/战斗中"
 
+        logger.hr(f"开始执行 {battle_active_type} 任务", 2)
         self.Challenge.run_config(config, goto_challenge_folder, battle_folder)
 
 

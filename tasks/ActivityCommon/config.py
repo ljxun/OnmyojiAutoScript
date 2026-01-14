@@ -9,7 +9,7 @@ from tasks.Component.config_scheduler import Scheduler
 
 
 class ActiveType(str, Enum):
-    battle = 'A-通用战斗'
+    battle = 'A-版本活动'
     delegate = '委派'
     huanjing = '狭间幻境'
     lingran = '灵染试炼'
