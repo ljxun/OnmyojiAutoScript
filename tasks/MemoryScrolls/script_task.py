@@ -5,7 +5,6 @@ from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main
 from tasks.GameUi.page import page_summon
 from tasks.MemoryScrolls.assets import MemoryScrollsAssets
 from tasks.MemoryScrolls.config import ScrollNumber
@@ -13,43 +12,39 @@ from tasks.MemoryScrolls.config import ScrollNumber
 
 class ScriptTask(GameUi, MemoryScrollsAssets):
     """ 绘卷 捐赠 """
-    def run(self):        
-        self.ui_goto_page(page_summon)
-
-        con = self.config.memory_scrolls.memory_scrolls_config
+    def run(self):
         # 进入绘卷主界面
-        self.goto_memoryscrolls_main(con)
+        self.ui_goto_page(page_summon)
+        self.ui_click(self.I_MS_ENTER, self.I_MS_MAIN)
 
-        self.ui_goto_page(page_main)
+        con = self.config.memory_scrolls
+        # 如果每天只刷小绘卷50，则先检测小绘卷数量
+        if con.memory_scrolls_finish.check_ms_s_50_enable:
+            self.check_ms_s_50(con.memory_scrolls_finish)
+
+        # 进入指定分卷 进行捐献
+        self.goto_scroll(con.memory_scrolls_config)
 
         # 设置下一次运行时间
         self.set_next_run(task='MemoryScrolls', success=True)
         raise TaskEnd
     
-    def goto_memoryscrolls_main(self, con):
-        # 循环寻找&点击绘卷入口
-        self.ui_click(self.I_MS_ENTER, self.I_MS_MAIN)
-        # 如果每天只刷小绘卷50，则先检测小绘卷数量
-        if self.config.memory_scrolls.memory_scrolls_finish.auto_finish_exploration:
-            self.check_ms_s_50()
-        # 进入指定分卷
-        self.goto_scroll(con)
-        # 返回召唤界面，目前只发现此种返回按键
-        self.ui_click_until_disappear(self.I_MS_BACK, interval=1)
-        logger.info('已返回召唤界面')
-
-    def check_ms_s_50(self):
+    def check_ms_s_50(self, con):
         """先检测小绘卷数量"""
         while 1:
             self.screenshot()
             if self.appear(self.I_MS_FRAGMENT_S_VERIFICATION):
                 cu, res, total = self.O_MS_COUNT_S.ocr(self.device.image)
-                message = f'已获得小绘卷，进度{cu}/{total} '
+                message = f'小绘卷进度: {cu}/{total} '
                 if self.appear(self.I_MS_FRAGMENT_S_50) or (cu == total == 50):
-                    time = self.config.memory_scrolls.memory_scrolls_finish.next_exploration_time
-                    message += f'今日探索任务结束，设置明天{time}点执行'
-                    # 安排下次探索
-                    self.custom_next_run(task='Exploration', custom_time=time, time_delta=1)
+                    time = con.next_run_time
+                    # 安排下次探索和御灵任务
+                    if con.auto_finish_exploration:
+                        message += f'探索 设置明天{time}点执行'
+                        self.custom_next_run(task='Exploration', custom_time=time, time_delta=1)
+                    if con.auto_finish_goryourealm:
+                        message += f'御灵 设置明天{time}点执行'
+                        self.custom_next_run(task='GoryouRealm', custom_time=time, time_delta=1)
                 self.push_notify(content=message)
                 break
             if self.appear_then_click(self.I_MS_FRAGMENT_S, interval=1.5):
@@ -59,7 +54,7 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
     def goto_scroll(self, con):
         """
         进入指定分卷
-        :param scroll_number: 分卷编号
+        :param con
         """
         while 1:
             self.screenshot()
@@ -117,18 +112,18 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
                     self.push_notify(content=f"未开启捐赠")
             else:
                 self.push_notify(content=f"{con.scroll_number}本次排名{my_ranking},低于{con.ranking},无需捐赠")
-        # 返回绘卷主界面
-        self.ui_click_until_disappear(self.I_MS_CLOSE, interval=1)
-        logger.info('已退出绘卷捐献界面')
 
     def close_task(self, con):
         message = f'{con.scroll_number}进度100%'
-        if con.close_exploration:
-            message += ',关闭探索任务'
-            self.config.exploration.scheduler.enable = False
         if con.close_memoryscrolls:
             message += ',关闭绘卷任务'
             self.config.memory_scrolls.scheduler.enable = False
+        if con.close_exploration:
+            message += ',关闭探索任务'
+            self.config.exploration.scheduler.enable = False
+        if con.close_goryourealm:
+            message += ',关闭御灵任务'
+            self.config.goryou_realm.scheduler.enable = False
 
         self.config.save()
         self.push_notify(content=message)
@@ -205,7 +200,7 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    c = Config('mi')
+    c = Config('du')
     t = ScriptTask(c)
     # t.screenshot()
 
