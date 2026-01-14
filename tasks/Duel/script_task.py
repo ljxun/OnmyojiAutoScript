@@ -65,7 +65,8 @@ class ScriptTask(GeneralBattle, SwitchSoul, SwitchOnmyoji, DuelAssets):
                 continue
             if self.appear_then_click(self.I_DUEL_CANCEL, interval=0.6):
                 continue
-            self.ui_goto_page(page_duel)
+            if self.appear_then_click(self.I_BACK_RED, interval=0.6):
+                continue
             if not self.appear(self.I_CHECK_DUEL):
                 continue
             # if not self.duel_main():
