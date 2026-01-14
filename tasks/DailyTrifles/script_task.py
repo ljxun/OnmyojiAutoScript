@@ -22,34 +22,45 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
         con = self.config.daily_trifles.trifles_config
         # 每日召唤
         if con.one_summon:
+            logger.hr('每日召唤', 3)
             self.summon_one()
-        # 厕纸
+        # 召唤厕纸
         if con.broken_amulet:
+            logger.hr('召唤厕纸', 3)
             self._broken_amulet(con.broken_amulet)
-        # 集结
+        # 式神集结
+        logger.hr('式神集结', 3)
         self.massed_run()
-        # 召唤商店
+        # 召唤商店 铜铃礼包
+        logger.hr('铜铃礼包', 3)
         self.run_summon_store()
         # 友情点 （现在已经可以通过庭院任务获取了）
         # if con.friend_love:
+        #     logger.hr('友情点', 3)
         #     self.run_friend_love()
         # 吉闻
         if con.luck_msg:
+            logger.hr('吉闻', 3)
             self.run_luck_msg()
         # 商店签到
         if con.store_sign:
+            logger.hr('商店签到', 3)
             self.run_store_sign()
         # 购买寿司体力
         if con.buy_sushi_count > 0:
+            logger.hr('购买寿司体力', 3)
             self.run_buy_sushi()
         # 招募寮成员
         if con.recruit_members:
+            logger.hr('招募寮成员', 3)
             self.run_recruit_members()
         # 抽奖箱抽奖
         if con.lottery_box:
+            logger.hr('抽奖箱抽奖', 3)
             self.check_lottery_box()
         # 召唤式神碎片
         if con.shikigami_debris:
+            logger.hr('召唤式神碎片', 3)
             self.run_shikigami_debris()
 
         self.set_next_run('DailyTrifles', success=True, finish=False)
@@ -108,22 +119,25 @@ class ScriptTask(Summon, DailyTriflesAssets, GeneralBuff):
                 continue
 
         click_count = 0
+        timer.reset()
+        clicked = False
         while click_count < 5:
+            if timer.reached():
+                logger.info('not click Summon Store')
+                break
             self.screenshot()
             if self.ui_reward_appear_click():
                 click_count = 0
             if self.appear(self.I_FREE_3_OVER) and self.appear(self.I_FREE_2_OVER) and self.appear(self.I_FREE_1_OVER):
                 break
-            if self.appear_then_click(self.I_FREE_1, interval=1):
-                click_count += 1
-                continue
-            if self.appear_then_click(self.I_FREE_2, interval=1):
-                click_count += 1
-                continue
-            if self.appear_then_click(self.I_FREE_3, interval=1):
-                click_count += 1
-                continue
-        self.save_image(wait_time=0, task_name='铜铃礼包')
+            for btn in [self.I_FREE_1, self.I_FREE_2, self.I_FREE_3]:
+                if self.appear_then_click(btn, interval=1):
+                    timer.reset()
+                    click_count += 1
+                    clicked = True
+                    break
+        if clicked:
+            self.save_image(wait_time=0, task_name='铜铃礼包')
 
     def massed_run(self):
         self.ui_goto_page(page_summon)
