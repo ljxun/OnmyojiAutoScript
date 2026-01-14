@@ -28,11 +28,7 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
     def run(self):
 
         con = self.config.wanted_quests
-        if con.switch_soul.enable:
-            self.run_switch_soul(con.switch_soul.switch_group_team)
-        if con.switch_soul.enable_switch_by_name:
-            self.run_switch_soul_by_name(con.switch_soul.group_name, con.switch_soul.team_name)
-
+        switch_souled = False
         while 1:
             if not self.pre_work():
                 # 无法完成预处理 很有可能你已经完成了悬赏任务
@@ -40,11 +36,19 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
                 logger.warning('You may have completed the reward task')
                 self.next_run()
                 raise TaskEnd('WantedQuests')
+
+            if not switch_souled:
+                if con.switch_soul.enable:
+                    self.run_switch_soul(con.switch_soul.switch_group_team)
+                if con.switch_soul.enable_switch_by_name:
+                    self.run_switch_soul_by_name(con.switch_soul.group_name, con.switch_soul.team_name)
+                switch_souled = True
+
             # 执行悬赏
             self.play_run()
 
     def play_run(self):
-        self.screenshot()
+        self.ui_goto_page(page_exploration)
         number_challenge = self.O_WQ_NUMBER.ocr(self.device.image)
         wq_timer = Timer(3)
         wq_timer.start()
@@ -164,8 +168,6 @@ class ScriptTask(SecretScriptTask, GeneralInvite, WantedQuestsAssets):
                 self.all_cooperation_invite(self.config.wanted_quests.wanted_quests_config.invite_friend_name)
             else:
                 self.invite_five()
-        self.ui_click_until_disappear(self.I_BACK_RED)
-        self.ui_goto_page(page_exploration)
         return True
 
     def execute_mission(self, ocr, num_want: int, num_challenge: int, flag=False):
