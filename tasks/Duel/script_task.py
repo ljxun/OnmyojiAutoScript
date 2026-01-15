@@ -175,11 +175,18 @@ class ScriptTask(GeneralBattle, SwitchSoul, SwitchOnmyoji, DuelAssets):
         检查荣誉是否满了
         :return:
         """
-        current, remain, total = self.O_D_HONOR.ocr(self.device.image)
-        logger.info(f'当前荣誉: {current} / {total} 剩余: {remain}')
-        if current == total and remain == 0 and current != 0:
-            return True
-        return False
+        ocr_list = [self.O_D_HONOR, self.O_D_HONOR1]
+
+        for ocr in ocr_list:
+            current, remain, total = ocr.ocr(self.device.image)
+            # 如果识别到有效数据，直接判断
+            if total != 0:
+                logger.info(f'当前荣誉: {current} / {total} 剩余: {remain}')
+                return current == total
+
+        # 如果仍无法识别，返回True作为默认值
+        self.push_notify('荣誉未识别，请检查图片,默认荣誉已满')
+        return True
 
     def check_score(self) -> int or None:
         """
