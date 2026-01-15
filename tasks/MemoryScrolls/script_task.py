@@ -12,6 +12,8 @@ from tasks.MemoryScrolls.config import ScrollNumber
 
 class ScriptTask(GameUi, MemoryScrollsAssets):
     """ 绘卷 捐赠 """
+    ms_s_50_full = False
+
     def run(self):
         # 进入绘卷主界面
         self.ui_goto_page(page_summon)
@@ -20,16 +22,35 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
         con = self.config.memory_scrolls
         # 如果每天只刷小绘卷50，则先检测小绘卷数量
         if con.memory_scrolls_finish.check_ms_s_50_enable:
-            self.check_ms_s_50(con.memory_scrolls_finish)
+            self.check_ms_s_50()
 
         # 进入指定分卷 进行捐献
         self.goto_scroll(con.memory_scrolls_config)
 
         # 设置下一次运行时间
-        self.set_next_run(task='MemoryScrolls', success=True)
+        if self.ms_s_50_full:
+            self.run_next_time(con.memory_scrolls_finish)
+        else:
+            self.set_next_run(task='MemoryScrolls', success=True)
         raise TaskEnd
+
+    def run_next_time(self, con):
+        time = con.next_run_time
+        tasks = []
+        if con.auto_finish_memoryscrolls:
+            tasks.append('绘卷')
+            self.custom_next_run(task='MemoryScrolls', custom_time=time, time_delta=1)
+        if con.auto_finish_exploration:
+            tasks.append('探索')
+            self.custom_next_run(task='Exploration', custom_time=time, time_delta=1)
+        if con.auto_finish_goryourealm:
+            tasks.append('御灵')
+            self.custom_next_run(task='GoryouRealm', custom_time=time, time_delta=1)
+        if tasks:  # 判断 tasks 不为空才执行
+            message = '、'.join(tasks) + f' 设置明天{time}点执行'
+            self.push_notify(content=message)
     
-    def check_ms_s_50(self, con):
+    def check_ms_s_50(self):
         """先检测小绘卷数量"""
         while 1:
             self.screenshot()
@@ -37,14 +58,7 @@ class ScriptTask(GameUi, MemoryScrollsAssets):
                 cu, res, total = self.O_MS_COUNT_S.ocr(self.device.image)
                 message = f'小绘卷进度: {cu}/{total} '
                 if self.appear(self.I_MS_FRAGMENT_S_50) or (cu == total == 50):
-                    time = con.next_run_time
-                    # 安排下次探索和御灵任务
-                    if con.auto_finish_exploration:
-                        message += f'探索 设置明天{time}点执行'
-                        self.custom_next_run(task='Exploration', custom_time=time, time_delta=1)
-                    if con.auto_finish_goryourealm:
-                        message += f'御灵 设置明天{time}点执行'
-                        self.custom_next_run(task='GoryouRealm', custom_time=time, time_delta=1)
+                    self.ms_s_50_full = True
                 self.push_notify(content=message)
                 break
             if self.appear_then_click(self.I_MS_FRAGMENT_S, interval=1.5):

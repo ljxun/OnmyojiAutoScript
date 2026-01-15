@@ -29,6 +29,7 @@ class MemoryScrollsConfig(ConfigBase):
 class MemoryScrollsFinish(ConfigBase):
     # 检查小绘卷满50
     check_ms_s_50_enable: bool = Field(default=False, description='是否检查小绘卷满50')
+    auto_finish_memoryscrolls: bool = Field(default=False, description='小绘卷满50后，自动结束当日绘卷任务')
     auto_finish_exploration: bool = Field(default=False, description='小绘卷满50后，自动结束当日探索任务')
     auto_finish_goryourealm: bool = Field(default=False, description='小绘卷满50后，自动结束当日御灵任务')
     # 当日小绘卷满50后指定探索和御灵明天运行时间
