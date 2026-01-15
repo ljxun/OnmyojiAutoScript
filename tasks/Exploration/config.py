@@ -94,6 +94,7 @@ class ExplorationConfig(BaseModel):
     # current_exploration_count: int = Field(title='探索次数', default='7', description='默认探索7次')
     limit_time: Time = Field(default=Time(minute=30), description='limit_time_help')
     minions_cnt: int = Field(title='战斗次数', default=30, description='minions_cnt_help')
+    exploration_cnt: int = Field(title='战斗章数', default=4, description='打 X 章后结束任务')
 
     exploration_level: ExplorationLevel = Field(title='探索等级', default=ExplorationLevel.EXPLORATION_28,
                                                 description='exploration_level_help')

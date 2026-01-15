@@ -367,23 +367,6 @@ class BaseExploration(GeneralBattle, GeneralRoom, GeneralInvite, ReplaceShikigam
         self.set_next_run(task='MemoryScrolls', target=datetime_now)
         raise TaskEnd
 
-    #
-    def check_exit(self, check_flag: bool = True) -> bool:
-
-        # 判断是否开启绘卷模式
-        if not self._config.scrolls.scrolls_enable:
-            # True 表示要退出这个任务
-            if self.current_count >= self.limit_count:
-                logger.info('探索次数已到, 结束探索任务')
-                return True
-            if datetime.now() - self.start_time >= self.limit_time:
-                logger.info('探索时间限制已到, 结束探索任务')
-                return True
-        else:
-            if check_flag:
-                self.activate_realm_raid(self._config.scrolls, self._config.exploration_config)
-        return False
-
     def quit_explore(self):
         logger.info('退出本次探索')
         while 1:

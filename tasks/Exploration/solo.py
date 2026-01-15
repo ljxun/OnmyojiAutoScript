@@ -16,6 +16,8 @@ class SoloExploration(BaseExploration):
     INVITE_FLAG_OFF = (157, 109, 83)
     INVITE_FLAG_ON = (227, 193, 153)
     goal_level = ""
+    limit_exploration_cnt = 0
+    current_exploration_cnt = 0
 
     @cached_property
     def _invite_config(self) -> InviteConfig:
@@ -35,6 +37,8 @@ class SoloExploration(BaseExploration):
         atuo_rotate_on = self.config.exploration.exploration_config.atuo_rotate_on
         self.goal_level = self.config.exploration.exploration_config.exploration_level
         self.limit_count = self._config.exploration_config.minions_cnt
+        self.limit_exploration_cnt = self._config.exploration_config.exploration_cnt
+
         open_expect_level = False
         self.ui_goto_page(page_exploration)
         while 1:
@@ -113,7 +117,8 @@ class SoloExploration(BaseExploration):
                 # boss
                 if self.appear(self.I_BOSS_BATTLE_BUTTON):
                     if self.fire(self.I_BOSS_BATTLE_BUTTON):
-                        logger.info(f'Boss战斗完成')
+                        self.current_exploration_cnt += 1
+                        logger.info(f'Boss战斗完成{self.current_exploration_cnt}次')
                     self.quit_explore()
 
                     """ 测试代码实现章节依次递增进攻 """
@@ -506,6 +511,25 @@ class SoloExploration(BaseExploration):
         # 重置探索次数和时间
         self.current_count = 0
         self.start_time = datetime.now()
+
+    def check_exit(self, check_flag: bool = True) -> bool:
+        # 判断是否开启绘卷模式
+        if not self._config.scrolls.scrolls_enable:
+            # True 表示要退出这个任务
+            if self.current_exploration_cnt >= self.limit_exploration_cnt:
+                logger.info(f'✅ 探索章数 {self.current_exploration_cnt}/{self.limit_exploration_cnt}, 结束探索任务')
+                return True
+            if self.current_count >= self.limit_count:
+                logger.info(f'✅ 探索次数 {self.current_count}/{self.limit_count}, 结束探索任务')
+                return True
+            if datetime.now() - self.start_time >= self.limit_time:
+                logger.info(f'✅ 探索时间限制已到, 结束探索任务')
+                return True
+
+        else:
+            if check_flag:
+                self.activate_realm_raid(self._config.scrolls, self._config.exploration_config)
+        return False
 
 
 class ScriptTask(SoloExploration):
