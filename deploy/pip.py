@@ -1,11 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # copy from alas https://github.com/LmeSzinc/AzurLaneAutoScript
-from urllib.parse import urlparse
-
 from deploy.config import DeployConfig
+from deploy.gpu_dependencies import GPUDependencyManager
 from deploy.logger import logger
 from deploy.utils import *
-from deploy.gpu_dependencies import GPUDependencyManager
+from urllib.parse import urlparse
 
 
 class PipManager(DeployConfig):

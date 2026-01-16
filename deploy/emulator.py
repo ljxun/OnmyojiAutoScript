@@ -1,11 +1,11 @@
+import winreg
+
 import asyncio
 import filecmp
 import os
 import re
 import shutil
 import subprocess
-import winreg
-
 from deploy.logger import logger
 from deploy.utils import cached_property
 

@@ -1,12 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # copy from alas https://github.com/LmeSzinc/AzurLaneAutoScript
-import subprocess
-
 import copy
-from typing import Optional, Union
-
+import subprocess
 from deploy.logger import logger
 from deploy.utils import *
+from typing import Optional, Union
 
 
 class ExecutionError(Exception):

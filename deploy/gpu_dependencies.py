@@ -4,8 +4,9 @@ GPU Dependencies Manager
 Handles installation of GPU/CPU specific dependencies based on UseGpu configuration
 """
 
-import subprocess
 import sys
+
+import subprocess
 from deploy.logger import logger
 
 
