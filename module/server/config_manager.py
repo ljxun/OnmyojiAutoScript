@@ -2,9 +2,9 @@
 # @author runhey
 # github https://github.com/runhey
 import re
+from module.logger import logger
 from pathlib import Path
 
-from module.logger import logger
 
 class ConfigManager:
 

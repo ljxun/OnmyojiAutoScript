@@ -1,18 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import json
 from time import sleep
-from datetime import datetime, time
+
+import json
 from cached_property import cached_property
-
-from tasks.GlobalGame.config import TeamFlow, Transport
-
-from module.team_flow.mqtt import Mqtt
+from datetime import time
 from module.config.config import Config
+from module.logger import logger
+from module.team_flow.mqtt import Mqtt
 from module.team_flow.player import Player
 from module.team_flow.task import Task
-from module.logger import logger
+
 
 def on_message(client, userdata, msg):
     try:

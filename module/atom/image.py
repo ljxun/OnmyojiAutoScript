@@ -3,14 +3,12 @@
 # github https://github.com/runhey
 import cv2
 import numpy as np
-
+from module.atom.base_atom import BaseAtom
+from module.base.decorator import cached_property
+from module.base.utils import is_approx_rectangle
+from module.logger import logger
 from numpy import float32, int32, uint8, fromfile
 from pathlib import Path
-
-from module.base.decorator import cached_property
-from module.logger import logger
-from module.base.utils import is_approx_rectangle
-from module.atom.base_atom import BaseAtom
 
 
 class RuleImage(BaseAtom):

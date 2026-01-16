@@ -6,9 +6,11 @@ QQ群 134064772
 里面的人说话好听，个个都是人才
 '''
 
-import numpy as np
 import math
+
+import numpy as np
 import random
+
 
 class BezierTrajectory:
 

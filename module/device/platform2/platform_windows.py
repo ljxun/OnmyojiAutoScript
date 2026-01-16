@@ -1,21 +1,17 @@
-import time
-
 import ctypes
+import psutil
 import re
 import subprocess
-import psutil
 from adbutils import AdbDevice, AdbClient
-
+from ctypes import wintypes
 from deploy.utils import DataProcessInfo
 from module.base.decorator import run_once
 from module.base.timer import Timer
 from module.device.handle import Handle
-from module.device.platform2.platform_base import PlatformBase
 from module.device.platform2.emulator_windows import Emulator, EmulatorInstance, EmulatorManager
+from module.device.platform2.platform_base import PlatformBase
 from module.logger import logger
 from tasks.Script.config_device import EmulatorWindow
-import ctypes
-from ctypes import wintypes
 
 
 class EmulatorUnknown(Exception):

@@ -2,8 +2,9 @@
 # @author runhey
 # github https://github.com/runhey
 from time import sleep
-from random import randint
+
 from paho.mqtt import client as mqtt_client
+from random import randint
 
 broker = 'v96bb091.ala.cn-hangzhou.emqxsl.cn'
 port = 8883

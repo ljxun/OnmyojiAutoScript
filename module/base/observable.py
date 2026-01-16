@@ -1,9 +1,8 @@
 from cached_property import cached_property
 from enum import Enum
 from module.base.debouncer import Debouncer
-
-from typing import List, Optional, Any, Set, Callable, Dict
 from pydantic import BaseModel, PrivateAttr, Field, ConfigDict
+from typing import List, Optional, Any, Set, Dict
 from weakref import WeakSet, ref
 
 

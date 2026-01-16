@@ -2,19 +2,17 @@
 # @author runhey
 # github https://github.com/runhey
 import sys
-import os
 
+import os
+from PySide6.QtCore import Qt, QObject, QTranslator, Slot
 from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
-from PySide6.QtCore import Qt, QObject, QTranslator, QLocale, Slot
+from module.gui.utils import get_work_path
+from module.logger import logger
 from pathlib import Path
 
-from module.gui.utils import get_work_path
-from module.gui.Bridge import bridge
-from module.logger import logger
 
 # import module.gui.qml_rcc
-import module.gui.res_rcc
 
 class FluentApp():
     app = None

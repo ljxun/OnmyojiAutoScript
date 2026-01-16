@@ -2,11 +2,11 @@
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import *
+from module.device.method.adb import Adb
+from module.device.method.minitouch import Minitouch
 # from module.device.method.hermit import Hermit
 # from module.device.method.maatouch import MaaTouch
 from module.device.method.nemu_ipc import NemuIpc
-from module.device.method.minitouch import Minitouch
-from module.device.method.adb import Adb
 from module.device.method.scrcpy import Scrcpy
 from module.device.method.window import Window
 from module.logger import logger

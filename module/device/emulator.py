@@ -1,10 +1,9 @@
+import winreg
+
 import os
 import re
-import winreg
 import subprocess
-
 from adbutils.errors import AdbError
-
 from deploy.emulator import VirtualBoxEmulator
 from module.base.decorator import cached_property
 from module.device.connection import Connection

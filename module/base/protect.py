@@ -1,6 +1,6 @@
-import random
 from time import sleep
 
+import random
 from module.logger import logger
 
 

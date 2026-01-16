@@ -1,10 +1,10 @@
-import asyncio
 import aiohttp
-from aiohttp_socks import ProxyConnector
-from aiohttp import FormData
+import asyncio
 import os
-from module.logger import logger
 import yaml
+from aiohttp import FormData
+from aiohttp_socks import ProxyConnector
+from module.logger import logger
 
 
 class PushTg:
@@ -203,7 +203,6 @@ class PushTg:
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     config = Config('du')
     # device = Device(config)

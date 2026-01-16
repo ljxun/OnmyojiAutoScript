@@ -1,12 +1,9 @@
 import aiohttp
-import logging
+import os
 import requests
 import yaml
-import os
-import asyncio
 from datetime import datetime
-from logging.handlers import TimedRotatingFileHandler
-from module.logger import logger, file_formatter
+from module.logger import logger
 from module.notify.notify import Notifier
 
 

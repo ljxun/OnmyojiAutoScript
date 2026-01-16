@@ -1,14 +1,11 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import cv2
 
-from numpy import float32, int32, uint8, fromfile
-from PySide6.QtCore import QUrl, Property
+from PySide6.QtCore import Property
+from PySide6.QtCore import Slot
 from PySide6.QtGui import QImage, QPainter
 from PySide6.QtQuick import QQuickPaintedItem
-from PySide6.QtCore import QObject, Slot, Signal
-
 from module.logger import logger
 
 

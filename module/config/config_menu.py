@@ -1,10 +1,8 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import json
 
 from cached_property import cached_property
-from pydantic import BaseModel, ValidationError, validator, Field
 
 from module.config.utils import *
 

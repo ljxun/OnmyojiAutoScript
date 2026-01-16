@@ -1,95 +1,88 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from typing import Dict, Any
 
-import re
-import inflection
 from time import sleep
 
-from pathlib import Path
-from pydantic import BaseModel, ValidationError, Field
-
+import inflection
+import re
 from module.config.utils import *
 from module.logger import logger
-
-# 导入配置的Python文件
-from tasks.Component.config_base import ConfigBase, TimeDelta
-from tasks.Exploration.config import Exploration
-from tasks.RyouToppa.config import RyouToppa
-from tasks.Dokan.config import Dokan
-from tasks.Script.config import Script
-from tasks.Restart.config import Restart
-from tasks.GlobalGame.config import GlobalGame
-# 每日任务-----------------------------------------------------------------------------------------------------
-from tasks.CourtyardAffairs.config import CourtyardAffairs
-from tasks.AreaBoss.config import AreaBoss
-from tasks.ExperienceYoukai.config import ExperienceYoukai
-from tasks.GoldYoukai.config import GoldYoukai
-from tasks.Nian.config import Nian
-from tasks.KekkaiUtilize.config import KekkaiUtilize
-from tasks.KekkaiActivation.config import KekkaiActivation
-from tasks.DemonEncounter.config import DemonEncounter
-from tasks.DailyTrifles.config import DailyTrifles
-from tasks.TalismanPass.config import TalismanPass
-from tasks.Pets.config import Pets
-from tasks.SoulsTidy.config import SoulsTidy
-from tasks.Delegation.config import Delegation
-from tasks.WantedQuests.config import WantedQuests
-from tasks.Tako.config import Tako
-# 阴阳寮----------------------------------------------------------------------------------------------------------------------
-from tasks.Orochi.config import Orochi
-from tasks.Sougenbi.config import Sougenbi
-from tasks.FallenSun.config import FallenSun
-from tasks.EternitySea.config import EternitySea
-from tasks.SixRealms.config import SixRealms
-from tasks.RealmRaid.config import RealmRaid
-from tasks.CollectiveMissions.config import CollectiveMissions
-from tasks.Hunt.config import Hunt
+from pathlib import Path
+from pydantic import BaseModel, ValidationError, Field
 from tasks.AbyssShadows.config import AbyssShadows
-from tasks.DemonRetreat.config import DemonRetreat
-from tasks.GuildBanquet.config import GuildBanquet
-
-# 这一部分是活动的配置-----------------------------------------------------------------------------------------------------
-from tasks.ActivityShikigami.config import ActivityShikigami
-from tasks.AutoCake.config import AutoCake
 from tasks.ActivityCommon.config import ActivityCommon
 from tasks.ActivityCommon2.config import ActivityCommon2
-from tasks.MetaDemon.config import MetaDemon
-from tasks.FrogBoss.config import FrogBoss
-from tasks.FloatParade.config import FloatParade
-from tasks.Quiz.config import Quiz
-from tasks.KittyShop.config import KittyShop
-from tasks.NianTrue.config import NianTrue
-from tasks.MainStory.config import MainStory
-from tasks.LBS.config import LBS
-# ----------------------------------------------------------------------------------------------------------------------
-
-# 肝帝专属---------------------------------------------------------------------------------------------------------------
-from tasks.BondlingFairyland.config import BondlingFairyland
-from tasks.EvoZone.config import EvoZone
-from tasks.GoryouRealm.config import GoryouRealm
-from tasks.Hyakkiyakou.config import Hyakkiyakou
-from tasks.HeroTest.config import HeroTest
-from tasks.MemoryScrolls.config import MemoryScrolls
-from tasks.SwitchAccountConfig.config import SwitchAccountConfig
-from tasks.SwitchAccountOnce.config import SwitchAccountOnce
-from tasks.SwitchAccountLoop.config import SwitchAccountLoop
-
-
-# ----------------------------------------------------------------------------------------------------------------------
-
-# 每周任务---------------------------------------------------------------------------------------------------------------
-from tasks.TrueOrochi.config import TrueOrochi
-from tasks.RichMan.config import RichMan
-from tasks.Secret.config import Secret
-from tasks.WeeklyTrifles.config import WeeklyTrifles
-from tasks.MysteryShop.config import MysteryShop
-from tasks.Duel.config import Duel
-# ----------------------------------------------------------------------------------------------------------------------
-
+# 这一部分是活动的配置-----------------------------------------------------------------------------------------------------
+from tasks.ActivityShikigami.config import ActivityShikigami
+from tasks.AreaBoss.config import AreaBoss
+from tasks.AutoCake.config import AutoCake
 # Tools----------------------------------------------------------------------------------------------------------------------
 from tasks.BackUp.config import BackUp
+# 肝帝专属---------------------------------------------------------------------------------------------------------------
+from tasks.BondlingFairyland.config import BondlingFairyland
+from tasks.CollectiveMissions.config import CollectiveMissions
+# 导入配置的Python文件
+from tasks.Component.config_base import ConfigBase, TimeDelta
+# 每日任务-----------------------------------------------------------------------------------------------------
+from tasks.CourtyardAffairs.config import CourtyardAffairs
+from tasks.DailyTrifles.config import DailyTrifles
+from tasks.Delegation.config import Delegation
+from tasks.DemonEncounter.config import DemonEncounter
+from tasks.DemonRetreat.config import DemonRetreat
+from tasks.Dokan.config import Dokan
+from tasks.Duel.config import Duel
+from tasks.EternitySea.config import EternitySea
+from tasks.EvoZone.config import EvoZone
+from tasks.ExperienceYoukai.config import ExperienceYoukai
+from tasks.Exploration.config import Exploration
+from tasks.FallenSun.config import FallenSun
+from tasks.FloatParade.config import FloatParade
+from tasks.FrogBoss.config import FrogBoss
+from tasks.GlobalGame.config import GlobalGame
+from tasks.GoldYoukai.config import GoldYoukai
+from tasks.GoryouRealm.config import GoryouRealm
+from tasks.GuildBanquet.config import GuildBanquet
+from tasks.HeroTest.config import HeroTest
+from tasks.Hunt.config import Hunt
+from tasks.Hyakkiyakou.config import Hyakkiyakou
+from tasks.KekkaiActivation.config import KekkaiActivation
+from tasks.KekkaiUtilize.config import KekkaiUtilize
+from tasks.KittyShop.config import KittyShop
+from tasks.LBS.config import LBS
+from tasks.MainStory.config import MainStory
+from tasks.MemoryScrolls.config import MemoryScrolls
+from tasks.MetaDemon.config import MetaDemon
+from tasks.MysteryShop.config import MysteryShop
+from tasks.Nian.config import Nian
+from tasks.NianTrue.config import NianTrue
+# 阴阳寮----------------------------------------------------------------------------------------------------------------------
+from tasks.Orochi.config import Orochi
+from tasks.Pets.config import Pets
+from tasks.Quiz.config import Quiz
+from tasks.RealmRaid.config import RealmRaid
+from tasks.Restart.config import Restart
+from tasks.RichMan.config import RichMan
+from tasks.RyouToppa.config import RyouToppa
+from tasks.Script.config import Script
+from tasks.Secret.config import Secret
+from tasks.SixRealms.config import SixRealms
+from tasks.Sougenbi.config import Sougenbi
+from tasks.SoulsTidy.config import SoulsTidy
+from tasks.SwitchAccountConfig.config import SwitchAccountConfig
+from tasks.SwitchAccountLoop.config import SwitchAccountLoop
+from tasks.SwitchAccountOnce.config import SwitchAccountOnce
+from tasks.Tako.config import Tako
+from tasks.TalismanPass.config import TalismanPass
+# 每周任务---------------------------------------------------------------------------------------------------------------
+from tasks.TrueOrochi.config import TrueOrochi
+from tasks.WantedQuests.config import WantedQuests
+from tasks.WeeklyTrifles.config import WeeklyTrifles
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
 

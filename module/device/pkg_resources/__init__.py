@@ -1,7 +1,7 @@
-import os
-import re
 import sys
 
+import os
+import re
 from module.base.decorator import cached_property
 from module.logger import logger
 

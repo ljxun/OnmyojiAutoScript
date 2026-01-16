@@ -1,9 +1,9 @@
-import functools
-import socket
-import struct
 import time
 
+import functools
 import module.device.method.scrcpy.const as const
+import socket
+import struct
 
 
 def inject(control_type: int):

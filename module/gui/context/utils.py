@@ -1,11 +1,8 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import re
-from pathlib import Path
+from PySide6.QtCore import QObject, Slot
 from datetime import datetime
-from PySide6.QtCore import QObject, Slot, Signal
-
 from module.logger import logger
 
 

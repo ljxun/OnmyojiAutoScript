@@ -1,32 +1,25 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import cv2
-from numpy import frombuffer, uint8, array, random
-import numpy as np
 import time
-
 from math import dist
+
+from win32api import SendMessage, MAKELONG, PostMessage
+from win32gui import (GetWindowRect, GetWindowDC, DeleteObject,
+                      SetForegroundWindow)
+from win32ui import CreateDCFromHandle, CreateBitmap
+
+import cv2
 from cached_property import cached_property
-from win32gui import (GetWindowText, EnumWindows, FindWindow, FindWindowEx,
-                      IsWindow, GetWindowRect, GetWindowDC, DeleteObject,
-                      SetForegroundWindow, IsWindowVisible, GetDC, GetParent,
-                      EnumChildWindows, SetForegroundWindow)
-from win32con import (SRCCOPY, DESKTOPHORZRES, DESKTOPVERTRES, WM_LBUTTONUP,
+from module.base.cBezier import BezierTrajectory
+from module.device.handle import Handle, EmulatorFamily
+from module.logger import logger
+from numpy import frombuffer, random
+from win32con import SRCCOPY
+from win32con import (WM_LBUTTONUP,
                       WM_LBUTTONDOWN, WM_ACTIVATE, WA_ACTIVE, MK_LBUTTON,
                       WM_NCHITTEST, WM_SETCURSOR, HTCLIENT, WM_MOUSEMOVE,
-                      WM_PARENTNOTIFY, WM_MOUSEACTIVATE, WM_MOUSEWHEEL,
-                      WM_SETFOCUS)
-from win32ui import CreateDCFromHandle, CreateBitmap
-from win32api import GetSystemMetrics, SendMessage, MAKELONG, PostMessage
-from win32con import SRCCOPY
-
-from module.base.cBezier import BezierTrajectory
-from module.exception import RequestHumanTakeover, ScriptError
-from module.base.decorator import Config
-from module.base.timer import timer
-from module.logger import logger
-from module.device.handle import Handle, window_scale_rate, EmulatorFamily
+                      WM_MOUSEWHEEL)
 
 
 class Window(Handle):

@@ -1,13 +1,11 @@
+import sys
+
 import asyncio
 import ctypes
-import os
-import sys
-from functools import partial, wraps
-from pathlib import Path
-
 import cv2
 import numpy as np
-
+import os
+from functools import partial, wraps
 from module.base.decorator import cached_property, del_cached_property, has_cached_property
 from module.base.utils import ensure_time
 from module.device.connection import Connection
@@ -15,6 +13,7 @@ from module.device.method.minitouch import insert_swipe, random_rectangle_point
 from module.device.method.utils import RETRY_TRIES, retry_sleep
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from pathlib import Path
 
 
 class NemuIpcIncompatible(Exception):

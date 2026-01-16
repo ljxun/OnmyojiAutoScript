@@ -1,12 +1,11 @@
-import re
-from functools import wraps
+import time
 
 import cv2
 import numpy as np
-import time
+import re
 from adbutils.errors import AdbError
+from functools import wraps
 from lxml import etree
-
 from module.base.decorator import Config
 from module.device.connection import Connection
 from module.device.method.utils import (RETRY_TRIES, retry_sleep, remove_prefix, handle_adb_error,

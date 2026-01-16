@@ -1,32 +1,26 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import socket
-import random
-import zerorpc
-import asyncio
 import cv2
-import msgpack
-import numpy as np
 import io
 import json
-
-from typing import Union, Any, Dict
-from cached_property import cached_property
-from PySide6.QtCore import QObject, Slot, Signal, Property
+import numpy as np
+import random
+import socket
+import zerorpc
+from PySide6.QtCore import QObject, Slot, Signal
 from PySide6.QtGui import QImage
-from queue import Queue, Empty
-from rich.console import Console
-from multiprocessing.managers import SyncManager
-# from multiprocessing import Queue
-from threading import Thread
-
 from module.base.log_highlighter import highlight_text
-from module.gui.process.script_process import ScriptProcess
 from module.config.config_menu import ConfigMenu
 from module.config.config_modify import ConfigModify
 from module.gui.context.add import Add
+from module.gui.process.script_process import ScriptProcess
 from module.logger import logger
+from multiprocessing.managers import SyncManager
+from queue import Queue, Empty
+# from multiprocessing import Queue
+from threading import Thread
+from typing import Dict
 
 
 def is_port_in_use(ip, port) -> bool:

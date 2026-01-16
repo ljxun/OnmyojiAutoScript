@@ -3,14 +3,12 @@
 # github https://github.com/runhey
 
 import cv2
-import random
 import numpy as np
-
-from random import randint
-from module.ocr.onnx_paddle_ocr import BoxedResult
-from module.atom.ocr import RuleOcr
 from module.atom.image import RuleImage
+from module.atom.ocr import RuleOcr
 from module.logger import logger
+from module.ocr.onnx_paddle_ocr import BoxedResult
+from random import randint
 
 
 class RuleList:

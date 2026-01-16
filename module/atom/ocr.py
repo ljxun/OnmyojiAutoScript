@@ -1,9 +1,8 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import numpy as np
-
 import cv2
+import numpy as np
 from module.ocr.base_ocr import OcrMode
 from module.ocr.sub_ocr import Full, Single, Digit, DigitCounter, Duration, Quantity
 

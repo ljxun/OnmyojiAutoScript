@@ -1,17 +1,16 @@
 import time
-import typing as t
 
 import numpy as np
-from rich.table import Table
-from rich.text import Text
-
+import typing as t
 from module.base.utils import float2str as float2str_
 from module.base.utils import random_rectangle_point
-from module.daemon.daemon_base import DaemonBase
 from module.config.config import Config
+from module.daemon.daemon_base import DaemonBase
 from module.device.device import Device
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from rich.table import Table
+from rich.text import Text
 
 
 def float2str(n, decimal=3):

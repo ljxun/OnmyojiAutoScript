@@ -1,29 +1,29 @@
 # This Python file uses the following encoding: utf-8
+import time
+
 import ipaddress
 import logging
 import platform
 import re
 import socket
 import subprocess
-import time
-from functools import wraps
-
 import uiautomator2 as u2
 from adbutils import AdbClient, AdbDevice, AdbTimeout, ForwardItem, ReverseItem
 from adbutils.errors import AdbError
-
+from functools import wraps
 from module.base.decorator import Config, cached_property, del_cached_property
 from module.base.utils import ensure_time
+from module.config.server import set_server
 from module.device.connection_attr import ConnectionAttr
 from module.device.method.utils import (
     RETRY_TRIES, remove_shell_warning, retry_sleep,
     handle_adb_error, PackageNotInstalled,
     recv_all, possible_reasons,
     random_port, get_serial_pair)
-from module.config.server import set_server
 from module.exception import RequestHumanTakeover, EmulatorNotRunningError
 from module.logger import logger
 from module.map.map_grids import SelectedGrids
+
 
 def retry(func):
     @wraps(func)

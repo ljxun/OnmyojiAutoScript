@@ -1,17 +1,16 @@
 # This Python file uses the following encoding: utf-8
 # copy from alas
+import adbutils
 import os
 import re
-
-import adbutils
 import uiautomator2 as u2
 from adbutils import AdbClient, AdbDevice
-
 from module.base.decorator import cached_property
 from module.config.config import Config
 from module.config.utils import deep_iter
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+
 
 class ConnectionAttr:
     config: Config

@@ -1,10 +1,10 @@
+import winreg
+
 import codecs
 import os
 import re
 import typing as t
-import winreg
 from dataclasses import dataclass
-
 # module/device/platform/emulator_base.py
 # module/device/platform/emulator_windows.py
 # Will be used in Alas Easy Install, they shouldn't import any Alas modules.

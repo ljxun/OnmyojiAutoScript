@@ -1,16 +1,13 @@
+import time
+
 import asyncio
 import json
+import numpy as np
 import re
 import socket
-import time
-import numpy as np
-from functools import wraps
-from typing import List
-
 import websockets
 from adbutils.errors import AdbError
-from uiautomator2 import _Service
-
+from functools import wraps
 from module.base.decorator import Config, cached_property, del_cached_property
 from module.base.timer import Timer
 from module.base.utils import random_rectangle_point
@@ -18,6 +15,8 @@ from module.device.connection import Connection
 from module.device.method.utils import RETRY_TRIES, retry_sleep, handle_adb_error
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
+from typing import List
+from uiautomator2 import _Service
 
 
 def random_normal_distribution(a, b, n=5):

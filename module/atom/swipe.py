@@ -1,14 +1,12 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import numpy as np
-import random
-
 from math import dist
 
-from module.base.decorator import cached_property
+import numpy as np
+import random
 from module.atom.cBezier import BezierTrajectory
-from module.logger import logger
+from module.base.decorator import cached_property
 
 
 class RuleSwipe:

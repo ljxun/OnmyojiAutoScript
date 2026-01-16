@@ -1,25 +1,19 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from functools import lru_cache
-
-import re
-
-from enum import Enum
-from cached_property import cached_property
-from anytree import NodeMixin, RenderTree, PreOrderIter
-from win32api import GetSystemMetrics, SendMessage, MAKELONG, PostMessage
+from win32api import GetSystemMetrics
+from win32gui import (GetWindowText, EnumWindows, FindWindow, IsWindow, GetWindowRect, GetDC, GetParent,
+                      EnumChildWindows)
 from win32print import GetDeviceCaps
 from win32process import GetWindowThreadProcessId
-from win32gui import (GetWindowText, EnumWindows, FindWindow, FindWindowEx,
-                      IsWindow, GetWindowRect, GetWindowDC, DeleteObject,
-                      SetForegroundWindow, IsWindowVisible, GetDC, GetParent,
-                      EnumChildWindows)
-from win32con import (SRCCOPY, DESKTOPHORZRES, DESKTOPVERTRES, WM_LBUTTONUP,
-                      WM_LBUTTONDOWN, WM_ACTIVATE, WA_ACTIVE, MK_LBUTTON,
-                      WM_NCHITTEST, WM_SETCURSOR, HTCLIENT, WM_MOUSEMOVE)
+
+from anytree import NodeMixin, PreOrderIter
+from cached_property import cached_property
+from enum import Enum
+from functools import lru_cache
 from module.config.config import Config
 from module.logger import logger
+from win32con import (DESKTOPHORZRES, DESKTOPVERTRES)
 
 
 def handle_title2num(title: str) -> int:

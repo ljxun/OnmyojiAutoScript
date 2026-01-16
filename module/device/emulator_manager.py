@@ -4,15 +4,13 @@
 通过模拟器管理器直接控制模拟器的启动、关闭等操作
 """
 import os
-
 from deploy.process import ProcessManager
 from module.device.execute_util import execute_emulator, execute_show_window
+from module.device.platform2.emulator_windows import EmulatorManager as EmulatorManagerOld
 from module.logger import logger
 from module.server.setting import State
 from tasks.Script.config_device import EmulatorWindow
 from tasks.Script.config_device import PackageName
-from module.device.app_control import AppControl
-from module.device.platform2.emulator_windows import EmulatorManager as EmulatorManagerOld
 
 
 class EmulatorManager:

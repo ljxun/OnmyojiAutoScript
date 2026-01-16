@@ -1,21 +1,19 @@
-import typing as t
-import numpy as np
 import cv2
+import numpy as np
+import typing as t
+import uiautomator2 as u2
+from adbutils.errors import AdbError
 from dataclasses import dataclass
 from functools import wraps
 from json.decoder import JSONDecodeError
-from subprocess import list2cmdline
-
-import uiautomator2 as u2
-from adbutils.errors import AdbError
 from lxml import etree
-
 from module.base.utils import point2str, random_rectangle_point, random_line_segments
 from module.device.connection import Connection
 from module.device.method.utils import (RETRY_TRIES, retry_sleep, handle_adb_error,
                                         ImageTruncated, PackageNotInstalled, possible_reasons)
 from module.exception import RequestHumanTakeover
 from module.logger import logger
+from subprocess import list2cmdline
 
 
 def retry(func):

@@ -1,23 +1,21 @@
-import os
 import time
-from collections import deque
-from datetime import datetime
-from pathlib import Path
 
 import cv2
 import numpy as np
 from PIL import Image
-
+from collections import deque
+from datetime import datetime
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.base.utils import get_color, image_size, limit_in, save_image
 from module.device.method.adb import Adb
-from module.device.method.window import Window
 from module.device.method.droidcast import DroidCast
-from module.device.method.scrcpy import Scrcpy
 from module.device.method.nemu_ipc import NemuIpc
+from module.device.method.scrcpy import Scrcpy
+from module.device.method.window import Window
 from module.exception import RequestHumanTakeover, ScriptError
 from module.logger import logger
+from pathlib import Path
 
 
 class Screenshot(Adb, DroidCast, Scrcpy, Window, NemuIpc):

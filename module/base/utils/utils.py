@@ -1,9 +1,9 @@
-import re
+import sys
 
 import cv2
-import sys
-import numpy as np
 import importlib
+import numpy as np
+import re
 from PIL import Image
 
 REGEX_NODE = re.compile(r'(-?[A-Za-z]+)(-?\d+)')

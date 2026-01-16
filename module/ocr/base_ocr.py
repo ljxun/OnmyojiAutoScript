@@ -6,7 +6,6 @@ import time
 import cv2
 import numpy as np
 from enum import Enum
-from module.base.decorator import cached_property
 from module.base.utils import float2str
 from module.logger import logger
 from module.ocr.models import OCR_MODEL

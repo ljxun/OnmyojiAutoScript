@@ -1,6 +1,7 @@
+import numpy as np
 import ppocronnx.predict_system
 from module.logger import logger
-import numpy as np
+
 
 class TextSystem(ppocronnx.predict_system.TextSystem):
     def __init__(

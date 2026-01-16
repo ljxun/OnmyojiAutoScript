@@ -1,12 +1,10 @@
-import typing as t
-from functools import wraps
-
 import cv2
 import numpy as np
 import requests
+import typing as t
 from adbutils.errors import AdbError
-
-from module.base.decorator import Config, cached_property, del_cached_property
+from functools import wraps
+from module.base.decorator import cached_property, del_cached_property
 from module.base.timer import Timer
 from module.device.method.uiautomator_2 import Uiautomator2, ProcessInfo
 from module.device.method.utils import (retry_sleep, RETRY_TRIES, handle_adb_error,

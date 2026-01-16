@@ -1,10 +1,9 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from queue import Queue
-from multiprocessing import Process
-
 from module.logger import logger
+from multiprocessing import Process
+from queue import Queue
 
 
 class ScriptProcess(Process):

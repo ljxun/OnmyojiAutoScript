@@ -3,10 +3,10 @@
 # github https://github.com/runhey
 #
 import re
-from pathlib import Path
-from PySide6.QtCore import QObject, Slot, Signal
-
+from PySide6.QtCore import QObject, Slot
 from module.logger import logger
+from pathlib import Path
+
 
 # 震惊到我姥姥家 除了第一个函数all_script_files是我自己写的
 # 后面的都是github copilot写的

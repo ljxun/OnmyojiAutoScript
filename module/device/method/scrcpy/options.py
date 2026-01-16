@@ -1,6 +1,5 @@
-import typing as t
-
 import module.device.method.scrcpy.const as const
+import typing as t
 
 
 class ScrcpyOptions:

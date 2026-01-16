@@ -1,7 +1,7 @@
 from module.base.decorator import cached_property
-from module.ocr.ppocr import TextSystem
-from module.ocr.onnx_paddle_ocr import ONNXPaddleOcr
 from module.logger import logger
+from module.ocr.onnx_paddle_ocr import ONNXPaddleOcr
+from module.ocr.ppocr import TextSystem
 
 
 class OcrModel:

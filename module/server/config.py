@@ -1,11 +1,9 @@
 """
 Copy from https://github.com/LmeSzinc/AzurLaneAutoScript
 """
-from typing import Optional, Union
-from filelock import FileLock
-
 from deploy.config import DeployConfig as _DeployConfig
 from deploy.utils import *
+from filelock import FileLock
 
 
 def poor_yaml_read_with_lock(file):

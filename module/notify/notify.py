@@ -2,7 +2,6 @@
 # @author runhey
 # github https://github.com/runhey
 import aiohttp
-import asyncio
 import base64
 import cv2
 import numpy
@@ -12,6 +11,7 @@ import yaml
 from PIL import Image
 from aiohttp_socks import ProxyConnector
 from email.message import EmailMessage
+from module.logger import format_chinese_time
 from module.logger import logger
 from module.server.i18n import I18n
 from onepush import get_notifier
@@ -23,7 +23,6 @@ from pathlib import Path
 from requests import Response
 from smtplib import SMTPResponseException
 from typing import Optional
-from module.logger import format_chinese_time
 
 onepush.core.log = logger
 

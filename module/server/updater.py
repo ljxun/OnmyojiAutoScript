@@ -1,18 +1,11 @@
 import datetime
 import subprocess
-import threading
-import time
-import requests
-from typing import Generator, List, Tuple
-
-
-from deploy.config import ExecutionError
 from deploy.git import GitManager
 from deploy.pip import PipManager
 from deploy.utils import DEPLOY_CONFIG
 from module.logger import logger
-from module.base.retry import retry
 from module.server.config import DeployConfig
+from typing import Tuple
 
 
 class Updater(DeployConfig, GitManager, PipManager):

@@ -4,15 +4,13 @@
 from time import sleep
 
 import json
-from random import randint
-from paho.mqtt import client as mqtt_client
-from threading import Thread
-from queue import Queue
-
-from tasks.GlobalGame.config import TeamFlow, Transport
-
-from module.logger import logger
 from module.base.timer import Timer
+from module.logger import logger
+from paho.mqtt import client as mqtt_client
+from queue import Queue
+from random import randint
+from tasks.GlobalGame.config import TeamFlow, Transport
+from threading import Thread
 
 
 def on_message(client, userdata, msg):

@@ -4,18 +4,18 @@
 import time
 
 import asyncio
-from collections import defaultdict
 from datetime import datetime
 from fastapi import APIRouter, HTTPException
 from fastapi import Request
 from fastapi import WebSocket, WebSocketDisconnect
 from fastapi.responses import StreamingResponse
+from module.config.utils import convert_to_underscore
 from module.logger import logger
 from module.server.main_manager import MainManager
 from module.server.main_qqbot import MainQQBotManager
-from tasks.Component.config_base import TimeDelta
 from module.server.script_process import ScriptProcess, ScriptState
-from module.config.utils import convert_to_underscore
+from tasks.Component.config_base import TimeDelta
+
 script_app = APIRouter()
 mm = MainManager()
 qqbaot = MainQQBotManager()

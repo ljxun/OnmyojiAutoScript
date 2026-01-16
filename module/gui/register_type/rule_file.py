@@ -2,14 +2,10 @@
 # @author runhey
 # github https://github.com/runhey
 import os
-import json
-
-from filelock import FileLock
 from PySide6.QtCore import QObject, Slot
-
-from module.logger import logger
+from filelock import FileLock
 from module.config.atomicwrites import atomic_write
-
+from module.logger import logger
 
 
 class RuleFile(QObject):

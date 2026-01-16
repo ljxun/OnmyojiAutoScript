@@ -1,10 +1,9 @@
 import time
-from functools import wraps
-
-import numpy as np
-from adbutils.errors import AdbError
 
 import module.device.method.scrcpy.const as const
+import numpy as np
+from adbutils.errors import AdbError
+from functools import wraps
 from module.base.utils import random_rectangle_point
 from module.device.method.minitouch import insert_swipe
 from module.device.method.scrcpy.core import ScrcpyCore, ScrcpyError

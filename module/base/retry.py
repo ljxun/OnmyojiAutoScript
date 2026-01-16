@@ -1,8 +1,8 @@
+import time
+
 import functools
 import random
-import time
 from functools import partial
-
 from module.logger import logger as logging_logger
 
 """

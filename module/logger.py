@@ -5,7 +5,7 @@ import sys
 
 import logging
 import os
-from datetime import datetime, date
+from datetime import date
 from io import TextIOBase
 from logging.handlers import TimedRotatingFileHandler
 from rich.console import Console, ConsoleOptions, ConsoleRenderable, NewLine, RenderResult

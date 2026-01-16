@@ -2,7 +2,7 @@
 # @author runhey
 # github https://github.com/runhey
 import re
-from html import escape
+
 
 def replace_newline_with_br(input_text):
     replaced_text = input_text.replace('\n', '<br>')

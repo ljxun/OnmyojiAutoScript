@@ -1,6 +1,6 @@
-import numpy as np
 from scipy import optimize
 
+import numpy as np
 from .utils import area_pad
 
 

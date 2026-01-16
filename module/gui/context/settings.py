@@ -1,10 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from pathlib import Path
-from PySide6.QtCore import QObject, Slot, Signal
-
+from PySide6.QtCore import QObject, Slot
 from module.logger import logger
+from pathlib import Path
+
 
 class Setting(QObject):
 

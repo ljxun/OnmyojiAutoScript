@@ -1,10 +1,9 @@
-from pathlib import Path
-from module.logger import logger
-
-from module.atom.image import RuleImage
 from module.atom.click import RuleClick
+from module.atom.image import RuleImage
 from module.atom.long_click import RuleLongClick
 from module.atom.ocr import RuleOcr
+from module.logger import logger
+from pathlib import Path
 
 
 class RuleAnimate(RuleImage):

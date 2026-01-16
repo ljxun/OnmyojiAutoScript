@@ -3,7 +3,6 @@
 import json
 import os
 import subprocess
-from module.logger import logger
 
 
 def execute_emulator(command):

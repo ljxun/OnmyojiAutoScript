@@ -1,13 +1,12 @@
-import socket
-import struct
-import threading
 import time
-import typing as t
 from time import sleep
 
 import numpy as np
+import socket
+import struct
+import threading
+import typing as t
 from adbutils import _AdbStreamConnection, AdbError, Network
-
 from module.base.decorator import cached_property
 from module.base.timer import Timer
 from module.device.connection import Connection

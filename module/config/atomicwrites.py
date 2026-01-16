@@ -2,10 +2,11 @@
 Copy-pasted from
 https://github.com/untitaker/python-atomicwrites
 """
+import sys
+
 import contextlib
 import io
 import os
-import sys
 import tempfile
 
 try:
