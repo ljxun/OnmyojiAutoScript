@@ -73,10 +73,21 @@ async def execute_update():
     return '手动更新将会立即结束运行中的脚本服务, 最后你还需重启oasx'
 
 
-@home_app.put('/chinese_translate')
-async def chinese_translate(data: dict = Body(...)):
+# @home_app.put('/chinese_translate')
+# async def chinese_translate(data: dict = Body(...)):
+#     try:
+#         I18n.save_zh_cn(data)
+#     except Exception as e:
+#         logger.error(e)
+#     return True
+
+
+@home_app.get('/additional_translate')
+async def additional_translate() -> dict:
     try:
-        I18n.save_zh_cn(data)
+        data = I18n.load_additions()
+        return data
     except Exception as e:
-        logger.error(e)
-    return True
+        logger.error("❌ oasx获取后端翻译报错")
+        logger.error(e, exc_info=True)
+    return {'en-US': {}, 'zh-CN': {}}

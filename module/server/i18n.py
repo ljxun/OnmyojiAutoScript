@@ -24,5 +24,19 @@ class I18n:
         with open(str(I18n.file_zh_cn), 'r', encoding='utf-8') as f:
             return json.load(f)
 
+    @classmethod
+    def load_additions(cls) -> dict:
+        result = {}
+        files: list = ['en-US', 'zh-CN']
+        for file in files:
+            file_path = Path.cwd() / 'module' / 'config' / 'i18n' / f'{file}.json'
+            result[file] = {}
+            if not file_path.exists():
+                continue
+            with open(str(file_path), 'r', encoding='utf-8') as f:
+                result[file] = json.load(f)
+        return result
+
+
 if __name__ == '__main__':
     print(I18n.load_zh_cn())
