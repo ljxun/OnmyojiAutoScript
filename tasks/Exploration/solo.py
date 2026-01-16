@@ -1,7 +1,6 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-from tasks.GameUi.page import page_exploration
 from cached_property import cached_property
 from datetime import datetime
 from module.exception import TaskEnd
@@ -10,6 +9,7 @@ from tasks.Component.GeneralInvite.config_invite import InviteConfig, InviteNumb
 from tasks.Exploration.base import BaseExploration, Scene
 from tasks.Exploration.config import AutoRotate, UserStatus
 from tasks.Exploration.config import ExplorationLevel
+from tasks.GameUi.page import page_exploration
 
 
 class SoloExploration(BaseExploration):

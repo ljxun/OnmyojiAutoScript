@@ -25,9 +25,9 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Dokan.assets import DokanAssets
 from tasks.Dokan.config import Dokan
 from tasks.Dokan.inner_page import page_dokan
-from tasks.GameUi.page import PageRegistry
 from tasks.GameUi.page import page_guild
 from tasks.RichMan.assets import RichManAssets
+from tasks.GameUi.page import PageRegistry
 
 
 class DokanScene(Enum):

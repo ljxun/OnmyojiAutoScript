@@ -1,14 +1,9 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import time
 
 from module.logger import logger
 
-from tasks.GameUi.page import page_main, page_guild
-from tasks.GameUi.game_ui import GameUi
-from tasks.Component.Buy.buy import Buy
-from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.config import MedalRoom
 from tasks.RichMan.mall.friendship_points import FriendshipPoints
 

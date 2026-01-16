@@ -4,11 +4,10 @@
 import time
 
 from module.logger import logger
-
 from tasks.Component.Buy.buy import Buy
+from tasks.RichMan.config import Consignment as ConsignmentStore
 # from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.mall.navbar import MallNavbar
-from tasks.RichMan.config import Consignment as ConsignmentStore
 
 
 class Consignment(Buy, MallNavbar):

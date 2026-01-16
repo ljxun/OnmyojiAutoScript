@@ -7,9 +7,9 @@ import random
 import re
 from module.logger import logger
 from tasks.Component.Summon.assets import SummonAssets
-from tasks.base_task import BaseTask
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_summon
+from tasks.base_task import BaseTask
 
 
 class Summon(GameUi, BaseTask, SummonAssets):

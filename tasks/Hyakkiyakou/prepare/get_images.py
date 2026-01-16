@@ -1,14 +1,12 @@
-import cv2
 import time
-from datetime import timedelta, datetime
+
+import cv2
 from cached_property import cached_property
-from random import choice
-from pathlib import Path
-
-from module.exception import TaskEnd
-from module.logger import logger
+from datetime import datetime
 from module.base.timer import Timer
-
+from module.logger import logger
+from pathlib import Path
+from random import choice
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_hyakkiyakou
 from tasks.Hyakkiyakou.assets import HyakkiyakouAssets

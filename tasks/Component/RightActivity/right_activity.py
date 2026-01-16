@@ -2,12 +2,9 @@
 # @author runhey
 # github https://github.com/runhey
 from module.atom.image import RuleImage
-from module.logger import logger
-
-from tasks.base_task import BaseTask
+from tasks.Component.RightActivity.assets import RightActivityAssets
 from tasks.GameUi.game_ui import GameUi
 from tasks.GameUi.page import page_main
-from tasks.Component.RightActivity.assets import RightActivityAssets
 
 
 class RightActivity(GameUi, RightActivityAssets):

@@ -2,7 +2,6 @@ from tasks.ActivityShikigami.assets import ActivityShikigamiAssets as asa
 from tasks.GameUi.assets import GameUiAssets as G
 from tasks.GameUi.page import Page, page_main
 from tasks.GlobalGame.assets import GlobalGameAssets as gga
-from tasks.base_task import BaseTask as BT
 
 # 爬塔活动界面
 page_climb_act = Page(asa.I_BATTLE)

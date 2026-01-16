@@ -14,7 +14,6 @@ from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.game_ui import GameUi
 from tasks.MetaDemon.assets import MetaDemonAssets
 from tasks.MetaDemon.config import MetaDemon, BossType
-from tasks.GameUi.page import PageRegistry
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):

@@ -12,8 +12,6 @@ from tasks.GameUi.page import page_main
 from tasks.LBS.assets import LBSAssets
 
 
-
-
 class ScriptTask(GameUi, GeneralBattle, LBSAssets):
     """ LBS """
     success_count = 0

@@ -1,12 +1,11 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import re
-import rich
-import csv
 import pandas as pd
 
+import re
 from utils import remove_symbols
+
 
 class Extracter:
     def __init__(self, data_file: str='data.csv'):

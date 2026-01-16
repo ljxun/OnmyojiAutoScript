@@ -4,13 +4,8 @@
 import time
 
 from module.logger import logger
-
-from tasks.GameUi.page import page_main, page_guild
-from tasks.GameUi.game_ui import GameUi
-from tasks.Component.Buy.buy import Buy
-from tasks.RichMan.mall.navbar import MallNavbar
-from tasks.RichMan.mall.special import Special
 from tasks.RichMan.config import HonorRoom
+from tasks.RichMan.mall.special import Special
 
 
 class Honor(Special):

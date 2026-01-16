@@ -1,11 +1,7 @@
 import cv2
-
 from datetime import datetime
-from pathlib import Path
-
 from module.logger import logger
-
-from tasks.base_task import BaseTask
+from pathlib import Path
 from tasks.Hyakkiyakou.assets import HyakkiyakouAssets
 
 

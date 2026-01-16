@@ -2,7 +2,7 @@ import numpy as np
 from datetime import datetime
 from module.base.timer import Timer
 from module.base.utils import point2str
-from module.exception import RequestHumanTakeover, GameStuckError
+from module.exception import GameStuckError
 from module.logger import logger
 from tasks.base_task import BaseTask
 

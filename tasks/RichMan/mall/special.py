@@ -2,16 +2,13 @@
 # @author runhey
 # github https://github.com/runhey
 import time
+
 import re
-
-from module.logger import logger
 from module.atom.image import RuleImage
-
-from tasks.GameUi.page import page_main, page_guild
-from tasks.RichMan.mall.navbar import MallNavbar
+from module.logger import logger
 from tasks.Component.Buy.buy import Buy
-from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.config import SpecialRoom
+from tasks.RichMan.mall.navbar import MallNavbar
 
 
 class Special(Buy, MallNavbar):

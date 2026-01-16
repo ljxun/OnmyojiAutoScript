@@ -1,5 +1,5 @@
 from tasks.GameUi.assets import GameUiAssets
-from tasks.GameUi.page import Page,  page_main, page_shikigami_records
+from tasks.GameUi.page import Page,  page_main
 from tasks.MetaDemon.assets import MetaDemonAssets
 
 # 活动列表页超鬼王活动

@@ -3,15 +3,12 @@
 # github https://github.com/runhey
 import time
 
-from module.logger import logger
 from module.atom.image import RuleImage
 from module.atom.ocr import RuleOcr
-
-from tasks.GameUi.page import page_main, page_guild
-from tasks.RichMan.mall.navbar import MallNavbar
+from module.logger import logger
 from tasks.Component.Buy.buy import Buy
-from tasks.RichMan.assets import RichManAssets
 from tasks.RichMan.config import Bondlings as BondlingsConfig
+from tasks.RichMan.mall.navbar import MallNavbar
 
 
 class Bondlings(Buy, MallNavbar):

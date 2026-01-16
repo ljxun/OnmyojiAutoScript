@@ -1,16 +1,14 @@
 import cv2
-
 from cached_property import cached_property
-from pathlib import Path
 from enum import Enum
-
-from module.logger import logger
-from module.base.timer import Timer
 from module.atom.image import RuleImage
+from module.base.timer import Timer
 from module.exception import RequestHumanTakeover
-from tasks.Hyakkiyakou.slave.hya_device import HyaDevice
-from tasks.Hyakkiyakou.slave.hya_color import HyaColor
+from module.logger import logger
+from pathlib import Path
 from tasks.Hyakkiyakou.assets import HyakkiyakouAssets
+from tasks.Hyakkiyakou.slave.hya_color import HyaColor
+from tasks.Hyakkiyakou.slave.hya_device import HyaDevice
 
 
 class HyaBuff(int, Enum):
@@ -312,7 +310,6 @@ def covert_rgb():
 
 
 def test_predict_res():
-    import timeit
     from module.config.config import Config
     from module.device.device import Device
 
@@ -333,7 +330,6 @@ def test_predict_res():
 
 
 def test_predict_bean():
-    import timeit
     from module.config.config import Config
     from module.device.device import Device
 
@@ -352,7 +348,6 @@ def test_predict_bean():
 
 
 def test_predict_buff():
-    import timeit
     from module.config.config import Config
     from module.device.device import Device
 

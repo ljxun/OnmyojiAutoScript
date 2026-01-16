@@ -1,22 +1,21 @@
-import cv2
-import copy
-import shutil
 import time
-import numpy as np
 
-from datetime import datetime
-from cached_property import cached_property
-from pathlib import Path
-from numpy import uint8, fromfile
-from rich.table import Table
-from threading import Event, Lock, Thread
-from oashya.labels import id2label, CLASSIFY, CLASSINDEX, id2name
-from oashya.utils import draw_tracks
 from oashya.tracker import Tracker
 
-from tasks.base_task import BaseTask
+import copy
+import cv2
+import numpy as np
+import shutil
+from cached_property import cached_property
+from datetime import datetime
 from module.logger import logger
+from numpy import uint8, fromfile
+from oashya.labels import id2label, CLASSINDEX, id2name
+from oashya.utils import draw_tracks
+from pathlib import Path
+from rich.table import Table
 from tasks.Hyakkiyakou.agent.focus import Focus
+from threading import Event, Lock, Thread
 
 
 def test_track(show: bool = False):

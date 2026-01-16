@@ -94,7 +94,6 @@ class WQExplore(BaseExploration, HighLight):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
     from tasks.WantedQuests.assets import WantedQuestsAssets
 
     config = Config('oas1')

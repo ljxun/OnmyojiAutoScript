@@ -1,13 +1,10 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import time
 
 from module.logger import logger
-
-from tasks.GameUi.page import page_main, page_guild
-from tasks.RichMan.mall.friendship_points import FriendshipPoints
 from tasks.RichMan.config import Charisma as CharismaConfig
+from tasks.RichMan.mall.friendship_points import FriendshipPoints
 
 
 class Charisma(FriendshipPoints):

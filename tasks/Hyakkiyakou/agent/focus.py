@@ -1,14 +1,7 @@
-import numpy as np
-
-from rich.table import Table
-from rich.text import Text
-from cached_property import cached_property
-
 from module.logger import logger
-
-from oashya.labels import id2label, id2name
 from oashya.labels import CLASSINDEX as CI
-
+from oashya.labels import id2label, id2name
+from rich.table import Table
 # get buff status
 from tasks.Hyakkiyakou.slave.hya_slave import HyaBuff
 

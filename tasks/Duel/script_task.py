@@ -14,7 +14,7 @@ from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchOnmyoji.switch_onmyoji import SwitchOnmyoji
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.Duel.assets import DuelAssets
-from tasks.GameUi.page import page_main, page_onmyodo, page_duel
+from tasks.GameUi.page import page_onmyodo, page_duel
 
 
 class ScriptTask(GeneralBattle, SwitchSoul, SwitchOnmyoji, DuelAssets):

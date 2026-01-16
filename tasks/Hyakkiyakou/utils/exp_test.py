@@ -3,27 +3,22 @@
 # github https://github.com/runhey
 import cv2
 import random
-
-from datetime import datetime
-from pathlib import Path
 from cached_property import cached_property
-
-from module.logger import logger
-from module.base.timer import Timer
-from module.atom.click import RuleClick
-
-from tasks.Exploration.assets import ExplorationAssets
-from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_main, page_town, page_exploration
-from tasks.base_task import BaseTask
-from tasks.Script.config_device import ScreenshotMethod, ControlMethod
-from tasks.Component.RightActivity.right_activity import RightActivity
-from tasks.Restart.assets import RestartAssets
-from tasks.Exploration.config import ExplorationLevel
-
-from utils import usage_time
+from datetime import datetime
 from fast_device import FastDevice
+from module.atom.click import RuleClick
+from module.base.timer import Timer
 from module.exception import GameStuckError
+from module.logger import logger
+from pathlib import Path
+from tasks.Component.RightActivity.right_activity import RightActivity
+from tasks.Exploration.assets import ExplorationAssets
+from tasks.Exploration.config import ExplorationLevel
+from tasks.GameUi.page import page_main, page_town, page_exploration
+from tasks.Restart.assets import RestartAssets
+from tasks.Script.config_device import ScreenshotMethod, ControlMethod
+from utils import usage_time
+
 
 class Step:
     def __init__(self,

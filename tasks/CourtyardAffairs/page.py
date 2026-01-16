@@ -1,7 +1,7 @@
 from tasks.CourtyardAffairs.assets import CourtyardAffairsAssets
-from tasks.GameUi.page import page_main
-from tasks.GameUi.page import Page
 from tasks.GameUi.assets import GameUiAssets
+from tasks.GameUi.page import Page
+from tasks.GameUi.page import page_main
 
 # 庭院事务主页
 page_courtyard_affairs = Page(CourtyardAffairsAssets.I_COURTYARD_AFFAIRS_PAGE)

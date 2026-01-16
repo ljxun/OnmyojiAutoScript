@@ -1,8 +1,8 @@
+from module.logger import logger
 from tasks.Component.SwitchOnmyoji.assets import SwitchOnmyojiAssets
 from tasks.Component.SwitchOnmyoji.config import Onmyoji
-from tasks.base_task import BaseTask
-from module.logger import logger
 from tasks.GameUi.game_ui import GameUi
+from tasks.base_task import BaseTask
 
 
 class SwitchOnmyoji(BaseTask, SwitchOnmyojiAssets):

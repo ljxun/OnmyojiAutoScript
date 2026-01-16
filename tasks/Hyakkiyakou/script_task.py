@@ -3,29 +3,26 @@
 # github https://github.com/runhey
 import time
 
-import cv2
-import numpy as np
-
-from datetime import datetime, timedelta
-from numpy import uint8, fromfile
-from random import choice
-from cached_property import cached_property
 # Use cmd to install: ./toolkit/python.exe -m pip install -i https://pypi.org/simple/ oashya --trusted-host pypi.org
 # update oashya:  ./toolkit/python.exe -m pip install --upgrade oashya
 from oashya.tracker import Tracker
-from oashya.labels import label2id, CLASSINDEX as CI, id2name
-from oashya.utils import draw_tracks
 
+import cv2
+import numpy as np
+from cached_property import cached_property
+from datetime import datetime, timedelta
+from module.exception import RequestHumanTakeover
 from module.exception import TaskEnd
 from module.logger import logger
-from module.exception import RequestHumanTakeover
+from oashya.labels import label2id, CLASSINDEX as CI, id2name
+from oashya.utils import draw_tracks
 from tasks.Component.SwitchOnmyoji.switch_onmyoji import SwitchOnmyoji
 from tasks.GameUi.game_ui import GameUi
-from tasks.GameUi.page import page_hyakkiyakou, page_main, page_onmyodo
-from tasks.Hyakkiyakou.config import InferenceEngine, ModelPrecision
+from tasks.GameUi.page import page_hyakkiyakou
 from tasks.Hyakkiyakou.agent.agent import Agent
-from tasks.Hyakkiyakou.slave.hya_slave import HyaSlave
+from tasks.Hyakkiyakou.config import InferenceEngine, ModelPrecision
 from tasks.Hyakkiyakou.debugger import Debugger
+from tasks.Hyakkiyakou.slave.hya_slave import HyaSlave
 
 
 def plot_save(image, boxes):

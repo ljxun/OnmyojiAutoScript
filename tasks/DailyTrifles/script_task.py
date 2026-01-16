@@ -4,7 +4,6 @@
 from time import sleep
 
 import copy
-import re
 from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger

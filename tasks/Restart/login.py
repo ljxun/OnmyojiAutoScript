@@ -9,8 +9,8 @@ from module.logger import logger
 from tasks.Component.GeneralBuff.general_buff import GeneralBuff
 from tasks.Component.LoginHarvest.login_base import LoginBase
 from tasks.Component.SwitchAccount.assets import SwitchAccountAssets
-from tasks.Restart.assets import RestartAssets
 from tasks.GameUi.assets import GameUiAssets
+from tasks.Restart.assets import RestartAssets
 
 
 class LoginHandler(LoginBase, RestartAssets, GameUiAssets, GeneralBuff):

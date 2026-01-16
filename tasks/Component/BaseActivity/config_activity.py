@@ -2,12 +2,11 @@
 # @author runhey
 # github https://github.com/runhey
 from datetime import time, timedelta
-from pydantic import BaseModel, Field, validator
 from enum import Enum
-
 from module.logger import logger
+from pydantic import Field, validator
+from tasks.Component.config_base import ConfigBase, Time
 
-from tasks.Component.config_base import ConfigBase, TimeDelta, Time
 
 class ApMode(str, Enum):
     AP_ACTIVITY = 'ap_activity'

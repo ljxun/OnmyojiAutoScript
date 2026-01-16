@@ -3,16 +3,14 @@
 # github https://github.com/runhey
 import time
 
-from typing import Union
-
+from module.atom.click import RuleClick
 from module.atom.image import RuleImage
 from module.atom.ocr import RuleOcr
-from module.atom.click import RuleClick
-from module.logger import logger
 from module.base.timer import Timer
-
-from tasks.base_task import BaseTask
+from module.logger import logger
 from tasks.Component.Buy.assets import BuyAssets
+from tasks.base_task import BaseTask
+from typing import Union
 
 
 class Buy(BaseTask, BuyAssets):
@@ -222,7 +220,6 @@ class Buy(BaseTask, BuyAssets):
 
 if __name__ == '__main__':
     from module.config.config import Config
-    from module.device.device import Device
 
     c = Config('du')
     # d = Device(c)

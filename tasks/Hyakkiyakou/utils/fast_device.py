@@ -3,8 +3,9 @@
 # github https://github.com/runhey
 
 
+from tasks.Script.config_device import ScreenshotMethod
 from tasks.base_task import BaseTask
-from tasks.Script.config_device import ScreenshotMethod, ControlMethod
+
 
 class FastDevice(BaseTask):
 

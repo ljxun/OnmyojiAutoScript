@@ -1,7 +1,7 @@
 from tasks.DailyTrifles.assets import DailyTriflesAssets
+from tasks.GameUi.assets import GameUiAssets
 from tasks.GameUi.page import Page, page_mall, page_summon, page_main, page_shikigami_records
 from tasks.RichMan.assets import RichManAssets
-from tasks.GameUi.assets import GameUiAssets
 
 # 商店签到
 page_store_sign = Page(DailyTriflesAssets.I_GIFT_RECOMMEND)

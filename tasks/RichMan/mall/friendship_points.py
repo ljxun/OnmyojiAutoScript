@@ -3,13 +3,12 @@
 # github https://github.com/runhey
 import time
 
-from module.logger import logger
+import re
 from module.atom.image import RuleImage
 from module.atom.ocr import RuleOcr
-
-from tasks.RichMan.mall.special import Special
+from module.logger import logger
 from tasks.RichMan.config import FriendshipPoints as FriendshipPointsConfig
-import re
+from tasks.RichMan.mall.special import Special
 
 
 class FriendshipPoints(Special):

@@ -1,19 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import cv2
 from time import time, sleep
-from random import randint
-from pathlib import Path
-from cached_property import cached_property
 
-from module.daemon.benchmark import Benchmark
-from module.atom.swipe import RuleSwipe
+import cv2
 from module.atom.image import RuleImage
+from module.atom.swipe import RuleSwipe
+from module.daemon.benchmark import Benchmark
 from module.logger import logger
-
-from tasks.Script.config_device import ScreenshotMethod, ControlMethod
+from pathlib import Path
+from random import randint
 from tasks.Hyakkiyakou.assets import HyakkiyakouAssets
+from tasks.Script.config_device import ScreenshotMethod
 
 
 class ScriptTask(Benchmark, HyakkiyakouAssets):
