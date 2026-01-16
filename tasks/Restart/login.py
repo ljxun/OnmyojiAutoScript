@@ -26,9 +26,9 @@ class LoginHandler(LoginBase, RestartAssets, GameUiAssets, GeneralBuff):
         self.device.stuck_record_clear()
         self.device.click_record_clear()
         self._app_handle_login()
-        if self.config.restart.harvest_config.enable:
-            # self.check_login(self.config.global_game.costume_config)
-            self.harvest()
+        # if self.config.restart.harvest_config.enable:
+        # self.check_login(self.config.global_game.costume_config)
+        self.harvest()
         return True
 
     def _app_handle_login(self) -> bool:
@@ -217,11 +217,10 @@ class LoginHandler(LoginBase, RestartAssets, GameUiAssets, GeneralBuff):
             #     timer_harvest.reset()
             #     continue
 
-            # 邮件
             # 判断是否勾选了收取邮件（不收取邮件可以查看每日收获）
             if self.config.restart.harvest_config.enable_mail:
                 # 只执行一次邮件收取
-                if self.mail_harvested <= 3:
+                if self.mail_harvested < 3:
                     if self.appear(self.I_MAIL_RED_DOTS, interval=1) and self.appear_then_click(self.I_HARVEST_MAIL_TOP_RIGHT, interval=1):
                         if self.wait_until_appear(self.I_HARVEST_MAIL_TITLE, wait_time=2):
                             while 1:

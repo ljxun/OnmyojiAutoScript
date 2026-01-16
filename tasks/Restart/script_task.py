@@ -6,7 +6,6 @@ from datetime import datetime, time
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.Restart.login import LoginHandler
-from tasks.base_task import Time
 
 
 class ScriptTask(LoginHandler):
@@ -17,7 +16,7 @@ class ScriptTask(LoginHandler):
         :return:
         """
         # 每日第一次启动游戏，运行日志备份
-        if self.config.back_up.scheduler.enable and self.config.back_up.back_up_config.backup_date != str(datetime.now().date()) :
+        if self.config.back_up.scheduler.enable and self.config.back_up.back_up_config.backup_date != str(datetime.now().date()):
             self.set_next_run(task='BackUp', target=datetime.now())
         # 每日第一次启动游戏，运行集体任务
         if self.config.collective_missions.missions_config.enable and self.config.collective_missions.missions_config.task_date != str(datetime.now().date()):
@@ -26,19 +25,16 @@ class ScriptTask(LoginHandler):
             self.app_restart()
         raise TaskEnd('ScriptTask end')
 
-    def app_stop(self):
-        logger.hr('App stop')
-        self.device.app_stop()
-
     def app_restart(self):
         logger.hr('App restart')
         self.device.app_stop()
         self.device.app_start()
         self.app_handle_login()
 
-        self.set_next_run(task='Restart', success=True, finish=True, server=True)
-
+        # 检查庭院任务运行
         self.check_running_task()
+
+        self.set_next_run(task='Restart', success=True, finish=True, server=True)
 
 
     def check_running_task(self):
@@ -123,11 +119,3 @@ if __name__ == '__main__':
     # task.app_restart()
     # task.screenshot()
     # print(task.appear_then_click(task.I_LOGIN_SCROOLL_CLOSE, threshold=0.9))
-
-
-
-
-
-
-
-

@@ -9,19 +9,19 @@ from tasks.Restart.config_scheduler import RestartScheduler
 
 class HarvestConfig(BaseModel):
     # 默认启用
-    enable: bool = Field(default=True, description='harvest_enable_help')
+    # enable: bool = Field(default=True, description='harvest_enable_help')
     # 永久勾玉卡
-    enable_jade: bool = Field(default=True)
+    # enable_jade: bool = Field(default=True)
     # 签到
-    enable_sign: bool = Field(default=True)
+    # enable_sign: bool = Field(default=True)
     # 999天的签到福袋
-    enable_sign_999: bool = Field(default=True)
+    # enable_sign_999: bool = Field(default=True)
     # 邮件
     enable_mail: bool = Field(default=True)
     # 御魂加成
-    enable_soul: bool = Field(default=True)
+    # enable_soul: bool = Field(default=True)
     # 体力
-    enable_ap: bool = Field(default=True)
+    # enable_ap: bool = Field(default=True)
 
 
 class TasksReset(BaseModel):
