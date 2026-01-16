@@ -11,15 +11,15 @@ from module.base.timer import Timer
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.Component.ReplaceShikigami.replace_shikigami import ReplaceShikigami
-from tasks.GameUi.page import page_main, page_guild, page_realm
+from tasks.CourtyardAffairs.script_task import ScriptTask as CourtyardAffairsScriptTask
+from tasks.GameUi.page import page_realm
 from tasks.KekkaiUtilize.assets import KekkaiUtilizeAssets
 from tasks.KekkaiUtilize.config import UtilizeRule, SelectFriendList
 from tasks.KekkaiUtilize.utils import CardClass
 from tasks.Utils.config_enum import ShikigamiClass
-from tasks.Component.CourtyardAffairs.courtyard_affairs import CourtyardAffairs
 
 
-class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
+class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAssets):
     """ 结界蹭卡 """
     last_best_index = 99
     run_utilize_count = 0
@@ -679,7 +679,7 @@ class ScriptTask(CourtyardAffairs, ReplaceShikigami, KekkaiUtilizeAssets):
 if __name__ == "__main__":
     from module.config.config import Config
 
-    c = Config('mi')
+    c = Config('du')
     t = ScriptTask(c)
     t.run()
     # for i in range(10):

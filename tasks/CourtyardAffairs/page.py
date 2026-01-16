@@ -1,4 +1,4 @@
-from tasks.Component.CourtyardAffairs.assets import CourtyardAffairsAssets
+from tasks.CourtyardAffairs.assets import CourtyardAffairsAssets
 from tasks.GameUi.page import page_main
 from tasks.GameUi.page import Page
 from tasks.GameUi.assets import GameUiAssets

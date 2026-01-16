@@ -3,17 +3,17 @@
 # github https://github.com/runhey
 
 from module.base.timer import Timer
-from module.exception import RequestHumanTakeover, GameTooManyClickError, GameStuckError
+from module.exception import GameStuckError
 from module.exception import TaskEnd
 from module.logger import logger
 from tasks.Component.GeneralBuff.general_buff import GeneralBuff
 from tasks.Component.LoginHarvest.login_base import LoginBase
 from tasks.Component.SwitchAccount.assets import SwitchAccountAssets
 from tasks.Restart.assets import RestartAssets
-from tasks.Component.CourtyardAffairs.courtyard_affairs import CourtyardAffairs
+from tasks.GameUi.assets import GameUiAssets
 
 
-class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
+class LoginHandler(LoginBase, RestartAssets, GameUiAssets, GeneralBuff):
     character: str
 
     def __init__(self, *wargs, **kwargs):
@@ -29,8 +29,6 @@ class LoginHandler(CourtyardAffairs, LoginBase, RestartAssets, GeneralBuff):
         if self.config.restart.harvest_config.enable:
             # self.check_login(self.config.global_game.costume_config)
             self.harvest()
-            # 庭院事务
-            self.courtyard_affairs()
         return True
 
     def _app_handle_login(self) -> bool:

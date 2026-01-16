@@ -371,7 +371,7 @@ if __name__ == '__main__':
     from module.config.config import Config
     from tasks.GameUi.page import PageRegistry, page_main, page_summon, page_all_active,page_awake_zones
     from tasks.DailyTrifles.page import page_store_sign, page_mall_special, page_summon_store
-    from tasks.Component.CourtyardAffairs.page import page_courtyard_affairs
+    from tasks.CourtyardAffairs.page import page_courtyard_affairs
 
     c = Config('du')
     game = GameUi(config=c)

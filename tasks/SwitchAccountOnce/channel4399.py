@@ -19,7 +19,7 @@ class ScriptTask(BaseChannelTask):
     # 协站50运行的任务
     assist50_run_task = ['DailyTrifles', 'EvoZone']
     # 总是运行的任务
-    always_run_task = ['KekkaiUtilize', 'TalismanPass']
+    always_run_task = ['CourtyardAffairs', 'KekkaiUtilize', 'TalismanPass']
     task_type_name = ''
     account_info = ''
 
