@@ -1,5 +1,5 @@
-from typing import Dict, Any
 from PyQt5.QtCore import QObject, pyqtSignal
+from typing import Dict, Any
 
 
 class ThemeManager(QObject):

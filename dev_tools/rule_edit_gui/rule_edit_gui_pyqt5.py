@@ -1,22 +1,21 @@
-import subprocess
 import sys
-import os
-import json
+import sys
 import time
-from typing import Dict, Any
+
+import cv2
+import json
+import os
+from PIL import Image
+from PyQt5.QtCore import Qt, QRect
+from PyQt5.QtGui import QPixmap, QPainter, QPen, QColor
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QHBoxLayout, QPushButton, QLabel, QComboBox, QListWidget,
                              QTextEdit, QFrame, QScrollArea, QGridLayout, QLineEdit,
                              QCheckBox, QSpinBox, QDoubleSpinBox, QFileDialog,
-                             QMessageBox, QSplitter, QGroupBox, QListWidgetItem)
-from PyQt5.QtCore import Qt, pyqtSignal, QPoint, QRect
-from PyQt5.QtGui import QPixmap, QPainter, QPen, QColor, QFont, QImage
-from PIL import Image
-
+                             QMessageBox, QSplitter, QGroupBox)
 from dev_tools.rule_edit_gui import ADB
 from dev_tools.rule_edit_gui.PreviewWindow import PreviewWindow
 from dev_tools.rule_edit_gui.ThemeManager import ThemeManager
-import cv2
 
 
 class ImageCanvas(QLabel):

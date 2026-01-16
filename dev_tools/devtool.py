@@ -1,8 +1,10 @@
 # 添加模块导入
 import sys
 from tkinter import filedialog, messagebox
-import pyperclip
+
 import customtkinter as ctk
+import pyperclip
+
 import cv2
 import json
 import numpy as np

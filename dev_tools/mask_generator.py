@@ -10,13 +10,14 @@
 6. 保存生成的蒙版
 """
 
+from tkinter import filedialog, Canvas
+
 import customtkinter as ctk
+
 import cv2
 import numpy as np
-from PIL import Image, ImageTk
-from tkinter import filedialog, Canvas
 import os
-from anyio import Path
+from PIL import Image, ImageTk
 from numpy import fromfile
 
 

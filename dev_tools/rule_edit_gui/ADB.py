@@ -1,8 +1,9 @@
 # 连接mumu模拟器adb
-import os
-import subprocess
 import cv2
 import numpy as np
+import os
+import subprocess
+
 
 def get_adb_path():
     # 获取当前脚本所在目录

@@ -1,21 +1,17 @@
 # This Python file uses the following encoding: utf-8
 # @author runhey
 # github https://github.com/runhey
-import cv2
 import time
-from datetime import timedelta, datetime
+
+import cv2
 from cached_property import cached_property
-from random import choice
-from pathlib import Path
-
-
-from module.exception import TaskEnd
-from module.logger import logger
+from datetime import datetime
 from module.base.timer import Timer
-
-from tasks.Script.config_device import ScreenshotMethod, ControlMethod
-from tasks.base_task import BaseTask
+from pathlib import Path
 from tasks.Exploration.version import highlight
+from tasks.Script.config_device import ScreenshotMethod
+from tasks.base_task import BaseTask
+
 
 class GetAnimation(BaseTask):
 
