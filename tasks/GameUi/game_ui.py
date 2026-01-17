@@ -276,13 +276,14 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                 if timeout_timer.reached():
                     return False
 
-                logger.info(f'尝试点击按钮 {button} 从 {current_page} 到 {next_page}')
+                # logger.info(f'尝试点击按钮 {button} 从 {current_page} 到 {next_page}')
 
                 # 尝试点击当前按钮
                 if self.appear_then_operate(button, interval=0.5, skip_first_screenshot=False):
-                    logger.info(f'成功点击按钮 {button} 在 {current_page}')
+                    # logger.info(f'成功点击按钮 {button} 在 {current_page}')
+                    pass
                 else:
-                    logger.warning(f"⚠️ 未获取到按钮 {button} , 尝试下一个按钮...")
+                    # logger.warning(f"⚠️ 未获取到按钮 {button} , 尝试下一个按钮...")
                     continue
 
                 # 等待页面跳转完成
@@ -304,12 +305,12 @@ class GameUi(BaseTask, GameUiAssets, GeneralBattleAssets):
                     break
                 else:
                     # 当前按钮未成功跳转
-                    logger.warning(f'❌ 按钮 {button} 跳转到 {next_page} 失败')
-                    logger.warning("⚠️ 重新获取当前页面")
+                    # logger.warning(f'❌ 按钮 {button} 跳转到 {next_page} 失败')
+                    # logger.warning("⚠️ 重新获取当前页面")
                     self.ui_get_current_page(skip_first_screenshot=False)  # 重新获取当前页面状态
                     # 确保我们仍在当前页面才能继续尝试其他按钮
                     if self.ui_current != current_page:
-                        logger.warning(f'⚠️ 当前页面为 {self.ui_current}, 而不是 {current_page}')
+                        # logger.warning(f'⚠️ 当前页面为 {self.ui_current}, 而不是 {current_page}')
                         break
 
         return self.ui_current == path[-1]

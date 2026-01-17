@@ -45,7 +45,7 @@ class ScriptTask(GameUi, TalismanPassAssets):
         self.ui_click(self.I_YC_ROAD, self.I_RESUPPLY)
         self.ui_click(self.I_RESUPPLY, self.I_RESUPPLY_PAGE)
         if self.ui_click(self.I_ONE_COLLECT, self.I_UI_REWARD, timeout=3):
-            self.save_image(task_name="新手奖励", wait_time=0)
+            self.save_image(task_name="新手奖励", wait_time=1)
 
     def get_all(self):
         """
