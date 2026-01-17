@@ -51,14 +51,14 @@ class ScriptTask(LoginHandler):
 
             if now_in_time_1 and task_in_time_1:
                 self.set_next_run(task='CourtyardAffairs', target=now)
-                self.push_notify(f"✅重启时间{now},与庭院任务时间{courtyard_affairs_time}，是一个时间段，执行庭院任务")
+                logger.info(f"✅ 庭院任务时间 {courtyard_affairs_time}，执行庭院任务")
             elif now_in_time_2 and task_in_time_2:
                 self.set_next_run(task='CourtyardAffairs', target=now)
-                self.push_notify(f"✅重启时间{now},与庭院任务时间{courtyard_affairs_time}，是一个时间段，执行庭院任务")
+                logger.info(f"✅ 庭院任务时间 {courtyard_affairs_time}，执行庭院任务")
             else:
-                self.push_notify(f"❌重启时间{now},与庭院任务时间{courtyard_affairs_time}，不是一个时间阶段，不执行庭院任务")
+                logger.warning(f"❌ 庭院任务时间 {courtyard_affairs_time}，不执行庭院任务")
         else:
-            logger.warning('当前时间不在体力补给时间段内，不执行庭院任务')
+            logger.warning('不在体力补给时间段，不执行庭院任务')
 
     #     # 如果启用了定时领体力（每天 12-14、20-22 时内各有 20 体力）
     #     if self.config.restart.harvest_config.enable_ap:
