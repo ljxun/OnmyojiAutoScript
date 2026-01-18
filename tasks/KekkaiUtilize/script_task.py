@@ -35,6 +35,8 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
             self.check_utilize_add()
             # 查看育成满级
             self.check_max_lv(con.shikigami_class)
+        else:
+            self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
 
         # 检查蹭卡收获
         # self.check_utilize_harvest()
@@ -47,8 +49,6 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
         if con.courtyard_affairs_enable:
             self.courtyard_affairs()
 
-        if not con.utilize_enable:
-            self.set_next_run(task='KekkaiUtilize', finish=True, success=True)
         raise TaskEnd
 
     def check_utilize_add(self):
@@ -466,11 +466,22 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
 
     def _select_optimal_resource_card(self):
         """整合后的智能选卡主逻辑（无嵌套函数版）"""
-        # 类常量声明（需在类中定义）
+        # 动态生成资源配置（需根据实际配置传入）
+        # 最高会多少勾玉换100体力就填入何值，数值越小代表勾玉价值越高（比如：你每天60勾玉就换取100体力就填入60）
+        tai_ko_percentage = self.config.kekkai_utilize.utilize_config.tai_ko_percentage
+        # 固定体力值，动态计算勾玉值
+        FISH_VALUES = [151, 143, 134, 126, 118, 109, 101, 92, 84]  # 体力值不变
+        TAIKO_VALUES = [round(val * tai_ko_percentage / 100) for val in FISH_VALUES]   # 按百分比调整，四舍五入
         RESOURCE_PRESETS = {
-            '斗鱼': [151, 143, 134, 126, 101, 84],
-            '太鼓': [76,  76,  67,  67,  59,  50]
+            '斗鱼': FISH_VALUES,
+            '太鼓': TAIKO_VALUES
         }
+        # 动态获取最大值
+        RESOURCE_CONFIG = {
+            '斗鱼': {'max': max(FISH_VALUES), 'record_attr': 'ap_max_num'},
+            '太鼓': {'max': max(TAIKO_VALUES), 'record_attr': 'jade_max_num'}
+        }
+
         MAX_INDEX = 99
 
         def get_resource_index(resource_name, current_value, preset_values):
@@ -488,7 +499,7 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
             # 第一阶段：初始记录获取
             if self.ap_max_num == 0 and self.jade_max_num == 0:
                 logger.hr('第一阶段：初始记录获取', 2)
-                if self._current_select_best():
+                if self._current_select_best(RESOURCE_CONFIG):
                     logger.info(f'✅ 完美结界卡确认成功，重置状态')
                     self.ap_max_num, self.jade_max_num = 0, 0
                     return True
@@ -512,7 +523,7 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
 
             # 第三阶段：执行选卡操作
             logger.hr('第三阶段：执行选卡操作', 2)
-            if self._current_select_best(res_type, target, selected_card=True):
+            if self._current_select_best(RESOURCE_CONFIG, res_type, target, selected_card=True):
                 logger.info(f'✅ {res_type}卡确认成功，重置状态')
                 self.ap_max_num, self.jade_max_num = 0, 0
                 return True
@@ -521,7 +532,7 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
                 self.ap_max_num, self.jade_max_num = 0, 0
                 return False
 
-    def _current_select_best(self, best_card_type=None, best_card_num=0, selected_card=False):
+    def _current_select_best(self, resource_config, best_card_type=None, best_card_num=0, selected_card=False):
         """结界卡选择核心逻辑（集成版）
         功能：滑动屏幕寻找最优资源卡，支持两种模式：
         - 探索模式：记录当前遇到的最佳结界卡数值
@@ -533,10 +544,8 @@ class ScriptTask(CourtyardAffairsScriptTask, ReplaceShikigami, KekkaiUtilizeAsse
         :return: 找到符合条件返回True，否则None
         """
         # ============== 配置常量 ==============#
-        RESOURCE_CONFIG = {
-            '斗鱼': {'max': 151, 'record_attr': 'ap_max_num'},
-            '太鼓': {'max': 76, 'record_attr': 'jade_max_num'}
-        }
+        RESOURCE_CONFIG = resource_config
+
         swipe_count = 0  # 滑动次数
         MAX_SWIPES = 5  # 最大滑动次数
         CONSEC_MISS = 3  # 允许连续无卡次数
@@ -681,7 +690,7 @@ if __name__ == "__main__":
 
     c = Config('du')
     t = ScriptTask(c)
-    t.run()
+    t._select_optimal_resource_card()
     # for i in range(10):
     #     t.perform_swipe_action()
     # t.recive_guild_ap_or_assets()
