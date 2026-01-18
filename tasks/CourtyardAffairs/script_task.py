@@ -38,7 +38,7 @@ class ScriptTask(CourtyardAffairsAssets, GameUi):
                 # self.save_image(task_name="庭院事务领取？-点击取消", push_flag=True, wait_time=0, image_type=True)
                 continue
             if self.appear(self.I_SUCCESS_CLAIMED):
-                # self.save_image(task_name="庭院事务完成",image_type=True)
+                self.save_image(task_name="庭院事务", wait_time=0.5)
                 break
             if self.appear_then_click(self.I_COMPLETE_WITH_ONE_CLICK, interval=1):
                 click_count += 1
@@ -82,4 +82,4 @@ if __name__ == "__main__":
 
     c = Config("du")
     t = ScriptTask(c)
-    t.next_run_time()
+    t.courtyard_affairs()
