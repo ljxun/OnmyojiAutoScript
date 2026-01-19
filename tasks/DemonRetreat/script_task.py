@@ -18,7 +18,7 @@ from tasks.GameUi.page import page_guild
 
 class ScriptTask(GeneralBattle, SwitchSoul, DemonRetreatAssets, AbyssShadowsAssets):
     """
-    首领退治主函数
+    首领退治
     """
     def run(self):
         cfg: DemonRetreat = self.config.demon_retreat
@@ -222,8 +222,11 @@ class ScriptTask(GeneralBattle, SwitchSoul, DemonRetreatAssets, AbyssShadowsAsse
         :param random_click_swipt_enable:
         :return:
         """
+        config = self.config.demon_retreat.general_battle
+
         self.device.stuck_record_add('BATTLE_STATUS_S')
         self.device.click_record_clear()
+
         # 战斗过程 随机点击和滑动 防封 并点击 准备
         logger.info("Start battle process")
         stuck_timer = Timer(180)
@@ -235,9 +238,11 @@ class ScriptTask(GeneralBattle, SwitchSoul, DemonRetreatAssets, AbyssShadowsAsse
                 self.ui_click_until_disappear(self.I_WIN)
                 return True
             # 战斗过程中出现准备
-            if self.appear_then_click(self.I_PREPARE_HIGHLIGHT, interval=1.5):
-                self.device.stuck_record_clear()
-                self.device.stuck_record_add('BATTLE_STATUS_S')
+            if self.appear(self.I_PREPARE_HIGHLIGHT):
+                self.switch_preset_team(config.preset_enable, config.preset_group, config.preset_team)
+                if self.appear_then_click(self.I_PREPARE_HIGHLIGHT, interval=1.5):
+                    self.device.stuck_record_clear()
+                    self.device.stuck_record_add('BATTLE_STATUS_S')
             # 如果出现失败 就点击，返回False
             if self.appear(self.I_FALSE, threshold=0.8):
                 logger.info("Battle result is false")
