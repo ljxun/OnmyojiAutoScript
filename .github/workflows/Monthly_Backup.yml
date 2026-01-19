@@ -1,36 +1,36 @@
-name: Monthly Backup
-
-on:
-  schedule:
-    # 每月1号UTC时间0点触发
-    - cron: '0 0 1 * *'
-  workflow_dispatch: 
-    # 允许手动触发
-
-jobs:
-  backup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 获取所有历史记录和分支
-
-      - name: Setup Git
-        run: |
-          git config --local user.email "backup@example.com"
-          git config --local user.name "Backup Bot"
-
-      - name: Create backup branch
-        run: |
-          # 获取当前日期作为分支名的一部分
-          DATE=$(date +%Y-%m-%d)
-          BRANCH_NAME="backup-${DATE}"
-          
-          # 创建新分支
-          git checkout -b "${BRANCH_NAME}"
-          
-          # 推送新分支到远程仓库
-          git push origin "${BRANCH_NAME}"
-          
-          echo "Backup branch ${BRANCH_NAME} created and pushed successfully"
+#name: Monthly Backup
+#
+#on:
+#  schedule:
+#    # 每月1号UTC时间0点触发
+#    - cron: '0 0 1 * *'
+#  workflow_dispatch:
+#    # 允许手动触发
+#
+#jobs:
+#  backup:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0  # 获取所有历史记录和分支
+#
+#      - name: Setup Git
+#        run: |
+#          git config --local user.email "backup@example.com"
+#          git config --local user.name "Backup Bot"
+#
+#      - name: Create backup branch
+#        run: |
+#          # 获取当前日期作为分支名的一部分
+#          DATE=$(date +%Y-%m-%d)
+#          BRANCH_NAME="backup-${DATE}"
+#
+#          # 创建新分支
+#          git checkout -b "${BRANCH_NAME}"
+#
+#          # 推送新分支到远程仓库
+#          git push origin "${BRANCH_NAME}"
+#
+#          echo "Backup branch ${BRANCH_NAME} created and pushed successfully"
