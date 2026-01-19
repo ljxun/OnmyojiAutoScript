@@ -507,9 +507,9 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
         狭间暗域的准备和战斗
         """
         logger.hr(f"准备战斗", 2)
-        config = self.config.abyss_shadows.general_battle_config
+        config = self.config.abyss_shadows.switch_soul_config
         # 切换预设的队伍上阵， 要求是在不锁定队伍时的情况下
-        self.switch_preset_team(config.preset_enable, config.preset_group, config.preset_team)
+        self.switch_preset_team(config.preset_enable, config.switch_group_team)
         logger.info(f"开始战斗")
         while 1:
             self.screenshot()

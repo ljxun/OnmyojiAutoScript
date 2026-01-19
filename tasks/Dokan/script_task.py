@@ -350,11 +350,12 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
         # 更换队伍
         if self.open_welfare == False:
             config: GeneralBattleConfig = cfg.general_battle_config
+            switch_soul_config = cfg.switch_soul_config
         else:
             config: GeneralBattleConfig = cfg.general_battle_config2
+            switch_soul_config = cfg.switch_soul_config2
         if not self.team_switched:
-            logger.info(f"switch team preset: enable={config.preset_enable}, preset_group={config.preset_group}, preset_team={config.preset_team}")
-            self.switch_preset_team(config.preset_enable, config.preset_group, config.preset_team)
+            self.switch_preset_team(switch_soul_config.preset_enable, switch_soul_config.switch_group_team)
             self.team_switched = True
             # 切完队伍后有时候会卡顿，先睡一觉，防止快速跳到绿标流程，导致未能成功绿标
 

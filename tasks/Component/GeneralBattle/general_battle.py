@@ -4,6 +4,7 @@
 import time
 
 import random
+from tasks.Component.SwitchSoul.switch_soul import switch_parser
 from datetime import datetime, timedelta
 from module.logger import logger
 from module.server.i18n import I18n
@@ -72,10 +73,7 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             self.green_mark(config.green_enable, config.green_mark)
 
         win = self.battle_wait()
-        if win:
-            return True
-        else:
-            return False
+        return win
 
     def run_general_battle_back(self, config: GeneralBattleConfig = None) -> bool:
         """
@@ -278,19 +276,41 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             # 点击绿标
             self.device.click(x, y)
 
-    def switch_preset_team(self, enable: bool = False, preset_group: int = 1, preset_team: int = 1):
+    def switch_preset_team(self, enable: bool = False, target: str = None):
         """
         切换预设的队伍， 要求是在不锁定队伍时的情况下
         :param enable:
-        :param preset_group:
-        :param preset_team:
+        :param target:
         :return:
         """
         if not enable:
             logger.info("Preset is disable")
-            return None
+            return
+
+        preset_group = None
+        preset_team = None
+
+        if not isinstance(target, str):
+            logger.error('Preset soul config error')
+            return
+
+        try:
+            target = switch_parser(target)
+            if not isinstance(target, tuple):
+                return
+
+            # 处理单个元组或元组列表
+            targets = [target] if isinstance(target, tuple) else target
+
+            for group, team in targets:
+                preset_group = int(group)
+                preset_team = int(team)
+
+        except (ValueError, TypeError):
+            logger.error('Preset soul config error')
 
         logger.info("Preset is enable")
+        logger.info(f"Preset soul config to {preset_group} {preset_team}")
         # 点击预设按钮
         while 1:
             self.screenshot()
@@ -361,6 +381,7 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             if not self.appear(self.I_PRESET_ENSURE):
                 break
         logger.info("Click preset ensure")
+        return
 
     def random_click_swipt(self):
         if 0 <= random.randint(0, 500) <= 3:  # 百分之4的概率

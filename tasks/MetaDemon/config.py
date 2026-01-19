@@ -94,7 +94,8 @@ class MetaDemonSwitchSoulConfig(ConfigBase):
         if switch_type is None or switch_type == 'str':
             return GeneralBattleConfig()
         if switch_type == 'int':
-            return GeneralBattleConfig(lock_team_enable=False, preset_enable=True, preset_group=group, preset_team=team)
+            pass
+            # return GeneralBattleConfig(lock_team_enable=False, preset_enable=True, preset_group=group, preset_team=team)
         return GeneralBattleConfig()
 
 
