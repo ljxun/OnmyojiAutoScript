@@ -285,7 +285,7 @@ class ScriptTask(KU, KekkaiActivationAssets):
                 return target
             else:
                 if ocr_count > 3:
-                    logger.error('多次未找到符合条件的结果, 退出')
+                    logger.warning('多次未找到符合条件的结果, 退出')
                     return None
                 logger.warning("未找到符合条件的结果, 准备往上滑动")
                 duration = 2
@@ -299,6 +299,14 @@ class ScriptTask(KU, KekkaiActivationAssets):
                 continue
 
     def _card_not_found(self):
+
+        change_card_type = self.config.kekkai_activation.activation_config.change_card_type
+
+        if not change_card_type:
+            self.push_notify(content='❌ 未发现卡，请检查挂卡')
+            self.set_next_run()
+            raise TaskEnd
+
         # 获取配置引用
         activation_config = self.config.kekkai_activation.activation_config
         # 多少分钟后重试
