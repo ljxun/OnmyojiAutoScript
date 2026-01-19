@@ -132,11 +132,10 @@ class ScriptTask(OrochiScriptTask, PetsAssets):
                 continue
         self.ui_click_until_disappear(self.I_PET_SKIP)
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         """
         重写战斗等待
         # https://github.com/runhey/OnmyojiAutoScript/issues/95
-        :param random_click_swipt_enable:
         :return:
         """
         # 重写
@@ -198,10 +197,6 @@ class ScriptTask(OrochiScriptTask, PetsAssets):
                 logger.warning('False battle')
                 self.ui_click_until_disappear(self.I_FALSE)
                 return False
-
-            # 如果开启战斗过程随机滑动
-            if random_click_swipt_enable:
-                self.random_click_swipt()
 
 
 

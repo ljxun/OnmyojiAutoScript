@@ -11,5 +11,3 @@ class BattleConfig(BaseModel):
     green_enable: bool = Field(default=False, description='green_enable_help')
     # 选哪一个绿标
     green_mark: GreenMarkType = Field(default=GreenMarkType.GREEN_LEFT1, description='green_mark_help')
-    # 是否启动战斗时随机点击或者随机滑动
-    random_click_swipt_enable: bool = Field(default=False, description='random_click_swipt_enable_help')

@@ -148,7 +148,7 @@ class ScriptTask(BaseActivity, HeroTestAssets, SwitchSoul):
         self.set_next_run(task="HeroTest", success=True)
         raise TaskEnd
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         self.device.stuck_record_add("BATTLE_STATUS_S")
         self.device.click_record_clear()
         logger.info("Start battle process")
@@ -180,9 +180,6 @@ class ScriptTask(BaseActivity, HeroTestAssets, SwitchSoul):
             if self.appear(self.I_REWARD_GOLD, threshold=0.8):
                 win = True
                 break
-            # 如果开启战斗过程随机滑动
-            if random_click_swipt_enable:
-                self.random_click_swipt()
 
         # 再次确认战斗结果
         logger.info("Reconfirm the results of the battle")

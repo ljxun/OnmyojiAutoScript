@@ -31,7 +31,7 @@ class BondlingBattle(GeneralBattle, BondlingFairylandAssets):
             self.green_mark(battle_config.green_enable, battle_config.green_mark)
 
         # 进入战斗过程
-        return self.catch_battle_wait(battle_config.random_click_swipt_enable)
+        return self.catch_battle_wait()
 
 
     def check_load(self) -> bool:
@@ -48,7 +48,7 @@ class BondlingBattle(GeneralBattle, BondlingFairylandAssets):
             if self.appear(self.I_EXIT):
                 return False
 
-    def catch_battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def catch_battle_wait(self) -> bool:
         """
         重写一个 战斗等待
         :return: 如果捕获成功返回True，否则返回False
@@ -79,9 +79,6 @@ class BondlingBattle(GeneralBattle, BondlingFairylandAssets):
                 continue
             if self.appear_then_click(self.I_BATTLE_FAIL, threshold=0.6, interval=1):
                 continue
-            # 如果开启战斗过程随机滑动
-            if random_click_swipt_enable:
-                self.random_click_swipt()
 
         # 确定获得奖励 无论是胜利还是失败
         if win:

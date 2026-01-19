@@ -413,12 +413,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, DokanAssets, RichManAssets):
                 self.ui_click_until_disappear(GeneralBattle.I_REWARD_GOLD)
                 break
 
-            # 如果开启战斗过程随机滑动
-            if config.random_click_swipt_enable:
-                logger.info("随机滑动....")
-                logger.info("random swipt ...")
-                self.random_click_swipt()
-
     def dokan_green_mark(self, enable: bool = False, mark_mode: GreenMarkType = GreenMarkType.GREEN_MAIN):
         """
         绿标， 如果不使能就直接返回

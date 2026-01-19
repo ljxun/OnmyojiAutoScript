@@ -764,7 +764,6 @@ class ScriptTask(GeneralInvite, GeneralRoom, BondlingBattle, SwitchSoul, Bondlin
         gbc.lock_team_enable = True
         gbc.preset_enable = False
         gbc.green_enable = False
-        gbc.random_click_swipt_enable = False
         return gbc
 
 

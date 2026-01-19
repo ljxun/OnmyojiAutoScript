@@ -59,7 +59,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):
                     if self.check_and_prepare_battle():
                         self.start_battle()
                 case ipages.page_battle:
-                    self.battle_wait(self.conf.general_battle.random_click_swipt_enable)
+                    self.battle_wait()
                 case ipages.page_reward | ipages.page_failed:
                     self.click(ipages.random_click(), interval=0.6)
                 case _:
@@ -86,7 +86,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, GameUi, MetaDemonAssets):
             if self.appear_then_click(self.I_MD_FIRE, interval=0.8):
                 continue
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         self.device.stuck_record_add('BATTLE_STATUS_S')
         self.device.click_record_clear()
         logger.info(f"Start battle process on {self.cur_boss_type.name if self.cur_boss_type else 'None'}")

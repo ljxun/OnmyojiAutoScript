@@ -51,7 +51,7 @@ class ScriptTask(GameUi, GeneralBattle, LBSAssets):
         self.set_next_run()
         raise TaskEnd
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         # 战斗过程 随机点击和滑动 防封
         logger.info("Start battle process")
         self.device.stuck_record_clear()

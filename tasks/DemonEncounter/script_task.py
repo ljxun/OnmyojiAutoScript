@@ -534,16 +534,10 @@ class ScriptTask(GeneralBattle, DemonEncounterAssets, SwitchSoul):
         task_run_time_seconds = timedelta(seconds=int(task_run_time.total_seconds()))
         logger.info(f'Current times: {task_run_time_seconds} / {self.limit_time}')
 
-        if config is None:
-            config = GeneralBattleConfig()
+        win = self.battle_wait()
+        return win
 
-        win = self.battle_wait(config.random_click_swipt_enable)
-        if win:
-            return True
-        else:
-            return False
-
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         # 重写
         self.device.stuck_record_add('BATTLE_STATUS_S')
         self.device.click_record_clear()

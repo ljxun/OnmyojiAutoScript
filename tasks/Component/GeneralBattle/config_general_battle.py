@@ -25,27 +25,11 @@ class GeneralBattleConfig(BaseModel):
     preset_group: int = Field(default=-1, description='preset_group_help')
     # 选哪一个队伍
     preset_team: int = Field(default=-1, description='preset_team_help')
-    # 是否启动开启buff
-    # buff_enable: bool = Field(default=False, description='buff_enable_help')
-    # 是否点击觉醒Buff
-    # buff_awake_click: bool = Field(default=False, description='')
-    # 是否点击御魂buff
-    # buff_soul_click: bool = Field(default=False, description='')
-    # 是否点击金币50buff
-    # buff_gold_50_click: bool = Field(default=False, description='')
-    # 是否点击金币100buff
-    # buff_gold_100_click: bool = Field(default=False, description='')
-    # 是否点击经验50buff
-    # buff_exp_50_click: bool = Field(default=False, description='')
-    # 是否点击经验100buff
-    # buff_exp_100_click: bool = Field(default=False, description='')
+
 
     # 是否开启绿标
     green_enable: bool = Field(default=False, description='green_enable_help')
     # 选哪一个绿标
     green_mark: GreenMarkType = Field(default=GreenMarkType.GREEN_LEFT1, description='green_mark_help')
-
-    # 是否启动战斗时随机点击或者随机滑动
-    random_click_swipt_enable: bool = Field(default=False, description='random_click_swipt_enable_help')
 
 

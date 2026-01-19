@@ -189,7 +189,7 @@ class ScriptTask(BaseActivity, SwitchSoul, ActivityShikigamiAssets):
         # 运行战斗
         self.run_general_battle(config=self.get_general_battle_conf())
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         # 通用战斗结束判断
         self.device.stuck_record_add("BATTLE_STATUS_S")
         self.device.click_record_clear()
@@ -231,9 +231,6 @@ class ScriptTask(BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                 self.exit_battle(skip_first=True)
                 ok_cnt += 1
                 continue
-            # 战斗中随机滑动
-            if ok_cnt == 0 and random_click_swipt_enable:
-                self.random_click_swipt()
         return True
 
     def exit_battle(self, skip_first: bool = False) -> bool:
@@ -433,8 +430,7 @@ class ScriptTask(BaseActivity, SwitchSoul, ActivityShikigamiAssets):
                    preset_team=team if enable_preset else 1,
                    green_enable=getattr(self.conf.general_battle, f'enable_{self.climb_type}_green', False),
                    green_mark=getattr(self.conf.general_battle, f'{self.climb_type}_green_mark'),
-                   random_click_swipt_enable=getattr(self.conf.general_battle, f'enable_{self.climb_type}_anti_detect',
-                                                     False), )
+                   )
 
     def home_main(self) -> bool:
         """

@@ -92,12 +92,11 @@ class ScriptTask(GeneralBattle, GeneralInvite, SwitchSoul, HuntAssets):
                 self.ui_click_until_disappear(self.I_BACK_RED)
                 return False
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         """
         重写，
         阴界之门： 胜利后回到狩猎战的主界面
         麒麟： 胜利后回到麒麟的主界面
-        :param random_click_swipt_enable:
         :return:
         """
         # 战斗过程 随机点击和滑动 防封

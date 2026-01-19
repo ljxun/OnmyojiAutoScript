@@ -243,7 +243,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, SecretAssets):
             if self.appear_then_click(self.I_SE_FIRE, interval=1):
                 continue
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         # 重写
         self.device.stuck_record_add('BATTLE_STATUS_S')
         self.device.click_record_clear()

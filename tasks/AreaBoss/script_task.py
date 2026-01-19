@@ -137,11 +137,10 @@ class ScriptTask(GeneralBattle, SwitchSoul, AreaBossAssets):
 
         return self.run_general_battle(self.config.area_boss.general_battle)
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         """
         等待战斗结束 ！！！
         很重要 这个函数是原先写的， 优化版本在tasks/Secret/script_task下。本着不改动原先的代码的原则，所以就不改了
-        :param random_click_swipt_enable:
         :return:
         """
         # 有的时候是长战斗，需要在设置stuck检测为长战斗
@@ -177,9 +176,6 @@ class ScriptTask(GeneralBattle, SwitchSoul, AreaBossAssets):
                 self.save_image()
                 win = True
                 break
-            # 如果开启战斗过程随机滑动
-            if random_click_swipt_enable:
-                self.random_click_swipt()
 
         # 再次确认战斗结果
         logger.info("Reconfirm the results of the battle")

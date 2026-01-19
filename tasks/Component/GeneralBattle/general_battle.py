@@ -71,7 +71,7 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
         if self.is_in_battle(False):
             self.green_mark(config.green_enable, config.green_mark)
 
-        win = self.battle_wait(config.random_click_swipt_enable)
+        win = self.battle_wait()
         if win:
             return True
         else:
@@ -157,11 +157,10 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
 
         return True
 
-    def battle_wait(self, random_click_swipt_enable: bool) -> bool:
+    def battle_wait(self) -> bool:
         """
         等待战斗结束 ！！！
         很重要 这个函数是原先写的， 优化版本在tasks/Secret/script_task下。本着不改动原先的代码的原则，所以就不改了
-        :param random_click_swipt_enable:
         :return:
         """
         # 有的时候是长战斗，需要在设置stuck检测为长战斗
@@ -196,9 +195,6 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
             if self.appear(self.I_REWARD_GOLD, threshold=0.8):
                 win = True
                 break
-            # 如果开启战斗过程随机滑动
-            if random_click_swipt_enable:
-                self.random_click_swipt()
 
         # 再次确认战斗结果
         logger.info("Reconfirm the results of the battle")
@@ -448,7 +444,7 @@ class GeneralBattle(GeneralBuff, GeneralBattleAssets):
         # 格式化时间，只保留整数部分的秒
         task_run_time_seconds = timedelta(seconds=int(task_run_time.total_seconds()))
         logger.info(f'Current times: {task_run_time_seconds} / {self.limit_time}')
-        return self.battle_wait(config.random_click_swipt_enable)
+        return self.battle_wait()
 
     def check_lock(self, enable: bool, lock_image, unlock_image):
         """
