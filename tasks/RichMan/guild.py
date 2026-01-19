@@ -158,7 +158,7 @@ class Guild(Buy, GameUi, RichManAssets):
                 raise ValueError(f"No matching pattern found in: {result}")
 
         except (IndexError, ValueError):
-            self.save_image(wait_time=0, image_type=True, push_flag=True, content=f"{result}")
+            self.save_image(wait_time=0, image_type=True, push_flag=True, content=f"{image.file} ocr result: {result}")
             result = 0
 
         logger.info('Remain: %s' % result)
