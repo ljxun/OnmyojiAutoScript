@@ -18,6 +18,7 @@ from tasks.AbyssShadows.config import AbyssShadows
 from tasks.Component.GeneralBattle.general_battle import GeneralBattle
 from tasks.Component.SwitchSoul.switch_soul import SwitchSoul
 from tasks.GameUi.page import page_main, page_guild
+from tasks.AbyssShadows.config import BattleOrder
 
 
 class AreaType:
@@ -43,9 +44,9 @@ class AreaType:
 
 class EmemyType(Enum):
     """ 敌人类型 """
-    BOSS = 1  #  首领
-    GENERAL = 2  #  副将
-    ELITE = 3  #  精英
+    BOSS = 1  # 首领
+    GENERAL = 2  # 副将
+    ELITE = 3  # 精英
 
 
 class CilckArea:
@@ -147,10 +148,22 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
         self.wait_until_appear(self.I_BATTLE_TO_START)
         self.device.stuck_record_clear()
 
+        # 获取配置的攻击顺序
+        order_mapping = {
+            BattleOrder.ELITE_GENERAL_BOSS: [EmemyType.ELITE, EmemyType.GENERAL, EmemyType.BOSS],
+            BattleOrder.ELITE_BOSS_GENERAL: [EmemyType.ELITE, EmemyType.BOSS, EmemyType.GENERAL],
+            BattleOrder.GENERAL_ELITE_BOSS: [EmemyType.GENERAL, EmemyType.ELITE, EmemyType.BOSS],
+            BattleOrder.GENERAL_BOSS_ELITE: [EmemyType.GENERAL, EmemyType.BOSS, EmemyType.ELITE],
+            BattleOrder.BOSS_ELITE_GENERAL: [EmemyType.BOSS, EmemyType.ELITE, EmemyType.GENERAL],
+            BattleOrder.BOSS_GENERAL_ELITE: [EmemyType.BOSS, EmemyType.GENERAL, EmemyType.ELITE],
+        }
+
+        attack_sequence = order_mapping[self.config.abyss_shadows.attack_order]
+
         # 循环每个区域战斗
         while self.area_fight_count < len(boss_type_list):
             # 寻找并攻击所有目标敌人
-            for enemy_type in [EmemyType.ELITE, EmemyType.GENERAL, EmemyType.BOSS]:
+            for enemy_type in attack_sequence:
                 if not self.find_enemy(enemy_type):
                     logger.warning(f"未找到 {enemy_type.name} 敌人，跳过")
 
@@ -495,6 +508,7 @@ class ScriptTask(GeneralBattle, SwitchSoul, AbyssShadowsAssets):
         """
         logger.hr(f"准备战斗", 2)
         config = self.config.abyss_shadows.general_battle_config
+        # 切换预设的队伍上阵， 要求是在不锁定队伍时的情况下
         self.switch_preset_team(config.preset_enable, config.preset_group, config.preset_team)
         logger.info(f"开始战斗")
         while 1:
